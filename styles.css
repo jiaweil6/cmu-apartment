@@ -1,0 +1,171 @@
+/* Reset some default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container-fluid {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header styles */
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Column styles */
+.col-md-6 {
+  margin-bottom: 30px;
+}
+
+/* Priority items list */
+.list-group {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.list-group-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  font-size: 18px;
+  margin-bottom: -1px; /* Negative margin to remove double borders */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Sliders */
+.priority-slider {
+  margin-bottom: 20px;
+}
+
+.priority-slider label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.priority-slider .custom-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: #e4e4e4;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 5px;
+}
+
+.priority-slider .custom-range:focus {
+  outline: none;
+}
+
+.priority-slider .custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.priority-slider .custom-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Dropdown styles */
+.custom-select {
+  margin: 0 5px 20px;
+  font-size: 16px;
+}
+
+/* Rankings list styles */
+#rankingsList {
+  list-style: none;
+  padding: 0;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+.card-body {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+  font-size: 20px;
+  color: #333;
+}
+
+.card-subtitle {
+  font-size: 16px;
+  color: #666;
+}
+
+.card-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* Dropdown details styles */
+.collapse .card.card-body {
+  background-color: #fff;
+  border-top: none;
+}
+
+/* Footer and additional styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Add responsive breakpoint adjustments if necessary */
+@media (max-width: 768px) {
+  .list-group-item {
+    font-size: 16px;
+  }
+  .card-title {
+    font-size: 18px;
+  }
+  .card-subtitle {
+    font-size: 14px;
+  }
+  .card-link {
+    font-size: 14px;
+  }
+}
+
+/* You can add additional media queries for better responsive support */

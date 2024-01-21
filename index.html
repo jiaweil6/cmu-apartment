@@ -1,11 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apartment Ranking</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+  .priority-slider {
+    margin-bottom: 20px;
+  }
+  /* Add further CSS styling here */
+</style>
 </head>
 <body>
-    What's up
+<div class="container-fluid">
+  <div class="row">
+    <!-- Your Priorities Section -->
+    <div class="col-md-6">
+      <h2>Your Priorities</h2>
+      <!-- Priority items list -->
+      <ul class="list-group mb-3">
+        <li class="list-group-item">Quick Commute</li>
+        <li class="list-group-item">Close to School</li>
+        <li class="list-group-item">Low Price</li>
+        <li class="list-group-item">Good Rating</li>
+        <li class="list-group-item">New Building</li>
+      </ul>
+
+      <!-- Range sliders for each priority -->
+      <div class="priority-slider">
+        <label for="quickCommute">Quick Commute</label>
+        <input type="range" class="custom-range" id="quickCommute" min="0" max="100" step="1">
+      </div>
+      <div class="priority-slider">
+        <label for="closeToSchool">Close to School</label>
+        <input type="range" class="custom-range" id="closeToSchool" min="0" max="100" step="1">
+      </div>
+      <div class="priority-slider">
+        <label for="lowPrice">Low Price</label>
+        <input type="range" class="custom-range" id="lowPrice" min="0" max="100" step="1">
+      </div>
+      <div class="priority-slider">
+        <label for="goodRating">Good Rating</label>
+        <input type="range" class="custom-range" id="goodRating" min="0" max="100" step="1">
+      </div>
+      <div class="priority-slider">
+        <label for="newBuilding">New Building</label>
+        <input type="range" class="custom-range" id="newBuilding" min="0" max="100" step="1">
+      </div>
+    </div>
+
+    <!-- Your Rankings Section -->
+    <div class="col-md-6">
+      <h2>Your Rankings</h2>
+      <!-- Dropdown filters -->
+      <div class="d-flex justify-content-between mb-3">
+        <select class="custom-select">
+          <option selected>Location</option>
+          <option value="oakland">Oakland</option>
+          <option value="squirrelHill">Squirrel Hill</option>
+          <option value="shadyside">Shadyside</option>
+          <option value="others">Others</option>
+        </select>
+        <select class="custom-select">
+          <option selected>Number of bedrooms</option>
+          <option value="studio">Studio</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <select class="custom-select">
+          <option selected>Amenities</option>
+          <option value="washerDryer">In-unit washer/dryer</option>
+          <option value="fitnessRoom">Fitness room</option>
+          <option value="parking">Parking</option>
+        </select>
+        <select class="custom-select">
+          <option selected>Availability</option>
+          <option value="unavailableUndergrads">Unavailable to undergrads</option>
+          <option value="availableUndergrads">Available to undergrads</option>
+        </select>
+      </div>
+
+      <!-- Rankings list -->
+      <div id="rankingsList">
+        <!-- Repeat this block for each apartment (18 times as stated) -->
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Apartment Name</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Apartment Address</h6>
+            <!-- Apartment details dropdown -->
+            <div class="collapse" id="apartmentDetails1">
+              <div class="card card-body">
+                Location: <span class="apartment-location"></span><br>
+                Phone Number: <span class="apartment-phone"></span><br>
+                Pricing: <span class="apartment-pricing"></span><br>
+              </div>
+            </div>
+            <a href="#apartmentDetails1" class="card-link" data-toggle="collapse">View Details</a>
+          </div>
+        </div>
+        <!-- End block -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
