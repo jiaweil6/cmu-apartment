@@ -303,3 +303,28 @@ Aesthetics
 }
 
 /* Add other styles as necessary */
+
+.aboutUs{
+  text-align: center;
+}
+
+.aboutUsText{
+  text-align:justify;
+  font-size:20px;
+}
+
+#mission{
+  color:#f50;
+}
+
+.profile {
+  text-align: center;
+  padding: 20px;
+}
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
