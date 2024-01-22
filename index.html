@@ -91,7 +91,7 @@
         <div class="col-md-6">
           <div class="priority-slider">
             <label for="closeToSchool">Close to School</label>
-            <p class="sliderText">Distance to school (For those who want to walk to school)</p>
+            <p class="sliderText">Distance to school (For those who want to walk or drive to school)</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="closeToSchool" /> 
             </div>
@@ -117,7 +117,7 @@
         <div class="col-md-6">
           <div class="priority-slider">
             <label for="goodRating">Good Rating</label>
-            <p class="sliderText">Rating from google maps</p>
+            <p class="sliderText">Rating from Google Maps</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="goodRating" /> 
             </div>
@@ -158,7 +158,7 @@
         <p class="aboutYouText">You are a 
           <select name="" id="">
             <option value="">undergraduate</option>
-            <option value="">non-undergraduate</option>
+            <option value="">graduate</option>
           </select>
         student.</p>
         <p class="info-message">Please note: Certain apartments are not available to undergraduate students.</p>
@@ -184,12 +184,8 @@
             <label><input type="checkbox" value="parking"> Parking</label>
         </div>
       </div>
-    
-    
-    
-    
-    
-    
+
+
 
       <!-- Rankings list -->
       <div id="rankingsList">
@@ -197,13 +193,15 @@
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">Apartment Name</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Apartment Address</h6>
             <!-- Apartment details dropdown -->
             <div class="collapse" id="apartmentDetails1">
               <div class="card card-body">
-                Location: <span class="apartment-location"></span><br>
-                Phone Number: <span class="apartment-phone"></span><br>
-                Pricing: <span class="apartment-pricing"></span><br>
+                <span class="apartment-location">Address: 5000 Forbes Ave.</span><br>
+                <span class="apartment-phone">Phone Number: 412-250-250</span><br>
+                <span class="apartment-pricing">Studio: $250</span><br>
+                <span class="apartment-pricing">1 Bedroom: $250</span><br>
+                <span class="apartment-pricing">2 Bedrooms: $250</span><br>
+                <span class="apartment-pricing">3 Bedrooms: $250</span><br>
               </div>
             </div>
             <a href="#apartmentDetails1" class="card-link" data-toggle="collapse">View Details</a>
