@@ -20,7 +20,6 @@ body {
 
 /* Header styles */
 h2 {
-  font-size: 24px;
   font-weight: bold;
   color: #333;
   padding-top: 35px;
@@ -50,10 +49,9 @@ h2 {
 /* Sliders */
 
 .priority-slider label {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #555;
-  margin-bottom: 5px;
   display: block;
 }
 
@@ -140,14 +138,13 @@ input[type="range"] {
   -webkit-appearance: none;
   appearance: none; 
   /* creating a custom design */
-  width: 100%;
+  width: 90%;
   cursor: pointer;
   outline: none;
   border-radius: 15px;
-  /*  overflow: hidden;  remove this line*/
   
   /* New additions */
-  height: 6px;
+  height: 8px;
   background: #ccc;
 }
 
@@ -211,17 +208,12 @@ Aesthetics
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-left: 0; /* Align with the start of the container */
+  margin-left: -10px; /* Align with the start of the container */
+  margin-top: -15px;
   height: 4rem;
   width: 100%; /* Adjust as necessary */
   background: #fff;
   padding: 0px 10px;
-}
-
-.value {
-  font-size: 26px;    
-  width: 50px;
-  text-align: center;
 }
 
 .priority-item {
@@ -230,11 +222,12 @@ Aesthetics
   align-items: center;
   margin-bottom: 10px; /* Or any spacing you prefer */
   background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px 15px;
+  border-bottom: 1px solid #ddd; /* Show only bottom border */
+  padding-bottom: 10px;
   font-size: 18px;
   color: grey;
 }
+
 
 .priority-item span {
   display: inline-block;
