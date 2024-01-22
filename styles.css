@@ -28,6 +28,15 @@ h2 {
   font-family: "Zilla Slab";
 }
 
+.aboutYouText{
+  font-weight:400;
+}
+
+.info-message{
+  font-weight:200;
+  font-style: italic;
+}
+
 /* Priority items list */
 .list-group {
   list-style: none;
@@ -39,10 +48,11 @@ h2 {
 
 .sliderText {
   font-size: 16px;
+  font-style: italic;
 }
 
 .priority-slider label {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #555;
   display: block;
@@ -265,62 +275,36 @@ Aesthetics
   margin-right: 10px; /* Spacing between label and bar */
 }
 
-.zilla-slab-light {
-  font-family: "Zilla Slab", serif;
-  font-weight: 300;
-  font-style: normal;
+.dropdown {
+  position: relative;
+  border: black solid 1px;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+  display: inline-block;
+  margin-right: 10px; /* Space between dropdowns */
+  margin-bottom: 20px;
+  width: auto; /* Adjust as necessary */
 }
 
-.zilla-slab-light-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 300;
-  font-style: italic;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 190px; /* Ensure this is less than the total width of .dropdown */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 10px;
+  width: calc(100% - 2px); /* Subtract the border width */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  left: 0; /* Align with the left edge of .dropdown */
+  top: 100%; /* Position below the dropdown button */
 }
 
-.zilla-slab-regular {
-  font-family: "Zilla Slab", serif;
-  font-weight: 400;
-  font-style: normal;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.zilla-slab-regular-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.zilla-slab-medium {
-  font-family: "Zilla Slab", serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.zilla-slab-medium-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.zilla-slab-semibold {
-  font-family: "Zilla Slab", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.zilla-slab-semibold-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.zilla-slab-bold {
-  font-family: "Zilla Slab", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.zilla-slab-bold-italic {
-  font-family: "Zilla Slab", serif;
-  font-weight: 700;
-  font-style: italic;
-}
+/* Add other styles as necessary */

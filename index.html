@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <style>
   .priority-slider {
     margin-bottom: 20px;
@@ -69,7 +72,8 @@
 
       <!-- Range sliders for each priority -->
       <h2>What matters most to you when choosing off-campus housing?</h2>
-      <p>Drag slider right to reflect your priorities.<br><br></p>
+      <p class="sliderText">Drag slider right to reflect your priorities.<br><br></p>
+
 
       <div class="row">
         <!-- First Slider Column -->
@@ -141,35 +145,51 @@
 
     <!-- Your Rankings Section -->
     <div class="col-md-6">
+      <h2>About You</h2>
+      <p class="aboutYouText">You are looking for a 
+        <select name="bedrooms" id="bedrooms">
+            <option value="studio">studio</option>
+            <option value="1">1 bedroom</option>
+            <option value="2">2 bedrooms</option>
+            <option value="3">3 bedrooms</option>
+            <!-- Add more options as needed -->
+        </select> 
+        apartment.</p>   
+        <p class="aboutYouText">You are a 
+          <select name="" id="">
+            <option value="">undergraduate</option>
+            <option value="">non-undergraduate</option>
+          </select>
+        student.</p>
+        <p class="info-message">Please note: Certain apartments are not available to undergraduate students.</p>
+        
+      <p></p>
       <h2>Your Rankings</h2>
       <!-- Dropdown filters -->
-      <div class="d-flex justify-content-between mb-3">
-        <select class="custom-select">
-          <option selected>Location</option>
-          <option value="oakland">Oakland</option>
-          <option value="squirrelHill">Squirrel Hill</option>
-          <option value="shadyside">Shadyside</option>
-          <option value="others">Others</option>
-        </select>
-        <select class="custom-select">
-          <option selected>Number of bedrooms</option>
-          <option value="studio">Studio</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-        <select class="custom-select">
-          <option selected>Amenities</option>
-          <option value="washerDryer">In-unit washer/dryer</option>
-          <option value="fitnessRoom">Fitness room</option>
-          <option value="parking">Parking</option>
-        </select>
-        <select class="custom-select">
-          <option selected>Availability</option>
-          <option value="unavailableUndergrads">Unavailable to undergrads</option>
-          <option value="availableUndergrads">Available to undergrads</option>
-        </select>
+      <div class="dropdown">
+        <div class="dropbtn">Location</div>
+        <div class="dropdown-content">
+            <label><input type="checkbox" value="oakland"> Oakland</label><br>
+            <label><input type="checkbox" value="squirrelHill"> Squirrel Hill</label><br>
+            <label><input type="checkbox" value="shadyside"> Shadyside</label><br>
+            <label><input type="checkbox" value="others"> Others</label>
+        </div>
       </div>
+    
+      <div class="dropdown">
+        <div class="dropbtn">Amenities</div>
+        <div class="dropdown-content">
+            <label><input type="checkbox" value="washerDryer"> In-unit washer/dryer</label><br>
+            <label><input type="checkbox" value="fitnessRoom"> Fitness room</label><br>
+            <label><input type="checkbox" value="parking"> Parking</label>
+        </div>
+      </div>
+    
+    
+    
+    
+    
+    
 
       <!-- Rankings list -->
       <div id="rankingsList">
