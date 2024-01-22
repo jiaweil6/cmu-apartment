@@ -35,14 +35,16 @@ h2 {
 }
 
 .list-group-item {
+  /*
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px 15px;
   font-size: 18px;
-  margin-bottom: -1px; /* Negative margin to remove double borders */
+  margin-bottom: -1px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  */
 }
 
 /* Sliders */
@@ -220,4 +222,57 @@ Aesthetics
   font-size: 26px;    
   width: 50px;
   text-align: center;
+}
+
+.priority-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Or any spacing you prefer */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  font-size: 18px;
+  color: grey;
+}
+
+.priority-item span {
+  display: inline-block;
+}
+
+.priority-item span:first-child {
+  white-space: nowrap; /* Keep the text from wrapping */
+  flex-shrink: 0; /* Prevent the text from shrinking */
+}
+
+/* Specifically for the percentage span to ensure it's not too wide */
+.priority-item span:last-child {
+  min-width: 50px; /* Adjust as necessary */
+  text-align: right;
+}
+
+.percentage {
+  min-width: 50px; /* Adjust as necessary */
+  text-align: right;
+  color: grey;
+}
+
+.percentage-bar-container {
+  flex-grow: 1; /* Allow the container to fill the space between text and percentage */
+  margin-left: 10px; /* Add some space on the left */
+  background-color: #e6e6e6; /* Light grey background */
+  height: 5px; /* Height of the bar */
+  position: relative; /* To position the bar inside */
+}
+
+.percentage-bar {
+  background-color: #f50; /* Your theme color - orange */
+  height: 100%;
+  width: 0%; /* Default width */
+  position: absolute; /* Positioned inside the container */
+}
+
+.priority-label {
+  min-width: 140px; /* Set a fixed width or use min-width to ensure alignment */
+  margin-right: 10px; /* Spacing between label and bar */
 }

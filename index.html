@@ -18,17 +18,51 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Your Priorities Section -->
-    <!-- Your Priorities Section -->
     <div class="col-md-6">
       <h2>Your Priorities</h2>
       <!-- Priority items list -->
-      <ul class="list-group mb-3">
-        <li class="list-group-item">Quick Commute</li>
-        <li class="list-group-item">Close to School</li>
-        <li class="list-group-item">Low Price</li>
-        <li class="list-group-item">Good Rating</li>
-        <li class="list-group-item">New Building</li>
-      </ul>
+      <div class="list-group mb-3">
+        <div class="priority-item">
+          <div class="priority-label">Quick Commute</div>
+          <div class="percentage-bar-container">
+            <div class="percentage-bar" id="priority-bar-1"></div>
+          </div>
+          <span class="percentage" id="priority-1">0%</span>
+        </div>
+        
+        <div class="priority-item">
+          <div class="priority-label">Close to School</div>
+          <div class="percentage-bar-container">
+            <div class="percentage-bar" id="priority-bar-2"></div>
+          </div>
+          <span class="percentage" id="priority-2">0%</span>
+        </div>
+        
+        <div class="priority-item">
+          <div class="priority-label">Low Price</div>
+          <div class="percentage-bar-container">
+            <div class="percentage-bar" id="priority-bar-3"></div>
+          </div>
+          <span class="percentage" id="priority-3">0%</span>
+        </div>
+        
+        <div class="priority-item">
+          <div class="priority-label">Good Rating</div>
+          <div class="percentage-bar-container">
+            <div class="percentage-bar" id="priority-bar-4"></div>
+          </div>
+          <span class="percentage" id="priority-4">0%</span>
+        </div>
+        
+        <div class="priority-item">
+          <div class="priority-label">New Building</div>
+          <div class="percentage-bar-container">
+            <div class="percentage-bar" id="priority-bar-5"></div>
+          </div>
+          <span class="percentage" id="priority-5">0%</span>
+        </div>
+      </div>
+      
 
       <!-- Range sliders for each priority -->
       <h2>What matters most to you when choosing off-campus housing?</h2>
@@ -164,6 +198,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="percentages.js"></script>
 <script>
   document.querySelectorAll(".slider").forEach(slider => {
     slider.addEventListener("input", (event) => {
