@@ -3,11 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: inherit;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  font-family: "Zilla Slab";
+  background-color: #f7f3ee !important; /* `!important` to ensure override */
   color: #333;
   line-height: 1.6;
 }
@@ -20,10 +21,11 @@ body {
 
 /* Header styles */
 h2 {
-  font-weight: bold;
+  font-weight: 600 !important;
   color: #333;
   padding-top: 35px;
   padding-bottom: 15px;
+  font-family: "Zilla Slab";
 }
 
 /* Priority items list */
@@ -33,26 +35,18 @@ h2 {
   margin-bottom: 30px;
 }
 
-.list-group-item {
-  /*
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px 15px;
-  font-size: 18px;
-  margin-bottom: -1px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  */
-}
-
 /* Sliders */
+
+.sliderText {
+  font-size: 16px;
+}
 
 .priority-slider label {
   font-size: 18px;
   font-weight: bold;
   color: #555;
   display: block;
+  margin-bottom: 0px;
 }
 
 /* Dropdown styles */
@@ -209,10 +203,10 @@ Aesthetics
   align-items: center;
   gap: 1rem;
   margin-left: -10px; /* Align with the start of the container */
-  margin-top: -15px;
+  margin-top: -25px;
   height: 4rem;
   width: 100%; /* Adjust as necessary */
-  background: #fff;
+  background: #f7f3ee;
   padding: 0px 10px;
 }
 
@@ -221,10 +215,10 @@ Aesthetics
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px; /* Or any spacing you prefer */
-  background-color: #fff;
+  background-color: #f7f3ee;
   border-bottom: 1px solid #ddd; /* Show only bottom border */
   padding-bottom: 10px;
-  font-size: 18px;
+  font-size: 16px;
   color: grey;
 }
 
@@ -253,6 +247,7 @@ Aesthetics
 .percentage-bar-container {
   flex-grow: 1; /* Allow the container to fill the space between text and percentage */
   margin-left: 10px; /* Add some space on the left */
+  margin-right: 10px;
   background-color: #e6e6e6; /* Light grey background */
   height: 5px; /* Height of the bar */
   position: relative; /* To position the bar inside */
@@ -268,4 +263,64 @@ Aesthetics
 .priority-label {
   min-width: 140px; /* Set a fixed width or use min-width to ensure alignment */
   margin-right: 10px; /* Spacing between label and bar */
+}
+
+.zilla-slab-light {
+  font-family: "Zilla Slab", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.zilla-slab-light-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.zilla-slab-regular {
+  font-family: "Zilla Slab", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.zilla-slab-regular-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.zilla-slab-medium {
+  font-family: "Zilla Slab", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.zilla-slab-medium-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.zilla-slab-semibold {
+  font-family: "Zilla Slab", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.zilla-slab-semibold-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.zilla-slab-bold {
+  font-family: "Zilla Slab", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.zilla-slab-bold-italic {
+  font-family: "Zilla Slab", serif;
+  font-weight: 700;
+  font-style: italic;
 }

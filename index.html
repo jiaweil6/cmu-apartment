@@ -6,6 +6,9 @@
 <title>Apartment Ranking</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <style>
   .priority-slider {
     margin-bottom: 20px;
@@ -66,12 +69,14 @@
 
       <!-- Range sliders for each priority -->
       <h2>What matters most to you when choosing off-campus housing?</h2>
+      <p>Drag slider right to reflect your priorities.<br><br></p>
+
       <div class="row">
         <!-- First Slider Column -->
         <div class="col-md-6">
           <div class="priority-slider">
             <label for="quickCommute">Quick Commute</label>
-            <p>Public transportation duration on google maps</p>
+            <p class="sliderText">Public transportation duration on google maps</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="quickCommute" /> 
             </div>
@@ -82,7 +87,7 @@
         <div class="col-md-6">
           <div class="priority-slider">
             <label for="closeToSchool">Close to School</label>
-            <p>Distance to school (For those who want to walk to school)</p>
+            <p class="sliderText">Distance to school (For those who want to walk to school)</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="closeToSchool" /> 
             </div>
@@ -97,7 +102,7 @@
         <div class="col-md-6">
           <div class="priority-slider">
             <label for="lowPrice">Low Price</label>
-            <p>Average price for selected room type</p>
+            <p class="sliderText">Average price for selected room type</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="lowPrice" /> 
             </div>
@@ -108,7 +113,7 @@
         <div class="col-md-6">
           <div class="priority-slider">
             <label for="goodRating">Good Rating</label>
-            <p>Rating from google maps</p>
+            <p class="sliderText">Rating from google maps</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="goodRating" /> 
             </div>
@@ -123,7 +128,7 @@
         <div class="col-md-6">
           <div class="priority-slider">
             <label for="newBuilding">New Building</label>
-            <p>Construction year of the building</p>
+            <p class="sliderText">Construction year of the building</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="newBuilding" /> 
             </div>
