@@ -14,20 +14,17 @@ body {
 
 .container-fluid {
   max-width: 1200px;
-  margin: auto;
+  margin: 0;
   padding: 20px;
 }
 
 /* Header styles */
 h2 {
   font-size: 24px;
+  font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
-}
-
-/* Column styles */
-.col-md-6 {
-  margin-bottom: 30px;
+  padding-top: 35px;
+  padding-bottom: 15px;
 }
 
 /* Priority items list */
@@ -49,49 +46,13 @@ h2 {
 }
 
 /* Sliders */
-.priority-slider {
-  margin-bottom: 20px;
-}
 
 .priority-slider label {
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bold;
   color: #555;
   margin-bottom: 5px;
   display: block;
-}
-
-.priority-slider .custom-range {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 10px;
-  background: #e4e4e4;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  border-radius: 5px;
-}
-
-.priority-slider .custom-range:focus {
-  outline: none;
-}
-
-.priority-slider .custom-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: #007bff;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.priority-slider .custom-range::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: #007bff;
-  cursor: pointer;
-  border-radius: 50%;
 }
 
 /* Dropdown styles */
@@ -169,3 +130,94 @@ footer {
 }
 
 /* You can add additional media queries for better responsive support */
+
+/* slider style */
+
+input[type="range"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  /*  overflow: hidden;  remove this line*/
+  
+  /* New additions */
+  height: 6px;
+  background: #ccc;
+}
+
+/* Thumb: webkit */
+input[type="range"]::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  height: 15px;
+  width: 15px;
+  background-color: #f50;
+  border-radius: 50%;
+  border: none;
+
+  /* box-shadow: -407px 0 0 400px #f50; emove this line */
+  transition: .2s ease-in-out;
+}
+
+/* Thumb: Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #f50;
+  border-radius: 50%;
+  border: none;
+  
+  /* box-shadow: -407px 0 0 400px #f50; emove this line */
+  transition: .2s ease-in-out;
+}
+
+/* Hover, active & focus Thumb: Webkit */
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(255,85,0, .1)
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+}
+
+/* Hover, active & focus Thumb: Firfox */
+
+input[type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(255,85,0, .1)
+}
+input[type="range"]:active::-moz-range-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+}
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)    
+}
+
+/*=============
+Aesthetics 
+=========================*/
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 0; /* Align with the start of the container */
+  height: 4rem;
+  width: 100%; /* Adjust as necessary */
+  background: #fff;
+  padding: 0px 10px;
+}
+
+.value {
+  font-size: 26px;    
+  width: 50px;
+  text-align: center;
+}

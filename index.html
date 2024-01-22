@@ -14,8 +14,10 @@
 </style>
 </head>
 <body>
+
 <div class="container-fluid">
   <div class="row">
+    <!-- Your Priorities Section -->
     <!-- Your Priorities Section -->
     <div class="col-md-6">
       <h2>Your Priorities</h2>
@@ -29,27 +31,79 @@
       </ul>
 
       <!-- Range sliders for each priority -->
-      <div class="priority-slider">
-        <label for="quickCommute">Quick Commute</label>
-        <input type="range" class="custom-range" id="quickCommute" min="0" max="100" step="1" value="0">
+      <h2>What matters most to you when choosing off-campus housing?</h2>
+      <div class="row">
+        <!-- First Slider Column -->
+        <div class="col-md-6">
+          <div class="priority-slider">
+            <label for="quickCommute">Quick Commute</label>
+            <p>Public transportation duration on google maps</p>
+            <div class="range">
+              <input type="range" class="slider" min="0" max="100" value="0" id="quickCommute" /> 
+              <div class="value">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Slider Column -->
+        <div class="col-md-6">
+          <div class="priority-slider">
+            <label for="closeToSchool">Close to School</label>
+            <p>Distance to school (For those who want to walk to school)</p>
+            <div class="range">
+              <input type="range" class="slider" min="0" max="100" value="0" id="closeToSchool" /> 
+              <div class="value">0</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="priority-slider">
-        <label for="closeToSchool">Close to School</label>
-        <input type="range" class="custom-range" id="closeToSchool" min="0" max="100" step="1" value="0">
+
+      <!-- Second row -->
+
+      <div class="row">
+        <!-- First Slider Column -->
+        <div class="col-md-6">
+          <div class="priority-slider">
+            <label for="lowPrice">Low Price</label>
+            <p>Average price for selected room type</p>
+            <div class="range">
+              <input type="range" class="slider" min="0" max="100" value="0" id="lowPrice" /> 
+              <div class="value">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Slider Column -->
+        <div class="col-md-6">
+          <div class="priority-slider">
+            <label for="goodRating">Good Rating</label>
+            <p>Rating from google maps</p>
+            <div class="range">
+              <input type="range" class="slider" min="0" max="100" value="0" id="goodRating" /> 
+              <div class="value">0</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="priority-slider">
-        <label for="lowPrice">Low Price</label>
-        <input type="range" class="custom-range" id="lowPrice" min="0" max="100" step="1" value="0">
-      </div>
-      <div class="priority-slider">
-        <label for="goodRating">Good Rating</label>
-        <input type="range" class="custom-range" id="goodRating" min="0" max="100" step="1" value="0">
-      </div>
-      <div class="priority-slider">
-        <label for="newBuilding">New Building</label>
-        <input type="range" class="custom-range" id="newBuilding" min="0" max="100" step="1" value="0">
+
+      <!-- Third row -->
+
+      <div class="row">
+        <!-- First Slider Column -->
+        <div class="col-md-6">
+          <div class="priority-slider">
+            <label for="newBuilding">New Building</label>
+            <p>Construction year of the building</p>
+            <div class="range">
+              <input type="range" class="slider" min="0" max="100" value="0" id="newBuilding" /> 
+              <div class="value">0</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    
 
     <!-- Your Rankings Section -->
     <div class="col-md-6">
@@ -110,5 +164,18 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  document.querySelectorAll(".slider").forEach(slider => {
+    slider.addEventListener("input", (event) => {
+      const valueDisplay = event.target.nextElementSibling; // Select the corresponding value display
+      const value = event.target.value;
+      
+      valueDisplay.textContent = value;
+      
+      const progress = (value / event.target.max) * 100;
+      event.target.style.background = `linear-gradient(to right, #f50 ${progress}%, #ccc ${progress}%)`;
+    });
+  });
+</script>
 </body>
 </html>
