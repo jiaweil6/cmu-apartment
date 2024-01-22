@@ -74,7 +74,6 @@
             <p>Public transportation duration on google maps</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="quickCommute" /> 
-              <div class="value">0</div>
             </div>
           </div>
         </div>
@@ -86,7 +85,6 @@
             <p>Distance to school (For those who want to walk to school)</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="closeToSchool" /> 
-              <div class="value">0</div>
             </div>
           </div>
         </div>
@@ -102,7 +100,6 @@
             <p>Average price for selected room type</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="lowPrice" /> 
-              <div class="value">0</div>
             </div>
           </div>
         </div>
@@ -114,7 +111,6 @@
             <p>Rating from google maps</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="goodRating" /> 
-              <div class="value">0</div>
             </div>
           </div>
         </div>
@@ -130,7 +126,6 @@
             <p>Construction year of the building</p>
             <div class="range">
               <input type="range" class="slider" min="0" max="100" value="0" id="newBuilding" /> 
-              <div class="value">0</div>
             </div>
           </div>
         </div>
@@ -205,7 +200,7 @@
       const valueDisplay = event.target.nextElementSibling; // Select the corresponding value display
       const value = event.target.value;
       
-      valueDisplay.textContent = value;
+      // valueDisplay.textContent = value;
       
       const progress = (value / event.target.max) * 100;
       event.target.style.background = `linear-gradient(to right, #f50 ${progress}%, #ccc ${progress}%)`;
