@@ -1,6 +1,6 @@
 /* Reset some default styling */
 * {
-  margin: 0;
+  margin: 0px;
   padding: 0;
   box-sizing: border-box;
   background-color: inherit;
@@ -10,7 +10,7 @@ body {
   font-family: "Zilla Slab";
   background-color: #f7f3ee !important; /* `!important` to ensure override */
   color: #333;
-  line-height: 1.6;
+  line-height: 1.6;aboutUsText
 }
 
 .container-fluid {
@@ -308,6 +308,7 @@ Aesthetics
 .aboutUsText{
   text-align:justify;
   font-size:20px;
+  margin: 30px;
 }
 
 #mission{
@@ -331,6 +332,7 @@ Aesthetics
   margin-top: 20px;
   color: #f50;
   font-size: 50px;
+  margin: 20px;
 }
 
 .card-title {
