@@ -135,7 +135,7 @@ function displayRankings() {
 
     score += sliderValues[0] * apartment["Bus Duration"]; // Quick Commute
     score += sliderValues[1] * apartment["Distance in miles"]; // Close to School
-    score += sliderValues[2] * (1 - priceScore); // Low Price (inverted)
+    score += sliderValues[2] * priceScore; // Low Price (inverted)
     score += sliderValues[3] * apartment["Rating (Google Maps)"]; // Good Rating
     score += sliderValues[4] * apartment["Year Built"]; // New Building
 
