@@ -248,33 +248,56 @@ Aesthetics
   position: relative;
   border: black solid 1px;
   border-radius: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 10px;
   display: inline-block;
+  text-align: center;
   margin-right: 10px; /* Space between dropdowns */
   margin-bottom: 20px;
-  width: auto; /* Adjust as necessary */
+  width: 45%; /* Fills the parent container */
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 190px; /* Ensure this is less than the total width of .dropdown */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  padding: 10px;
-  width: calc(100% - 2px); /* Subtract the border width */
+  padding: 20px;
+  width: 100%; /* Matches the width of the dropdown */
   box-sizing: border-box; /* Include padding and border in the width calculation */
   left: 0; /* Align with the left edge of .dropdown */
   top: 100%; /* Position below the dropdown button */
+  text-align: left;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dropdown {
+    padding: 10px 20px; /* Reduced padding on smaller screens */
+  }
+
+  .dropdown-content {
+    min-width: 160px; /* Adjusted minimum width */
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown {
+    padding: 5px 10px; /* Further reduced padding for very small screens */
+    margin-right: 5px; /* Reduced margin */
+    margin-bottom: 10px;
+  }
+
+  .dropdown-content {
+    min-width: 120px; /* Further adjusted minimum width */
+  }
+}
+
+
 
 /* Add other styles as necessary */
 
