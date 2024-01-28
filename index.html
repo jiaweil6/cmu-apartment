@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <style>
   .priority-slider {
     margin-bottom: 20px;
@@ -156,9 +158,9 @@
         </select> 
         apartment.</p>   
         <p class="aboutYouText">You are a 
-          <select name="" id="">
-            <option value="">undergraduate</option>
-            <option value="">graduate</option>
+          <select name="" id="studentType">
+            <option value="undergraduate">undergraduate</option>
+            <option value="graduate">graduate</option>
           </select>
         student.</p>
         <p class="info-message">Please note: Certain apartments are not available to undergraduate students.</p>
@@ -169,19 +171,19 @@
       <div class="dropdown">
         <div class="dropbtn">Location</div>
         <div class="dropdown-content">
-            <label><input type="checkbox" value="oakland"> Oakland</label><br>
-            <label><input type="checkbox" value="squirrelHill"> Squirrel Hill</label><br>
-            <label><input type="checkbox" value="shadyside"> Shadyside</label><br>
-            <label><input type="checkbox" value="others"> Others</label>
+            <label><input type="checkbox" class="location-checkbox" value="oakland"> Oakland</label><br>
+            <label><input type="checkbox" class="location-checkbox" value="squirrel hill"> Squirrel Hill</label><br>
+            <label><input type="checkbox" class="location-checkbox" value="shadyside"> Shadyside</label><br>
+            <label><input type="checkbox" class="location-checkbox" value="others"> Others</label>
         </div>
       </div>
     
       <div class="dropdown">
         <div class="dropbtn">Amenities</div>
         <div class="dropdown-content">
-            <label><input type="checkbox" value="washerDryer"> In-unit washer/dryer</label><br>
-            <label><input type="checkbox" value="fitnessRoom"> Fitness room</label><br>
-            <label><input type="checkbox" value="parking"> Parking</label>
+          <label><input type="checkbox" id="washerDryer" class="amenity-checkbox" value="In-unit Laundry"> In-unit washer/dryer</label><br>
+          <label><input type="checkbox" id="fitnessRoom" class="amenity-checkbox" value="Fitness"> Fitness room</label><br>
+          <label><input type="checkbox" id="parking" class="amenity-checkbox" value="Parking"> Parking</label>          
         </div>
       </div>
 
@@ -211,6 +213,8 @@
       </div>
     </div>
   </div>
+  <div id="apartmentListings"></div>
+
   <div class="row">
     <div class="col-12 col-md-12">
       <h2 class="aboutUs">About Us</h2>

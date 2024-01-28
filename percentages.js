@@ -54,3 +54,550 @@ document.querySelectorAll('.slider').forEach(slider => {
 
 // Initial calculation
 calculatePercentages();
+
+
+function getFilteredApartments() {
+  const hasInUnitLaundry = document.getElementById('washerDryer').checked;
+  const hasFitnessRoom = document.getElementById('fitnessRoom').checked;
+  const hasParking = document.getElementById('parking').checked;
+  const isOpenToUndergrad = document.getElementById('studentType').value === 'undergraduate';
+  
+  // Get selected locations
+  const selectedLocations = Array.from(document.querySelectorAll('.location-checkbox:checked'))
+                                    .map(checkbox => checkbox.value);
+
+  return apartmentsData.filter(apartment => {
+    const locationMatch = selectedLocations.length === 0 || selectedLocations.includes(apartment.Location.toLowerCase());
+    return locationMatch &&
+           (!hasInUnitLaundry || apartment["In-unit Laundry"] === "Yes") &&
+           (!hasFitnessRoom || apartment["Fitness"] === "Yes") &&
+           (!hasParking || apartment["Parking"] === "Yes") &&
+           (!isOpenToUndergrad || apartment["Open to undergrad"] === "Yes");
+  });
+}
+
+function setupCollapseBehavior() {
+  const collapseElements = document.querySelectorAll('.collapse');
+  
+  collapseElements.forEach(collapseEl => {
+    // Listen to the show.bs.collapse event which triggers when the collapse is opened
+    $(collapseEl).on('show.bs.collapse', function () {
+      collapseElements.forEach(el => {
+        if (el !== collapseEl) {
+          // Collapse any other open elements
+          $(el).collapse('hide');
+        }
+      });
+    });
+  });
+}
+
+function displayRankings() {
+  const sliders = document.querySelectorAll('.slider');
+  const sliderValues = Array.from(sliders).map(slider => parseInt(slider.value) / 100);
+  const selectedRoomType = document.getElementById('bedrooms').value;
+  
+  // Check if all slider values are 0
+  const allSlidersAtZero = sliderValues.every(value => value === 0);
+  const rankingsList = document.getElementById('rankingsList');
+
+  if (allSlidersAtZero) {
+    // Display message if all sliders are at 0
+    rankingsList.innerHTML = '<h2 class="warning">Select Your Priorities for Your Dream Off-Campus Residence!</h2>';
+    return;
+  }
+
+  const filteredApartments = getFilteredApartments();
+  const scoredApartments = filteredApartments.map(apartment => {
+    let score = 0;
+    let priceScore = 0;
+
+    // Determine price based on selected room type
+    switch (selectedRoomType) {
+      case 'studio':
+        priceScore = apartment["Studio Price"];
+        break;
+      case '1':
+        priceScore = apartment["1BR Price"];
+        break;
+      case '2':
+        priceScore = apartment["2BR Price"];
+        break;
+      case '3':
+        priceScore = apartment["3BR Price"];
+        break;
+    }
+
+    // If price score is above 1, it means not available
+    if (priceScore > 1) {
+      return { ...apartment, score: -1 }; // Set negative score for unavailable apartments
+    }
+
+    score += sliderValues[0] * apartment["Bus Duration"]; // Quick Commute
+    score += sliderValues[1] * apartment["Distance in miles"]; // Close to School
+    score += sliderValues[2] * (1 - priceScore); // Low Price (inverted)
+    score += sliderValues[3] * apartment["Rating (Google Maps)"]; // Good Rating
+    score += sliderValues[4] * apartment["Year Built"]; // New Building
+
+    return { ...apartment, score };
+  });
+
+  // Filter out unavailable apartments and sort the rest by score
+  const availableApartments = scoredApartments.filter(apartment => apartment.score >= 0);
+  availableApartments.sort((a, b) => b.score - a.score);
+
+  // Take top 5 apartments
+  const topApartments = availableApartments.slice(0, 5);
+
+  // Display top 5 apartments
+  rankingsList.innerHTML = ''; // Clear previous results
+  topApartments.forEach((apartment, index) => {
+    const apartmentElement = document.createElement('div');
+    apartmentElement.className = 'card mb-3';
+    const detailsId = `apartmentDetails${index}`;
+
+    apartmentElement.innerHTML = `
+      <div class="card-body">
+        <a href="#${detailsId}" class="card-title d-flex justify-content-between align-items-center" data-toggle="collapse">
+          ${index + 1}. ${apartment.Name}
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="collapse" id="${detailsId}">
+          <div class="card card-body">
+            <p>Address: ${apartment.address}</p>
+            <p>Phone Number: ${apartment["phone number"]}</p>
+            <p>Studio Price: $${apartment["Price0"]}</p>
+            <p>1 Bedroom Price: $${apartment["Price1"]}</p>
+            <p>2 Bedrooms Price: $${apartment["Price2"]}</p>
+            <p>3 Bedrooms Price: $${apartment["Price3"]}</p>
+            <!-- Additional details can be added here -->
+          </div>
+        </div>
+      </div>
+    `;
+
+    rankingsList.appendChild(apartmentElement);
+  });
+  setupCollapseBehavior();
+}
+
+function toggleIcon(element, detailsId) {
+  const detailsElement = document.getElementById(detailsId);
+  if (detailsElement.classList.contains('show')) {
+    element.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
+  } else {
+    element.innerHTML = '<i class="fas fa-chevron-up"></i> View Details';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.card-title').forEach(title => {
+    const icon = title.querySelector('i');
+    if (icon) {
+      title.addEventListener('click', () => {
+        icon.classList.toggle('icon-rotate');
+      });
+    }
+  });
+});
+
+
+// For sliders and checkboxes
+document.querySelectorAll('.slider, .amenity-checkbox, .location-checkbox').forEach(element => {
+  element.addEventListener('input', () => {
+    calculatePercentages();
+    displayRankings();
+  });
+});
+
+// For dropdowns
+document.querySelectorAll('#bedrooms, #studentType').forEach(element => {
+  element.addEventListener('change', () => {
+    calculatePercentages();
+    displayRankings();
+  });
+});
+
+
+// Initial call to display rankings
+document.addEventListener('DOMContentLoaded', () => {
+  displayRankings();
+});
+
+
+const apartmentsData = [
+  {
+    "Name": "SkyVue",
+    "Studio Price": 0.27,
+    "1BR Price": 0.25,
+    "2BR Price": 0.35,
+    "3BR Price": 0.5,
+    "Location": "Oakland",
+    "In-unit Laundry": "Yes",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.53,
+    "Bus Duration": 0.88,
+    "Rating (Google Maps)": 0.29,
+    "Year Built": 0.71,
+    "phone number": 4122814445,
+    "address": "3333 Forbes Ave, Pittsburgh, PA 15213",
+    "Price0": 1880,
+    "Price1": 2150,
+    "Price2": 2650,
+    "Price3": 3450
+  },
+  {
+    "Name": "One on Center",
+    "Studio Price": 0.18,
+    "1BR Price": 0.13,
+    "2BR Price": 0.18,
+    "3BR Price": 0.17,
+    "Location": "Oakland",
+    "In-unit Laundry": "Yes",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.76,
+    "Bus Duration": 0.56,
+    "Rating (Google Maps)": 0.06,
+    "Year Built": 0.82,
+    "phone number": 4129069552,
+    "address": "4500 Centre Ave, Pittsburgh, PA 15213",
+    "Price0": 2060,
+    "Price1": 2300,
+    "Price2": 3340,
+    "Price3": 4350
+  },
+  {
+    "Name": "The Bridge on Forbes Apartments",
+    "Studio Price": 0.73,
+    "1BR Price": 0.38,
+    "2BR Price": 0.41,
+    "3BR Price": 0.33,
+    "Location": "Oakland",
+    "In-unit Laundry": "Yes",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.65,
+    "Bus Duration": 0.88,
+    "Rating (Google Maps)": 0.94,
+    "Year Built": 0.94,
+    "phone number": 4126886279,
+    "address": "3423 Forbes Ave, Pittsburgh, PA 15213",
+    "Price0": 1500,
+    "Price1": 1900,
+    "Price2": 2500,
+    "Price3": 3750
+  },
+  {
+    "Name": "Sherwood Tower Aparments",
+    "Studio Price": 1.09,
+    "1BR Price": 0.5,
+    "2BR Price": 0.53,
+    "3BR Price": 0.83,
+    "Location": "Oakland",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "No",
+    "Parking": "Yes",
+    "Distance in miles": 0.88,
+    "Bus Duration": 0.56,
+    "Rating (Google Maps)": 0.82,
+    "Year Built": 0.47,
+    "phone number": 4126886232,
+    "address": "230 N Craig St, Pittsburgh, PA 15213",
+    "Price0": "N/A",
+    "Price1": 1800,
+    "Price2": 2300,
+    "Price3": 2700
+  },
+  {
+    "Name": "Webster Hall Apartments",
+    "Studio Price": 0.82,
+    "1BR Price": 0.5,
+    "2BR Price": 0.59,
+    "3BR Price": 1.17,
+    "Location": "Oakland",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 1,
+    "Bus Duration": 1,
+    "Rating (Google Maps)": 0.41,
+    "Year Built": 0.06,
+    "phone number": 4126214132,
+    "address": "101 N Dithridge St Suite 130, Pittsburgh, PA 15213",
+    "Price0": 1450,
+    "Price1": 1800,
+    "Price2": 2250,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Amberson Gardens Apartments",
+    "Studio Price": 0.91,
+    "1BR Price": 0.94,
+    "2BR Price": 0.94,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.88,
+    "Bus Duration": 0.44,
+    "Rating (Google Maps)": 0.24,
+    "Year Built": 0.41,
+    "phone number": 4126819870,
+    "address": "1 Bayard Rd, Pittsburgh, PA 15213",
+    "Price0": 1100,
+    "Price1": 1300,
+    "Price2": 1700,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Essex House",
+    "Studio Price": 1.09,
+    "1BR Price": 0.75,
+    "2BR Price": 0.76,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.47,
+    "Bus Duration": 0.19,
+    "Rating (Google Maps)": 0.47,
+    "Year Built": 0.53,
+    "phone number": 4124410820,
+    "address": "5701 Centre Ave, Pittsburgh, PA 15206",
+    "Price0": "N/A",
+    "Price1": 1650,
+    "Price2": 2050,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Claybourne Apartment",
+    "Studio Price": 1.09,
+    "1BR Price": 0.88,
+    "2BR Price": 0.88,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.53,
+    "Bus Duration": 0.44,
+    "Rating (Google Maps)": 0.29,
+    "Year Built": 0.35,
+    "phone number": 4124410820,
+    "address": "5435 Claybourne St, Pittsburgh, PA 15232",
+    "Price0": "N/A",
+    "Price1": 1550,
+    "Price2": 1800,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Coda on Center",
+    "Studio Price": 0.55,
+    "1BR Price": 0.38,
+    "2BR Price": 0.29,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "Yes",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.35,
+    "Bus Duration": 0.13,
+    "Rating (Google Maps)": 0.18,
+    "Year Built": 0.82,
+    "phone number": 4124048653,
+    "address": "5765 Centre Ave, Pittsburgh, PA 15206",
+    "Price0": 1660,
+    "Price1": 1900,
+    "Price2": 2700,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Industry Pittsburgh",
+    "Studio Price": 0.09,
+    "1BR Price": 0.06,
+    "2BR Price": 0.06,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "Yes",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.35,
+    "Bus Duration": 0.19,
+    "Rating (Google Maps)": 0.71,
+    "Year Built": 1,
+    "phone number": 4128516321,
+    "address": "5819 Centre Ave, Pittsburgh, PA 15206",
+    "Price0": 2170,
+    "Price1": 2400,
+    "Price2": 5200,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Walnut on Highland",
+    "Studio Price": 0.45,
+    "1BR Price": 0.31,
+    "2BR Price": 0.41,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.12,
+    "Bus Duration": 0.56,
+    "Rating (Google Maps)": 0.82,
+    "Year Built": 0.59,
+    "phone number": 8449951004,
+    "address": "121 S Highland Ave, Pittsburgh, PA 15206",
+    "Price0": 1753,
+    "Price1": 1991,
+    "Price2": 2500,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Eastside Bond Apartments",
+    "Studio Price": 0.36,
+    "1BR Price": 0.13,
+    "2BR Price": 0.12,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "Yes",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.12,
+    "Bus Duration": 0.06,
+    "Rating (Google Maps)": 0.47,
+    "Year Built": 0.65,
+    "phone number": 4122532775,
+    "address": "6105 Spirit St, Pittsburgh, PA 15206",
+    "Price0": 1800,
+    "Price1": 2300,
+    "Price2": 3500,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Bakery Living",
+    "Studio Price": 0.64,
+    "1BR Price": 0.5,
+    "2BR Price": 0.24,
+    "3BR Price": 1.17,
+    "Location": "Shadyside",
+    "In-unit Laundry": "Yes",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.06,
+    "Bus Duration": 0.31,
+    "Rating (Google Maps)": 0.71,
+    "Year Built": 0.71,
+    "phone number": 8333348042,
+    "address": "6480 Living Pl, Pittsburgh, PA 15206",
+    "Price0": 1650,
+    "Price1": 1800,
+    "Price2": 3000,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Kenmawr Apartments",
+    "Studio Price": 1.09,
+    "1BR Price": 0.81,
+    "2BR Price": 0.82,
+    "3BR Price": 1,
+    "Location": "Shadyside",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.24,
+    "Bus Duration": 0.38,
+    "Rating (Google Maps)": 0.06,
+    "Year Built": 0.12,
+    "phone number": 4123612774,
+    "address": "Kenmawr Apartments, 401 Shady Ave, Pittsburgh, PA 15206",
+    "Price0": "N/A",
+    "Price1": 1600,
+    "Price2": 1900,
+    "Price3": 2600
+  },
+  {
+    "Name": "Maxon Towers Apartments",
+    "Studio Price": 1.09,
+    "1BR Price": 0.69,
+    "2BR Price": 0.71,
+    "3BR Price": 1.17,
+    "Location": "Squirrel Hill",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.29,
+    "Bus Duration": 0.81,
+    "Rating (Google Maps)": 0.59,
+    "Year Built": 0.29,
+    "phone number": 4125217900,
+    "address": "6315 Forbes Ave l100, Pittsburgh, PA 15217",
+    "Price0": "N/A",
+    "Price1": 1700,
+    "Price2": 2200,
+    "Price3": 2900
+  },
+  {
+    "Name": "Negley Court Apartments",
+    "Studio Price": 1,
+    "1BR Price": 1,
+    "2BR Price": 1,
+    "3BR Price": 1.17,
+    "Location": "Squirrel Hill",
+    "In-unit Laundry": "No",
+    "Fitness": "No",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.65,
+    "Bus Duration": 1,
+    "Rating (Google Maps)": 0.59,
+    "Year Built": 0.18,
+    "phone number": 4122887800,
+    "address": "5620 Fifth Ave, Pittsburgh, PA 15232",
+    "Price0": 885,
+    "Price1": 1100,
+    "Price2": 1600,
+    "Price3": "N/A"
+  },
+  {
+    "Name": "Camelot Apartments",
+    "Studio Price": 1.09,
+    "1BR Price": 1.06,
+    "2BR Price": 0.65,
+    "3BR Price": 0.67,
+    "Location": "Oakland",
+    "In-unit Laundry": "No",
+    "Fitness": "Yes",
+    "Open to undergrad": "Yes",
+    "Parking": "Yes",
+    "Distance in miles": 0.76,
+    "Bus Duration": 0.56,
+    "Rating (Google Maps)": 1,
+    "Year Built": 0.24,
+    "phone number": 4126886309,
+    "address": "262 N Dithridge St, Pittsburgh, PA 15213",
+    "Price0": "N/A",
+    "Price1": "N/A",
+    "Price2": 2230,
+    "Price3": 2800
+  }
+]

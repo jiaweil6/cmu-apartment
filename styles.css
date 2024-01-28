@@ -73,43 +73,13 @@ h2 {
 
 .card {
   overflow: visible;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
+  background-color: #fef6ef;
   padding: 15px;
 }
 
 .card-body {
   padding: 5px;
-  border-bottom: 1px solid #ddd;
-}
-
-.card-title {
-  font-size: 20px;
-  color: #333;
-}
-
-.card-subtitle {
-  font-size: 16px;
-  color: #666;
-}
-
-.card-link {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.card-link:hover {
-  text-decoration: underline;
-}
-
-/* Footer and additional styles */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: #fff;
+  font-family: "Zilla Slab";
 }
 
 /* Add responsive breakpoint adjustments if necessary */
@@ -328,3 +298,30 @@ Aesthetics
   margin-top: 20px;
   margin-bottom: 30px;
 }
+
+.warning {
+  text-align: center;
+  margin-top: 20px;
+  color: #f50;
+  font-size: 50px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #1d1b19;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Zilla Slab";
+  font-weight: 400;
+}
+
+.card-title:hover {
+  text-decoration: none;
+}
+
+
+
+
+
