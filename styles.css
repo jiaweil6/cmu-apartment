@@ -69,12 +69,16 @@ h2 {
 #rankingsList {
   list-style: none;
   padding: 0;
+  max-height: 550px; /* Adjust the height as needed */
+  overflow-y: auto;  /* Enables vertical scrolling */
+  overflow-x: hidden; /* Hides horizontal scrollbar */
 }
 
 .card {
   overflow: visible;
   background-color: #fef6ef;
-  padding: 15px;
+  padding-top: 5px;
+  padding-bottom: -5px;
 }
 
 .card-body {
