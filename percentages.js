@@ -146,12 +146,9 @@ function displayRankings() {
   const availableApartments = scoredApartments.filter(apartment => apartment.score >= 0);
   availableApartments.sort((a, b) => b.score - a.score);
 
-  // Take top 5 apartments
-  const topApartments = availableApartments.slice(0, 5);
-
   // Display top 5 apartments
   rankingsList.innerHTML = ''; // Clear previous results
-  topApartments.forEach((apartment, index) => {
+  availableApartments.forEach((apartment, index) => {
     const apartmentElement = document.createElement('div');
     apartmentElement.className = 'card mb-3';
     const detailsId = `apartmentDetails${index}`;
