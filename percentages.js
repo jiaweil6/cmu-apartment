@@ -170,6 +170,7 @@ function displayRankings() {
             <p>1 Bedroom Price: $${apartment["Price1"]}</p>
             <p>2 Bedrooms Price: $${apartment["Price2"]}</p>
             <p>3 Bedrooms Price: $${apartment["Price3"]}</p>
+            <img src="${apartment["Image"]}" alt="image">
             <!-- Additional details can be added here -->
           </div>
         </div>
@@ -246,7 +247,9 @@ const apartmentsData = [
     "Price0": 1880,
     "Price1": 2150,
     "Price2": 2650,
-    "Price3": 3450
+    "Price3": 3450,
+    "Image": "https://www.mapletree.com.sg/~/media/Our%20Portfolio/USA/SkyVue/Skyvue%20website.jpg?h=403",
+    "Website": "https://www.skyvueapts.com/"
   },
   {
     "Name": "One on Center",
@@ -268,7 +271,9 @@ const apartmentsData = [
     "Price0": 2060,
     "Price1": 2300,
     "Price2": 3340,
-    "Price3": 4350
+    "Price3": 4350,
+    "Image": "https://lh3.googleusercontent.com/p/AF1QipMId7VafOAff6QhE6qJ4owtlEL3JAxILPNw6usi=s1360-w1360-h1020",
+    "Website": "https://www.oneoncentre.com/"
   },
   {
     "Name": "The Bridge on Forbes Apartments",
@@ -290,7 +295,9 @@ const apartmentsData = [
     "Price0": 1500,
     "Price1": 1900,
     "Price2": 2500,
-    "Price3": 3750
+    "Price3": 3750,
+    "Image": "https://www.pc.pitt.edu/sites/default/files/bridge-header.jpg",
+    "Website": "https://thebridgeonforbes.com/"
   },
   {
     "Name": "Sherwood Tower Aparments",
@@ -312,7 +319,9 @@ const apartmentsData = [
     "Price0": "N/A",
     "Price1": 1800,
     "Price2": 2300,
-    "Price3": 2700
+    "Price3": 2700,
+    "Image": "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_xl/t_unpaid/b2fbab3b7a944e1db2a570fc308da386",
+    "Website": "https://www.sherwoodtowers.com/"
   },
   {
     "Name": "Webster Hall Apartments",
@@ -334,7 +343,9 @@ const apartmentsData = [
     "Price0": 1450,
     "Price1": 1800,
     "Price2": 2250,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://images1.apartments.com/i2/eHLZy3ScYlyy7tayVs4eRESD4kQmJRVoU3oJCilmLwg/111/webster-hall-pittsburgh-pa-primary-photo.jpg",
+    "Website": "https://www.websterhallapartments.com/"
   },
   {
     "Name": "Amberson Gardens Apartments",
@@ -356,7 +367,9 @@ const apartmentsData = [
     "Price0": 1100,
     "Price1": 1300,
     "Price2": 1700,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://lh5.googleusercontent.com/p/AF1QipPTUaWb0SW_qiRkrp8AUjZ5BchEyIAZzydFgkin=w408-h306-k-no",
+    "Website": "https://www.apartments.com/amberson-gardens-pittsburgh-pa/w2vgfbj/"
   },
   {
     "Name": "Essex House",
@@ -378,7 +391,9 @@ const apartmentsData = [
     "Price0": "N/A",
     "Price1": 1650,
     "Price2": 2050,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://mcquartersrealty.com/wp-content/uploads/2019/09/esx_exterior-1371x1026.jpg",
+    "Website": "https://mcquartersrealty.com/apartments/essex-house/"
   },
   {
     "Name": "Claybourne Apartment",
@@ -400,7 +415,9 @@ const apartmentsData = [
     "Price0": "N/A",
     "Price1": 1550,
     "Price2": 1800,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://mcquartersrealty.com/wp-content/uploads/2019/09/clay_IMG_4605copy2-1371x1026.jpg",
+    "Website": "https://mcquartersrealty.com/apartments/claybourne-apartments/"
   },
   {
     "Name": "Coda on Center",
@@ -422,7 +439,9 @@ const apartmentsData = [
     "Price0": 1660,
     "Price1": 1900,
     "Price2": 2700,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://images1.apartments.com/i2/es0pjNkBfvaiFrS_mv9Yp0tUayvX6VGAoRuUEGnGvDU/111/coda-on-centre-pittsburgh-pa-building-photo.jpg",
+    "Website": "https://codaoncentre.com"
   },
   {
     "Name": "Industry Pittsburgh",
@@ -444,7 +463,9 @@ const apartmentsData = [
     "Price0": 2170,
     "Price1": 2400,
     "Price2": 5200,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://lh3.googleusercontent.com/p/AF1QipMNToqzPewv6nqtHSHwutqi2udPZgN9robBPqe9=s1360-w1360-h1020",
+    "Website": "https://industry-pittsburgh.com"
   },
   {
     "Name": "Walnut on Highland",
@@ -466,7 +487,9 @@ const apartmentsData = [
     "Price0": 1753,
     "Price1": 1991,
     "Price2": 2500,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://www.walnutcapital.com/files/albums/45/images/exterior.jpg",
+    "Website": "https://www.walnutonhighland.com/"
   },
   {
     "Name": "Eastside Bond Apartments",
@@ -488,7 +511,9 @@ const apartmentsData = [
     "Price0": 1800,
     "Price1": 2300,
     "Price2": 3500,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://lh3.googleusercontent.com/p/AF1QipNJ0dfMJNY_Sv3fnC6e2M7WRH0wdRbuwOCg-0rL=s1360-w1360-h1020",
+    "Website": "https://www.eastsidebond.com/"
   },
   {
     "Name": "Bakery Living",
@@ -510,7 +535,9 @@ const apartmentsData = [
     "Price0": 1650,
     "Price1": 1800,
     "Price2": 3000,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://resource.rentcafe.com/image/upload/q_auto,f_auto/s3/2/6837/album_bakeryliving-2.jpg",
+    "Website": "https://www.bakeryliving.com/"
   },
   {
     "Name": "Kenmawr Apartments",
@@ -532,7 +559,9 @@ const apartmentsData = [
     "Price0": "N/A",
     "Price1": 1600,
     "Price2": 1900,
-    "Price3": 2600
+    "Price3": 2600,
+    "Image": "https://images1.apartments.com/i2/udSAQT2dm_J3J5xa2V9R6l4-7IqC2_92Cf4xer2DMd0/111/kenmawr-apartments-pittsburgh-pa-building-photo.jpg",
+    "Website": "https://www.pmcpropertygroup.com/properties/kenmawr-apartments"
   },
   {
     "Name": "Maxon Towers Apartments",
@@ -554,7 +583,9 @@ const apartmentsData = [
     "Price0": "N/A",
     "Price1": 1700,
     "Price2": 2200,
-    "Price3": 2900
+    "Price3": 2900,
+    "Image": "https://media.veryapt.com/ApartmentImage/pennsylvania/pittsburgh-15217/maxon-towers/gallery/2.jpg",
+    "Website": "https://www.maxontowers.com/"
   },
   {
     "Name": "Negley Court Apartments",
@@ -576,7 +607,9 @@ const apartmentsData = [
     "Price0": 885,
     "Price1": 1100,
     "Price2": 1600,
-    "Price3": "N/A"
+    "Price3": "N/A",
+    "Image": "https://images.squarespace-cdn.com/content/v1/535eb679e4b0daaf97db3363/1441310101485-J0OSJLTT1U04WVWANARY/130430_Union_NegleyCourt_6.jpg",
+    "Website": "https://www.apartments.com/negley-court-pittsburgh-pa/k28meyb/"
   },
   {
     "Name": "Camelot Apartments",
@@ -598,6 +631,8 @@ const apartmentsData = [
     "Price0": "N/A",
     "Price1": "N/A",
     "Price2": 2230,
-    "Price3": 2800
+    "Price3": 2800,
+    "Image": "https://lh3.googleusercontent.com/p/AF1QipN8TvwYo45vAb-epmI1W6tEmRIHqPxd13lWsypc=s1360-w1360-h1020",
+    "Website": "https://www.camelot-apartments.com/"
   }
 ]
