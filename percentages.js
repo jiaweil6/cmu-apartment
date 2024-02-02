@@ -170,7 +170,8 @@ function displayRankings() {
             <p>1 Bedroom Price: $${apartment["Price1"]}</p>
             <p>2 Bedrooms Price: $${apartment["Price2"]}</p>
             <p>3 Bedrooms Price: $${apartment["Price3"]}</p>
-            <p></p>
+            <a href="${apartment["Website"]}" target="_blank" rel="noopener noreferrer">Website</a>
+            <br>
             <img src="${apartment["Image"]}" alt="image">
             <!-- Additional details can be added here -->
           </div>
