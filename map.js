@@ -73,6 +73,12 @@ window.onload = initMap;
 
 const apartmentsData = [
   {
+    "Name": "Carnegie Mellon University",
+    "Website": "https://www.cmu.edu",
+    "Latitude": "40.4432068",
+    "Longitude": "-79.9454248"
+  },
+  {
     "Name": "SkyVue",
     "Website": "https://www.skyvueapts.com/",
     "Latitude": "40.4391042",
