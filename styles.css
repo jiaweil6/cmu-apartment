@@ -10,7 +10,7 @@ body {
   font-family: "Zilla Slab";
   background-color: #f7f3ee !important; /* `!important` to ensure override */
   color: #333;
-  line-height: 1.6;aboutUsText
+  line-height: 1.6;
 }
 
 .container-fluid {
