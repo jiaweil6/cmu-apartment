@@ -155,6 +155,7 @@ function displayRankings() {
     const apartmentElement = document.createElement('div');
     apartmentElement.className = 'card mb-3';
     const detailsId = `apartmentDetails${index}`;
+    
 
     apartmentElement.innerHTML = `
       <div class="card-body">
@@ -171,6 +172,7 @@ function displayRankings() {
             <p>2 Bedrooms Price: $${apartment["Price2"]}</p>
             <p>3 Bedrooms Price: $${apartment["Price3"]}</p>
             <a href="${apartment["Website"]}" target="_blank" rel="noopener noreferrer">Website</a>
+            <a href="map.html">View on Map</a>
             <br>
             <img src="${apartment["Image"]}" alt="image">
             <!-- Additional details can be added here -->
@@ -183,6 +185,7 @@ function displayRankings() {
   });
   setupCollapseBehavior();
 }
+
 
 function toggleIcon(element, detailsId) {
   const detailsElement = document.getElementById(detailsId);
@@ -252,8 +255,8 @@ const apartmentsData = [
     "Price3": 3450,
     "Image": "https://www.mapletree.com.sg/~/media/Our%20Portfolio/USA/SkyVue/Skyvue%20website.jpg?h=403",
     "Website": "https://www.skyvueapts.com/",
-    "Latitude": "40.4376161",
-    "Longitude": "-79.9652032"
+    "Latitude": "40.4391042",
+    "Longitude": "-79.9643248"
   },
   {
     "Name": "One on Center",
@@ -279,7 +282,7 @@ const apartmentsData = [
     "Image": "https://lh3.googleusercontent.com/p/AF1QipMId7VafOAff6QhE6qJ4owtlEL3JAxILPNw6usi=s1360-w1360-h1020",
     "Website": "https://www.oneoncentre.com/",
     "Latitude": "40.451418",
-    "Longitude": "-79.9557403"
+    "Longitude": "-79.9557349"
   },
   {
     "Name": "The Bridge on Forbes Apartments",
@@ -305,7 +308,7 @@ const apartmentsData = [
     "Image": "https://www.pc.pitt.edu/sites/default/files/bridge-header.jpg",
     "Website": "https://thebridgeonforbes.com/",
     "Latitude": "40.4388382",
-    "Longitude": "-79.9635477"
+    "Longitude": "-79.9635423"
   },
   {
     "Name": "Sherwood Tower Aparments",
@@ -330,8 +333,8 @@ const apartmentsData = [
     "Price3": 2700,
     "Image": "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_xl/t_unpaid/b2fbab3b7a944e1db2a570fc308da386",
     "Website": "https://www.sherwoodtowers.com/",
-    "Latitude": "40.4388382",
-    "Longitude": "-79.9635477"
+    "Latitude": "40.4510414",
+    "Longitude": "-79.9536384"
   },
   {
     "Name": "Webster Hall Apartments",
@@ -356,8 +359,8 @@ const apartmentsData = [
     "Price3": "N/A",
     "Image": "https://images1.apartments.com/i2/eHLZy3ScYlyy7tayVs4eRESD4kQmJRVoU3oJCilmLwg/111/webster-hall-pittsburgh-pa-primary-photo.jpg",
     "Website": "https://www.websterhallapartments.com/",
-    "Latitude": "40.4510414",
-    "Longitude": "-79.9536438"
+    "Latitude": "40.4470621",
+    "Longitude": "-79.9534939"
   },
   {
     "Name": "Amberson Gardens Apartments",
@@ -382,8 +385,8 @@ const apartmentsData = [
     "Price3": "N/A",
     "Image": "https://lh5.googleusercontent.com/p/AF1QipPTUaWb0SW_qiRkrp8AUjZ5BchEyIAZzydFgkin=w408-h306-k-no",
     "Website": "https://www.apartments.com/amberson-gardens-pittsburgh-pa/w2vgfbj/",
-    "Latitude": "40.4470621",
-    "Longitude": "-79.9534993"
+    "Latitude": "40.4532841",
+    "Longitude": "-79.9454667"
   },
   {
     "Name": "Essex House",
@@ -408,8 +411,8 @@ const apartmentsData = [
     "Price3": "N/A",
     "Image": "https://mcquartersrealty.com/wp-content/uploads/2019/09/esx_exterior-1371x1026.jpg",
     "Website": "https://mcquartersrealty.com/apartments/essex-house/",
-    "Latitude": "40.4532841",
-    "Longitude": "-79.9454721"
+    "Latitude": "40.457671",
+    "Longitude": "-79.9360425"
   },
   {
     "Name": "Claybourne Apartment",
@@ -434,8 +437,8 @@ const apartmentsData = [
     "Price3": "N/A",
     "Image": "https://mcquartersrealty.com/wp-content/uploads/2019/09/clay_IMG_4605copy2-1371x1026.jpg",
     "Website": "https://mcquartersrealty.com/apartments/claybourne-apartments/",
-    "Latitude": "40.457671",
-    "Longitude": "-79.9360479"
+    "Latitude": "40.455539",
+    "Longitude": "-79.93912"
   },
   {
     "Name": "Coda on Center",
@@ -460,8 +463,8 @@ const apartmentsData = [
     "Price3": "N/A",
     "Image": "https://images1.apartments.com/i2/es0pjNkBfvaiFrS_mv9Yp0tUayvX6VGAoRuUEGnGvDU/111/coda-on-centre-pittsburgh-pa-building-photo.jpg",
     "Website": "https://codaoncentre.com",
-    "Latitude": "40.4579394",
-    "Longitude": "-79.9349075"
+    "Latitude": "40.4579353",
+    "Longitude": "-79.9323272"
   },
   {
     "Name": "Industry Pittsburgh",
@@ -486,8 +489,8 @@ const apartmentsData = [
     "Price3": "N/A",
     "Image": "https://lh3.googleusercontent.com/p/AF1QipMNToqzPewv6nqtHSHwutqi2udPZgN9robBPqe9=s1360-w1360-h1020",
     "Website": "https://industry-pittsburgh.com",
-    "Latitude": "40.4646546",
-    "Longitude": "-79.956148"
+    "Latitude": "40.4583596",
+    "Longitude": "-79.9312796"
   },
   {
     "Name": "Walnut on Highland",
@@ -513,7 +516,7 @@ const apartmentsData = [
     "Image": "https://www.walnutcapital.com/files/albums/45/images/exterior.jpg",
     "Website": "https://www.walnutonhighland.com/",
     "Latitude": "40.4602129",
-    "Longitude": "-79.9273773"
+    "Longitude": "-79.924797"
   },
   {
     "Name": "Eastside Bond Apartments",
@@ -538,8 +541,8 @@ const apartmentsData = [
     "Price3": "N/A",
     "Image": "https://lh3.googleusercontent.com/p/AF1QipNJ0dfMJNY_Sv3fnC6e2M7WRH0wdRbuwOCg-0rL=s1360-w1360-h1020",
     "Website": "https://www.eastsidebond.com/",
-    "Latitude": "40.4600793",
-    "Longitude": "-79.9252046"
+    "Latitude": "40.4599747",
+    "Longitude": "-79.9257807"
   },
   {
     "Name": "Bakery Living",
@@ -565,7 +568,7 @@ const apartmentsData = [
     "Image": "https://resource.rentcafe.com/image/upload/q_auto,f_auto/s3/2/6837/album_bakeryliving-2.jpg",
     "Website": "https://www.bakeryliving.com/",
     "Latitude": "40.4555746",
-    "Longitude": "-79.9194893"
+    "Longitude": "-79.9194839"
   },
   {
     "Name": "Kenmawr Apartments",
@@ -591,7 +594,7 @@ const apartmentsData = [
     "Image": "https://images1.apartments.com/i2/udSAQT2dm_J3J5xa2V9R6l4-7IqC2_92Cf4xer2DMd0/111/kenmawr-apartments-pittsburgh-pa-building-photo.jpg",
     "Website": "https://www.pmcpropertygroup.com/properties/kenmawr-apartments",
     "Latitude": "40.4552298",
-    "Longitude": "-79.9237123"
+    "Longitude": "-79.9237069"
   },
   {
     "Name": "Maxon Towers Apartments",
@@ -617,7 +620,7 @@ const apartmentsData = [
     "Image": "https://media.veryapt.com/ApartmentImage/pennsylvania/pittsburgh-15217/maxon-towers/gallery/2.jpg",
     "Website": "https://www.maxontowers.com/",
     "Latitude": "40.4381887",
-    "Longitude": "-79.9210182"
+    "Longitude": "-79.9210128"
   },
   {
     "Name": "Negley Court Apartments",
@@ -643,7 +646,7 @@ const apartmentsData = [
     "Image": "https://images.squarespace-cdn.com/content/v1/535eb679e4b0daaf97db3363/1441310101485-J0OSJLTT1U04WVWANARY/130430_Union_NegleyCourt_6.jpg",
     "Website": "https://www.apartments.com/negley-court-pittsburgh-pa/k28meyb/",
     "Latitude": "40.4494115",
-    "Longitude": "-79.9323213"
+    "Longitude": "-79.9323159"
   },
   {
     "Name": "Camelot Apartments",
@@ -668,7 +671,7 @@ const apartmentsData = [
     "Price3": 2800,
     "Image": "https://lh3.googleusercontent.com/p/AF1QipN8TvwYo45vAb-epmI1W6tEmRIHqPxd13lWsypc=s1360-w1360-h1020",
     "Website": "https://www.camelot-apartments.com/",
-    "Latitude": "40.9213599",
-    "Longitude": "-81.5225743"
+    "Latitude": "40.4509291",
+    "Longitude": "-79.9550979"
   }
 ]

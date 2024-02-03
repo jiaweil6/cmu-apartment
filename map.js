@@ -1,3 +1,4 @@
+
 // Initialize and add the map
 function initMap() {
   // Create an object holding the latitude and longitude of Carnegie Mellon University
