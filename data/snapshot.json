@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T04:26:44Z",
+  "generatedAt": "2026-11-10T05:17:25Z",
   "apartments": {
     "skyvue": {
       "units": {
@@ -7,25 +7,25 @@
           "status": "unknown",
           "minPrice": 1880,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 2150,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 2650,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "unknown",
           "minPrice": 3450,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -45,25 +45,25 @@
           "status": "unknown",
           "minPrice": 2060,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 2300,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 3340,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "unknown",
           "minPrice": 4350,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -80,28 +80,36 @@
     "the-bridge-on-forbes": {
       "units": {
         "studio": {
-          "status": "unknown",
-          "minPrice": 1500,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "waitlist",
+          "minPrice": 1979,
+          "available": 0,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "entrata-wp"
         },
         "oneBedroom": {
-          "status": "unknown",
-          "minPrice": 1900,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "waitlist",
+          "minPrice": 2465,
+          "available": 0,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "entrata-wp"
         },
         "twoBedroom": {
-          "status": "unknown",
-          "minPrice": 2500,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "waitlist",
+          "minPrice": 3638,
+          "available": 0,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "entrata-wp"
         },
         "threeBedroom": {
-          "status": "unknown",
-          "minPrice": 3750,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 4497,
+          "available": 4,
+          "availableFrom": "2027-06-17",
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "entrata-wp"
         }
       },
       "commuteMinutes": {
@@ -121,25 +129,25 @@
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 1800,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 2300,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "unknown",
           "minPrice": 2700,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -159,25 +167,25 @@
           "status": "unknown",
           "minPrice": 1450,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 1800,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 2250,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -197,25 +205,25 @@
           "status": "unknown",
           "minPrice": 1100,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 1300,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 1700,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -238,16 +246,20 @@
           "source": "manual-2024"
         },
         "oneBedroom": {
-          "status": "unknown",
-          "minPrice": 1650,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 1595,
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "page-text"
         },
         "twoBedroom": {
-          "status": "unknown",
+          "status": "available",
           "minPrice": 2050,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "page-text"
         },
         "threeBedroom": {
           "status": "not-offered",
@@ -276,16 +288,20 @@
           "source": "manual-2024"
         },
         "oneBedroom": {
-          "status": "unknown",
-          "minPrice": 1550,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 1475,
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "page-text"
         },
         "twoBedroom": {
-          "status": "unknown",
-          "minPrice": 1800,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 1675,
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "page-text"
         },
         "threeBedroom": {
           "status": "not-offered",
@@ -308,28 +324,36 @@
     "coda-on-centre": {
       "units": {
         "studio": {
-          "status": "unknown",
-          "minPrice": 1660,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 1849,
+          "available": 6,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         },
         "oneBedroom": {
-          "status": "unknown",
-          "minPrice": 1900,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 2355,
+          "available": 3,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         },
         "twoBedroom": {
-          "status": "unknown",
-          "minPrice": 2700,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 3728,
+          "available": 1,
+          "availableFrom": "2026-12-24",
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         },
         "threeBedroom": {
           "status": "not-offered",
           "minPrice": null,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         }
       },
       "commuteMinutes": {
@@ -346,28 +370,36 @@
     "industry-pittsburgh": {
       "units": {
         "studio": {
-          "status": "unknown",
-          "minPrice": 2170,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 1936,
+          "available": 2,
+          "availableFrom": "2026-11-30",
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         },
         "oneBedroom": {
-          "status": "unknown",
-          "minPrice": 2400,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 2384,
+          "available": 5,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         },
         "twoBedroom": {
-          "status": "unknown",
-          "minPrice": 5200,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 3113,
+          "available": 1,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         },
         "threeBedroom": {
-          "status": "not-offered",
+          "status": "waitlist",
           "minPrice": null,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "available": 0,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "sightmap"
         }
       },
       "commuteMinutes": {
@@ -387,25 +419,25 @@
           "status": "unknown",
           "minPrice": 1753,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 1991,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 2500,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -425,25 +457,25 @@
           "status": "unknown",
           "minPrice": 1800,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 2300,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 3500,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -463,25 +495,25 @@
           "status": "unknown",
           "minPrice": 1650,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 1800,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 3000,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -504,22 +536,28 @@
           "source": "manual-2024"
         },
         "oneBedroom": {
-          "status": "unknown",
-          "minPrice": 1600,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 1630,
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "page-text"
         },
         "twoBedroom": {
-          "status": "unknown",
-          "minPrice": 1900,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 1940,
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "page-text"
         },
         "threeBedroom": {
-          "status": "unknown",
-          "minPrice": 2600,
-          "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "status": "available",
+          "minPrice": 2645,
+          "available": null,
+          "availableFrom": null,
+          "observedAt": "2026-11-10T05:17:25Z",
+          "source": "page-text"
         }
       },
       "commuteMinutes": {
@@ -539,25 +577,25 @@
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 1700,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 2200,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "unknown",
           "minPrice": 2900,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -577,25 +615,25 @@
           "status": "unknown",
           "minPrice": 885,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "unknown",
           "minPrice": 1100,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 1600,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
@@ -615,25 +653,25 @@
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "oneBedroom": {
           "status": "not-offered",
           "minPrice": null,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "twoBedroom": {
           "status": "unknown",
           "minPrice": 2230,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         },
         "threeBedroom": {
           "status": "unknown",
           "minPrice": 2800,
           "observedAt": "2024-02-03T00:00:00Z",
-          "source": "manual-2024"
+          "source": "manual"
         }
       },
       "commuteMinutes": {
