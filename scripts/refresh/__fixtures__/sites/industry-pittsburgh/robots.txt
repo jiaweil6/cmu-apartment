@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /.netlify/
+
+Sitemap: https://industry-pittsburgh.com/sitemap.xml
+Sitemap: https://industry-pittsburgh.com/blog/sitemap.xml
