@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2024-02-03T00:00:00Z",
+  "generatedAt": "2026-11-10T04:26:44Z",
   "apartments": {
     "skyvue": {
       "units": {
@@ -27,6 +27,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 21.8,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.41,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "one-on-centre": {
@@ -55,6 +65,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 27.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.2,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "the-bridge-on-forbes": {
@@ -83,6 +103,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 20.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.35,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "sherwood-towers": {
@@ -111,6 +141,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 19.3,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.91,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "webster-hall": {
@@ -139,6 +179,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 15.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.69,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "amberson-gardens": {
@@ -167,6 +217,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 20.4,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.93,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "essex-house": {
@@ -195,6 +255,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 22.9,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.48,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "claybourne": {
@@ -223,6 +293,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 22,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.21,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "coda-on-centre": {
@@ -251,6 +331,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 22.3,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.58,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "industry-pittsburgh": {
@@ -279,6 +369,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 25.7,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.65,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "walnut-on-highland": {
@@ -307,6 +407,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 23.5,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.95,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "eastside-bond": {
@@ -335,6 +445,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 21.8,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.86,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "bakery-living": {
@@ -363,6 +483,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 22.3,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.9,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "kenmawr": {
@@ -391,6 +521,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 21.5,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.67,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "maxon-towers": {
@@ -419,6 +559,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 14.8,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "negley-court": {
@@ -447,6 +597,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 14.4,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.99,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
     "camelot": {
@@ -475,6 +635,16 @@
           "observedAt": "2024-02-03T00:00:00Z",
           "source": "manual-2024"
         }
+      },
+      "commuteMinutes": {
+        "value": 25.4,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.16,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     }
   }
