@@ -26,3 +26,24 @@ export const wholeMinutes = (minutes: number) => Math.max(1, Math.round(minutes)
 
 /** "0.2 mi" for a walking leg. */
 export const miles = (meters: number) => `${(meters / METERS_PER_MILE).toFixed(1)} mi`;
+
+const SMALL_WORDS = new Set(["to", "via", "and", "at", "of", "the", "on"]);
+
+/**
+ * PRT's timetable names stops and destinations in capitals with position codes:
+ * "FORBES AVE + MOREWOOD AVE FS (CARNEGIE MELLON)" → "Forbes Ave & Morewood Ave (Carnegie Mellon)",
+ * "HIGHLAND PARK TO DOWNTOWN VIA OAKLAND" → "Highland Park to Downtown via Oakland".
+ * Names that are already mixed case are left alone.
+ */
+export function tidyName(name: string): string {
+  if (name !== name.toUpperCase()) return name;
+  return name
+    .replace(/\s+(FS|NS|NB|SB|EB|WB)\b/g, "")
+    .replace(/\s*\+\s*/g, " & ")
+    .toLowerCase()
+    .replace(/[a-z]+/g, (word, offset: number) =>
+      offset > 0 && SMALL_WORDS.has(word) ? word : word.charAt(0).toUpperCase() + word.slice(1),
+    )
+    .replace(/\s+/g, " ")
+    .trim();
+}

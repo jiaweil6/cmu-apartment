@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { googleDirectionsUrl } from "@/lib/directions";
 import { ROOM_TYPES } from "@/lib/options";
-import { decodePolyline } from "@/lib/polyline";
+import { decodePolyline, removeSpurs } from "@/lib/polyline";
 import { priceParts, staleSince } from "@/lib/price-format";
 import { offeredPrice } from "@/lib/ranking";
 import { formatClock, miles, modeName, wholeMinutes } from "@/lib/route-format";
@@ -71,7 +71,7 @@ function routeView(routes: RoutesFile["apartments"][string] | null, trip: Trip):
   return {
     segments: routes.commute.legs.map((leg) => ({
       mode: leg.mode === "WALK" ? "walk" : "ride",
-      coordinates: decodePolyline(leg.geometry),
+      coordinates: removeSpurs(decodePolyline(leg.geometry)),
       label: leg.mode === "WALK" ? null : (leg.route?.shortName ?? modeName(leg.mode)),
     })),
     stops: rides.flatMap((leg) => [lngLat(leg.from.location), lngLat(leg.to.location)]),

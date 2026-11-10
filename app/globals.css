@@ -1867,6 +1867,22 @@ body:has(.map-explorer) .site-header-inner {
   font-size: 0.75rem;
 }
 
+/* Phones: with a card open, give the map more height so the route shows above the card. */
+@media (max-width: 899px) {
+  .map-stage:has(.map-card) {
+    height: min(88svh, 760px);
+  }
+
+  .map-card .trip-note {
+    display: none;
+  }
+
+  .map-card-trip {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+}
+
 /* ---------- Small screens ---------- */
 
 @media (max-width: 767px) {

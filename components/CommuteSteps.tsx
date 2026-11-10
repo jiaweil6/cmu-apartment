@@ -1,4 +1,4 @@
-import { formatClock, miles, modeName, wholeMinutes } from "@/lib/route-format";
+import { formatClock, miles, modeName, tidyName, wholeMinutes } from "@/lib/route-format";
 import type { ApartmentRoutes, RouteLeg } from "@/lib/schemas";
 import { Bus, Walk } from "./icons";
 
@@ -32,7 +32,7 @@ export default function CommuteSteps({ commute, from, to }: Props) {
             <span className="step-time" />
             <span className="step-text">
               <Walk className="step-icon" />
-              Walk {wholeMinutes(leg.minutes)} min to {index === last ? to : leg.to.name}
+              Walk {wholeMinutes(leg.minutes)} min to {index === last ? to : tidyName(leg.to.name)}
               <span className="step-meta">{miles(leg.meters)}</span>
             </span>
           </li>
@@ -40,15 +40,18 @@ export default function CommuteSteps({ commute, from, to }: Props) {
           <li key={index} className="step step-ride">
             <span className="step-time">{formatClock(leg.departAt)}</span>
             <span className="step-text">
+              Take the{" "}
               <span className="route-badge">
                 <Bus />
                 {lineName(leg)}
               </span>{" "}
-              {modeName(leg.mode)}
-              {leg.headsign && <> toward {leg.headsign}</>} from {leg.from.name}
+              {modeName(leg.mode).toLowerCase()} from {tidyName(leg.from.name)}
               <span className="step-meta">
-                {leg.stops} {leg.stops === 1 ? "stop" : "stops"}, {wholeMinutes(leg.minutes)} min · get off at {leg.to.name},{" "}
-                {formatClock(leg.arriveAt)}
+                {leg.headsign && <>{tidyName(leg.headsign)} · </>}
+                {leg.stops} {leg.stops === 1 ? "stop" : "stops"}, {wholeMinutes(leg.minutes)} min
+              </span>
+              <span className="step-meta">
+                Get off at {tidyName(leg.to.name)}, {formatClock(leg.arriveAt)}
               </span>
             </span>
           </li>
