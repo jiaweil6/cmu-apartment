@@ -1,0 +1,61 @@
+name: Map tiles
+
+# Builds the self-hosted basemap in public/map/ (a Protomaps extract of the area in
+# lib/map-area.json, plus label fonts) and commits it to the branch it ran on.
+# Runs when the area or the build script changes, or on demand to pick up newer
+# OpenStreetMap data.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - lib/map-area.json
+      - scripts/map/**
+      - .github/workflows/map-tiles.yml
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  # Pushes to main share the data jobs' queue so commits don't race.
+  group: ${{ github.ref_name == github.event.repository.default_branch && 'data-writes' || format('map-tiles-{0}', github.ref_name) }}
+  cancel-in-progress: false
+
+jobs:
+  tiles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install the pmtiles CLI
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo protomaps/go-pmtiles --pattern '*_Linux_x86_64.tar.gz' --output pmtiles.tar.gz
+          tar -xzf pmtiles.tar.gz pmtiles
+          sudo mv pmtiles /usr/local/bin/pmtiles
+          rm pmtiles.tar.gz
+          pmtiles version
+
+      - name: Build the basemap
+        run: scripts/map/build-tiles.sh
+
+      - name: Commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add public/map
+          if git diff --cached --quiet; then
+            echo "Basemap unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update map tiles ($(jq -r .build public/map/basemap.json))"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+          # Pushes made with GITHUB_TOKEN don't trigger workflows, so redeploy main explicitly.
+          if [ "$GITHUB_REF_NAME" = "${{ github.event.repository.default_branch }}" ]; then
+            gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
+          fi
