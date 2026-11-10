@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T05:17:25Z",
+  "generatedAt": "2026-11-10T16:20:15Z",
   "apartments": {
     "skyvue": {
       "units": {
@@ -30,12 +30,12 @@
       },
       "commuteMinutes": {
         "value": 21.8,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.41,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -68,12 +68,12 @@
       },
       "commuteMinutes": {
         "value": 27.6,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.2,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -114,12 +114,12 @@
       },
       "commuteMinutes": {
         "value": 20.6,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.35,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -152,12 +152,12 @@
       },
       "commuteMinutes": {
         "value": 19.3,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 0.91,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -190,12 +190,12 @@
       },
       "commuteMinutes": {
         "value": 15.6,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 0.69,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -228,12 +228,12 @@
       },
       "commuteMinutes": {
         "value": 20.4,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 0.93,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -270,12 +270,12 @@
       },
       "commuteMinutes": {
         "value": 22.9,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.48,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -312,12 +312,12 @@
       },
       "commuteMinutes": {
         "value": 22,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.21,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -358,12 +358,12 @@
       },
       "commuteMinutes": {
         "value": 22.3,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.58,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -404,12 +404,12 @@
       },
       "commuteMinutes": {
         "value": 25.7,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.65,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -442,12 +442,12 @@
       },
       "commuteMinutes": {
         "value": 23.5,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.95,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -480,12 +480,12 @@
       },
       "commuteMinutes": {
         "value": 21.8,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.86,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -518,12 +518,12 @@
       },
       "commuteMinutes": {
         "value": 22.3,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.9,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -562,12 +562,12 @@
       },
       "commuteMinutes": {
         "value": 21.5,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.67,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -600,12 +600,12 @@
       },
       "commuteMinutes": {
         "value": 14.8,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.6,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -638,12 +638,12 @@
       },
       "commuteMinutes": {
         "value": 14.4,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 0.99,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     },
@@ -676,12 +676,12 @@
       },
       "commuteMinutes": {
         "value": 25.4,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       },
       "walkMiles": {
         "value": 1.16,
-        "observedAt": "2026-11-10T04:26:44Z",
+        "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
     }
