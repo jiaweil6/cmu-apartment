@@ -1,6 +1,6 @@
 name: Map tiles
 
-# Builds the self-hosted basemap in public/map/ (a Protomaps extract of the area in
+# Builds the self-hosted basemap in public/basemap/ (a Protomaps extract of the area in
 # lib/map-area.json, plus label fonts) and commits it to the branch it ran on.
 # Runs when the area or the build script changes, or on demand to pick up newer
 # OpenStreetMap data.
@@ -45,14 +45,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          git add public/map
+          git add public/basemap
           if git diff --cached --quiet; then
             echo "Basemap unchanged"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update map tiles ($(jq -r .build public/map/basemap.json))"
+          git commit -m "Update map tiles ($(jq -r .build public/basemap/basemap.json))"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
           # Pushes made with GITHUB_TOKEN don't trigger workflows, so redeploy main explicitly.

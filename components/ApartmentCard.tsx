@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ROOM_TYPES } from "@/lib/options";
-import { offeredPrice } from "@/lib/ranking";
+import { priceParts, staleSince } from "@/lib/price-format";
 import type { Apartment, RoomType } from "@/lib/types";
 import CommuteRoute from "./CommuteRoute";
+import RentTable from "./RentTable";
 import { ChevronDown, ExternalLink, MapPin, Walk } from "./icons";
 
 interface Props {
@@ -18,53 +18,12 @@ interface Props {
 }
 
 // Fixed locale and time zone so the server and browser render the same text.
-const dateFormat = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" });
-const monthFormat = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
-const moveInFormat = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
-const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
-
-/** open: units to rent; waitlist: offered but full; muted: not offered or no data. */
-export type PriceTone = "open" | "waitlist" | "muted";
-
-export interface PriceParts {
-  /** "$1,849", or null when there's no rent to show. */
-  price: string | null;
-  /** "6 open", "Available Dec 24", "Waitlist", "Not available", "Unknown", or null. */
-  status: string | null;
-  tone: PriceTone | null;
-}
-
-export function priceParts(apartment: Apartment, roomType: RoomType): PriceParts {
-  const unit = apartment.units[roomType];
-  if (unit.status === "not-offered") return { price: null, status: "Not available", tone: "muted" };
-  const amount = offeredPrice(apartment, roomType);
-  if (amount === null) {
-    return unit.status === "waitlist"
-      ? { price: null, status: "Waitlist", tone: "waitlist" }
-      : { price: null, status: "Unknown", tone: "muted" };
-  }
-  const price = money.format(amount);
-  if (unit.status === "waitlist") return { price, status: "Waitlist", tone: "waitlist" };
-  if (unit.status === "available" && unit.availableFrom) {
-    const from = moveInFormat.format(new Date(`${unit.availableFrom}T00:00:00Z`));
-    return { price, status: `Available ${from}`, tone: "open" };
-  }
-  if (unit.status === "available" && unit.available) return { price, status: `${unit.available} open`, tone: "open" };
-  return { price, status: null, tone: null };
-}
-
-/** "$1,849 · 6 open", "$3,728 · Available Dec 24", "$5,200 · Waitlist", "Not available" or "Unknown". */
-export function formatPrice(apartment: Apartment, roomType: RoomType): string {
-  const { price, status } = priceParts(apartment, roomType);
-  return [price, status].filter(Boolean).join(" · ");
-}
-
 export default function ApartmentCard({ apartment, rank, roomType, isOpen, onToggle }: Props) {
   // Listing photos are hotlinked from other sites; hide the frame if one fails to load.
   const [imageFailed, setImageFailed] = useState(false);
 
   const detailsId = `apartment-details-${apartment.id}`;
-  const checkedAt = apartment.pricesCheckedAt ? new Date(apartment.pricesCheckedAt) : null;
+  const stale = staleSince(apartment);
   const selected = priceParts(apartment, roomType);
   const commuteMinutes = apartment.commuteMinutes ? Math.round(apartment.commuteMinutes.value) : null;
   const commute = commuteMinutes === null ? null : `${commuteMinutes} min`;
@@ -109,11 +68,11 @@ export default function ApartmentCard({ apartment, rank, roomType, isOpen, onTog
                 )}
               </span>
             )}
-            {(selected.status || apartment.pricesStale) && (
+            {(selected.status || stale) && (
               <span className="apartment-tags">
                 {selected.status && <span className={`tag tone-${selected.tone}`}>{selected.status}</span>}
-                {apartment.pricesStale && checkedAt && (
-                  <span className="tag tone-stale">Price from {monthFormat.format(checkedAt)}</span>
+                {stale && (
+                  <span className="tag tone-stale">Price from {stale}</span>
                 )}
               </span>
             )}
@@ -137,24 +96,7 @@ export default function ApartmentCard({ apartment, rank, roomType, isOpen, onTog
               />
             )}
 
-            <dl className="rent-grid" aria-label="Monthly rent">
-              {ROOM_TYPES.map(({ value, shortLabel }) => {
-                const parts = priceParts(apartment, value);
-                return (
-                  <div key={value} className={`rent-tile${value === roomType ? " is-selected" : ""}`}>
-                    <dt>{shortLabel}</dt>
-                    <dd className={parts.price ? "rent-price" : "rent-price is-missing"}>{parts.price ?? parts.status}</dd>
-                    {parts.price && parts.status && <dd className={`rent-status tone-${parts.tone}`}>{parts.status}</dd>}
-                  </div>
-                );
-              })}
-            </dl>
-            {checkedAt && (
-              <p className={`data-note${apartment.pricesStale ? " is-stale" : ""}`}>
-                Prices as of {dateFormat.format(checkedAt)}
-                {apartment.pricesStale && " (may be out of date)"}
-              </p>
-            )}
+            <RentTable apartment={apartment} roomType={roomType} />
 
             <dl className="fact-list">
               <div>
@@ -195,7 +137,7 @@ export default function ApartmentCard({ apartment, rank, roomType, isOpen, onTog
                 <ExternalLink />
                 <span className="visually-hidden"> (opens in a new tab)</span>
               </a>
-              <Link className="button" href="/map">
+              <Link className="button" href={{ pathname: "/map", query: { apartment: apartment.id, room: roomType } }}>
                 <MapPin />
                 View on map
               </Link>

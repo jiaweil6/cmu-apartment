@@ -10,6 +10,7 @@ before adding or changing a source. A scraper may only be enabled once its row i
 | --- | --- | --- | --- |
 | [PRT GTFS](https://www.rideprt.org/developerresources/GTFS.zip) | Transit commute (via OpenTripPlanner) | Published by Pittsburgh Regional Transit for developers; terms page at rideprt.org/business-resources (not yet reviewed) | Direct download, about 20 MB. The current feed runs 2026-10-18 to 2027-02-20, so refresh when it changes. |
 | [OpenStreetMap](https://www.openstreetmap.org/copyright) via [Geofabrik](https://download.geofabrik.de/north-america/us/pennsylvania.html) | Street network for walking and transit routing, building names, websites and `start_date` | ODbL: credit "© OpenStreetMap contributors" on the site | Pennsylvania extract clipped to Pittsburgh's East End with `osmium` |
+| [Protomaps](https://docs.protomaps.com/basemaps/downloads) daily build (OpenStreetMap data) | The map page's basemap: a vector-tile extract of the area in `lib/map-area.json`, self-hosted as `public/basemap/pittsburgh.pmtiles`, with Noto Sans label fonts from [basemaps-assets](https://github.com/protomaps/basemaps-assets) | ODbL for the map data; the map credits "Protomaps © OpenStreetMap" | `pmtiles extract` from `build.protomaps.com` in the "Map tiles" workflow, about 9 MB; no API key |
 | [WPRDC Property Assessments](https://data.wprdc.org/dataset/property-assessments) | Discovering apartment buildings (land use, ZIP, neighborhood, tax status) | CC0 | CKAN `datastore_search_sql`, API resource `65855e14-549e-4992-b5be-d629afc676fa`, about 585k parcels |
 | [WPRDC Parcel Centroids](https://data.wprdc.org/dataset/parcel-centroids-in-allegheny-county-with-geographic-identifiers) | Parcel coordinates and city neighborhood | CC0 | Resource `3fab7152-3f11-4788-8372-4c33f86ea813` (March 2025); join on `PIN` = `PARID` |
 
@@ -123,5 +124,6 @@ the free monthly credit). Listing aggregators and social sites are skipped, and 
 
 ## Not used
 
-- **Google Maps Platform** (Places, Routes): its terms only allow storing `place_id`, not ratings or route results, so it can't feed a stored snapshot.
+- **Google Maps Platform** (Places, Routes): its terms only allow storing `place_id`, not ratings or route results, so it can't feed a stored snapshot. The map page only links to Google Maps for transit directions; nothing is fetched from Google.
+- **Hosted map tiles that need a key** (HERE, Mapbox, Google): the self-hosted Protomaps extract needs no key, has no usage limits and is served with the site.
 - **apartments.com, Zillow, Craigslist:** terms forbid scraping.

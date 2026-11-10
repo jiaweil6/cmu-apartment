@@ -33,7 +33,6 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
-          NEXT_PUBLIC_HERE_API_KEY: ${{ vars.HERE_API_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

@@ -4,7 +4,7 @@ import snapshot2024 from "@/lib/__fixtures__/snapshot-2024.json";
 import { mergeListings } from "@/lib/apartments";
 import { listingsSchema, snapshotSchema } from "@/lib/schemas";
 import type { Apartment } from "@/lib/types";
-import { formatPrice, priceParts } from "./ApartmentCard";
+import { formatPrice, priceParts, staleSince } from "./price-format";
 
 const [apartment] = mergeListings(listingsSchema.parse(listings2024), snapshotSchema.parse(snapshot2024));
 const at = { observedAt: "2026-11-10T00:00:00Z", source: "test" };
@@ -31,5 +31,11 @@ describe("formatPrice", () => {
       status: "Waitlist",
       tone: "waitlist",
     });
+  });
+
+  it("names the month of stale prices only", () => {
+    const checked = { ...apartment, pricesCheckedAt: "2024-02-03T00:00:00Z" };
+    expect(staleSince({ ...checked, pricesStale: true })).toBe("Feb 2024");
+    expect(staleSince({ ...checked, pricesStale: false })).toBeNull();
   });
 });

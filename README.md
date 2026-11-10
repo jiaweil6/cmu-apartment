@@ -10,7 +10,8 @@ Prices, availability, commute times and the list of buildings keep themselves up
 - [Next.js 16](https://nextjs.org) (App Router) with React 19 and TypeScript, exported as a static site
 - Hosted on GitHub Pages, deployed by GitHub Actions
 - Plain CSS in `app/globals.css`, with colour and spacing tokens at the top (text colours meet WCAG AA contrast)
-- [HERE Maps](https://www.here.com/developer) for the `/map` page
+- [MapLibre GL JS](https://maplibre.org) for the `/map` page, on a self-hosted [Protomaps](https://protomaps.com) basemap of
+  OpenStreetMap data (no API key)
 - [Vitest](https://vitest.dev) for unit tests
 
 ## Getting started
@@ -19,13 +20,11 @@ Requires Node.js 22 or newer.
 
 ```bash
 npm install
-cp .env.example .env.local   # then add your HERE Maps API key
-npm run dev                  # http://localhost:3000
+npm run dev   # http://localhost:3000
 ```
 
-The map page needs `NEXT_PUBLIC_HERE_API_KEY`. The key is sent to the browser, so restrict it to your
-site's domains (and `localhost` for development) in the HERE console. Without a key the rest of the
-site works and the map shows a notice instead.
+No API keys are needed. The map's tiles and fonts are committed in `public/basemap/` (see
+[The map](#the-map)).
 
 | Script | What it does |
 | --- | --- |
@@ -45,9 +44,8 @@ site works and the map shows a notice instead.
 1. **Settings → Pages → Source:** GitHub Actions.
 2. **Settings → Actions → General → Workflow permissions:** Read and write, and allow GitHub Actions to create
    and approve pull requests.
-3. **Settings → Secrets and variables → Actions:**
-   - variable `HERE_API_KEY`: a HERE key that allows `jiaweil6.github.io`
-   - secret `BRAVE_API_KEY` (optional): lets discovery look up websites for new buildings
+3. **Settings → Secrets and variables → Actions:** secret `BRAVE_API_KEY` (optional), which lets discovery look up
+   websites for new buildings.
 4. Branch protection on `main`, if added later, must let `github-actions[bot]` push: data refreshes commit there.
 
 ## Project layout
@@ -56,7 +54,7 @@ site works and the map shows a notice instead.
 app/
   layout.tsx                    Root layout: fonts, header and navigation, global styles, data credits
   page.tsx                      Ranking page (server component, loads data)
-  map/page.tsx                  Map of every apartment
+  map/page.tsx                  Map of every apartment (components/MapExplorer.tsx)
   api/apartments.json/route.ts  /api/apartments.json: every listing with its latest data
   globals.css                   Site styles
 components/                     UI; ApartmentFinder holds the ranking page's state, icons.tsx the inline icons
@@ -65,6 +63,8 @@ lib/
   apartments.ts                 Data access: merges listings with the latest snapshot
   schemas.ts                    zod schemas for every data file
   options.ts                    Slider, select and filter options shown in the UI
+  map-style.ts, map-area.json   The map's basemap style and the area its tiles cover
+public/basemap/                 Self-hosted map tiles (PMTiles) and label fonts, built by the "Map tiles" workflow
 data/
   apartments.json               Listing details, reviewed by hand (including how each one's prices are read)
   snapshot.json                 Values fetched on a schedule: prices, availability, commute, walking distance
@@ -104,6 +104,7 @@ fails opens a "Data job failing" issue that closes itself on the next success.
 | `promote-candidates.yml` | After a finds PR merges | Lists approved buildings, remembers rejected ones |
 | `manual-prices-reminder.yml` | Monthly | Keeps an issue listing hand-entered prices over 60 days old |
 | `inspect-sites.yml` | On demand | Surveys listing websites to help write a price scraper |
+| `map-tiles.yml` | When `lib/map-area.json` changes, or on demand | Rebuilds the map's basemap from the latest OpenStreetMap data |
 | `ci.yml` | Every push | Lint, typecheck, tests, build |
 
 ### Prices
@@ -138,3 +139,23 @@ can't overwrite your edits.
 
 To add an apartment by hand, add it to `data/apartments.json` (the schema in `lib/schemas.ts` says what's
 needed), plus a `data/manual-prices.json` entry if it's priced by hand, and run the refreshes.
+
+## The map
+
+`/map` lists every apartment beside a map of where it sits from campus. Price tags show the rent for the chosen
+room type and give way to each other when they'd overlap; selecting an apartment (in the list or on the map)
+frames it with campus, draws its commute, and opens a card with every rent and links to the building's website
+and to transit directions. The room type and selection are in the address, so `?apartment=coda-on-centre&room=oneBedroom`
+links straight to one; each card on the rankings page does this with "View on map".
+
+It's drawn with [MapLibre GL JS](https://maplibre.org) on a basemap the site serves itself, so there's no API key or
+tile service to pay for or rate-limit:
+
+- `public/basemap/pittsburgh.pmtiles`: a [Protomaps](https://protomaps.com) vector-tile extract (OpenStreetMap
+  data) of the area in `lib/map-area.json`, read with HTTP range requests
+- `public/basemap/fonts/`: the Noto Sans glyphs for labels
+- `lib/map-style.ts`: Protomaps' light style repainted in the site's palette
+
+The "Map tiles" workflow rebuilds these (and commits them) when `lib/map-area.json` changes; run it by hand to pick
+up newer map data. MapLibre's web worker is copied into `public/basemap/` before every dev server and build.
+

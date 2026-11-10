@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds the map's basemap into public/map/:
+# Builds the map's basemap into public/basemap/:
 #   - pittsburgh.pmtiles: a Protomaps vector-tile extract (OpenStreetMap data) of the
 #     area in lib/map-area.json, served as a static file and read with range requests
 #   - fonts/: the label glyphs the style uses
@@ -9,7 +9,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/../.."
-OUT=public/map
+OUT=public/basemap
 BBOX=$(jq -r '.bbox | join(",")' lib/map-area.json)
 MAXZOOM=$(jq -r '.maxzoom' lib/map-area.json)
 

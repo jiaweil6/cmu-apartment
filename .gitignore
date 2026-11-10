@@ -49,3 +49,6 @@ next-env.d.ts
 
 # Website survey output (scripts/inspect-sites); uploaded as a workflow artifact instead
 /scripts/refresh/__fixtures__/sites/
+
+# MapLibre worker, copied from node_modules before dev and build (scripts/map/copy-worker.mjs)
+/public/basemap/maplibre-gl-worker.mjs

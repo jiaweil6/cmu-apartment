@@ -84,3 +84,19 @@ export function ArrowDown({ className }: IconProps) {
     </svg>
   );
 }
+
+export function Close({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+export function Frame({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4" />
+    </svg>
+  );
+}
