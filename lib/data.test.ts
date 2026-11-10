@@ -38,3 +38,16 @@ describe("data files", () => {
     expect(snapshotSchema.safeParse(bad).success).toBe(false);
   });
 });
+
+describe("pricing configuration", () => {
+  it("names a known adapter, with the settings it needs, for every listing", async () => {
+    const { ADAPTERS } = await import("@/scripts/refresh/pricing");
+    const manualPrices = (await import("@/data/manual-prices.json")).default as Record<string, unknown>;
+    for (const apartment of listingsSchema.parse(listingsFile).apartments) {
+      const { adapter, url } = apartment.pricing;
+      expect(ADAPTERS.has(adapter), `${apartment.id}: unknown adapter "${adapter}"`).toBe(true);
+      if (adapter === "manual") expect(manualPrices[apartment.id], `${apartment.id}: no manual prices`).toBeDefined();
+      if (adapter === "sightmap" || adapter === "entrata-wp") expect(url, `${apartment.id}: pricing.url`).toBeDefined();
+    }
+  });
+});

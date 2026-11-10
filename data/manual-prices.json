@@ -43,28 +43,6 @@
       }
     }
   },
-  "the-bridge-on-forbes": {
-    "verifiedOn": "2024-02-03",
-    "note": "Carried over from the original site",
-    "units": {
-      "studio": {
-        "status": "unknown",
-        "minPrice": 1500
-      },
-      "oneBedroom": {
-        "status": "unknown",
-        "minPrice": 1900
-      },
-      "twoBedroom": {
-        "status": "unknown",
-        "minPrice": 2500
-      },
-      "threeBedroom": {
-        "status": "unknown",
-        "minPrice": 3750
-      }
-    }
-  },
   "sherwood-towers": {
     "verifiedOn": "2024-02-03",
     "note": "Carried over from the original site",
@@ -124,94 +102,6 @@
       "twoBedroom": {
         "status": "unknown",
         "minPrice": 1700
-      },
-      "threeBedroom": {
-        "status": "not-offered",
-        "minPrice": null
-      }
-    }
-  },
-  "essex-house": {
-    "verifiedOn": "2024-02-03",
-    "note": "Carried over from the original site",
-    "units": {
-      "studio": {
-        "status": "not-offered",
-        "minPrice": null
-      },
-      "oneBedroom": {
-        "status": "unknown",
-        "minPrice": 1650
-      },
-      "twoBedroom": {
-        "status": "unknown",
-        "minPrice": 2050
-      },
-      "threeBedroom": {
-        "status": "not-offered",
-        "minPrice": null
-      }
-    }
-  },
-  "claybourne": {
-    "verifiedOn": "2024-02-03",
-    "note": "Carried over from the original site",
-    "units": {
-      "studio": {
-        "status": "not-offered",
-        "minPrice": null
-      },
-      "oneBedroom": {
-        "status": "unknown",
-        "minPrice": 1550
-      },
-      "twoBedroom": {
-        "status": "unknown",
-        "minPrice": 1800
-      },
-      "threeBedroom": {
-        "status": "not-offered",
-        "minPrice": null
-      }
-    }
-  },
-  "coda-on-centre": {
-    "verifiedOn": "2024-02-03",
-    "note": "Carried over from the original site",
-    "units": {
-      "studio": {
-        "status": "unknown",
-        "minPrice": 1660
-      },
-      "oneBedroom": {
-        "status": "unknown",
-        "minPrice": 1900
-      },
-      "twoBedroom": {
-        "status": "unknown",
-        "minPrice": 2700
-      },
-      "threeBedroom": {
-        "status": "not-offered",
-        "minPrice": null
-      }
-    }
-  },
-  "industry-pittsburgh": {
-    "verifiedOn": "2024-02-03",
-    "note": "Carried over from the original site",
-    "units": {
-      "studio": {
-        "status": "unknown",
-        "minPrice": 2170
-      },
-      "oneBedroom": {
-        "status": "unknown",
-        "minPrice": 2400
-      },
-      "twoBedroom": {
-        "status": "unknown",
-        "minPrice": 5200
       },
       "threeBedroom": {
         "status": "not-offered",
@@ -282,28 +172,6 @@
       "threeBedroom": {
         "status": "not-offered",
         "minPrice": null
-      }
-    }
-  },
-  "kenmawr": {
-    "verifiedOn": "2024-02-03",
-    "note": "Carried over from the original site",
-    "units": {
-      "studio": {
-        "status": "not-offered",
-        "minPrice": null
-      },
-      "oneBedroom": {
-        "status": "unknown",
-        "minPrice": 1600
-      },
-      "twoBedroom": {
-        "status": "unknown",
-        "minPrice": 1900
-      },
-      "threeBedroom": {
-        "status": "unknown",
-        "minPrice": 2600
       }
     }
   },

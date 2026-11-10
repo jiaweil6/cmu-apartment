@@ -1,14 +1,13 @@
 name: Inspect building websites
 
-# Temporary: surveys listing websites so price scrapers can be written, then
-# commits the report to the feature branch. Delete once the survey is done.
+# On demand: survey every listing's website (robots.txt, leasing platform,
+# rent-like JSON, pricing pages) to help write a price scraper for a building.
+# The report is uploaded as an artifact; see docs/data-sources.md.
 on:
-  push:
-    branches: [claude/eloquent-clarke-du30hy]
-    paths: [".github/workflows/inspect-sites.yml", "scripts/inspect-sites/**"]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   inspect:
@@ -22,11 +21,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: rm -rf scripts/refresh/__fixtures__/sites
       - run: npx tsx scripts/inspect-sites/index.ts
-      - name: Commit report to the feature branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add scripts/refresh/__fixtures__/sites
-          git diff --cached --quiet || { git commit -m "Update building website survey" && git push; }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-survey
+          path: scripts/refresh/__fixtures__/sites

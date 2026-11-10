@@ -1,0 +1,30 @@
+name: Verify price scrapers
+
+# Temporary: run the price refresh against the live sites on the feature branch
+# and commit the result there. Delete before merging.
+on:
+  push:
+    branches: [claude/eloquent-clarke-du30hy]
+    paths: [".github/workflows/verify-prices.yml", "scripts/refresh/pricing/**", "scripts/lib/http.ts"]
+
+permissions:
+  contents: write
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run refresh -- --only prices --summary refresh-summary.md
+      - run: cat refresh-summary.md
+      - name: Commit to the feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshot.json
+          git diff --cached --quiet || { git commit -m "Refresh prices (scraper verification)" && git push; }

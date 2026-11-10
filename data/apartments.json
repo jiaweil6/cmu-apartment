@@ -97,7 +97,11 @@
       "parcelIds": [],
       "yearBuilt": 2019,
       "pricing": {
-        "adapter": "manual"
+        "adapter": "entrata-wp",
+        "url": "https://thebridgeonforbes.com/wp-json/theme/entrata/v1/floor-plans",
+        "options": {
+          "perBed": true
+        }
       },
       "legacyScores": {
         "commute": 0.88,
@@ -229,7 +233,7 @@
       ],
       "yearBuilt": 1974,
       "pricing": {
-        "adapter": "manual"
+        "adapter": "page-text"
       },
       "legacyScores": {
         "commute": 0.19,
@@ -262,7 +266,7 @@
       ],
       "yearBuilt": 1968,
       "pricing": {
-        "adapter": "manual"
+        "adapter": "page-text"
       },
       "legacyScores": {
         "commute": 0.44,
@@ -295,7 +299,8 @@
       ],
       "yearBuilt": 2018,
       "pricing": {
-        "adapter": "manual"
+        "adapter": "sightmap",
+        "url": "https://sightmap.com/app/api/v1/jlw074e4v2y/sightmaps/76852"
       },
       "legacyScores": {
         "commute": 0.13,
@@ -328,7 +333,8 @@
       ],
       "yearBuilt": 2023,
       "pricing": {
-        "adapter": "manual"
+        "adapter": "sightmap",
+        "url": "https://sightmap.com/app/api/v1/y8px0z8jp19/sightmaps/26183"
       },
       "legacyScores": {
         "commute": 0.19,
@@ -461,7 +467,7 @@
       ],
       "yearBuilt": 1956,
       "pricing": {
-        "adapter": "manual"
+        "adapter": "page-text"
       },
       "legacyScores": {
         "commute": 0.38,
