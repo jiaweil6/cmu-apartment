@@ -1,0 +1,367 @@
+/*
+ * Site styles, loaded after Bootstrap 4 (see app/layout.tsx).
+ * Body text uses Bootstrap's system font stack; headings, cards and the map
+ * title use Zilla Slab (--font-zilla-slab, set by next/font).
+ */
+
+:root {
+  --accent: #f50;
+  --page-bg: #f7f3ee;
+  --serif: var(--font-zilla-slab), serif;
+}
+
+/* Reset from the original design. It skips the map's internals, whose
+   controls rely on browser defaults. */
+:where(*:not(.map-container *)) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: inherit;
+}
+
+body {
+  background-color: var(--page-bg);
+}
+
+.container-fluid {
+  max-width: 1200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: #333;
+  padding-top: 35px;
+  padding-bottom: 15px;
+}
+
+/* ---------- Your Priorities ---------- */
+
+.priority-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: var(--page-bg);
+  font-size: 16px;
+  color: grey;
+}
+
+.priority-label {
+  min-width: 140px;
+  margin-right: 10px;
+}
+
+.percentage-bar-container {
+  flex-grow: 1;
+  position: relative;
+  height: 5px;
+  margin: 0 10px;
+  background-color: #e6e6e6;
+}
+
+.percentage-bar {
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent);
+}
+
+.percentage {
+  min-width: 50px;
+  text-align: right;
+  color: grey;
+}
+
+.priority-label.is-active,
+.percentage.is-active {
+  color: black;
+}
+
+/* ---------- Priority sliders ---------- */
+
+.sliderText {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.priority-slider {
+  margin-bottom: 20px;
+}
+
+.priority-slider label {
+  display: block;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 4rem;
+  margin-left: -10px;
+  margin-top: -25px;
+  padding: 0 10px;
+  background: var(--page-bg);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90%;
+  height: 8px;
+  border-radius: 15px;
+  background: #ccc;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent);
+  transition: 0.2s ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent);
+  transition: 0.2s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(255, 85, 0, 0.1);
+}
+input[type="range"]:active::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px rgba(255, 85, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(255, 85, 0, 0.1);
+}
+input[type="range"]:active::-moz-range-thumb,
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 13px rgba(255, 85, 0, 0.2);
+}
+
+/* ---------- About You ---------- */
+
+.aboutYouText {
+  font-weight: 400;
+}
+
+.info-message {
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* ---------- Filter dropdowns ---------- */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 45%;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: black solid 1px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.dropbtn {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: default;
+}
+
+/* Hidden with opacity rather than display so the checkboxes stay reachable by Tab. */
+.dropdown-content {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+/* Opens on hover, or when tabbed into with the keyboard. */
+.dropdown:hover .dropdown-content,
+.dropdown:has(:focus-visible) .dropdown-content {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .dropdown {
+    padding: 10px 20px;
+  }
+  .dropdown-content {
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown {
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+  .dropdown-content {
+    min-width: 120px;
+  }
+}
+
+/* ---------- Rankings ---------- */
+
+#rankingsList {
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.warning {
+  margin: 20px;
+  font-size: 50px;
+  color: var(--accent);
+  text-align: center;
+}
+
+.empty-message {
+  font-style: italic;
+  color: #555;
+}
+
+.card {
+  overflow: visible;
+  border: none;
+}
+
+.apartment-card {
+  padding-top: 5px;
+}
+
+.card-body {
+  font-family: var(--serif);
+  color: #555;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #1d1b19;
+}
+
+@media (max-width: 768px) {
+  .card-title {
+    padding-left: 10px;
+  }
+}
+
+.apartment-toggle {
+  width: 100%;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.apartment-toggle:hover {
+  color: #0056b3;
+}
+
+.apartment-toggle .chevron {
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+
+.apartment-toggle[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+/* Collapsible details: animates between 0 and the content's height. */
+.apartment-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.apartment-details.is-open {
+  grid-template-rows: 1fr;
+}
+
+.apartment-details > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 20px below the title, which already has Bootstrap's 0.75rem bottom margin. */
+.apartment-details-content {
+  margin-top: calc(20px - 0.75rem);
+  border-top: 1px solid #ccc;
+}
+
+.apartment-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Map page ---------- */
+
+.map-title {
+  margin-top: 20px;
+  font-family: var(--serif);
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  height: 700px;
+  margin-top: 20px;
+}
+
+.map-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  color: #555;
+  text-align: center;
+}
+
+.map-label,
+.map-label:hover {
+  font-size: 10px;
+  color: #c81238;
+}
