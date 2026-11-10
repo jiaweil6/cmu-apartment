@@ -1,0 +1,45 @@
+name: Refresh transit data
+
+# Weekly: route from every apartment to campus with OpenTripPlanner, using PRT's
+# GTFS feed and an OpenStreetMap extract, and open a PR with the new snapshot.
+on:
+  schedule:
+    - cron: "17 9 * * 1" # Mondays, 09:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-transit
+
+jobs:
+  transit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: ./.github/actions/opentripplanner
+
+      - name: Refresh commute and walking distance
+        run: npm run refresh -- --only transit --gtfs-dir otp-run/gtfs --summary refresh-summary.md
+
+      - name: Show OpenTripPlanner log
+        if: failure()
+        run: tail -n 100 otp-run/server.log || true
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/refresh-transit
+          add-paths: data/snapshot.json
+          commit-message: Refresh commute and walking distance
+          title: Refresh commute and walking distance
+          body-path: refresh-summary.md
+          delete-branch: true

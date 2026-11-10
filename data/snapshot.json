@@ -1,0 +1,651 @@
+{
+  "generatedAt": "2026-11-10T04:26:44Z",
+  "apartments": {
+    "skyvue": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1880,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 2150,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2650,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 3450,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 21.8,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.41,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "one-on-centre": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 2060,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 2300,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 3340,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 4350,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 27.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.2,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "the-bridge-on-forbes": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1500,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1900,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2500,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 3750,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 20.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.35,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "sherwood-towers": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1800,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2300,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 2700,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 19.3,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.91,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "webster-hall": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1450,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1800,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2250,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 15.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.69,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "amberson-gardens": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1100,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1300,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 1700,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 20.4,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.93,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "essex-house": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1650,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2050,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 22.9,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.48,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "claybourne": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1550,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 1800,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 22,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.21,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "coda-on-centre": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1660,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1900,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2700,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 22.3,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.58,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "industry-pittsburgh": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 2170,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 2400,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 5200,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 25.7,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.65,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "walnut-on-highland": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1753,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1991,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2500,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 23.5,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.95,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "eastside-bond": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1800,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 2300,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 3500,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 21.8,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.86,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "bakery-living": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1650,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1800,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 3000,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 22.3,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.9,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "kenmawr": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1600,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 1900,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 2600,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 21.5,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.67,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "maxon-towers": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1700,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2200,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 2900,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 14.8,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.6,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "negley-court": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 885,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1100,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 1600,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 14.4,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 0.99,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    },
+    "camelot": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "oneBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2230,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 2800,
+          "observedAt": "2024-02-03T00:00:00Z",
+          "source": "manual-2024"
+        }
+      },
+      "commuteMinutes": {
+        "value": 25.4,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      },
+      "walkMiles": {
+        "value": 1.16,
+        "observedAt": "2026-11-10T04:26:44Z",
+        "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
+      }
+    }
+  }
+}

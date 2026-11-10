@@ -1,0 +1,4 @@
+{
+  "osm": [{ "source": "pittsburgh.osm.pbf" }],
+  "transitFeeds": [{ "type": "gtfs", "feedId": "PRT", "source": "prt-gtfs.zip" }]
+}
