@@ -146,7 +146,9 @@
         "fitness": true,
         "parking": true
       },
-      "parcelIds": [],
+      "parcelIds": [
+        "0027M00161000A00"
+      ],
       "yearBuilt": null,
       "legacyScores": {
         "commute": 1,

@@ -19,7 +19,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={zillaSlab.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <footer className="site-footer">
+          Commute and walking times are calculated with{" "}
+          <a href="https://www.rideprt.org/" target="_blank" rel="noopener noreferrer">
+            Pittsburgh Regional Transit
+          </a>{" "}
+          schedules and map data ©{" "}
+          <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">
+            OpenStreetMap contributors
+          </a>{" "}
+          (ODbL).
+        </footer>
+      </body>
     </html>
   );
 }

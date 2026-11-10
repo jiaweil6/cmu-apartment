@@ -39,7 +39,7 @@ Several buildings span more than one parcel; only the residential ones are liste
 | One on Centre | 0027D00060000000 | Address (403) |
 | The Bridge on Forbes | (none yet) | No apartment-coded parcel near the address. Needs a manual lookup. |
 | Sherwood Towers | 0027D00190000000 | Address (403) |
-| Webster Hall | (none yet) | Address not found. Needs a manual lookup. |
+| Webster Hall | 0027M00161000A00 | 4415 Fifth Ave, the building's street address (404). The listing's address is the leasing office on N Dithridge St. |
 | Amberson Gardens | 0051P00300000000 | Address (403) |
 | Essex House | 0051H00308000000 | Address (403) |
 | Claybourne | 0051M00223000000 | Address (403) |

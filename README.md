@@ -38,7 +38,7 @@ site works and the map shows a notice instead.
 
 ```
 app/
-  layout.tsx              Root layout: fonts, Bootstrap, global styles
+  layout.tsx              Root layout: fonts, Bootstrap, global styles, data credits
   page.tsx                Ranking page (server component, loads data)
   map/page.tsx            Map of every apartment
   api/apartments/route.ts GET /api/apartments: listings as JSON
@@ -46,19 +46,41 @@ app/
 components/               UI; ApartmentFinder holds the ranking page's state
 lib/
   ranking.ts              Scoring, filtering and ranking (pure functions, tested)
-  apartments.ts           Data access; swap in a database here later
+  apartments.ts           Data access: merges listings with the latest snapshot
+  schemas.ts              zod schemas for the data files
   options.ts              Slider, select and filter options shown in the UI
   here-maps.ts            Loads the HERE Maps SDK
-  types.ts                Shared types
-data/apartments.ts        Apartment listings
+data/
+  apartments.json         Listing details, reviewed by hand
+  snapshot.json           Values fetched on a schedule: prices, commute, walking distance
+scripts/refresh/          `npm run refresh`: updates snapshot.json from live sources
+otp/                      OpenTripPlanner config used by the transit refresh
+docs/data-sources.md      Every data source, its license, and what we checked
 ```
 
 ## How ranking works
 
-Each apartment has a 0–1 score per criterion, where 1 is best. Commute, distance, rating and building-age
-scores are stored in `data/apartments.ts`. They are ranks carried over from the original spreadsheet. Price
-scores are computed from the listed rents for the selected room type. An apartment's total is the sum of
-its scores weighted by the slider positions, and the list is sorted by that total.
+Each apartment gets a 0–1 score per criterion, where 1 is best: its rank among all listings, so the best
+gets 1 and the worst 1/n. Scores come from raw values (rent for the selected room type, commute minutes,
+walking miles, year built). A criterion with no live values yet uses the scores carried over from the
+original 2024 spreadsheet, and an apartment missing a value gets the median. The total is the sum of the
+scores weighted by the slider positions.
 
-To add or update an apartment, edit `data/apartments.ts`. Price scores update automatically. The stored
-rank scores of every apartment need recomputing when one is added.
+## Data pipeline
+
+Fetched values live in `data/snapshot.json`, separate from the hand-reviewed listing details. Scheduled
+GitHub Actions refresh the snapshot and open a pull request with a summary of what changed. Values that
+fail to refresh keep their previous value.
+
+| Workflow | Schedule | What it updates |
+| --- | --- | --- |
+| `refresh-transit.yml` | Mondays | Commute to campus (median door-to-door time arriving by 8:30, 9:00 and 9:30 AM on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap |
+
+To run the transit refresh locally, start OpenTripPlanner as the workflow does, then:
+
+```bash
+npm run refresh -- --only transit --gtfs-dir otp-run/gtfs --dry-run
+```
+
+To add an apartment, add it to `data/apartments.json` (the schema in `lib/schemas.ts` says what's needed)
+and run the refreshes. Ranks are recomputed automatically.

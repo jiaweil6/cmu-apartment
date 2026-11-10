@@ -341,6 +341,17 @@ input[type="range"]:focus::-moz-range-thumb {
   height: auto;
 }
 
+/* ---------- Footer ---------- */
+
+.site-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 15px 30px;
+  font-size: 0.8rem;
+  color: grey;
+  text-align: center;
+}
+
 /* ---------- Map page ---------- */
 
 .map-title {
