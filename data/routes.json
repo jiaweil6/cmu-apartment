@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T20:56:54Z",
+  "generatedAt": "2026-11-10T21:29:51Z",
   "serviceDate": "2026-11-17",
   "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap",
   "apartments": {
@@ -1784,6 +1784,1218 @@
         "minutes": 17.6,
         "geometry": [
           "m}{uFb}}fN~@tE@BB@`EuA??FCFA@AvAe@p@Ur@UBC@AJEJCDA@?~@[XKHC`A[LEjAa@VIh@QhBm@BABC?A@A@?NELAjAa@tAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "here-pittsburgh": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:44",
+        "arriveAt": "08:58",
+        "minutes": 14.1,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "HERE",
+              "stopCode": null,
+              "location": {
+                "lat": 40.43967,
+                "lng": -79.958717
+              }
+            },
+            "to": {
+              "name": "FORBES AVE + MCKEE PL",
+              "stopCode": "28",
+              "location": {
+                "lat": 40.43967,
+                "lng": -79.9595
+              }
+            },
+            "departAt": "08:44",
+            "arriveAt": "08:45",
+            "minutes": 1.2,
+            "meters": 65,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "yiyuFp~_gNu@bAA?HLFL?@@@DF"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "FORBES AVE + MCKEE PL",
+              "stopCode": "28",
+              "location": {
+                "lat": 40.43967,
+                "lng": -79.9595
+              }
+            },
+            "to": {
+              "name": "FORBES AVE + MOREWOOD (CARNEGIE MELLON)",
+              "stopCode": "7117",
+              "location": {
+                "lat": 40.444458,
+                "lng": -79.942291
+              }
+            },
+            "departAt": "08:45",
+            "arriveAt": "08:52",
+            "minutes": 7.3,
+            "meters": 1698,
+            "route": {
+              "shortName": "61B",
+              "longName": "BRADDOCK-SWISSVALE"
+            },
+            "headsign": "BRADDOCK-SWISSVALE BRADDOCK HILLS SHOPPING CENTER",
+            "stops": 6,
+            "geometry": "}jyuF|a`gNGDMSU]U]S_@U[[c@Yc@Q]U]W]U]U]FGGFMSW_@W_@W_@Wa@Wa@Ua@OSOUU_@Y_@DGEFEGUc@U[GIQYGKKSGUGYIm@GWEWG_@Kk@Kk@Km@??HEIDGa@G[EWESGe@CQEOKk@ESEUE_@EOCICWGa@I_@E]G[LCMBEUIe@Ig@EYG[E]E]Ii@Ie@G]G]GYIc@?GGYGc@Ic@HAI@EWCYC]A]A_@C]?]A[Cg@?Y?Y?Y?Y?a@?MCE?C?U?G?EAY?W?C?EAi@?C?[?YAYAm@Aq@?CAg@?g@Ai@?Q?g@Cg@?M?YAg@Ag@?YBi@?M?YDi@De@Hm@JD"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "FORBES AVE + MOREWOOD (CARNEGIE MELLON)",
+              "stopCode": "7117",
+              "location": {
+                "lat": 40.444458,
+                "lng": -79.942291
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:52",
+            "arriveAt": "08:58",
+            "minutes": 5.7,
+            "meters": 392,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "whzuFpw|fNAPG~@CL?F?ZAtABJGf@?DBnA?\\?J@v@TSNEr@VD@F@T@JJ@BFV@@HCB??@?BKV?B?BB@@ANQHE@JDDFBPDXHHAND"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1624,
+        "minutes": 21,
+        "geometry": [
+          "yiyuFp~_gNd@o@cAeBGIHKEIu@kACCGIDEIKFICAGI?A_AuA??GKACIMEG}@uAQWGKEI{@oAW_@AA?AA?EEGEAA??@C@Cj@mARe@Ra@P_@DM?I?GACAA@CFKFK@AIGEGEMEKEUUuAIc@CQCECIEMGKIMEECEMIWOUO_@WUM_@WSYIUEW@WDg@@?B[He@\\eBRs@`@cAJQDKXi@x@{Az@sBXu@FIP[EGKOUWW]a@q@KN}@wAASKAIAYEa@D]CiBe@UGMWESMu@?CA[Du@By@B}@EQs@Q"
+        ]
+      }
+    },
+    "connection-at-southside": {
+      "commute": {
+        "arriveBy": "08:30",
+        "departAt": "07:48",
+        "arriveAt": "08:19",
+        "minutes": 30.5,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Connection at Southside",
+              "stopCode": null,
+              "location": {
+                "lat": 40.425134,
+                "lng": -79.962374
+              }
+            },
+            "to": {
+              "name": "SARAH ST + E CARSON ST",
+              "stopCode": "21624",
+              "location": {
+                "lat": 40.424271,
+                "lng": -79.962356
+              }
+            },
+            "departAt": "07:48",
+            "arriveAt": "07:50",
+            "minutes": 1.4,
+            "meters": 104,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "ynvuFhu`gNR[b@u@P[BDr@x@@C"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "SARAH ST + E CARSON ST",
+              "stopCode": "21624",
+              "location": {
+                "lat": 40.424271,
+                "lng": -79.962356
+              }
+            },
+            "to": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "departAt": "07:50",
+            "arriveAt": "08:10",
+            "minutes": 20.1,
+            "meters": 5225,
+            "route": {
+              "shortName": "75",
+              "longName": "ELLSWORTH"
+            },
+            "headsign": "ELLSWORTH VA HOSPITAL",
+            "stops": 13,
+            "geometry": "ujvuFvs`gNFKNPNPU`@W`@QZQZOVMTQVMTILWb@Wb@MTOTS^U^?@U^U\\EJMTOTQZOTKLCJGDKRGEFDKTQZILQR?DOXQVOZQXS\\SZIKHJ?@CDIRGZE\\I\\Mj@CPCLG`@CJIb@KKJJETEXEVEVGVEXGXEXEVKj@Kh@Kn@Ml@G\\GZIj@GZEXMGLFCTC`@C`@C^AX?^A\\Al@Cl@GRAd@Cd@?N?TEp@YAY?UAWAUAUAWAWAUAWA]?S@K?K@E@UHWBYFMDUBUDYFQ@_@D_@@SBSBU?W?YEYCYCWCQ?GCWCYEYCYEYCYEYCYEYCYEYC[EQAOAQM?AWEQGWGQGa@GWCKCc@Cc@GAA_@EWAWE]C[GE?OCMAOCOEOAQCAAC?IAOAE?GCWCA?A?C?CCMCAAAACAEAEEACOMF_@BKBUDWFYF[BKLk@FSDM?A?A@?DKHMDQJ[Jc@DUBGFe@Jm@F[BG?GF]BM?A@IHa@?E@E@GDUDU@E@O@EJk@Dg@?A@Q@K@ID_@?A?I?G??BW?C?Q?Q@K?_@?i@@e@?a@@]?_@?G?K?Q?G?E?A?C?A?C?A?E@a@?c@?[?]@[AY?M?KAQAOAQASGQCKEICIIKYc@MSOUMSMSYa@EGCI[a@Wa@Wc@U[MSOSHKIJMUOUOQWa@?AGKW_@Yc@S[U[S[Ye@J?K?Wa@SYS[W_@Yc@EGQYQWS]OUQWQWQWOWW_@U]U]S_@U[[c@MSOUFGGFMWYa@Ya@Yc@Yc@SYS[S[SYDGEFOUWa@Ua@OSOUU_@Y_@DGEFEGUc@U[GIQYGKKSGUGYIm@GWEWG_@Kk@Kk@Km@??HEIDGa@G[EWESGe@CQEOKk@ESEUE_@EOCICWGa@I_@Gg@Kg@Ie@Ig@EYG[a@NWJYJYHYJWJYHYJWH_@NCMBL]L[LOB]L]LWF]J]J?E?Dc@NKWMUMa@EWC[?[C[Ac@Ac@Am@Ak@Ak@Ak@AMJEKDC]C_@C_@E_@Em@Eo@AGA[A_@?Y?YAYAW?Q?QCk@QFSHQHSHUHUF?I"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:10",
+            "arriveAt": "08:19",
+            "minutes": 9.1,
+            "meters": 686,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "_}zuF~v}fN?DRGAMtAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 3673,
+        "minutes": 48.8,
+        "geometry": [
+          "ynvuFhu`gNR[b@u@P[EEmAwAEAE@MHKHWXW\\i@|@OVGHCDCFADCAEGGIAAMPEHEF]p@AFCHABCEAJAFAFCDEFEFEDG@C@}BoCCG?IA?KVKXGGEIACCKQ[CGEIQ_@?ACCe@}@A@CBb@~@FGg@cAACAAg@gAEI{@iBEGeBqDEIg@eACEq@wAYk@Ue@GEy@_BEMAAKAKBGDcDtEA?CHAD?BQSKOAAADEDE@E?A@KNKPA@GCOUAAo@u@CICGQMSGo@Gw@EIAC?_@C_@EE?G?YEq@EKCYa@a@m@{@oAMSk@y@gA}AW]QKSEI@IBAAIEGEEAGC?AAA?AKCyA_@C?EC_@ISGA@CGEMKImAqAC?CB?AGIEIACoAqA??AAAAEEGEAA?A???A}@_AA?CCGCGEA?@E?Ak@k@EECCg@i@EC?AGEII??ACuAwACAAAEEGG?Au@u@g@i@g@g@s@q@y@fBA@CFCD?Bq@xA_@x@AAEIGIA??C?eA?C?IA?IIAIGSCKEMCGEEACC?E?q@LI?I?EAECCEAECCEAOBCDCEMIWOUO_@WUM_@WSYIUEW@WDg@@?B[He@\\eBRs@`@cAJQDKXi@x@{Az@sBXu@FIP[EGKOUWW]a@q@KN}@wAASKAIAYEa@D]CiBe@UGMWESMu@?CA[Du@By@B}@EQs@Q"
+        ]
+      }
+    },
+    "albion-at-morrow-park": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:35",
+        "arriveAt": "08:58",
+        "minutes": 22.9,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Albion",
+              "stopCode": null,
+              "location": {
+                "lat": 40.456744,
+                "lng": -79.940633
+              }
+            },
+            "to": {
+              "name": "CENTRE AVE + AIKEN",
+              "stopCode": "8193",
+              "location": {
+                "lat": 40.456089,
+                "lng": -79.938178
+              }
+            },
+            "departAt": "08:35",
+            "arriveAt": "08:38",
+            "minutes": 3.2,
+            "meters": 239,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "}v|uFvj|fNt@aB?ADAL[FWBGGWIUFE??\\w@`@cAHIHKZS@?G_@Ke@BA"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "CENTRE AVE + AIKEN",
+              "stopCode": "8193",
+              "location": {
+                "lat": 40.456089,
+                "lng": -79.938178
+              }
+            },
+            "to": {
+              "name": "CRAIG ST + FIFTH AVE",
+              "stopCode": "2635",
+              "location": {
+                "lat": 40.447258,
+                "lng": -79.949188
+              }
+            },
+            "departAt": "08:38",
+            "arriveAt": "08:48",
+            "minutes": 9.1,
+            "meters": 1917,
+            "route": {
+              "shortName": "71A",
+              "longName": "NEGLEY SHORT"
+            },
+            "headsign": "NEGLEY SHORT TO OAKLAND",
+            "stops": 9,
+            "geometry": "oq|uFr|{fNFCJj@Jj@HZF\\F\\FZ@HFVFXFXHXHb@H`@Jh@BJBNCDBEDPFXFZLj@Lh@F\\GBFCDTLj@J`@F`@Hb@H^J`@Hb@H`@J`@BJBVLj@Lh@Hf@@FJh@Jh@EBDCFVLd@Hd@Jf@Lf@DVDXFTDVH`@H^H^F`@J^DXFVFXDVJ\\I@HAFb@Ll@H\\F\\H\\F\\H\\F\\H\\F\\HZFZLj@Jj@GBFCH^BPFXHVDVFVJh@Jh@EBDCH^H^H\\H^F\\FZFZHZDX\\STKHGDLEMLG`@UPIPK`@S^S^QHGTKRKRKRM`@S\\SDNEOPITKRMTMVKTMTMTMTMTMTMTMPIPI^S^SPKZO\\OXQ`@UNGLI@B"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "CRAIG ST + FIFTH AVE",
+              "stopCode": "2635",
+              "location": {
+                "lat": 40.447258,
+                "lng": -79.949188
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:48",
+            "arriveAt": "08:58",
+            "minutes": 10.7,
+            "meters": 794,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "izzuFla~fNAAZOLIAOAC@C?C?CAK?EEs@Ck@GoCAE?CACAC???ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 2098,
+        "minutes": 28.7,
+        "geometry": [
+          "}v|uFvj|fNt@aB?ADAFDp@lDBLBJNr@VpANz@NIJEHLh@Wp@Y`@STKJELGBN@@@Dl@|C@DBLDPJf@VxAFXBN@B@FVjABLBLRfA@?j@SnFwB@C?A@?FAFCd@OHAHCn@OHCHCPE@AHCHC@?l@OjA[d@KLCJCbBQv@Kf@G|C]@AF?FA@@hBMrDWBENANAfGe@D?D?NFTJ`@TXN\\Pb@Rj@XRJDBD?B?@?DCPBXFCL?F?ZAtABJGf@?DBnA?\\?J@v@TSNEr@VD@F@T@JJ@BFV@@HCB??@?BKV?B?BB@@ANQHE@JDDFBPDXHHAND"
+        ]
+      }
+    },
+    "city-view": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:28",
+        "arriveAt": "08:58",
+        "minutes": 30.1,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "City View",
+              "stopCode": null,
+              "location": {
+                "lat": 40.440188,
+                "lng": -79.986418
+              }
+            },
+            "to": {
+              "name": "FORBES AVE + PRIDE ST (MERCY HOSPITAL)",
+              "stopCode": "3245",
+              "location": {
+                "lat": 40.437633,
+                "lng": -79.985293
+              }
+            },
+            "departAt": "08:28",
+            "arriveAt": "08:33",
+            "minutes": 5.8,
+            "meters": 435,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "inyuFviegNIDOc@[{@K]DC@AbBgABCEO`Ao@TGV?\\@L@X@d@Bv@BN@J?AH@@bAFB?D?bAD@?B@?AJ@J@@??NE?"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "FORBES AVE + PRIDE ST (MERCY HOSPITAL)",
+              "stopCode": "3245",
+              "location": {
+                "lat": 40.437633,
+                "lng": -79.985293
+              }
+            },
+            "to": {
+              "name": "FORBES AVE + MOREWOOD (CARNEGIE MELLON)",
+              "stopCode": "7117",
+              "location": {
+                "lat": 40.444458,
+                "lng": -79.942291
+              }
+            },
+            "departAt": "08:33",
+            "arriveAt": "08:52",
+            "minutes": 18.6,
+            "meters": 4165,
+            "route": {
+              "shortName": "61B",
+              "longName": "BRADDOCK-SWISSVALE"
+            },
+            "headsign": "BRADDOCK-SWISSVALE BRADDOCK HILLS SHOPPING CENTER",
+            "stops": 15,
+            "geometry": "e~xuFbcegNE??]?g@@g@@g@@i@@U@a@@a@?c@@a@@a@?c@@a@?c@H@IA@a@@]@_@@]?_@@c@?c@H@IA@o@@c@@c@@a@?c@@a@@c@@a@?c@@g@@i@H@IA?U@i@@i@Bo@?q@Bk@?m@@_@D?E?@Y?[Bo@@o@?ABm@?m@Bm@?o@?c@F@GA@c@@[?[@_@?K@o@@q@@[H?I?@QBo@?a@@c@@c@?a@@]?[?G@g@AU@U@O?K?G@I@I?GBI?QD]F_@BKBUDWFYF[BKLk@FSDM?A?A@?DKHMDQJ[Jc@DUBGFe@Jm@F[BG?GF]BM?A@IHa@?E@E@GDUDU@E@O@EJk@Dg@?A@Q@K@ID_@?A?I?G??BW?C?Q?Q@K?_@?i@@e@?a@@]?_@?G?K?Q?G?E?A?C?A?C?A?E@a@?c@?[?]@[AY?M?KAQAOAQASGQCKEICIIKYc@MSOUMSMSYa@EGCI[a@Wa@Wc@U[MSOSHKIJMUOUOQWa@?AGKW_@Yc@S[U[S[Ye@J?K?Wa@SYS[W_@Yc@EGQYQWS]OUQWQWQWOWIKFEGDMSU]U]S_@U[[c@Yc@Q]U]W]U]U]FGGFMSW_@W_@W_@Wa@Wa@Ua@OSOUU_@Y_@DGEFEGUc@U[GIQYGKKSGUGYIm@GWEWG_@Kk@Kk@Km@??HEIDGa@G[EWESGe@CQEOKk@ESEUE_@EOCICWGa@I_@E]G[LCMBEUIe@Ig@EYG[E]E]Ii@Ie@G]G]GYIc@?GGYGc@Ic@HAI@EWCYC]A]A_@C]?]A[Cg@?Y?Y?Y?Y?a@?MCE?C?U?G?EAY?W?C?EAi@?C?[?YAYAm@Aq@?CAg@?g@Ai@?Q?g@Cg@?M?YAg@Ag@?YBi@?M?YDi@De@Hm@JD"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "FORBES AVE + MOREWOOD (CARNEGIE MELLON)",
+              "stopCode": "7117",
+              "location": {
+                "lat": 40.444458,
+                "lng": -79.942291
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:52",
+            "arriveAt": "08:58",
+            "minutes": 5.7,
+            "meters": 392,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "whzuFpw|fNAPG~@CL?F?ZAtABJGf@?DBnA?\\?J@v@TSNEr@VD@F@T@JJ@BFV@@HCB??@?BKV?B?BB@@ANQHE@JDDFBPDXHHAND"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 4269,
+        "minutes": 57,
+        "geometry": [
+          "inyuFviegNIDOc@[{@K]DC@AbBgABCEO`Ao@TGV?\\@L@HoEBcABaBBcCBwAB_B@oABeA?O?KH@@?lBD@GJeGLyH?G?GAIES@CBGBI?C?KNoH?ID_AL{DBm@AC@G@E?ALgDTcAFSBMA?@CBK@I?CB@x@wD^}ATcAl@kCrAaGH]@I?S@]?c@?oACeECw@SaASi@Y_@_@]EA_CiASE?A?K?I?C@??A??EkC?E?MAUAKAUCWCICIAC?CEOAIEOGQIOGMOWk@q@mAiBqAmBYc@AA?AEIEEA??A??GIaAyAw@kAGIU_@q@}@CCCAC@GGKOEEACqAqBCCA?ACIOCECC?EAEACEGQUi@u@Wa@SWIMGKEG]i@GGGCACEGACGOEGGMFWJW?AAA?Ae@s@@C@C^w@GIHQGK@Cj@mA@EAAEGCACCa@k@m@aAGKm@_AI[[gBIi@g@wCCICCAA?CESCS@G?CAIGYa@cCIc@AC?CAE?CAEW{Aq@wD??ACC?AEAKCMAG@C?EO}@EUAMAGESQkAO}@[oBAOCO@C?GCaBAgBCs@?KEiDN?LA`CILOBM?CAUCOAE@C?C?Y?G?KF[BU?ONi@BM@JDDFBPDXHHAND"
+        ]
+      }
+    },
+    "the-park-at-southside-works": {
+      "commute": {
+        "arriveBy": "08:30",
+        "departAt": "07:47",
+        "arriveAt": "08:19",
+        "minutes": 31.8,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "The Park",
+              "stopCode": null,
+              "location": {
+                "lat": 40.429437,
+                "lng": -79.965661
+              }
+            },
+            "to": {
+              "name": "E CARSON ST + 27TH ST",
+              "stopCode": "10127",
+              "location": {
+                "lat": 40.427077,
+                "lng": -79.966831
+              }
+            },
+            "departAt": "07:47",
+            "arriveAt": "07:51",
+            "minutes": 4.6,
+            "meters": 330,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "uiwuFniagNx@sB@@@ABDDDBBJFJ@FH@BB@DBHB?@x@~@@CFIFK@CX\\NRNNB@@?@BHLHL@?tBdCBD?EFIDD"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "E CARSON ST + 27TH ST",
+              "stopCode": "10127",
+              "location": {
+                "lat": 40.427077,
+                "lng": -79.966831
+              }
+            },
+            "to": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "departAt": "07:51",
+            "arriveAt": "08:10",
+            "minutes": 18.1,
+            "meters": 4675,
+            "route": {
+              "shortName": "75",
+              "longName": "ELLSWORTH"
+            },
+            "headsign": "ELLSWORTH VA HOSPITAL",
+            "stops": 11,
+            "geometry": "e|vuFvoagNHJ?@CDIRGZE\\I\\Mj@CPCLG`@CJIb@KKJJETEXEVEVGVEXGXEXEVKj@Kh@Kn@Ml@G\\GZIj@GZEXMGLFCTC`@C`@C^AX?^A\\Al@Cl@GRAd@Cd@?N?TEp@YAY?UAWAUAUAWAWAUAWA]?S@K?K@E@UHWBYFMDUBUDYFQ@_@D_@@SBSBU?W?YEYCYCWCQ?GCWCYEYCYEYCYEYCYEYCYEYC[EQAOAQM?AWEQGWGQGa@GWCKCc@Cc@GAA_@EWAWE]C[GE?OCMAOCOEOAQCAAC?IAOAE?GCWCA?A?C?CCMCAAAACAEAEEACOMF_@BKBUDWFYF[BKLk@FSDM?A?A@?DKHMDQJ[Jc@DUBGFe@Jm@F[BG?GF]BM?A@IHa@?E@E@GDUDU@E@O@EJk@Dg@?A@Q@K@ID_@?A?I?G??BW?C?Q?Q@K?_@?i@@e@?a@@]?_@?G?K?Q?G?E?A?C?A?C?A?E@a@?c@?[?]@[AY?M?KAQAOAQASGQCKEICIIKYc@MSOUMSMSYa@EGCI[a@Wa@Wc@U[MSOSHKIJMUOUOQWa@?AGKW_@Yc@S[U[S[Ye@J?K?Wa@SYS[W_@Yc@EGQYQWS]OUQWQWQWOWW_@U]U]S_@U[[c@MSOUFGGFMWYa@Ya@Yc@Yc@SYS[S[SYDGEFOUWa@Ua@OSOUU_@Y_@DGEFEGUc@U[GIQYGKKSGUGYIm@GWEWG_@Kk@Kk@Km@??HEIDGa@G[EWESGe@CQEOKk@ESEUE_@EOCICWGa@I_@Gg@Kg@Ie@Ig@EYG[a@NWJYJYHYJWJYHYJWH_@NCMBL]L[LOB]L]LWF]J]J?E?Dc@NKWMUMa@EWC[?[C[Ac@Ac@Am@Ak@Ak@Ak@AMJEKDC]C_@C_@E_@Em@Eo@AGA[A_@?Y?YAYAW?Q?QCk@QFSHQHSHUHUF?I"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:10",
+            "arriveAt": "08:19",
+            "minutes": 9.1,
+            "meters": 686,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "_}zuF~v}fN?DRGAMtAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 3534,
+        "minutes": 46.6,
+        "geometry": [
+          "uiwuFniagNx@sB@@@AFIVe@JO?CGAr@iAFKBElAmBLQJQn@kADGDIR_@Lm@FSRc@CKQ[CGEIQ_@?ACCe@}@A@CBb@~@FGg@cAACAAg@gAEI{@iBEGeBqDEIg@eACEq@wAYk@Ue@GEy@_BEMAAKAKBGDcDtEA?CHAD?BQSKOAAADEDE@E?A@KNKPA@GCOUAAo@u@CICGQMSGo@Gw@EIAC?_@C_@EE?G?YEq@EKCYa@a@m@{@oAMSk@y@gA}AW]QKSEI@IBAAIEGEEAGC?AAA?AKCyA_@C?EC_@ISGA@CGEMKImAqAC?CB?AGIEIACoAqA??AAAAEEGEAA?A???A}@_AA?CCGCGEA?@E?Ak@k@EECCg@i@EC?AGEII??ACuAwACAAAEEGG?Au@u@g@i@g@g@s@q@y@fBA@CFCD?Bq@xA_@x@AAEIGIA??C?eA?C?IA?IIAIGSCKEMCGEEACC?E?q@LI?I?EAECCEAECCEAOBCDCEMIWOUO_@WUM_@WSYIUEW@WDg@@?B[He@\\eBRs@`@cAJQDKXi@x@{Az@sBXu@FIP[EGKOUWW]a@q@KN}@wAASKAIAYEa@D]CiBe@UGMWESMu@?CA[Du@By@B}@EQs@Q"
+        ]
+      }
+    },
+    "carson-street-commons": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:21",
+        "arriveAt": "08:51",
+        "minutes": 29.5,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Carson Street Commons",
+              "stopCode": null,
+              "location": {
+                "lat": 40.428923,
+                "lng": -79.968481
+              }
+            },
+            "to": {
+              "name": "E CARSON ST + 26TH",
+              "stopCode": "10128",
+              "location": {
+                "lat": 40.427492,
+                "lng": -79.96821
+              }
+            },
+            "departAt": "08:21",
+            "arriveAt": "08:24",
+            "minutes": 3,
+            "meters": 219,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "}gwuF|yagNNy@HETJ?LD@VHB@@EN{@FB@?F@FBFKHO??DB~@\\B@D@x@XBID@"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "E CARSON ST + 26TH",
+              "stopCode": "10128",
+              "location": {
+                "lat": 40.427492,
+                "lng": -79.96821
+              }
+            },
+            "to": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "departAt": "08:24",
+            "arriveAt": "08:42",
+            "minutes": 17.5,
+            "meters": 4532,
+            "route": {
+              "shortName": "75",
+              "longName": "ELLSWORTH"
+            },
+            "headsign": "ELLSWORTH VA HOSPITAL",
+            "stops": 10,
+            "geometry": "y~vuFhxagNJJETEXEVEVGVEXGXEXEVKj@Kh@Kn@Ml@G\\GZIj@GZEXMGLFCTC`@C`@C^AX?^A\\Al@Cl@GRAd@Cd@?N?TEp@YAY?UAWAUAUAWAWAUAWA]?S@K?K@E@UHWBYFMDUBUDYFQ@_@D_@@SBSBU?W?YEYCYCWCQ?GCWCYEYCYEYCYEYCYEYCYEYC[EQAOAQM?AWEQGWGQGa@GWCKCc@Cc@GAA_@EWAWE]C[GE?OCMAOCOEOAQCAAC?IAOAE?GCWCA?A?C?CCMCAAAACAEAEEACOMF_@BKBUDWFYF[BKLk@FSDM?A?A@?DKHMDQJ[Jc@DUBGFe@Jm@F[BG?GF]BM?A@IHa@?E@E@GDUDU@E@O@EJk@Dg@?A@Q@K@ID_@?A?I?G??BW?C?Q?Q@K?_@?i@@e@?a@@]?_@?G?K?Q?G?E?A?C?A?C?A?E@a@?c@?[?]@[AY?M?KAQAOAQASGQCKEICIIKYc@MSOUMSMSYa@EGCI[a@Wa@Wc@U[MSOSHKIJMUOUOQWa@?AGKW_@Yc@S[U[S[Ye@J?K?Wa@SYS[W_@Yc@EGQYQWS]OUQWQWQWOWW_@U]U]S_@U[[c@MSOUFGGFMWYa@Ya@Yc@Yc@SYS[S[SYDGEFOUWa@Ua@OSOUU_@Y_@DGEFEGUc@U[GIQYGKKSGUGYIm@GWEWG_@Kk@Kk@Km@??HEIDGa@G[EWESGe@CQEOKk@ESEUE_@EOCICWGa@I_@Gg@Kg@Ie@Ig@EYG[a@NWJYJYHYJWJYHYJWH_@NCMBL]L[LOB]L]LWF]J]J?E?Dc@NKWMUMa@EWC[?[C[Ac@Ac@Am@Ak@Ak@Ak@AMJEKDC]C_@C_@E_@Em@Eo@AGA[A_@?Y?YAYAW?Q?QCk@QFSHQHSHUHUF?I"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:42",
+            "arriveAt": "08:51",
+            "minutes": 9.1,
+            "meters": 686,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "_}zuF~v}fN?DRGAMtAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 3847,
+        "minutes": 51,
+        "geometry": [
+          "}gwuF|yagNNy@HETJ?LD@VHB@@EN{@FB@?BOBOAC@Cp@oD?A@G@G?A^uB@CDQDUACBEBQFWDSFQCKMMW[EMu@{@@ABGDG?ABEtA{B@?FKGIc@g@GGLSEEAAn@kADGDIR_@Lm@FSRc@CKQ[CGEIQ_@?ACCe@}@A@CBb@~@FGg@cAACAAg@gAEI{@iBEGeBqDEIg@eACEq@wAYk@Ue@GEy@_BEMAAKAKBGDcDtEA?CHAD?BQSKOAAADEDE@E?A@KNKPA@GCOUAAo@u@CICGQMSGo@Gw@EIAC?_@C_@EE?G?YEq@EKCYa@a@m@{@oAMSk@y@gA}AW]QKSEI@IBAAIEGEEAGC?AAA?AKCyA_@C?EC_@ISGA@CGEMKImAqAC?CB?AGIEIACoAqA??AAAAEEGEAA?A???A}@_AA?CCGCGEA?@E?Ak@k@EECCg@i@EC?AGEII??ACuAwACAAAEEGG?Au@u@g@i@g@g@s@q@y@fBA@CFCD?Bq@xA_@x@AAEIGIA??C?eA?C?IA?IIAIGSCKEMCGEEACC?E?q@LI?I?EAECCEAECCEAOBCDCEMIWOUO_@WUM_@WSYIUEW@WDg@@?B[He@\\eBRs@`@cAJQDKXi@x@{Az@sBXu@FIP[EGKOUWW]a@q@KN}@wAASKAIAYEa@D]CiBe@UGMWESMu@?CA[Du@By@B}@EQs@Q"
+        ]
+      }
+    },
+    "2626-south-side-flats": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:20",
+        "arriveAt": "08:51",
+        "minutes": 30.2,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "2626 South Side Flats",
+              "stopCode": null,
+              "location": {
+                "lat": 40.428902,
+                "lng": -79.967028
+              }
+            },
+            "to": {
+              "name": "E CARSON ST + 26TH",
+              "stopCode": "10128",
+              "location": {
+                "lat": 40.427492,
+                "lng": -79.96821
+              }
+            },
+            "departAt": "08:20",
+            "arriveAt": "08:24",
+            "minutes": 3.7,
+            "meters": 279,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "siwuFloagNY|@GTAJ?F@JHFfA^p@VDD|@ZB?@BJDLB??DB~@\\B@D@x@XBID@"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "E CARSON ST + 26TH",
+              "stopCode": "10128",
+              "location": {
+                "lat": 40.427492,
+                "lng": -79.96821
+              }
+            },
+            "to": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "departAt": "08:24",
+            "arriveAt": "08:42",
+            "minutes": 17.5,
+            "meters": 4532,
+            "route": {
+              "shortName": "75",
+              "longName": "ELLSWORTH"
+            },
+            "headsign": "ELLSWORTH VA HOSPITAL",
+            "stops": 10,
+            "geometry": "y~vuFhxagNJJETEXEVEVGVEXGXEXEVKj@Kh@Kn@Ml@G\\GZIj@GZEXMGLFCTC`@C`@C^AX?^A\\Al@Cl@GRAd@Cd@?N?TEp@YAY?UAWAUAUAWAWAUAWA]?S@K?K@E@UHWBYFMDUBUDYFQ@_@D_@@SBSBU?W?YEYCYCWCQ?GCWCYEYCYEYCYEYCYEYCYEYC[EQAOAQM?AWEQGWGQGa@GWCKCc@Cc@GAA_@EWAWE]C[GE?OCMAOCOEOAQCAAC?IAOAE?GCWCA?A?C?CCMCAAAACAEAEEACOMF_@BKBUDWFYF[BKLk@FSDM?A?A@?DKHMDQJ[Jc@DUBGFe@Jm@F[BG?GF]BM?A@IHa@?E@E@GDUDU@E@O@EJk@Dg@?A@Q@K@ID_@?A?I?G??BW?C?Q?Q@K?_@?i@@e@?a@@]?_@?G?K?Q?G?E?A?C?A?C?A?E@a@?c@?[?]@[AY?M?KAQAOAQASGQCKEICIIKYc@MSOUMSMSYa@EGCI[a@Wa@Wc@U[MSOSHKIJMUOUOQWa@?AGKW_@Yc@S[U[S[Ye@J?K?Wa@SYS[W_@Yc@EGQYQWS]OUQWQWQWOWW_@U]U]S_@U[[c@MSOUFGGFMWYa@Ya@Yc@Yc@SYS[S[SYDGEFOUWa@Ua@OSOUU_@Y_@DGEFEGUc@U[GIQYGKKSGUGYIm@GWEWG_@Kk@Kk@Km@??HEIDGa@G[EWESGe@CQEOKk@ESEUE_@EOCICWGa@I_@Gg@Kg@Ie@Ig@EYG[a@NWJYJYHYJWJYHYJWH_@NCMBL]L[LOB]L]LWF]J]J?E?Dc@NKWMUMa@EWC[?[C[Ac@Ac@Am@Ak@Ak@Ak@AMJEKDC]C_@C_@E_@Em@Eo@AGA[A_@?Y?YAYAW?Q?QCk@QFSHQHSHUHUF?I"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "NEVILLE ST + ELLSWORTH NS",
+              "stopCode": "8169",
+              "location": {
+                "lat": 40.447689,
+                "lng": -79.947517
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:42",
+            "arriveAt": "08:51",
+            "minutes": 9.1,
+            "meters": 686,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "_}zuF~v}fN?DRGAMtAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 3649,
+        "minutes": 48.2,
+        "geometry": [
+          "siwuFloagNd@sAAADIBGFO@ABEDM|@oB?AICECCAACGIKAKGCCEECEFIVe@JO?CGAr@iAFKBElAmBLQJQn@kADGDIR_@Lm@FSRc@CKQ[CGEIQ_@?ACCe@}@A@CBb@~@FGg@cAACAAg@gAEI{@iBEGeBqDEIg@eACEq@wAYk@Ue@GEy@_BEMAAKAKBGDcDtEA?CHAD?BQSKOAAADEDE@E?A@KNKPA@GCOUAAo@u@CICGQMSGo@Gw@EIAC?_@C_@EE?G?YEq@EKCYa@a@m@{@oAMSk@y@gA}AW]QKSEI@IBAAIEGEEAGC?AAA?AKCyA_@C?EC_@ISGA@CGEMKImAqAC?CB?AGIEIACoAqA??AAAAEEGEAA?A???A}@_AA?CCGCGEA?@E?Ak@k@EECCg@i@EC?AGEII??ACuAwACAAAEEGG?Au@u@g@i@g@g@s@q@y@fBA@CFCD?Bq@xA_@x@AAEIGIA??C?eA?C?IA?IIAIGSCKEMCGEEACC?E?q@LI?I?EAECCEAECCEAOBCDCEMIWOUO_@WUM_@WSYIUEW@WDg@@?B[He@\\eBRs@`@cAJQDKXi@x@{Az@sBXu@FIP[EGKOUWW]a@q@KN}@wAASKAIAYEa@D]CiBe@UGMWESMu@?CA[Du@By@B}@EQs@Q"
+        ]
+      }
+    },
+    "baumhaus": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:36",
+        "arriveAt": "08:58",
+        "minutes": 21.8,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Baumhaus",
+              "stopCode": null,
+              "location": {
+                "lat": 40.457316,
+                "lng": -79.936341
+              }
+            },
+            "to": {
+              "name": "CENTRE AVE + GRAHAM",
+              "stopCode": "8192",
+              "location": {
+                "lat": 40.456622,
+                "lng": -79.936379
+              }
+            },
+            "departAt": "08:36",
+            "arriveAt": "08:38",
+            "minutes": 1.2,
+            "meters": 89,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "gx|uFtp{fN??VlABAlAi@AIBA"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "CENTRE AVE + GRAHAM",
+              "stopCode": "8192",
+              "location": {
+                "lat": 40.456622,
+                "lng": -79.936379
+              }
+            },
+            "to": {
+              "name": "CRAIG ST + FIFTH AVE",
+              "stopCode": "2635",
+              "location": {
+                "lat": 40.447258,
+                "lng": -79.949188
+              }
+            },
+            "departAt": "08:38",
+            "arriveAt": "08:48",
+            "minutes": 9.9,
+            "meters": 2090,
+            "route": {
+              "shortName": "71A",
+              "longName": "NEGLEY SHORT"
+            },
+            "headsign": "NEGLEY SHORT TO OAKLAND",
+            "stops": 10,
+            "geometry": "{t|uFjq{fNFCDTFXDVFVDVJh@Jd@Lj@Lj@BPFZHXGBFCJj@Jj@HZF\\F\\FZ@HFVFXFXHXHb@H`@Jh@BJBNCDBEDPFXFZLj@Lh@F\\GBFCDTLj@J`@F`@Hb@H^J`@Hb@H`@J`@BJBVLj@Lh@Hf@@FJh@Jh@EBDCFVLd@Hd@Jf@Lf@DVDXFTDVH`@H^H^F`@J^DXFVFXDVJ\\I@HAFb@Ll@H\\F\\H\\F\\H\\F\\H\\F\\HZFZLj@Jj@GBFCH^BPFXHVDVFVJh@Jh@EBDCH^H^H\\H^F\\FZFZHZDX\\STKHGDLEMLG`@UPIPK`@S^S^QHGTKRKRKRM`@S\\SDNEOPITKRMTMVKTMTMTMTMTMTMTMPIPI^S^SPKZO\\OXQ`@UNGLI@B"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "CRAIG ST + FIFTH AVE",
+              "stopCode": "2635",
+              "location": {
+                "lat": 40.447258,
+                "lng": -79.949188
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:48",
+            "arriveAt": "08:58",
+            "minutes": 10.7,
+            "meters": 794,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "izzuFla~fNAAZOLIAOAC@C?C?CAK?EEs@Ck@GoCAE?CACAC???ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 2326,
+        "minutes": 30.7,
+        "geometry": [
+          "gx|uFtp{fN??VlABAlAi@NEJCnAk@BABChAk@HCDADFBHBDtAbH@D@DVlAFCFEB@vCyAnBcANGDCFChB{@BEJEJCDJFLBLx@fDBLBJz@pDBLDJbAfE@HBH~@tD@NBL@LXzBLdAd@xDbBQv@Kf@G|C]@AF?FA@@hBMrDWBENANAfGe@D?D?NFTJ`@TXN\\Pb@Rj@XRJDBD?B?@?DCPBXFCL?F?ZAtABJGf@?DBnA?\\?J@v@TSNEr@VD@F@T@JJ@BFV@@HCB??@?BKV?B?BB@@ANQHE@JDDFBPDXHHAND"
+        ]
+      }
+    },
+    "schenley": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:38",
+        "arriveAt": "09:00",
+        "minutes": 21.1,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Schenley Apartments",
+              "stopCode": null,
+              "location": {
+                "lat": 40.450457,
+                "lng": -79.954368
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:38",
+            "arriveAt": "09:00",
+            "minutes": 21.1,
+            "meters": 1525,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "}n{uFn__gNaA\\GAEGCEEKlDmABAJEBABAjE}AHCFAjAa@NGDA@A@?@?DF@AHENIB?@EBC|CgAp@WvAg@LCBAB?B?BF@?@?RGPCBAA?@E@Ch@UbBk@xAg@?ECMAIAE@?@A?A?CIoC?C@?F?AO?KACEaBEaA?SGcBAQ?K?AFA@@dCOBC@C?GCaBAgBCs@?KEiDN?LA`CILOBM?CAUCOAE@C?C?Y?G?KF[BU?ONi@BM@JDDFBPDXHHAND"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1525,
+        "minutes": 21.1,
+        "geometry": [
+          "}n{uFn__gNaA\\GAEGCEEKlDmABAJEBABAjE}AHCFAjAa@NGDA@A@?@?DF@AHENIB?@EBC|CgAp@WvAg@LCBAB?B?BF@?@?RGPCBAA?@E@Ch@UbBk@xAg@?ECMAIAE@?@A?A?CIoC?C@?F?AO?KACEaBEaA?SGcBAQ?K?AFA@@dCOBC@C?GCaBAgBCs@?KEiDN?LA`CILOBM?CAUCOAE@C?C?Y?G?KF[BU?ONi@BM@JDDFBPDXHHAND"
+        ]
+      }
+    },
+    "the-clark-building": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:25",
+        "arriveAt": "08:58",
+        "minutes": 33.1,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Clark Building",
+              "stopCode": null,
+              "location": {
+                "lat": 40.44275,
+                "lng": -79.999564
+              }
+            },
+            "to": {
+              "name": "WOOD STREET PRTX STATION",
+              "stopCode": "22887",
+              "location": {
+                "lat": 40.442145,
+                "lng": -79.99973
+              }
+            },
+            "departAt": "08:25",
+            "arriveAt": "08:27",
+            "minutes": 1.9,
+            "meters": 94,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "k}yuF|{ggNEOPGNEAEx@d@JFLFKZAA"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "WOOD STREET PRTX STATION",
+              "stopCode": "22887",
+              "location": {
+                "lat": 40.442145,
+                "lng": -79.99973
+              }
+            },
+            "to": {
+              "name": "FORBES AVE + MOREWOOD (CARNEGIE MELLON)",
+              "stopCode": "7117",
+              "location": {
+                "lat": 40.444458,
+                "lng": -79.942291
+              }
+            },
+            "departAt": "08:27",
+            "arriveAt": "08:52",
+            "minutes": 25.6,
+            "meters": 5735,
+            "route": {
+              "shortName": "61B",
+              "longName": "BRADDOCK-SWISSVALE"
+            },
+            "headsign": "BRADDOCK-SWISSVALE BRADDOCK HILLS SHOPPING CENTER",
+            "stops": 21,
+            "geometry": "kzyuFh}ggNHYHYHYHYH[FYHYHYH[HYHYHYH[FYHYHYH[HYHYHYHYH[HYFYHYH[HYHYHYH[Hw@HBICBOHWFYDOJi@DMDYFMBIBGBGDEFKDEDGDCb@MPBPDLFHFD?D@`@R^R^RVNFBL@F?DAVKTMZOPIPKPMBAB?DABM?K?[?Y?i@?e@H?I??k@@a@@a@@a@@a@@s@@Y?[@[Ba@?[?Q@_@@_@CAB@?i@@Y@Y?Y@Y@Y?Y@Y?Y@_@@]?_@?_@BW?q@?q@@Y@YD@EA?Y@o@@o@@a@@c@@c@?a@Bq@?o@F@GA?[@Y@Y@Y?YBi@@i@@_@B]D?E??]?g@@g@@g@@i@@U@a@@a@?c@@a@@a@?c@@a@?c@H@IA@a@@]@_@@]?_@@c@?c@H@IA@o@@c@@c@@a@?c@@a@@c@@a@?c@@g@@i@H@IA?U@i@@i@Bo@?q@Bk@?m@@_@D?E?@Y?[Bo@@o@?ABm@?m@Bm@?o@?c@F@GA@c@@[?[@_@?K@o@@q@@[H?I?@QBo@?a@@c@@c@?a@@]?[?G@g@AU@U@O?K?G@I@I?GBI?QD]F_@BKBUDWFYF[BKLk@FSDM?A?A@?DKHMDQJ[Jc@DUBGFe@Jm@F[BG?GF]BM?A@IHa@?E@E@GDUDU@E@O@EJk@Dg@?A@Q@K@ID_@?A?I?G??BW?C?Q?Q@K?_@?i@@e@?a@@]?_@?G?K?Q?G?E?A?C?A?C?A?E@a@?c@?[?]@[AY?M?KAQAOAQASGQCKEICIIKYc@MSOUMSMSYa@EGCI[a@Wa@Wc@U[MSOSHKIJMUOUOQWa@?AGKW_@Yc@S[U[S[Ye@J?K?Wa@SYS[W_@Yc@EGQYQWS]OUQWQWQWOWIKFEGDMSU]U]S_@U[[c@Yc@Q]U]W]U]U]FGGFMSW_@W_@W_@Wa@Wa@Ua@OSOUU_@Y_@DGEFEGUc@U[GIQYGKKSGUGYIm@GWEWG_@Kk@Kk@Km@??HEIDGa@G[EWESGe@CQEOKk@ESEUE_@EOCICWGa@I_@E]G[LCMBEUIe@Ig@EYG[E]E]Ii@Ie@G]G]GYIc@?GGYGc@Ic@HAI@EWCYC]A]A_@C]?]A[Cg@?Y?Y?Y?Y?a@?MCE?C?U?G?EAY?W?C?EAi@?C?[?YAYAm@Aq@?CAg@?g@Ai@?Q?g@Cg@?M?YAg@Ag@?YBi@?M?YDi@De@Hm@JD"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "FORBES AVE + MOREWOOD (CARNEGIE MELLON)",
+              "stopCode": "7117",
+              "location": {
+                "lat": 40.444458,
+                "lng": -79.942291
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:52",
+            "arriveAt": "08:58",
+            "minutes": 5.7,
+            "meters": 392,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "whzuFpw|fNAPG~@CL?F?ZAtABJGf@?DBnA?\\?J@v@TSNEr@VD@F@T@JJ@BFV@@HCB??@?BKV?B?BB@@ANQHE@JDDFBPDXHHAND"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 5569,
+        "minutes": 75.5,
+        "geometry": [
+          "k}yuF|{ggNEOPGNEAEx@d@BE?ABIDKFWZeAT{@|@cD?ABKDOFUT_A^qABMDMVaAZeABMDQDMJFNHn@g@AC?C@E@C@CB?D?BBdA_A@CB@FQFQrCpAF?BC@I@IBkB?Y?]DqEBaBLeJ?EAG@K?E?I?E?I@Q?G?E?E@E??@I?K?I@KLyI@m@@[?E?G?G?IB?H?H?@?DeB?E?G@]?E?EBkB@E?K@i@AC?O?K@CdAFB?HwF?O@KD}C@M?MFaB@_@@g@BkB?M?ME?c@AE?CAWA?M@G?E?S@G?IDwC@A?M@G?ED{B?g@?c@@g@?G?IDaBAA@I?M@AHyH@K?C@I?K?A@a@LeH?C?I?K?AVgG?C?G?K@CNyDD[Ps@@GJc@DKDU@EH[vAoGlAmFr@aDPw@?i@AsICk@Gc@ESAWAOGCEEOYIOQUa@]]QMIWSW]IOGMGOMc@Ga@Ec@Ae@ASEk@AE@C?AACCMCO?E??EC?AAEKUGOQWe@w@MOe@s@y@iAu@eAAC@AACCEGICCA@EAwBcDsBeD?AACGKEGACC?ECIO{BmD?AGKGIC?oAqBACGKGKA?eAaBACACCCCEIK?A??AA?Ae@s@@C@C^w@GIHQGK@Cj@mA@EAAEGCACCa@k@m@aAGKm@_AI[[gBIi@g@wCCICCAA?CESCS@G?CAIGYa@cCIc@AC?CAE?CAEW{Aq@wD??ACC?AEAKCMAG@C?EO}@EUAMAGESQkAO}@[oBAOCO@C?GCaBAgBCs@?KEiDN?LA`CILOBM?CAUCOAE@C?C?Y?G?KF[BU?ONi@BM@JDDFBPDXHHAND"
+        ]
+      }
+    },
+    "the-pennsylvanian": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:22",
+        "arriveAt": "08:55",
+        "minutes": 32.6,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Pennsylvanian",
+              "stopCode": null,
+              "location": {
+                "lat": 40.444268,
+                "lng": -79.992385
+              }
+            },
+            "to": {
+              "name": "EAST BUSWAY + PENN STATION A",
+              "stopCode": "20287",
+              "location": {
+                "lat": 40.443896,
+                "lng": -79.992074
+              }
+            },
+            "departAt": "08:22",
+            "arriveAt": "08:28",
+            "minutes": 5.2,
+            "meters": 344,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "chzuF|ofgNFLj@fA@?N`@HTHVDVDTBVA?C@JJRNJF?@FDHDVeAMc@@M?K@KCu@DCBG@C_@}@O]CGe@w@CB"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "EAST BUSWAY + PENN STATION A",
+              "stopCode": "20287",
+              "location": {
+                "lat": 40.443896,
+                "lng": -79.992074
+              }
+            },
+            "to": {
+              "name": "EAST BUSWAY + NEGLEY STATION A",
+              "stopCode": "20501",
+              "location": {
+                "lat": 40.456722,
+                "lng": -79.93237
+              }
+            },
+            "departAt": "08:28",
+            "arriveAt": "08:34",
+            "minutes": 7,
+            "meters": 6086,
+            "route": {
+              "shortName": "P1",
+              "longName": "EAST BUSWAY-ALL STOPS"
+            },
+            "headsign": "EAST BUSWAY-ALL STOPS TO SWISSVALE",
+            "stops": 2,
+            "geometry": "iezuFnmfgNQSQUS]S]S]U]Yc@[a@Ya@[a@MSMSMSOSMSMSMSMQWc@Wc@Wc@Yc@OYQYO[QYQYOYQYQYOYMYOWOYOWOYOYOWUc@Uc@Wa@Uc@MSMUMSKSMSMUMSMSOUOUMUOUMSMSKSMSSa@Ua@Sa@Sa@Ui@Ug@IUKUISKUM]M]O]M]M_@M]M]M]O]M]M]M]IUIWIWKUIWIWIUIWKUISIUKSIUKSIUIUWe@We@Ug@We@O[Q[O[Q[MSMSMSMSMQMSMSMSMSMQMSMSMSMQMSMSOWOWOUQWOWOWOUOWWa@Ua@Wa@Ua@MUMWMUMUOUMWMUMUMUMWMUMUMUOWMUMUUa@Uc@Ua@Uc@S[Q]Q]Q]Q[S]Q]Q[Q]Q]Q]S[Q]Q]Q[Q]Q[Q[Q]O[Q[Q[Q[O[Uc@Ua@M]M]K]M]Mc@Mc@Oc@Mc@Ea@Gc@Ea@Ga@IWIYIk@Gk@Ik@Ik@Go@Io@Go@Go@Im@Gq@Go@Im@C]E[C]E[C]E[C[E]C[E]C[E]C[E[C]E[Eg@Ge@Eg@Eg@Ge@Eg@Gg@Ee@Gg@Eg@Ee@Gg@Eg@Ge@Eg@Ge@Ae@Ac@Bm@Bm@Fi@Fi@Nm@Nk@J_@L]N]P]Xa@RQPSPQRSPMPOPMPMPOPMPOPM^[^[\\[^[\\[\\[LUNWLWLUL_@L_@FYF[FYD[Jk@Fk@B]B_@B]B]B]B]B]B]Di@Bk@Bi@Dk@Bi@Di@Bk@Di@Bi@Bk@Di@Bk@Di@Bi@Bk@Di@De@Fe@Hc@Ha@Hc@Ja@Ne@Pe@LWLWLWLWVa@Xc@Vc@Xc@Vc@Xc@Vc@Vc@Ve@Vg@Ve@Ve@HYJWJWJYHWJYJWJWJ]J]H]J]HYFYHYFWHe@Jc@He@He@BWDWBYBWBk@Bm@?[?[@[?[AYA[AYA[EWCYEWEWCYEWCYEWI]G]I]G]Oi@Ok@Oi@Ok@Uc@Sc@Sc@Sc@W_@W_@QUQWOUQWOOMOMOOOMQMOOOMOOSOQOSOSMUMUMSMUOa@Oa@Oa@O_@"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "EAST BUSWAY + NEGLEY STATION A",
+              "stopCode": "20501",
+              "location": {
+                "lat": 40.456722,
+                "lng": -79.93237
+              }
+            },
+            "to": {
+              "name": "EAST BUSWAY + NEGLEY STATION C",
+              "stopCode": "8162",
+              "location": {
+                "lat": 40.456536,
+                "lng": -79.932912
+              }
+            },
+            "departAt": "08:34",
+            "arriveAt": "08:35",
+            "minutes": 0.9,
+            "meters": 64,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "ou|uFjxzfNBCNXIJA?KLBD`@x@BC"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "EAST BUSWAY + NEGLEY STATION C",
+              "stopCode": "8162",
+              "location": {
+                "lat": 40.456536,
+                "lng": -79.932912
+              }
+            },
+            "to": {
+              "name": "NEVILLE ST + FIFTH AVE",
+              "stopCode": "5127",
+              "location": {
+                "lat": 40.447346,
+                "lng": -79.947469
+              }
+            },
+            "departAt": "08:39",
+            "arriveAt": "08:46",
+            "minutes": 7.2,
+            "meters": 2983,
+            "route": {
+              "shortName": "P3",
+              "longName": "EAST BUSWAY-OAKLAND"
+            },
+            "headsign": "EAST BUSWAY-OAKLAND",
+            "stops": 3,
+            "geometry": "it|uFv{zfNLPJPLPLRTZTXLPLPLPLPNRPRPPNRPRNRPRPPT\\TZPVPVN\\NZJTLTJRLTNf@Ph@Jb@Jb@H\\J\\DXFXFXDXJj@Hl@DZD\\Df@Bh@Bd@Bb@?f@Af@Cl@Cl@Gh@Ef@EVEVEVEVI`@G^I`@I^I\\K^KZI\\KXIXKXIXSf@Sf@Sh@Sf@Ud@Wf@Wd@Ud@S\\SZS\\SZQ\\SZSZS\\QVOXQVOVSd@Qd@Qd@Od@GZEZE\\GZCXCXCXCXEn@En@En@El@Cn@En@En@El@En@Cn@En@El@En@En@Cn@En@TETETCREREPGPERGPGPEPGRGPEPGREPGPGPERGPGPGRGPGPGRGPGRGPGPGRGPGPGRIPGRGPGPGPGRGPGPGPGPGPEVCVCTCVA`@MXIXIVKXIXIXKXIVIXKXIXIXKVIXIp@[@DAETKREPG\\MTIXKB?^O^KJEZKXKZKJEb@MRIPG\\Kb@Ob@ORIXKXIXIVITG@D"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "NEVILLE ST + FIFTH AVE",
+              "stopCode": "5127",
+              "location": {
+                "lat": 40.447346,
+                "lng": -79.947469
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:46",
+            "arriveAt": "08:55",
+            "minutes": 8.6,
+            "meters": 652,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "{zzuFtv}fN?DFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 5561,
+        "minutes": 75.6,
+        "geometry": [
+          "chzuF|ofgNFLj@fA@?N`@HTHVDVDTBVA?C@JJRNJF?@FDHDZRj@\\`@Rb@V@@b@Xj@Zh@ZPJNHZgALg@Pk@BMJ[BA@CNKLIFEHI?AHKBIBIF@ALAJEL??ABEHGHKH@FF?JAJEHGHGHEJGHGBAM}@Ia@AEL@D@D?RD@KD_@Fo@BYBO?M@K?G@K?E@GDSF]?CJc@BA@AHCFABADADA@?@I?C@??AF?F?D?p@]LGJGn@Wt@YASI]EQFAJCLENCNAHAH?H?T??E?E@E??@I?K?I@KLyI@m@@[?E?G?G?IB?H?H?@?DeB?E?G@]?E?EBkB@E?K@i@AC?O?K@CdAFB?HwF?O@KD}C@M?MFaB@_@@g@BkB?M?ME?c@AE?CAWA?M@G?E?S@G?IDwC@A?M@G?ED{B?g@?c@@g@?G?IDaBAA@I?M@AHyH@K?C@I?K?A@a@LeH?C?I?K?AVgG?C?G?K@CNyDD[Ps@@GJc@DKDU@EH[vAoGlAmFr@aDPw@?i@AsICk@Gc@ESAWAOGCEEOYIOQUa@]]QMIWSW]IOGMGOMc@Ga@Ec@Ae@ASEk@AE@C?AACCMCO?E??EC?AAEKUGOQWe@w@MOe@s@y@iAu@eAAC@AACCEGICCA@EAwBcDsBeD?AACGKEGACC?ECIO{BmD?AGKGIC?oAqBACGKGKA?eAaBACACCCCEIK?A??AA?Ae@s@@C@C^w@GIHQGK@Cj@mA@EAAEGCACCa@k@m@aAGKm@_AI[[gBIi@g@wCCICCAA?CESCS@G?CAIGYa@cCIc@AC?CAE?CAEW{Aq@wD??ACC?AEAKCMAG@C?EO}@EUAMAGESQkAO}@[oBAOCO@C?GCaBAgBCs@?KEiDN?LA`CILOBM?CAUCOAE@C?C?Y?G?KF[BU?ONi@BM@JDDFBPDXHHAND"
+        ]
+      }
+    },
+    "the-julian": {
+      "commute": {
+        "arriveBy": "09:30",
+        "departAt": "09:09",
+        "arriveAt": "09:26",
+        "minutes": 17.3,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Julian",
+              "stopCode": null,
+              "location": {
+                "lat": 40.454625,
+                "lng": -79.952741
+              }
+            },
+            "to": {
+              "name": "NEVILLE RAMP + CENTRE",
+              "stopCode": "2668",
+              "location": {
+                "lat": 40.452725,
+                "lng": -79.949753
+              }
+            },
+            "departAt": "09:09",
+            "arriveAt": "09:15",
+            "minutes": 5.9,
+            "meters": 437,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "yg|uFby~fNvA}@AgBPOHIBK?OlCwA|A{@LGPIDAHEj@UESAC@CCG[uAG[Ia@I_@EQKD"
+          },
+          {
+            "mode": "BUS",
+            "from": {
+              "name": "NEVILLE RAMP + CENTRE",
+              "stopCode": "2668",
+              "location": {
+                "lat": 40.452725,
+                "lng": -79.949753
+              }
+            },
+            "to": {
+              "name": "NEVILLE ST + FIFTH AVE",
+              "stopCode": "5127",
+              "location": {
+                "lat": 40.447346,
+                "lng": -79.947469
+              }
+            },
+            "departAt": "09:15",
+            "arriveAt": "09:17",
+            "minutes": 2.8,
+            "meters": 638,
+            "route": {
+              "shortName": "P3",
+              "longName": "EAST BUSWAY-OAKLAND"
+            },
+            "headsign": "EAST BUSWAY-OAKLAND",
+            "stops": 2,
+            "geometry": "o|{uF~d~fN`@MXIXIVKXIXIXKXIVIXKXIXIXKVIXIp@[@DAETKREPG\\MTIXKB?^O^KJEZKXKZKJEb@MRIPG\\Kb@Ob@ORIXKXIXIVITG@D"
+          },
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "NEVILLE ST + FIFTH AVE",
+              "stopCode": "5127",
+              "location": {
+                "lat": 40.447346,
+                "lng": -79.947469
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "09:17",
+            "arriveAt": "09:26",
+            "minutes": 8.6,
+            "meters": 652,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "{zzuFtv}fN?DFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1689,
+        "minutes": 22.6,
+        "geometry": [
+          "yg|uFby~fNvA}@AgBPOHIBK?OlCwA|A{@LGPIDAHEj@ULGLEAEAE@@@?@AtCmAr@[`@ODCr@[dBs@q@eDCAAABEJELCt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
         ]
       }
     }
