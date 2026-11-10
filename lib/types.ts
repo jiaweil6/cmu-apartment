@@ -39,4 +39,8 @@ export interface Apartment extends ApartmentInfo {
   units: Record<RoomType, UnitInfo>;
   commuteMinutes: Observation<number> | null;
   walkMiles: Observation<number> | null;
+  /** When any price was last checked, or null if never. */
+  pricesCheckedAt: string | null;
+  /** Prices are much older than the latest data refresh. */
+  pricesStale: boolean;
 }

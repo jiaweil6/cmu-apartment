@@ -2,8 +2,9 @@ import { describe, expect, it } from "vitest";
 import listingsFile from "@/data/apartments.json";
 import candidatesFile from "@/data/candidates.json";
 import rejectedFile from "@/data/rejected.json";
+import routesFile from "@/data/routes.json";
 import snapshotFile from "@/data/snapshot.json";
-import { candidatesFileSchema, listingsSchema, rejectedFileSchema, snapshotSchema } from "./schemas";
+import { candidatesFileSchema, listingsSchema, rejectedFileSchema, routesFileSchema, snapshotSchema } from "./schemas";
 
 // Guards the committed data files, which scripts and reviewers edit.
 describe("data files", () => {
@@ -13,6 +14,12 @@ describe("data files", () => {
   it("has a snapshot entry for every listed apartment", () => {
     const listed = listings.apartments.map((a) => a.id);
     expect(Object.keys(snapshot.apartments).sort()).toEqual([...listed].sort());
+  });
+
+  it("has routes only for listed apartments", () => {
+    const routes = routesFileSchema.parse(routesFile);
+    const listed = new Set(listings.apartments.map((a) => a.id));
+    expect(Object.keys(routes.apartments).filter((id) => !listed.has(id))).toEqual([]);
   });
 
   it("has valid review files", () => {
@@ -36,5 +43,18 @@ describe("data files", () => {
       },
     };
     expect(snapshotSchema.safeParse(bad).success).toBe(false);
+  });
+});
+
+describe("pricing configuration", () => {
+  it("names a known adapter, with the settings it needs, for every listing", async () => {
+    const { ADAPTERS } = await import("@/scripts/refresh/pricing");
+    const manualPrices = (await import("@/data/manual-prices.json")).default as Record<string, unknown>;
+    for (const apartment of listingsSchema.parse(listingsFile).apartments) {
+      const { adapter, url } = apartment.pricing;
+      expect(ADAPTERS.has(adapter), `${apartment.id}: unknown adapter "${adapter}"`).toBe(true);
+      if (adapter === "manual") expect(manualPrices[apartment.id], `${apartment.id}: no manual prices`).toBeDefined();
+      if (adapter === "sightmap" || adapter === "entrata-wp") expect(url, `${apartment.id}: pricing.url`).toBeDefined();
+    }
   });
 });

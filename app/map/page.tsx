@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import ApartmentMap from "@/components/ApartmentMap";
+import "maplibre-gl/dist/maplibre-gl.css";
+import MapExplorer from "@/components/MapExplorer";
 import { getApartments, getCampus } from "@/lib/apartments";
-import { HERE_UI_STYLESHEET } from "@/lib/here-maps";
+import { getRoutes } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "Locations of Apartments Near CMU",
+  title: "Apartments near CMU on a map",
 };
 
 export default async function MapPage() {
-  const [campus, apartments] = await Promise.all([getCampus(), getApartments()]);
-
-  return (
-    <div className="container">
-      <link rel="stylesheet" href={HERE_UI_STYLESHEET} precedence="default" />
-      <h1 className="map-title">Locations of Apartments Near CMU</h1>
-      <div className="row justify-content-center">
-        <div className="col-md-12">
-          <ApartmentMap apiKey={process.env.NEXT_PUBLIC_HERE_API_KEY} places={[campus, ...apartments]} />
-        </div>
-      </div>
-    </div>
-  );
+  const [campus, apartments, routes] = await Promise.all([getCampus(), getApartments(), getRoutes()]);
+  return <MapExplorer apartments={apartments} campus={campus} routes={routes.apartments} serviceDate={routes.serviceDate} />;
 }

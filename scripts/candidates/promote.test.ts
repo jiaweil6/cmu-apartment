@@ -22,6 +22,8 @@ const candidate = (key: string, overrides: Partial<Candidate> = {}): Candidate =
   commuteMinutes: 9,
   osm: { id: "way/1", name: "Fifth & Neville", website: null, yearBuilt: 2016 },
   possibleDuplicateOf: null,
+  websiteSource: null,
+  detectedPlatform: null,
   listing: {
     name: "Fifth & Neville",
     shortName: null,
@@ -31,6 +33,8 @@ const candidate = (key: string, overrides: Partial<Candidate> = {}): Candidate =
     openToUndergrad: true,
     amenities: { inUnitLaundry: true, fitness: false, parking: true },
     yearBuilt: null,
+    pricing: { adapter: "sightmap", url: "https://sightmap.com/app/api/v1/abc/sightmaps/1" },
+    manualPrices: null,
   },
   ...overrides,
 });
@@ -41,6 +45,7 @@ const run = (candidates: Candidate[]) =>
     candidates: candidatesFileSchema.parse({ updatedAt: now, candidates }),
     rejected: { rejected: [] },
     snapshot,
+    manualPrices: {},
     now,
   });
 
@@ -72,6 +77,30 @@ describe("promote", () => {
     ]);
     expect(result.candidates.candidates.map((c) => c.key)).toEqual(["0053C00170000000"]);
     expect(result.listings.apartments).toHaveLength(listings.apartments.length);
+  });
+
+  it("records manual prices right away so the building ranks on price", () => {
+    const units = {
+      studio: { status: "available" as const, minPrice: 1500 },
+      oneBedroom: { status: "available" as const, minPrice: 1800 },
+      twoBedroom: { status: "not-offered" as const, minPrice: null },
+      threeBedroom: { status: "not-offered" as const, minPrice: null },
+    };
+    const manualCandidate = candidate("0052J00138000000", { decision: "approve" });
+    manualCandidate.listing = { ...manualCandidate.listing, pricing: { adapter: "manual" }, manualPrices: units };
+    const result = run([manualCandidate]);
+    expect(result.manualPrices["fifth-neville"]).toMatchObject({ verifiedOn: "2026-11-12", units });
+    expect(result.snapshot.apartments["fifth-neville"].units.studio).toMatchObject({ minPrice: 1500, source: "manual" });
+    expect(result.listings.apartments.at(-1)?.pricing).toEqual({ adapter: "manual" });
+  });
+
+  it("needs a price source: manual prices or a scraped platform's URL", () => {
+    const noPrices = candidate("0052J00138000000", { decision: "approve" });
+    noPrices.listing = { ...noPrices.listing, pricing: { adapter: "manual" } };
+    expect(run([noPrices]).problems[0].missing).toEqual(["listing.manualPrices (or a scraped listing.pricing)"]);
+    const noUrl = candidate("0052J00138000000", { decision: "approve" });
+    noUrl.listing = { ...noUrl.listing, pricing: { adapter: "sightmap" } };
+    expect(run([noUrl]).problems[0].missing).toEqual(["listing.pricing.url"]);
   });
 
   it("holds back approved candidates with missing fields", () => {

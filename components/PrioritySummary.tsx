@@ -1,24 +1,22 @@
 import { CRITERIA } from "@/lib/options";
-import { priorityShares, type Priorities } from "@/lib/ranking";
+import type { Priorities } from "@/lib/ranking";
 
 /** The "Your Priorities" bars: each slider as a share of the total. */
-export default function PrioritySummary({ priorities }: { priorities: Priorities }) {
-  const shares = priorityShares(priorities);
-
+export default function PrioritySummary({ priorities, shares }: { priorities: Priorities; shares: Priorities }) {
   return (
-    <div className="list-group">
+    <ul className="priority-summary">
       {CRITERIA.map(({ key, label }) => {
         const activeClass = priorities[key] > 0 ? " is-active" : "";
         return (
-          <div className="priority-item" key={key}>
-            <div className={`priority-label${activeClass}`}>{label}</div>
-            <div className="percentage-bar-container">
-              <div className="percentage-bar" style={{ width: `${shares[key]}%` }} />
-            </div>
-            <span className={`percentage${activeClass}`}>{shares[key]}%</span>
-          </div>
+          <li className={`priority-item${activeClass}`} key={key}>
+            <span className="priority-label">{label}</span>
+            <span className="percentage-bar-container" aria-hidden="true">
+              <span className="percentage-bar" style={{ width: `${shares[key]}%` }} />
+            </span>
+            <span className="percentage">{shares[key]}%</span>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }

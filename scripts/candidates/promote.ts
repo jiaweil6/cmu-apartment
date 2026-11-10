@@ -1,4 +1,4 @@
-import type { ApartmentInfo, Candidate, CandidatesFile, Listings, RejectedFile, Snapshot, UnitInfo } from "@/lib/schemas";
+import type { ApartmentInfo, Candidate, CandidatesFile, Listings, ManualPrices, RejectedFile, Snapshot, UnitInfo } from "@/lib/schemas";
 
 /** County neighborhood names folded into the site's filter names. */
 export function siteNeighborhood(county: string | null): string {
@@ -30,6 +30,12 @@ export function missingFields(candidate: Candidate): string[] {
   for (const [amenity, value] of Object.entries(listing.amenities)) {
     if (value === null) missing.push(`listing.amenities.${amenity}`);
   }
+  // A price source, so the building can rank on price once listed.
+  if (listing.pricing.adapter === "manual") {
+    if (!listing.manualPrices) missing.push("listing.manualPrices (or a scraped listing.pricing)");
+  } else if (!listing.pricing.url) {
+    missing.push("listing.pricing.url");
+  }
   return missing;
 }
 
@@ -53,27 +59,30 @@ function toListing(candidate: Candidate, id: string): ApartmentInfo {
     },
     parcelIds: candidate.parcelIds,
     yearBuilt: listing.yearBuilt ?? candidate.osm?.yearBuilt ?? null,
+    pricing: listing.pricing,
     legacyScores: null,
   };
 }
 
 /**
- * Applies reviewers' decisions: approved candidates become listings (with an
- * empty snapshot entry until the next refresh), rejected ones are remembered,
- * and pending ones stay. Approved candidates with missing fields are left in
- * place and reported.
+ * Applies reviewers' decisions: approved candidates become listings, rejected
+ * ones are remembered, and pending ones stay. Manually priced buildings get
+ * their prices recorded right away; scraped ones wait for the next price
+ * refresh. Approved candidates with missing fields are left in place and reported.
  */
 export function promote(options: {
   listings: Listings;
   candidates: CandidatesFile;
   rejected: RejectedFile;
   snapshot: Snapshot;
+  manualPrices: ManualPrices;
   now: string;
 }): {
   listings: Listings;
   candidates: CandidatesFile;
   rejected: RejectedFile;
   snapshot: Snapshot;
+  manualPrices: ManualPrices;
   promoted: ApartmentInfo[];
   rejectedKeys: string[];
   problems: { key: string; address: string; missing: string[] }[];
@@ -82,6 +91,7 @@ export function promote(options: {
   const listings: Listings = { ...options.listings, apartments: [...options.listings.apartments] };
   const rejected: RejectedFile = { rejected: [...options.rejected.rejected] };
   const snapshot: Snapshot = { ...options.snapshot, apartments: { ...options.snapshot.apartments } };
+  const manualPrices: ManualPrices = { ...options.manualPrices };
   const remaining: Candidate[] = [];
   const promoted: ApartmentInfo[] = [];
   const rejectedKeys: string[] = [];
@@ -102,10 +112,19 @@ export function promote(options: {
       const listing = toListing(candidate, slugify(candidate.listing.name!, taken));
       taken.add(listing.id);
       listings.apartments.push(listing);
-      const unknown: UnitInfo = { status: "unknown", minPrice: null, observedAt: now, source: "added" };
-      snapshot.apartments[listing.id] = {
-        units: { studio: unknown, oneBedroom: unknown, twoBedroom: unknown, threeBedroom: unknown },
-      };
+      const manual = candidate.listing.manualPrices;
+      if (listing.pricing.adapter === "manual" && manual) {
+        manualPrices[listing.id] = { verifiedOn: now.slice(0, 10), note: "Entered when the building was approved", units: manual };
+        const stamp = (unit: (typeof manual)["studio"]): UnitInfo => ({ ...unit, observedAt: now, source: "manual" });
+        snapshot.apartments[listing.id] = {
+          units: { studio: stamp(manual.studio), oneBedroom: stamp(manual.oneBedroom), twoBedroom: stamp(manual.twoBedroom), threeBedroom: stamp(manual.threeBedroom) },
+        };
+      } else {
+        const unknown: UnitInfo = { status: "unknown", minPrice: null, observedAt: now, source: "added" };
+        snapshot.apartments[listing.id] = {
+          units: { studio: unknown, oneBedroom: unknown, twoBedroom: unknown, threeBedroom: unknown },
+        };
+      }
       promoted.push(listing);
     } else {
       if (candidate.decision === "approve") {
@@ -120,6 +139,7 @@ export function promote(options: {
     candidates: { ...options.candidates, candidates: remaining },
     rejected,
     snapshot,
+    manualPrices,
     promoted,
     rejectedKeys,
     problems,

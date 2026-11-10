@@ -1,6 +1,7 @@
-import { plan, tripMinutes, walkingMiles, WALK_ONLY } from "../lib/otp";
+import { latestTrip, METERS_PER_MILE, plan, shortestWalk, totalMeters, WALK_ONLY } from "../lib/otp";
 import { zonedTime } from "../lib/service-date";
-import type { ApartmentMetrics, Listings, Snapshot } from "@/lib/schemas";
+import type { ApartmentMetrics, Listings, RoutesFile, Snapshot } from "@/lib/schemas";
+import { toCommuteRoute, toWalkRoute } from "./routes";
 
 /** Arrival deadlines on the service date; the commute is the median of the three trips. */
 const ARRIVE_BY = ["08:30", "09:00", "09:30"];
@@ -13,24 +14,27 @@ export interface TransitResult {
   error?: string;
 }
 
-const median = (values: number[]) => [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)];
 const round = (value: number, digits: number) => Math.round(value * 10 ** digits) / 10 ** digits;
 
 /**
- * Computes commute minutes and walking miles to campus for every apartment.
- * An apartment whose routing fails keeps its previous values.
+ * Computes commute minutes and walking miles to campus for every apartment, and
+ * keeps the trips behind them (data/routes.json): the median of the three
+ * deadline trips, and the shortest walk. An apartment whose routing fails keeps
+ * its previous values and routes.
  */
 export async function refreshTransit(options: {
   otpUrl: string;
   listings: Listings;
   snapshot: Snapshot;
+  previousRoutes: RoutesFile["apartments"];
   serviceDate: string;
   observedAt: string;
   source: string;
-}): Promise<{ apartments: Snapshot["apartments"]; results: TransitResult[] }> {
-  const { otpUrl, listings, snapshot, serviceDate, observedAt, source } = options;
+}): Promise<{ apartments: Snapshot["apartments"]; routes: RoutesFile["apartments"]; results: TransitResult[] }> {
+  const { otpUrl, listings, snapshot, previousRoutes, serviceDate, observedAt, source } = options;
   const campus = listings.campus.location;
   const apartments: Snapshot["apartments"] = { ...snapshot.apartments };
+  const routes: RoutesFile["apartments"] = { ...previousRoutes };
   const results: TransitResult[] = [];
 
   for (const apartment of listings.apartments) {
@@ -48,24 +52,36 @@ export async function refreshTransit(options: {
     }
 
     try {
+      const labels = { from: apartment.shortName, to: listings.campus.shortName };
       const trips = await Promise.all(
-        ARRIVE_BY.map(async (time) =>
-          tripMinutes(await plan(otpUrl, apartment.location, campus, { dateTime: { latestArrival: zonedTime(serviceDate, time) } })),
-        ),
+        ARRIVE_BY.map(async (arriveBy) => ({
+          arriveBy,
+          itinerary: latestTrip(
+            await plan(otpUrl, apartment.location, campus, {
+              dateTime: { latestArrival: zonedTime(serviceDate, arriveBy) },
+              labels,
+            }),
+          ),
+        })),
       );
-      const walk = walkingMiles(
+      // The commute is the median trip; the route shown is that same trip.
+      const median = [...trips].sort((a, b) => a.itinerary.duration - b.itinerary.duration)[Math.floor(trips.length / 2)];
+      const walk = shortestWalk(
         await plan(otpUrl, apartment.location, campus, {
           dateTime: { earliestDeparture: zonedTime(serviceDate, "08:00") },
           modes: WALK_ONLY,
+          labels,
         }),
       );
-      const commuteMinutes = round(median(trips), 1);
-      const walkMiles = round(walk, 2);
+      const route = { commute: toCommuteRoute(median.itinerary, median.arriveBy), walk: toWalkRoute(walk) };
+      const commuteMinutes = round(median.itinerary.duration / 60, 1);
+      const walkMiles = round(totalMeters(walk) / METERS_PER_MILE, 2);
       apartments[apartment.id] = {
         ...previous,
         commuteMinutes: { value: commuteMinutes, observedAt, source },
         walkMiles: { value: walkMiles, observedAt, source },
       };
+      routes[apartment.id] = route;
       result.commuteMinutes.after = commuteMinutes;
       result.walkMiles.after = walkMiles;
     } catch (error) {
@@ -73,5 +89,5 @@ export async function refreshTransit(options: {
     }
   }
 
-  return { apartments, results };
+  return { apartments, routes, results };
 }

@@ -2,33 +2,51 @@
 
 import { useState } from "react";
 import type { RankedApartment } from "@/lib/ranking";
+import type { LatLng, RoomType } from "@/lib/types";
 import ApartmentCard from "./ApartmentCard";
 
 interface Props {
   ranked: RankedApartment[];
+  roomType: RoomType;
+  campus: LatLng;
   hasPriorities: boolean;
 }
 
-export default function RankingList({ ranked, hasPriorities }: Props) {
+export default function RankingList({ ranked, roomType, campus, hasPriorities }: Props) {
   // One card open at a time.
   const [openId, setOpenId] = useState<string | null>(null);
 
-  let content;
   if (!hasPriorities) {
-    content = <h2 className="warning">Select Your Priorities for Your Dream Off-Campus Residence!</h2>;
-  } else if (ranked.length === 0) {
-    content = <p className="empty-message">No apartments match your filters for this room type.</p>;
-  } else {
-    content = ranked.map(({ apartment }, index) => (
-      <ApartmentCard
-        key={apartment.id}
-        apartment={apartment}
-        rank={index + 1}
-        isOpen={openId === apartment.id}
-        onToggle={() => setOpenId((current) => (current === apartment.id ? null : apartment.id))}
-      />
-    ));
+    return (
+      <div id="rankingsList" className="empty-state">
+        <p className="warning">Set a priority to see your rankings</p>
+        <p className="empty-state-hint">Move any slider and the apartments that fit you best appear here, best first</p>
+      </div>
+    );
   }
 
-  return <div id="rankingsList">{content}</div>;
+  if (ranked.length === 0) {
+    return (
+      <div id="rankingsList" className="empty-state">
+        <p className="empty-message">No apartments match these filters for this room type</p>
+      </div>
+    );
+  }
+
+  return (
+    <ol id="rankingsList" className="ranking-list">
+      {ranked.map(({ apartment }, index) => (
+        <li key={apartment.id}>
+          <ApartmentCard
+            apartment={apartment}
+            campus={campus}
+            rank={index + 1}
+            roomType={roomType}
+            isOpen={openId === apartment.id}
+            onToggle={() => setOpenId((current) => (current === apartment.id ? null : apartment.id))}
+          />
+        </li>
+      ))}
+    </ol>
+  );
 }

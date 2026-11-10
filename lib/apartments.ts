@@ -10,11 +10,17 @@ const UNKNOWN_UNIT: UnitInfo = {
   source: "none",
 };
 
+/** Prices this much older than the latest refresh are flagged as possibly out of date. */
+export const STALE_PRICE_DAYS = 14;
+
 /**
  * Combines listing details with the latest snapshot. An apartment the snapshot
  * doesn't cover yet (e.g. just added) gets unknown prices until the next refresh.
+ * Staleness is measured against the snapshot's date, not today, so the static
+ * build and the browser always agree.
  */
 export function mergeListings(listings: Listings, snapshot: Snapshot): Apartment[] {
+  const staleBefore = new Date(Date.parse(snapshot.generatedAt) - STALE_PRICE_DAYS * 86_400_000).toISOString();
   return listings.apartments.map((info) => {
     const metrics = snapshot.apartments[info.id];
     const units: Record<RoomType, UnitInfo> = metrics?.units ?? {
@@ -23,11 +29,19 @@ export function mergeListings(listings: Listings, snapshot: Snapshot): Apartment
       twoBedroom: UNKNOWN_UNIT,
       threeBedroom: UNKNOWN_UNIT,
     };
+    const pricesCheckedAt =
+      Object.values(units)
+        .filter((unit) => unit.status !== "unknown" || unit.minPrice !== null)
+        .map((unit) => unit.observedAt)
+        .sort()
+        .at(-1) ?? null;
     return {
       ...info,
       units,
       commuteMinutes: metrics?.commuteMinutes ?? null,
       walkMiles: metrics?.walkMiles ?? null,
+      pricesCheckedAt,
+      pricesStale: pricesCheckedAt !== null && pricesCheckedAt < staleBefore,
     };
   });
 }

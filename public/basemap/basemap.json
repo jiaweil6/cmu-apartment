@@ -1,0 +1,12 @@
+{
+  "build": "20261109.pmtiles",
+  "source": "https://build.protomaps.com",
+  "license": "ODbL (© OpenStreetMap contributors)",
+  "bbox": [
+    -80.02,
+    40.4,
+    -79.86,
+    40.5
+  ],
+  "maxzoom": 15
+}

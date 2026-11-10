@@ -1,0 +1,5 @@
+{
+  "$comment": "The area the self-hosted basemap covers (public/basemap/pittsburgh.pmtiles): [west, south, east, north]. Change it and push to rebuild the tiles (.github/workflows/map-tiles.yml).",
+  "bbox": [-80.02, 40.4, -79.86, 40.5],
+  "maxzoom": 15
+}

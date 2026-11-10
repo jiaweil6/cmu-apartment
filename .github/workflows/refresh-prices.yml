@@ -1,0 +1,51 @@
+name: Refresh prices
+
+# Daily: read rents and availability through each listing's pricing adapter.
+# Clean results go live; suspicious readings open a PR for review.
+on:
+  schedule:
+    - cron: "23 10 * * *" # Daily, 10:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: data-writes
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Refresh prices and availability
+        id: refresh
+        run: npm run refresh -- --only prices --summary refresh-summary.md
+
+      - uses: ./.github/actions/publish-data
+        with:
+          paths: data/snapshot.json
+          commit-message: Refresh prices and availability
+          needs-review: ${{ steps.refresh.outputs.needs_review }}
+          pr-branch: data/refresh-prices
+          pr-title: Review price changes
+          pr-body-path: refresh-summary.md
+
+      - if: failure()
+        uses: ./.github/actions/report-status
+        with:
+          status: failure
+      - if: success()
+        uses: ./.github/actions/report-status
+        with:
+          status: success

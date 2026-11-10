@@ -1,97 +1,167 @@
+"use client";
+
 import Link from "next/link";
-import { ROOM_TYPES } from "@/lib/options";
-import { offeredPrice } from "@/lib/ranking";
-import type { Apartment, RoomType } from "@/lib/types";
+import { useState } from "react";
+import { googleDirectionsUrl } from "@/lib/directions";
+import { priceParts, staleSince } from "@/lib/price-format";
+import type { Apartment, LatLng, RoomType } from "@/lib/types";
+import CommuteRoute from "./CommuteRoute";
+import RentTable from "./RentTable";
+import { ChevronDown, ExternalLink, MapPin, Walk } from "./icons";
 
 interface Props {
   apartment: Apartment;
+  /** Campus, for directions. */
+  campus: LatLng;
   rank: number;
+  /** The room type chosen in "About You": its rent is shown in the summary and highlighted. */
+  roomType: RoomType;
   isOpen: boolean;
   onToggle: () => void;
 }
 
 // Fixed locale and time zone so the server and browser render the same text.
-const dateFormat = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" });
+export default function ApartmentCard({ apartment, campus, rank, roomType, isOpen, onToggle }: Props) {
+  // Listing photos are hotlinked from other sites; hide the frame if one fails to load.
+  const [imageFailed, setImageFailed] = useState(false);
 
-function formatPrice(apartment: Apartment, roomType: RoomType): string {
-  if (apartment.units[roomType].status === "not-offered") return "Not available";
-  const price = offeredPrice(apartment, roomType);
-  return price === null ? "Unknown" : `$${price}`;
-}
-
-/** The most recent date any price was checked, or null if none have been. */
-function pricesCheckedOn(apartment: Apartment): string | null {
-  const dates = Object.values(apartment.units)
-    .filter((unit) => unit.status !== "unknown" || unit.minPrice !== null)
-    .map((unit) => unit.observedAt)
-    .sort();
-  return dates.length ? dateFormat.format(new Date(dates[dates.length - 1])) : null;
-}
-
-export default function ApartmentCard({ apartment, rank, isOpen, onToggle }: Props) {
   const detailsId = `apartment-details-${apartment.id}`;
-  const checkedOn = pricesCheckedOn(apartment);
+  const stale = staleSince(apartment);
+  const selected = priceParts(apartment, roomType);
+  const commuteMinutes = apartment.commuteMinutes ? Math.round(apartment.commuteMinutes.value) : null;
+  const commute = commuteMinutes === null ? null : `${commuteMinutes} min`;
+  const walk = apartment.walkMiles ? `${apartment.walkMiles.value.toFixed(1)} mi` : null;
+  const phoneHref = apartment.phone ? `tel:${apartment.phone.replace(/[^\d+]/g, "")}` : null;
 
   return (
-    <div className="card apartment-card mb-3">
-      <div className="card-body">
+    <article className={`apartment-card${isOpen ? " is-open" : ""}`}>
+      <h3 className="apartment-heading">
         <button
           type="button"
-          className="card-title apartment-toggle"
+          className="apartment-toggle"
           aria-expanded={isOpen}
           aria-controls={detailsId}
           onClick={onToggle}
         >
-          {rank}. {apartment.name}
-          <ChevronDown />
+          <span className={`rank${rank === 1 ? " is-first" : ""}`}>
+            <span className="visually-hidden">Rank </span>
+            {rank}
+          </span>
+          <span className="apartment-summary">
+            <span className="apartment-name">{apartment.name}</span>
+            <span className="apartment-meta">
+              {selected.price && (
+                <span className="meta-price">
+                  <strong>{selected.price}</strong>/mo
+                </span>
+              )}
+              <span>
+                <MapPin className="meta-icon" />
+                {apartment.neighborhood}
+              </span>
+            </span>
+            {(commuteMinutes !== null || walk) && (
+              <span className="apartment-meta">
+                {commuteMinutes !== null && <CommuteRoute minutes={commuteMinutes} />}
+                {walk && (
+                  <span>
+                    <Walk className="meta-icon" />
+                    {walk} walk
+                  </span>
+                )}
+              </span>
+            )}
+            {(selected.status || stale) && (
+              <span className="apartment-tags">
+                {selected.status && <span className={`tag tone-${selected.tone}`}>{selected.status}</span>}
+                {stale && (
+                  <span className="tag tone-stale">Price from {stale}</span>
+                )}
+              </span>
+            )}
+          </span>
+          <ChevronDown className="chevron" />
         </button>
-        <div id={detailsId} className={`apartment-details${isOpen ? " is-open" : ""}`} inert={!isOpen}>
-          <div>
-            <div className="apartment-details-content">
-              <div className="card card-body">
-                <p>Address: {apartment.address}</p>
-                <p>Phone Number: {apartment.phone}</p>
-                {ROOM_TYPES.map(({ value, priceLabel }) => (
-                  <p key={value}>
-                    {priceLabel}: {formatPrice(apartment, value)}
-                  </p>
-                ))}
-                {checkedOn && <p className="data-note">Prices as of {checkedOn}</p>}
-                {apartment.commuteMinutes && (
-                  <p>Commute to Campus: {Math.round(apartment.commuteMinutes.value)} min</p>
-                )}
-                {apartment.walkMiles && <p>Walk to Campus: {apartment.walkMiles.value.toFixed(1)} mi</p>}
-                {apartment.yearBuilt && <p>Year Built: {apartment.yearBuilt}</p>}
-                <a href={apartment.website} target="_blank" rel="noopener noreferrer">
-                  Website
-                </a>
-                <Link href="/map">View on Map</Link>
-                <br />
-                {apartment.imageUrl && (
-                  // Remote listing photos of unknown size, so next/image doesn't fit.
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img className="apartment-image" src={apartment.imageUrl} alt={apartment.name} loading="lazy" />
-                )}
+      </h3>
+
+      <div id={detailsId} className={`apartment-details${isOpen ? " is-open" : ""}`} inert={!isOpen}>
+        <div>
+          <div className="apartment-details-content">
+            {apartment.imageUrl && !imageFailed && (
+              // Remote listing photos of unknown size, so next/image doesn't fit.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                className="apartment-image"
+                src={apartment.imageUrl}
+                alt={apartment.name}
+                loading="lazy"
+                onError={() => setImageFailed(true)}
+              />
+            )}
+
+            <RentTable apartment={apartment} roomType={roomType} />
+
+            <dl className="fact-list">
+              <div>
+                <dt>Address</dt>
+                <dd>{apartment.address}</dd>
               </div>
+              {phoneHref && (
+                <div>
+                  <dt>Phone</dt>
+                  <dd>
+                    <a href={phoneHref}>{apartment.phone}</a>
+                  </dd>
+                </div>
+              )}
+              {commute && (
+                <div>
+                  <dt>Commute to campus</dt>
+                  <dd>
+                    {commute}
+                    <span className="fact-links">
+                      <Link href={{ pathname: "/map", query: { apartment: apartment.id, room: roomType } }}>Route</Link>
+                      <a href={googleDirectionsUrl(apartment.location, campus, "transit")} target="_blank" rel="noopener noreferrer">
+                        Google Maps
+                        <span className="visually-hidden"> transit directions (opens in a new tab)</span>
+                      </a>
+                    </span>
+                  </dd>
+                </div>
+              )}
+              {walk && (
+                <div>
+                  <dt>Walk to campus</dt>
+                  <dd>
+                    {walk}
+                    <span className="fact-links">
+                      <Link href={{ pathname: "/map", query: { apartment: apartment.id, room: roomType, route: "walk" } }}>Route</Link>
+                    </span>
+                  </dd>
+                </div>
+              )}
+              {apartment.yearBuilt && (
+                <div>
+                  <dt>Year built</dt>
+                  <dd>{apartment.yearBuilt}</dd>
+                </div>
+              )}
+            </dl>
+
+            <div className="card-actions">
+              <a className="button button-primary" href={apartment.website} target="_blank" rel="noopener noreferrer">
+                Website
+                <ExternalLink />
+                <span className="visually-hidden"> (opens in a new tab)</span>
+              </a>
+              <Link className="button" href={{ pathname: "/map", query: { apartment: apartment.id, room: roomType } }}>
+                <MapPin />
+                View on map
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ChevronDown() {
-  return (
-    <svg className="chevron" width="0.875em" height="1em" viewBox="0 0 448 512" aria-hidden="true">
-      <path
-        d="M48 184 224 360 400 184"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="68"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    </article>
   );
 }

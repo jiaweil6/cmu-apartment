@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 concurrency:
   group: discover
@@ -44,6 +45,9 @@ jobs:
 
       - name: Discover apartment buildings
         if: steps.review.outputs.open == '0'
+        env:
+          # Optional: looks up websites for new finds. Without it, reviewers fill them in.
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
         run: >
           npm run discover -- --otp-url http://localhost:8080 --gtfs-dir otp-run/gtfs
           --summary discover-summary.md
@@ -57,3 +61,12 @@ jobs:
           commit-message: Add apartment buildings found this week
           title: Weekly apartment finds
           body-path: discover-summary.md
+
+      - if: failure()
+        uses: ./.github/actions/report-status
+        with:
+          status: failure
+      - if: success()
+        uses: ./.github/actions/report-status
+        with:
+          status: success

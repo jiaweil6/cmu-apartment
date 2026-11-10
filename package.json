@@ -7,7 +7,9 @@
     "node": ">=22"
   },
   "scripts": {
+    "predev": "node scripts/map/copy-worker.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/map/copy-worker.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -16,11 +18,14 @@
     "test:watch": "vitest",
     "refresh": "tsx scripts/refresh/index.ts",
     "discover": "tsx scripts/discover/index.ts",
-    "candidates:promote": "tsx scripts/candidates/index.ts"
+    "candidates:promote": "tsx scripts/candidates/index.ts",
+    "manual-prices:check": "tsx scripts/refresh/manual-reminder.ts"
   },
   "dependencies": {
-    "bootstrap": "4.6.2",
+    "@protomaps/basemaps": "5.7.2",
+    "maplibre-gl": "6.16.0",
     "next": "16.4.6",
+    "pmtiles": "4.5.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "zod": "^4.6.7"
@@ -31,6 +36,7 @@
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.6",
+    "playwright": "1.63.0",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "vitest": "^5.1.0"

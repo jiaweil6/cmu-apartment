@@ -232,11 +232,21 @@ describe("criterionScores", () => {
     expect(scores.get(second.id)).toBe(second.legacyScores!.commute);
   });
 
-  it("ranks live values once any exist, giving the rest the median", () => {
-    const scores = criterionScores([withCommute(first, 30), withCommute(second, 10), withCommute(third, null)], "commute");
+  it("ranks live values once every 2024-scored apartment has one; newcomers without one get the median", () => {
+    const added = withCommute({ ...third, id: "new-building", legacyScores: null }, null);
+    const scores = criterionScores([withCommute(first, 30), withCommute(second, 10), added], "commute");
     expect(scores.get(second.id)).toBe(1);
     expect(scores.get(first.id)).toBe(0.5);
-    expect(scores.get(third.id)).toBe(0.75);
+    expect(scores.get("new-building")).toBe(0.75);
+  });
+
+  it("keeps the 2024 scores while some 2024-scored apartments lack live values", () => {
+    const added = withCommute({ ...third, id: "new-building", legacyScores: null }, 5);
+    const scores = criterionScores([withCommute(first, 30), withCommute(second, null), added], "commute");
+    expect(scores.get(first.id)).toBe(first.legacyScores!.commute);
+    expect(scores.get(second.id)).toBe(second.legacyScores!.commute);
+    const median = [first, second].map((a) => a.legacyScores!.commute).sort((a, b) => a - b);
+    expect(scores.get("new-building")).toBe(Math.round(((median[0] + median[1]) / 2) * 100) / 100);
   });
 
   it("gives apartments without any score the median", () => {
@@ -254,5 +264,27 @@ describe("mergeListings", () => {
     expect(apartment.units.studio).toMatchObject({ status: "unknown", minPrice: null });
     expect(apartment.commuteMinutes).toBeNull();
     expect(offeredPrice(apartment, "studio")).toBeNull();
+  });
+});
+
+describe("openings filter and price freshness", () => {
+  const available = { status: "available" as const, minPrice: 1800, available: 2, observedAt: "2026-11-10T00:00:00Z", source: "test" };
+  const [first] = apartments;
+  const withStudio = (unit: Apartment["units"]["studio"]): Apartment => ({ ...first, units: { ...first.units, studio: unit } });
+
+  it("keeps only apartments with open units of the chosen room type", () => {
+    const filters = { ...anyFilters, openingsOnly: true };
+    expect(matchesFilters(withStudio(available), filters)).toBe(true);
+    expect(matchesFilters(withStudio({ ...available, status: "waitlist" }), filters)).toBe(false);
+    expect(matchesFilters(first, filters)).toBe(false); // 2024 data: availability unknown
+    expect(matchesFilters(first, anyFilters)).toBe(true);
+  });
+
+  it("flags prices much older than the latest refresh", () => {
+    const listings = listingsSchema.parse(listings2024);
+    const recent = mergeListings(listings, { ...snapshotSchema.parse(snapshot2024), generatedAt: "2024-02-10T00:00:00Z" });
+    const later = mergeListings(listings, { ...snapshotSchema.parse(snapshot2024), generatedAt: "2026-11-10T00:00:00Z" });
+    expect(recent[0]).toMatchObject({ pricesCheckedAt: "2024-02-03T00:00:00Z", pricesStale: false });
+    expect(later[0].pricesStale).toBe(true);
   });
 });

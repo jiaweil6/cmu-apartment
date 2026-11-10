@@ -8,19 +8,24 @@
  *
  * Sources: Allegheny County parcels with apartment land-use codes (WPRDC) and
  * OpenStreetMap buildings for names, websites and construction years. With an
- * OpenTripPlanner URL, candidates over a 35-minute commute are excluded.
+ * OpenTripPlanner URL, candidates over a 35-minute commute are excluded. With
+ * BRAVE_API_KEY set, new finds without a website get one from Brave Search.
  */
 import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import type { LatLng } from "@/lib/types";
 import { readCandidates, readListings, readRejected, writeCandidates } from "../lib/data-files";
+import { createHttp } from "../lib/http";
+import { ADAPTERS } from "../refresh/pricing";
 import { plan, tripMinutes } from "../lib/otp";
 import { nextRegularTuesday, readCsv, zonedTime } from "../lib/service-date";
 import { apartmentParcels } from "../lib/wprdc";
 import { attachOsm, groupParcels, updateCandidates } from "./candidates";
+import { enrichCandidates } from "./enrich";
 import { osmApartmentBuildings } from "./osm";
 import { discoverySummary } from "./summary";
+import { findWebsite } from "./website";
 
 const { values: args } = parseArgs({
   options: {
@@ -72,6 +77,15 @@ async function main() {
     now: nowIso,
     maxNew: Number(args["max-new"]),
     commute,
+  });
+
+  // New finds only: websites (Brave Search, when BRAVE_API_KEY is set) and leasing platforms.
+  const apiKey = process.env.BRAVE_API_KEY;
+  const http = createHttp();
+  await enrichCandidates(report.added, {
+    findWebsite: apiKey ? (name, address) => findWebsite(apiKey, name, address) : undefined,
+    fetchHomepage: (url) => http.text(url),
+    adapters: [...ADAPTERS.values()],
   });
 
   const markdown = discoverySummary(report, file.candidates.filter((c) => c.decision === "pending").length);

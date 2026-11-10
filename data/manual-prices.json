@@ -1,0 +1,244 @@
+{
+  "skyvue": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 1880
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 2150
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 2650
+      },
+      "threeBedroom": {
+        "status": "unknown",
+        "minPrice": 3450
+      }
+    }
+  },
+  "one-on-centre": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 2060
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 2300
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 3340
+      },
+      "threeBedroom": {
+        "status": "unknown",
+        "minPrice": 4350
+      }
+    }
+  },
+  "sherwood-towers": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1800
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 2300
+      },
+      "threeBedroom": {
+        "status": "unknown",
+        "minPrice": 2700
+      }
+    }
+  },
+  "webster-hall": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 1450
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1800
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 2250
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "amberson-gardens": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 1100
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1300
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 1700
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "walnut-on-highland": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 1753
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1991
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 2500
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "eastside-bond": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 1800
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 2300
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 3500
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "bakery-living": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 1650
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1800
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 3000
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "maxon-towers": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1700
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 2200
+      },
+      "threeBedroom": {
+        "status": "unknown",
+        "minPrice": 2900
+      }
+    }
+  },
+  "negley-court": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 885
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1100
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 1600
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "camelot": {
+    "verifiedOn": "2024-02-03",
+    "note": "Carried over from the original site",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 2230
+      },
+      "threeBedroom": {
+        "status": "unknown",
+        "minPrice": 2800
+      }
+    }
+  }
+}

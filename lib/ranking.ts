@@ -15,6 +15,8 @@ export interface Filters {
   neighborhoods: NeighborhoodFilter[];
   /** Every listed amenity is required. */
   amenities: Amenity[];
+  /** Only apartments with open units of the chosen room type. */
+  openingsOnly?: boolean;
 }
 
 export interface RankedApartment {
@@ -99,7 +101,8 @@ function median(values: number[]): number {
 
 /**
  * Scores for one non-price criterion, keyed by apartment id. Live values are
- * ranked as soon as any apartment has one; until then the 2024 scores are used.
+ * ranked once every apartment with a 2024 score also has a live value; until
+ * then the 2024 scores are used, so a few new values can't reshuffle everyone.
  * Apartments missing a value get the median score.
  */
 export function criterionScores(apartments: Apartment[], criterion: StoredCriterion): Map<string, number> {
@@ -112,7 +115,8 @@ export function criterionScores(apartments: Apartment[], criterion: StoredCriter
     if (apartment.legacyScores) legacy.set(apartment.id, apartment.legacyScores[criterion]);
   }
 
-  const scores = raw.size > 0 ? rankScores(raw, better) : legacy;
+  const liveCoversLegacy = [...legacy.keys()].every((id) => raw.has(id));
+  const scores = raw.size > 0 && liveCoversLegacy ? rankScores(raw, better) : legacy;
   const fallback = median([...scores.values()]);
   return new Map(apartments.map((apartment) => [apartment.id, scores.get(apartment.id) ?? fallback]));
 }
@@ -129,7 +133,8 @@ export function matchesFilters(apartment: Apartment, filters: Filters): boolean 
   return (
     neighborhoodMatch &&
     amenities.every((amenity) => apartment.amenities[amenity]) &&
-    (studentType === "graduate" || apartment.openToUndergrad)
+    (studentType === "graduate" || apartment.openToUndergrad) &&
+    (!filters.openingsOnly || apartment.units[filters.roomType].status === "available")
   );
 }
 
