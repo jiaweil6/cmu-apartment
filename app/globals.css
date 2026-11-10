@@ -262,7 +262,8 @@ a:hover {
   line-height: 1.15;
 }
 
-.hero-lede {
+.hero-lede,
+.page-lede {
   max-width: 60ch;
   margin-top: 16px;
   font-size: 1.125rem;
@@ -1205,13 +1206,9 @@ a:hover {
 
 /* ---------- Map page ---------- */
 
-/* The map page spans the whole window, header included. */
-.site-main:has(.map-explorer),
-body:has(.map-explorer) .site-header-inner {
-  max-width: none;
-}
-
+/* The map spans the whole window; the header stays the same width as on every other page. */
 .site-main:has(.map-explorer) {
+  max-width: none;
   padding: 0;
 }
 
@@ -1582,10 +1579,6 @@ body:has(.map-explorer) .site-header-inner {
     border-right: 1px solid var(--hairline);
   }
 
-  .map-head .map-title {
-    font-size: 2rem;
-  }
-
   .map-list-area {
     overflow-y: auto;
     border-right: 1px solid var(--hairline);
@@ -1900,7 +1893,8 @@ body:has(.map-explorer) .site-header-inner {
     padding: 32px 0 24px;
   }
 
-  .hero-lede {
+  .hero-lede,
+  .page-lede {
     font-size: 1rem;
     line-height: 1.5rem;
   }
