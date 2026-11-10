@@ -1,9 +1,0 @@
-Sitemap: https://www.bakeryliving.com/sitemap.xml
-User-agent: *
-disallow: /refs/
-disallow: /runtimes/
-disallow: /wwwroot/ 
-disallow: /js/
-disallow: /lib/
-disallow: /dashboard/
-disallow: /*.ashx

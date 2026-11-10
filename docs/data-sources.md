@@ -86,13 +86,40 @@ Bakery Living (see note). New buildings get theirs from OpenStreetMap `start_dat
 
 ## Building websites
 
-To be filled in before Phase 2 (price scrapers). For each building, record:
-- the platform (RentCafe, Entrata, SightMap, RealPage, plain HTML)
-- where prices appear (server HTML or a JSON request)
-- `robots.txt` and terms-of-use status
-- the adapter, and whether it's approved
+Surveyed November 2026 with `scripts/inspect-sites` (run it from the "Inspect building websites" workflow).
+We only scrape where `robots.txt` allows the page and no terms forbid automated access: none of these sites
+publish terms that do. Requests identify themselves (`cmu-apartment-rankings`), wait about a second between
+pages on one host, and happen once a day.
 
-apartments.com and Craigslist are never scraped: their terms forbid it. Amberson Gardens and Negley Court currently link to apartments.com, so they need their operator's own site or manual prices.
+| Apartment | Where prices are | Adapter |
+| --- | --- | --- |
+| Coda on Centre | SightMap map API (`sightmap.com/app/api/v1/…`), allowed by robots.txt | `sightmap` |
+| Industry Pittsburgh | SightMap map API | `sightmap` |
+| The Bridge on Forbes | Entrata floor plans at `/wp-json/theme/entrata/v1/floor-plans`; rents are per bed, multiplied by bedrooms as in 2024 | `entrata-wp` (`perBed`) |
+| Kenmawr | Property page text: "1-BR from $1630" | `page-text` |
+| Essex House | McQuarters Realty page: "1 Bed + 1 Bath … $1,595-$1,895" | `page-text` |
+| Claybourne | McQuarters Realty page | `page-text` |
+| SkyVue | Entrata site; robots.txt disallows `/wp-`, which includes its JSON | `manual` |
+| Walnut on Highland, Bakery Living | RentCafe-style sites; robots.txt disallows `*.ashx`, where availability is served | `manual` |
+| One on Centre, Sherwood Towers, Webster Hall, Eastside Bond, Maxon Towers, Camelot | No prices in the page or in data the page loads | `manual` |
+| Amberson Gardens, Negley Court | Only an apartments.com listing, whose terms forbid scraping | `manual` |
+
+Manual prices live in `data/manual-prices.json`; a monthly issue lists those not checked in 60 days.
+
+### Adding a scraper for a building
+
+1. Run the "Inspect building websites" workflow and download its report.
+2. If the building uses a platform an adapter already reads (`scripts/refresh/pricing/`), set its `pricing`
+   in `data/apartments.json`. For SightMap, `url` is the `sightmap.com/app/api/v1/…/sightmaps/…` request the
+   site's map makes (visible in the browser's network tab).
+3. Otherwise add an adapter with a recorded fixture and a test, and register it in `pricing/index.ts`.
+
+## Website search (discovery)
+
+When a newly discovered building has no website in OpenStreetMap, discovery asks the
+[Brave Search API](https://brave.com/search/api/) (secret `BRAVE_API_KEY`; about 15 searches a week, inside
+the free monthly credit). Listing aggregators and social sites are skipped, and the PR marks these websites
+"from search: check it".
 
 ## Not used
 

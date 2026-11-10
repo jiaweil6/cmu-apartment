@@ -46,3 +46,6 @@ next-env.d.ts
 # OpenTripPlanner working files (refresh-transit workflow)
 /otp-run/
 *.osm.pbf
+
+# Website survey output (scripts/inspect-sites); uploaded as a workflow artifact instead
+/scripts/refresh/__fixtures__/sites/
