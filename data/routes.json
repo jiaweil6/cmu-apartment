@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T16:20:15Z",
+  "generatedAt": "2026-11-10T20:56:54Z",
   "serviceDate": "2026-11-17",
   "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap",
   "apartments": {
@@ -1432,6 +1432,358 @@
         "minutes": 25.4,
         "geometry": [
           "eq{uFhf_gN@DGHACGICAC?mCy@gAc@SIACACFWyAe@a@MNIh@W|@g@b@SpAs@JEJGJEAKAE@?@?fAk@BAFCRKDCHEJEBABCDA`Ag@PIRKBCDCb@UHCt@_@j@[NIDALILGFC@A?C@?JEHC?CB@??BANI`By@hB_Aj@Yb@UrAq@LKDE@A?A@C?CCkAA[Aa@Ca@GaACE?A@EE[AOAC@C?C?CAK?EEs@Ck@GoCAE?CACAC???ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "cathedral-mansions": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:48",
+        "arriveAt": "09:00",
+        "minutes": 12,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Cathedral Mansions",
+              "stopCode": null,
+              "location": {
+                "lat": 40.448414,
+                "lng": -79.946719
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:48",
+            "arriveAt": "09:00",
+            "minutes": 12,
+            "meters": 920,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "y`{uFtp}fNu@u@s@rA?B@@z@`AjBtBjAa@tAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 920,
+        "minutes": 12,
+        "geometry": [
+          "y`{uFtp}fNu@u@s@rA?B@@z@`AjBtBjAa@tAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "schenley-house": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:45",
+        "arriveAt": "09:00",
+        "minutes": 14.3,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Schenley House",
+              "stopCode": null,
+              "location": {
+                "lat": 40.449075,
+                "lng": -79.950734
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:45",
+            "arriveAt": "09:00",
+            "minutes": 14.3,
+            "meters": 1086,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "uf{uFvk~fNSy@xC_B`@Up@]EMJGTMEODALIJGZOTMBABC\\Ql@[PI@ABC@A@C?C?CAK?EEs@Ck@GoCAE?CACAC???ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1092,
+        "minutes": 14.5,
+        "geometry": [
+          "uf{uFvk~fNSy@xC_B`@Up@]z@c@bAg@lAo@B?D?@@BB@EE[AOAC@C?C?CAK?EEs@Ck@GoCAE?CACAC???ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "aberdeen": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:46",
+        "arriveAt": "09:00",
+        "minutes": 13.9,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Aberdeen",
+              "stopCode": null,
+              "location": {
+                "lat": 40.449823,
+                "lng": -79.949379
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:46",
+            "arriveAt": "09:00",
+            "minutes": 13.9,
+            "meters": 1072,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "gk{uFxa~fNc@R_@kBt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1072,
+        "minutes": 13.9,
+        "geometry": [
+          "gk{uFxa~fNc@R_@kBt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "the-adrian": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:45",
+        "arriveAt": "09:00",
+        "minutes": 14.2,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Adrian",
+              "stopCode": null,
+              "location": {
+                "lat": 40.450399,
+                "lng": -79.949595
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:45",
+            "arriveAt": "09:00",
+            "minutes": 14.2,
+            "meters": 1077,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "_m{uFnc~fNc@yBCAAABEJELCt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1077,
+        "minutes": 14.2,
+        "geometry": [
+          "_m{uFnc~fNc@yBCAAABEJELCt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "royal-windsor": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:43",
+        "arriveAt": "09:00",
+        "minutes": 16,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Royal Windsor",
+              "stopCode": null,
+              "location": {
+                "lat": 40.450901,
+                "lng": -79.949766
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:43",
+            "arriveAt": "09:00",
+            "minutes": 16,
+            "meters": 1217,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "}q{uFne~fNPz@r@[dBs@q@eDCAAABEJELCt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1217,
+        "minutes": 16,
+        "geometry": [
+          "}q{uFne~fNPz@r@[dBs@q@eDCAAABEJELCt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "webster-towers": {
+      "commute": {
+        "arriveBy": "09:00",
+        "departAt": "08:43",
+        "arriveAt": "09:00",
+        "minutes": 16.3,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Webster Towers",
+              "stopCode": null,
+              "location": {
+                "lat": 40.45134,
+                "lng": -79.950002
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:43",
+            "arriveAt": "09:00",
+            "minutes": 16.3,
+            "meters": 1240,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "cs{uFdf~fNNx@`@ODCr@[dBs@q@eDCAAABEJELCt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1240,
+        "minutes": 16.3,
+        "geometry": [
+          "cs{uFdf~fNNx@`@ODCr@[dBs@q@eDCAAABEJELCt@YzCcAPGVIVIpAe@LEx@YJCFCHCFCb@Or@Ub@OFCBAB?B@B@BB@??ATQJIB??A?A@?@AJErAc@d@Oz@YHCDCxAe@HAFCBS@MHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "the-chalfont": {
+      "commute": {
+        "arriveBy": "08:30",
+        "departAt": "08:12",
+        "arriveAt": "08:30",
+        "minutes": 17.9,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Chalfont",
+              "stopCode": null,
+              "location": {
+                "lat": 40.452591,
+                "lng": -79.948016
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:12",
+            "arriveAt": "08:30",
+            "minutes": 17.9,
+            "meters": 1375,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "_~{uFh{}fNpAnG@BB@`EuA??FCFA@AvAe@p@Ur@UBC@AJEJCDA@?~@[XKHC`A[LEjAa@VIh@QhBm@BABC?A@A@?NELAjAa@tAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1375,
+        "minutes": 17.9,
+        "geometry": [
+          "_~{uFh{}fNpAnG@BB@`EuA??FCFA@AvAe@p@Ur@UBC@AJEJCDA@?~@[XKHC`A[LEjAa@VIh@QhBm@BABC?A@A@?NELAjAa@tAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+        ]
+      }
+    },
+    "hampshire-hall": {
+      "commute": {
+        "arriveBy": "08:30",
+        "departAt": "08:12",
+        "arriveAt": "08:30",
+        "minutes": 17.6,
+        "legs": [
+          {
+            "mode": "WALK",
+            "from": {
+              "name": "Hampshire Hall",
+              "stopCode": null,
+              "location": {
+                "lat": 40.452581,
+                "lng": -79.94834
+              }
+            },
+            "to": {
+              "name": "Carnegie Mellon University",
+              "stopCode": null,
+              "location": {
+                "lat": 40.443207,
+                "lng": -79.945425
+              }
+            },
+            "departAt": "08:12",
+            "arriveAt": "08:30",
+            "minutes": 17.6,
+            "meters": 1349,
+            "route": null,
+            "headsign": null,
+            "stops": null,
+            "geometry": "m}{uFb}}fN~@tE@BB@`EuA??FCFA@AvAe@p@Ur@UBC@AJEJCDA@?~@[XKHC`A[LEjAa@VIh@QhBm@BABC?A@A@?NELAjAa@tAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
+          }
+        ]
+      },
+      "walk": {
+        "meters": 1349,
+        "minutes": 17.6,
+        "geometry": [
+          "m}{uFb}}fN~@tE@BB@`EuA??FCFA@AvAe@p@Ur@UBC@AJEJCDA@?~@[XKHC`A[LEjAa@VIh@QhBm@BABC?A@A@?NELAjAa@tAg@@??A@?DAFAJCBCB?ZKXIBAFCHCNGPGXI\\MDAJEpBq@VGHCN?^?n@PB@FAf@Ar@L|A\\XHZJf@JLCFMPsAJq@^wCHMs@Q"
         ]
       }
     }
