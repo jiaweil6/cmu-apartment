@@ -22,10 +22,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - run: rm -rf scripts/refresh/__fixtures__/sites
       - run: npx tsx scripts/inspect-sites/index.ts
       - name: Commit report to the feature branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add scripts/refresh/__fixtures__/sites
-          git diff --cached --quiet || { git commit -m "Add building website survey" && git push; }
+          git diff --cached --quiet || { git commit -m "Update building website survey" && git push; }

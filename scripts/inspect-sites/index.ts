@@ -42,7 +42,7 @@ interface SiteReport {
   robots: { found: boolean; disallowsAll: boolean; disallowed: string[] };
   platforms: string[];
   pricingPages: string[];
-  rentJson: { url: string; bytes: number; file: string }[];
+  rentJson: { url: string; bytes: number; file: string; robots: string }[];
   priceSnippets: string[];
   terms: { url: string | null; scrapingSentences: string[] };
   error?: string;
@@ -62,6 +62,20 @@ function parseRobots(text: string): string[] {
   return rules;
 }
 
+const robotsCache = new Map<string, string[] | null>();
+
+/** Whether robots.txt on the URL's host lets us fetch it ("allowed", "disallowed", or "no robots.txt"). */
+async function robotsVerdict(url: string): Promise<string> {
+  const { origin } = new URL(url);
+  if (!robotsCache.has(origin)) {
+    const response = await fetch(`${origin}/robots.txt`, { headers: { "User-Agent": USER_AGENT_SUFFIX } }).catch(() => null);
+    robotsCache.set(origin, response?.ok ? parseRobots(await response.text()) : null);
+  }
+  const rules = robotsCache.get(origin);
+  if (!rules) return "no robots.txt";
+  return allowed(url, rules) ? "allowed" : "disallowed";
+}
+
 const allowed = (url: string, disallowed: string[]) => {
   const { pathname } = new URL(url);
   return !disallowed.some((rule) => pathname.startsWith(rule.replace(/\*.*$/, "")));
@@ -75,6 +89,27 @@ async function priceSnippets(page: Page): Promise<string[]> {
     .map((line) => line.trim())
     .filter((line) => /\$\s?\d[\d,]{2,}/.test(line) && line.length < 200)
     .slice(0, 40);
+}
+
+/** Loads a page and gives scripts a few seconds; chat widgets keep "networkidle" from ever firing. */
+async function visit(page: Page, url: string): Promise<string | null> {
+  let warning: string | null = null;
+  try {
+    await page.goto(url, { waitUntil: "load", timeout: 45_000 });
+  } catch (error) {
+    warning = (error as Error).message.split("\n")[0];
+  }
+  await page.waitForTimeout(6_000);
+  return warning;
+}
+
+/** Page HTML without scripts, styles and SVG, for writing HTML adapters. */
+async function cleanHtml(page: Page): Promise<string> {
+  const html = await page.content();
+  return html
+    .replace(/<(script|style|svg|noscript)\b[\s\S]*?<\/\1>/gi, "")
+    .replace(/\s+/g, " ")
+    .slice(0, 300_000);
 }
 
 async function inspect(page: Page, id: string, website: string): Promise<SiteReport> {
@@ -107,19 +142,23 @@ async function inspect(page: Page, id: string, website: string): Promise<SiteRep
   page.on("response", async (response) => {
     try {
       const type = response.headers()["content-type"] ?? "";
-      if (!type.includes("json") || jsonCount >= 15) return;
+      if (!type.includes("json") || jsonCount >= 10) return;
       const body = await response.text();
       if (!RENT_JSON.test(body)) return;
       const file = `rent-${++jsonCount}.json`;
-      writeFileSync(path.join(dir, file), body.slice(0, 200_000));
-      report.rentJson.push({ url: response.url(), bytes: body.length, file });
+      // Whole responses (up to 1 MB) so they parse as test fixtures.
+      if (body.length > 1_000_000) return;
+      writeFileSync(path.join(dir, file), body);
+      report.rentJson.push({ url: response.url(), bytes: body.length, file, robots: await robotsVerdict(response.url()) });
     } catch {
       // Responses that can't be read (redirects, aborted) are skipped.
     }
   });
 
-  await page.goto(website, { waitUntil: "networkidle", timeout: 60_000 });
+  const homeWarning = await visit(page, website);
+  if (homeWarning) report.error = `home page: ${homeWarning} (kept what loaded)`;
   const homeHtml = await page.content();
+  writeFileSync(path.join(dir, "home.html"), await cleanHtml(page));
   const scriptSrcs = await page.$$eval("script[src], iframe[src]", (els) => els.map((el) => el.getAttribute("src") ?? ""));
   const haystack = homeHtml + "\n" + scriptSrcs.join("\n");
   report.platforms = PLATFORMS.filter(([, pattern]) => pattern.test(haystack)).map(([name]) => name);
@@ -135,9 +174,10 @@ async function inspect(page: Page, id: string, website: string): Promise<SiteRep
 
   for (const [index, href] of pricing.entries()) {
     try {
-      await page.goto(href, { waitUntil: "networkidle", timeout: 60_000 });
-      report.pricingPages.push(href);
+      const warning = await visit(page, href);
+      report.pricingPages.push(warning ? `${href} (${warning})` : href);
       const html = await page.content();
+      writeFileSync(path.join(dir, `page-${index + 1}.html`), await cleanHtml(page));
       // Keep JSON-LD and embedded app state, which often carry prices; drop the rest of the markup.
       const embedded = [...html.matchAll(/<script[^>]*(?:ld\+json|__NEXT_DATA__|application\/json)[^>]*>([\s\S]*?)<\/script>/gi)]
         .map((m) => m[1])
@@ -179,7 +219,7 @@ function markdown(reports: SiteReport[]): string {
       `- robots.txt: ${r.robots.found ? (r.robots.disallowed.length ? `disallows ${r.robots.disallowed.join(", ")}` : "allows all") : "none"}`,
       `- Platforms: ${r.platforms.join(", ") || "none detected"}`,
       `- Pricing pages: ${r.pricingPages.join(", ") || "none found"}`,
-      `- Rent-like JSON: ${r.rentJson.map((j) => `${j.file} ← ${j.url} (${j.bytes} B)`).join("; ") || "none"}`,
+      `- Rent-like JSON: ${r.rentJson.map((j) => `${j.file} ← ${j.url} (${j.bytes} B, robots: ${j.robots})`).join("; ") || "none"}`,
       `- Terms: ${r.terms.url ?? "not found"}`,
     );
     for (const sentence of r.terms.scrapingSentences) lines.push(`  - > ${sentence.replace(/\s+/g, " ")}`);
