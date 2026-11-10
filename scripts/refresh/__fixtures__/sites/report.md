@@ -1,6 +1,6 @@
 # Building website inventory
 
-Generated 2026-11-10T05:03:21.267Z.
+Generated 2026-11-10T05:14:06.617Z.
 
 ## skyvue
 
@@ -14,7 +14,6 @@ Generated 2026-11-10T05:03:21.267Z.
 ## one-on-centre
 
 - Website: https://www.oneoncentre.com/
-- **Error:** page.goto: Timeout 60000ms exceeded.
 - robots.txt: none
 - Platforms: none detected
 - Pricing pages: none found
@@ -27,7 +26,7 @@ Generated 2026-11-10T05:03:21.267Z.
 - robots.txt: allows all
 - Platforms: Entrata
 - Pricing pages: https://thebridgeonforbes.com/floor-plans/
-- Rent-like JSON: rent-1.json ← https://thebridgeonforbes.com/wp-json/theme/entrata/v1/floor-plans (211357 B)
+- Rent-like JSON: rent-1.json ← https://thebridgeonforbes.com/wp-json/theme/entrata/v1/floor-plans (211357 B, robots: allowed)
 - Terms: not found
 - Price text:
   - $1,400 - $1,700
@@ -36,7 +35,6 @@ Generated 2026-11-10T05:03:21.267Z.
 ## sherwood-towers
 
 - Website: https://www.sherwoodtowers.com/
-- **Error:** page.goto: Timeout 60000ms exceeded.
 - robots.txt: none
 - Platforms: none detected
 - Pricing pages: none found
@@ -46,7 +44,6 @@ Generated 2026-11-10T05:03:21.267Z.
 ## webster-hall
 
 - Website: https://www.websterhallapartments.com/
-- **Error:** page.goto: Timeout 60000ms exceeded.
 - robots.txt: none
 - Platforms: none detected
 - Pricing pages: none found
@@ -90,17 +87,12 @@ Generated 2026-11-10T05:03:21.267Z.
 ## coda-on-centre
 
 - Website: https://codaoncentre.com
-- robots.txt: disallows /cgi-bin/, /cms/, /assets/videos/, /assets/audio/, /css/, /frmxprt/, /images/, /js/, /share-this/
-- Platforms: RentCafe/Yardi
-- Pricing pages: https://codaoncentre.com/floorplans/
-- Rent-like JSON: rent-1.json ← https://sightmap.com/app/api/v1/jlw074e4v2y/sightmaps/76852 (37937 B)
+- **Error:** page.content: Unable to retrieve content because the page is navigating and changing the content.
+- robots.txt: none
+- Platforms: none detected
+- Pricing pages: none found
+- Rent-like JSON: none
 - Terms: not found
-- Price text:
-  - Apply for a 12+ month lease today and get one month FREE on a vacant apartment or $500 off an on-notice apartment. Must move in by 12/31/26.
-  - Starting at $1,853
-  - Starting at $2,016
-  - Starting at $2,074
-  - Starting at $3,289
 
 ## industry-pittsburgh
 
@@ -108,7 +100,7 @@ Generated 2026-11-10T05:03:21.267Z.
 - robots.txt: disallows /admin/, /.netlify/
 - Platforms: Entrata, SightMap/Engrain
 - Pricing pages: https://industry-pittsburgh.com/availability/, https://industry-pittsburgh.com/, https://industry-pittsburgh.com/residences/
-- Rent-like JSON: rent-1.json ← https://industry-pittsburgh.com/api/availability (288 B); rent-2.json ← https://industry-pittsburgh.com/api/availability (288 B); rent-3.json ← https://sightmap.com/app/api/v1/y8px0z8jp19/sightmaps/26183 (34891 B); rent-4.json ← https://industry-pittsburgh.com/api/availability (288 B); rent-5.json ← https://industry-pittsburgh.com/api/availability (288 B)
+- Rent-like JSON: rent-1.json ← https://industry-pittsburgh.com/api/availability (288 B, robots: allowed); rent-2.json ← https://industry-pittsburgh.com/api/availability (288 B, robots: allowed); rent-3.json ← https://sightmap.com/app/api/v1/y8px0z8jp19/sightmaps/26183 (34891 B, robots: allowed); rent-4.json ← https://industry-pittsburgh.com/api/availability (288 B, robots: allowed); rent-5.json ← https://industry-pittsburgh.com/api/availability (288 B, robots: allowed)
 - Terms: not found
 - Price text:
   - Light-filled homes and penthouse lofts on top, a walk from Walnut Street. Studios from $1,936.
@@ -130,8 +122,7 @@ Generated 2026-11-10T05:03:21.267Z.
 ## walnut-on-highland
 
 - Website: https://www.walnutonhighland.com/
-- **Error:** page.goto: Timeout 60000ms exceeded.
-- robots.txt: none
+- robots.txt: disallows /refs/, /runtimes/, /wwwroot/, /js/, /lib/, /dashboard/, /*.ashx
 - Platforms: none detected
 - Pricing pages: none found
 - Rent-like JSON: none
@@ -140,7 +131,6 @@ Generated 2026-11-10T05:03:21.267Z.
 ## eastside-bond
 
 - Website: https://www.eastsidebond.com/
-- **Error:** page.goto: Timeout 60000ms exceeded.
 - robots.txt: none
 - Platforms: none detected
 - Pricing pages: none found
@@ -150,8 +140,7 @@ Generated 2026-11-10T05:03:21.267Z.
 ## bakery-living
 
 - Website: https://www.bakeryliving.com/
-- **Error:** page.goto: Timeout 60000ms exceeded.
-- robots.txt: none
+- robots.txt: disallows /refs/, /runtimes/, /wwwroot/, /js/, /lib/, /dashboard/, /*.ashx
 - Platforms: none detected
 - Pricing pages: none found
 - Rent-like JSON: none
@@ -160,12 +149,15 @@ Generated 2026-11-10T05:03:21.267Z.
 ## kenmawr
 
 - Website: https://www.pmcpropertygroup.com/properties/kenmawr-apartments
-- **Error:** page.goto: Timeout 60000ms exceeded.
-- robots.txt: none
-- Platforms: none detected
-- Pricing pages: none found
+- robots.txt: disallows /includes/, /misc/, /modules/, /profiles/, /scripts/, /themes/, /CHANGELOG.txt, /cron.php, /INSTALL.mysql.txt, /INSTALL.pgsql.txt, /INSTALL.sqlite.txt, /install.php, /INSTALL.txt, /LICENSE.txt, /MAINTAINERS.txt, /update.php, /UPGRADE.txt, /xmlrpc.php, /admin/, /comment/reply/, /filter/tips/, /node/add/, /search/, /user/register/, /user/password/, /user/login/, /user/logout/, /?q=admin/, /?q=comment/reply/, /?q=filter/tips/, /?q=node/add/, /?q=search/, /?q=user/password/, /?q=user/register/, /?q=user/login/, /?q=user/logout/
+- Platforms: RentCafe/Yardi
+- Pricing pages: https://www.pmcpropertygroup.com/properties/kenmawr-apartments, https://www.pmcpropertygroup.com/, https://www.pmcpropertygroup.com/properties/kenmawr-apartments?qt-property_tabs=0
 - Rent-like JSON: none
 - Terms: not found
+- Price text:
+  - 1-BR from $1630
+  - 2-BR from $1940
+  - 3-BR from $2645
 
 ## maxon-towers
 
@@ -189,7 +181,6 @@ Generated 2026-11-10T05:03:21.267Z.
 ## camelot
 
 - Website: https://www.camelot-apartments.com/
-- **Error:** page.goto: Timeout 60000ms exceeded.
 - robots.txt: none
 - Platforms: none detected
 - Pricing pages: none found

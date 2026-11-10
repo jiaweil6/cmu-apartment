@@ -32,7 +32,6 @@
   {
     "id": "one-on-centre",
     "website": "https://www.oneoncentre.com/",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
       "found": false,
       "disallowsAll": false,
@@ -65,7 +64,8 @@
       {
         "url": "https://thebridgeonforbes.com/wp-json/theme/entrata/v1/floor-plans",
         "bytes": 211357,
-        "file": "rent-1.json"
+        "file": "rent-1.json",
+        "robots": "allowed"
       }
     ],
     "priceSnippets": [
@@ -80,7 +80,6 @@
   {
     "id": "sherwood-towers",
     "website": "https://www.sherwoodtowers.com/",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
       "found": false,
       "disallowsAll": false,
@@ -98,7 +97,6 @@
   {
     "id": "webster-hall",
     "website": "https://www.websterhallapartments.com/",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
       "found": false,
       "disallowsAll": false,
@@ -222,41 +220,16 @@
   {
     "id": "coda-on-centre",
     "website": "https://codaoncentre.com",
+    "error": "page.content: Unable to retrieve content because the page is navigating and changing the content.",
     "robots": {
-      "found": true,
-      "disallowed": [
-        "/cgi-bin/",
-        "/cms/",
-        "/assets/videos/",
-        "/assets/audio/",
-        "/css/",
-        "/frmxprt/",
-        "/images/",
-        "/js/",
-        "/share-this/"
-      ],
-      "disallowsAll": false
+      "found": false,
+      "disallowsAll": false,
+      "disallowed": []
     },
-    "platforms": [
-      "RentCafe/Yardi"
-    ],
-    "pricingPages": [
-      "https://codaoncentre.com/floorplans/"
-    ],
-    "rentJson": [
-      {
-        "url": "https://sightmap.com/app/api/v1/jlw074e4v2y/sightmaps/76852",
-        "bytes": 37937,
-        "file": "rent-1.json"
-      }
-    ],
-    "priceSnippets": [
-      "Apply for a 12+ month lease today and get one month FREE on a vacant apartment or $500 off an on-notice apartment. Must move in by 12/31/26.",
-      "Starting at $1,853",
-      "Starting at $2,016",
-      "Starting at $2,074",
-      "Starting at $3,289"
-    ],
+    "platforms": [],
+    "pricingPages": [],
+    "rentJson": [],
+    "priceSnippets": [],
     "terms": {
       "url": null,
       "scrapingSentences": []
@@ -286,27 +259,32 @@
       {
         "url": "https://industry-pittsburgh.com/api/availability",
         "bytes": 288,
-        "file": "rent-1.json"
+        "file": "rent-1.json",
+        "robots": "allowed"
       },
       {
         "url": "https://industry-pittsburgh.com/api/availability",
         "bytes": 288,
-        "file": "rent-2.json"
+        "file": "rent-2.json",
+        "robots": "allowed"
       },
       {
         "url": "https://sightmap.com/app/api/v1/y8px0z8jp19/sightmaps/26183",
         "bytes": 34891,
-        "file": "rent-3.json"
+        "file": "rent-3.json",
+        "robots": "allowed"
       },
       {
         "url": "https://industry-pittsburgh.com/api/availability",
         "bytes": 288,
-        "file": "rent-4.json"
+        "file": "rent-4.json",
+        "robots": "allowed"
       },
       {
         "url": "https://industry-pittsburgh.com/api/availability",
         "bytes": 288,
-        "file": "rent-5.json"
+        "file": "rent-5.json",
+        "robots": "allowed"
       }
     ],
     "priceSnippets": [
@@ -346,11 +324,18 @@
   {
     "id": "walnut-on-highland",
     "website": "https://www.walnutonhighland.com/",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
-      "found": false,
-      "disallowsAll": false,
-      "disallowed": []
+      "found": true,
+      "disallowed": [
+        "/refs/",
+        "/runtimes/",
+        "/wwwroot/",
+        "/js/",
+        "/lib/",
+        "/dashboard/",
+        "/*.ashx"
+      ],
+      "disallowsAll": false
     },
     "platforms": [],
     "pricingPages": [],
@@ -364,7 +349,6 @@
   {
     "id": "eastside-bond",
     "website": "https://www.eastsidebond.com/",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
       "found": false,
       "disallowsAll": false,
@@ -382,11 +366,18 @@
   {
     "id": "bakery-living",
     "website": "https://www.bakeryliving.com/",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
-      "found": false,
-      "disallowsAll": false,
-      "disallowed": []
+      "found": true,
+      "disallowed": [
+        "/refs/",
+        "/runtimes/",
+        "/wwwroot/",
+        "/js/",
+        "/lib/",
+        "/dashboard/",
+        "/*.ashx"
+      ],
+      "disallowsAll": false
     },
     "platforms": [],
     "pricingPages": [],
@@ -400,16 +391,62 @@
   {
     "id": "kenmawr",
     "website": "https://www.pmcpropertygroup.com/properties/kenmawr-apartments",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
-      "found": false,
-      "disallowsAll": false,
-      "disallowed": []
+      "found": true,
+      "disallowed": [
+        "/includes/",
+        "/misc/",
+        "/modules/",
+        "/profiles/",
+        "/scripts/",
+        "/themes/",
+        "/CHANGELOG.txt",
+        "/cron.php",
+        "/INSTALL.mysql.txt",
+        "/INSTALL.pgsql.txt",
+        "/INSTALL.sqlite.txt",
+        "/install.php",
+        "/INSTALL.txt",
+        "/LICENSE.txt",
+        "/MAINTAINERS.txt",
+        "/update.php",
+        "/UPGRADE.txt",
+        "/xmlrpc.php",
+        "/admin/",
+        "/comment/reply/",
+        "/filter/tips/",
+        "/node/add/",
+        "/search/",
+        "/user/register/",
+        "/user/password/",
+        "/user/login/",
+        "/user/logout/",
+        "/?q=admin/",
+        "/?q=comment/reply/",
+        "/?q=filter/tips/",
+        "/?q=node/add/",
+        "/?q=search/",
+        "/?q=user/password/",
+        "/?q=user/register/",
+        "/?q=user/login/",
+        "/?q=user/logout/"
+      ],
+      "disallowsAll": false
     },
-    "platforms": [],
-    "pricingPages": [],
+    "platforms": [
+      "RentCafe/Yardi"
+    ],
+    "pricingPages": [
+      "https://www.pmcpropertygroup.com/properties/kenmawr-apartments",
+      "https://www.pmcpropertygroup.com/",
+      "https://www.pmcpropertygroup.com/properties/kenmawr-apartments?qt-property_tabs=0"
+    ],
     "rentJson": [],
-    "priceSnippets": [],
+    "priceSnippets": [
+      "1-BR from $1630",
+      "2-BR from $1940",
+      "3-BR from $2645"
+    ],
     "terms": {
       "url": null,
       "scrapingSentences": []
@@ -455,7 +492,6 @@
   {
     "id": "camelot",
     "website": "https://www.camelot-apartments.com/",
-    "error": "page.goto: Timeout 60000ms exceeded.",
     "robots": {
       "found": false,
       "disallowsAll": false,
