@@ -68,6 +68,7 @@ public/basemap/                 Self-hosted map tiles (PMTiles) and label fonts,
 data/
   apartments.json               Listing details, reviewed by hand (including how each one's prices are read)
   snapshot.json                 Values fetched on a schedule: prices, availability, commute, walking distance
+  routes.json                   The trips behind each commute and the walking routes, for the map
   manual-prices.json            Prices checked by hand, for buildings that can't be scraped
   candidates.json, rejected.json  Discovery's review queue and the buildings turned down
 scripts/
@@ -99,7 +100,7 @@ fails opens a "Data job failing" issue that closes itself on the next success.
 | --- | --- | --- |
 | `deploy.yml` | Push to `main`, or started by a data job | Builds the static site and publishes it to GitHub Pages |
 | `refresh-prices.yml` | Daily | Rents and availability, through each building's pricing adapter |
-| `refresh-transit.yml` | Mondays | Commute to campus (median door-to-door time arriving by 8:30, 9:00 and 9:30 AM on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap |
+| `refresh-transit.yml` | Mondays | Commute to campus (median door-to-door time arriving by 8:30, 9:00 and 9:30 AM on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap. The trips themselves (each walk and ride, with stops and paths) go to `data/routes.json` for the map |
 | `discover.yml` | Wednesdays | New apartment buildings near campus, as a "Weekly apartment finds" PR |
 | `promote-candidates.yml` | After a finds PR merges | Lists approved buildings, remembers rejected ones |
 | `manual-prices-reminder.yml` | Monthly | Keeps an issue listing hand-entered prices over 60 days old |
@@ -143,10 +144,18 @@ needed), plus a `data/manual-prices.json` entry if it's priced by hand, and run 
 ## The map
 
 `/map` lists every apartment beside a map of where it sits from campus. Price tags show the rent for the chosen
-room type and give way to each other when they'd overlap; selecting an apartment (in the list or on the map)
-frames it with campus, draws its commute, and opens a card with every rent and links to the building's website
-and to transit directions. The room type and selection are in the address, so `?apartment=coda-on-centre&room=oneBedroom`
-links straight to one; each card on the rankings page does this with "View on map".
+room type and give way to each other when they'd overlap. Selecting an apartment (in the list or on the map) opens
+a card with every rent and draws its route to campus:
+
+- **Commute:** the actual trip behind the commute time, step by step: walk to the stop, which bus (or light rail)
+  toward where, how many stops, where to get off, and the walk to campus, with times from PRT's weekday timetable.
+  On the map, walking is dotted and the ride is a solid orange line tagged with its route ("71B").
+- **Walk:** the shortest walking route along streets and paths, the one the walking distance is measured on.
+
+Both have a Google Maps link with the apartment and campus filled in. The routes come from `data/routes.json`,
+which the weekly transit refresh writes; an apartment without one gets a straight line and the link. The room type,
+selection and view are in the address (`?apartment=coda-on-centre&room=oneBedroom&route=walk`), and each card on the
+rankings page links to its routes.
 
 It's drawn with [MapLibre GL JS](https://maplibre.org) on a basemap the site serves itself, so there's no API key or
 tile service to pay for or rate-limit:

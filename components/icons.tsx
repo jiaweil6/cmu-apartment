@@ -100,3 +100,14 @@ export function Frame({ className }: IconProps) {
     </svg>
   );
 }
+
+export function Bus({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="5" y="3" width="14" height="15" rx="2" />
+      <path d="M5 11h14M8 21v-3M16 21v-3" />
+      <circle cx="8.5" cy="14.5" r=".5" fill="currentColor" />
+      <circle cx="15.5" cy="14.5" r=".5" fill="currentColor" />
+    </svg>
+  );
+}

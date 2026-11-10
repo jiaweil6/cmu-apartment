@@ -1639,6 +1639,234 @@ body:has(.map-explorer) .site-header-inner {
   }
 }
 
+/* ---------- Commute and walking routes ---------- */
+
+.map-card-trip {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline);
+}
+
+.map-card-trip .segmented {
+  margin-bottom: 12px;
+}
+
+.trip-headline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.trip-headline > span,
+.trip-headline > a,
+.fact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trip-headline a {
+  font-weight: 500;
+}
+
+.trip-note {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--text-muted);
+}
+
+/* Phones: a one-line summary that opens into the steps. Wider screens: the steps. */
+.trip-steps {
+  display: none;
+  margin-top: 16px;
+}
+
+.trip-steps-compact {
+  margin-top: 8px;
+}
+
+.trip-steps-compact > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.trip-steps-compact > summary::-webkit-details-marker {
+  display: none;
+}
+
+.trip-steps-compact > summary::after {
+  content: "Steps";
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.trip-steps-compact[open] > summary::after {
+  content: "Hide";
+}
+
+.trip-steps-compact .steps {
+  margin-top: 12px;
+}
+
+@media (min-width: 900px) {
+  .trip-steps {
+    display: block;
+  }
+
+  .trip-steps-compact {
+    display: none;
+  }
+}
+
+.route-summary {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.route-summary-part,
+.route-summary-walk {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.route-summary-arrow {
+  color: var(--text-muted);
+}
+
+/* The line you ride, like a bus-stop sign: "71B". */
+.route-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  border-radius: var(--radius-tag);
+  background: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+
+.route-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* The steps, drawn like the map: a dotted rail for walking, a solid one for rides. */
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  column-gap: 8px;
+}
+
+.step-time {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.step-text {
+  position: relative;
+  padding: 0 0 12px 24px;
+  color: var(--text);
+}
+
+.step-text::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 7px;
+}
+
+.step-walk .step-text::before {
+  border-left: 2px dotted var(--text-muted);
+}
+
+.step-ride .step-text::before {
+  left: 6px;
+  border-left: 4px solid var(--accent-strong);
+}
+
+.step-point .step-text {
+  font-weight: 500;
+}
+
+.step-point .step-text::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.step-point.is-end .step-text {
+  padding-bottom: 0;
+}
+
+.step-point.is-end .step-text::after {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+}
+
+.step-icon {
+  margin-right: 4px;
+  vertical-align: -3px;
+  color: var(--text-muted);
+}
+
+.step-meta {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--text-muted);
+}
+
+.fact-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-left: 12px;
+  font-size: 0.75rem;
+}
+
 /* ---------- Small screens ---------- */
 
 @media (max-width: 767px) {

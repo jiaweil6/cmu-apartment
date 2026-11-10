@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { NO_PRIORITIES, hasPriorities, priorityShares, rankApartments, type NeighborhoodFilter } from "@/lib/ranking";
-import type { Amenity, Apartment, Criterion, RoomType, StudentType } from "@/lib/types";
+import type { Amenity, Apartment, Criterion, LatLng, RoomType, StudentType } from "@/lib/types";
 import { AMENITY_OPTIONS, NEIGHBORHOOD_OPTIONS, OPENINGS_OPTION } from "@/lib/options";
 import AboutYou from "./AboutYou";
 import FilterDropdown from "./FilterDropdown";
@@ -15,7 +15,7 @@ function toggle<T>(list: T[], value: T): T[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
 }
 
-export default function ApartmentFinder({ apartments }: { apartments: Apartment[] }) {
+export default function ApartmentFinder({ apartments, campus }: { apartments: Apartment[]; campus: LatLng }) {
   const [priorities, setPriorities] = useState(NO_PRIORITIES);
   const [roomType, setRoomType] = useState<RoomType>("studio");
   const [studentType, setStudentType] = useState<StudentType>("undergraduate");
@@ -99,7 +99,7 @@ export default function ApartmentFinder({ apartments }: { apartments: Apartment[
             />
           </div>
 
-          <RankingList ranked={ranked} roomType={roomType} hasPriorities={isRanking} />
+          <RankingList ranked={ranked} roomType={roomType} campus={campus} hasPriorities={isRanking} />
         </section>
       </div>
 

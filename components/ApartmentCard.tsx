@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { googleDirectionsUrl } from "@/lib/directions";
 import { priceParts, staleSince } from "@/lib/price-format";
-import type { Apartment, RoomType } from "@/lib/types";
+import type { Apartment, LatLng, RoomType } from "@/lib/types";
 import CommuteRoute from "./CommuteRoute";
 import RentTable from "./RentTable";
 import { ChevronDown, ExternalLink, MapPin, Walk } from "./icons";
 
 interface Props {
   apartment: Apartment;
+  /** Campus, for directions. */
+  campus: LatLng;
   rank: number;
   /** The room type chosen in "About You": its rent is shown in the summary and highlighted. */
   roomType: RoomType;
@@ -18,7 +21,7 @@ interface Props {
 }
 
 // Fixed locale and time zone so the server and browser render the same text.
-export default function ApartmentCard({ apartment, rank, roomType, isOpen, onToggle }: Props) {
+export default function ApartmentCard({ apartment, campus, rank, roomType, isOpen, onToggle }: Props) {
   // Listing photos are hotlinked from other sites; hide the frame if one fails to load.
   const [imageFailed, setImageFailed] = useState(false);
 
@@ -114,13 +117,27 @@ export default function ApartmentCard({ apartment, rank, roomType, isOpen, onTog
               {commute && (
                 <div>
                   <dt>Commute to campus</dt>
-                  <dd>{commute}</dd>
+                  <dd>
+                    {commute}
+                    <span className="fact-links">
+                      <Link href={{ pathname: "/map", query: { apartment: apartment.id, room: roomType } }}>Route</Link>
+                      <a href={googleDirectionsUrl(apartment.location, campus, "transit")} target="_blank" rel="noopener noreferrer">
+                        Google Maps
+                        <span className="visually-hidden"> transit directions (opens in a new tab)</span>
+                      </a>
+                    </span>
+                  </dd>
                 </div>
               )}
               {walk && (
                 <div>
                   <dt>Walk to campus</dt>
-                  <dd>{walk}</dd>
+                  <dd>
+                    {walk}
+                    <span className="fact-links">
+                      <Link href={{ pathname: "/map", query: { apartment: apartment.id, room: roomType, route: "walk" } }}>Route</Link>
+                    </span>
+                  </dd>
                 </div>
               )}
               {apartment.yearBuilt && (

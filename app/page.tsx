@@ -1,5 +1,5 @@
 import ApartmentFinder from "@/components/ApartmentFinder";
-import { getApartments } from "@/lib/apartments";
+import { getApartments, getCampus } from "@/lib/apartments";
 
 const listFormat = new Intl.ListFormat("en-US", { style: "long", type: "conjunction" });
 
@@ -12,7 +12,7 @@ function describeNeighborhoods(names: string[]): string {
 }
 
 export default async function HomePage() {
-  const apartments = await getApartments();
+  const [apartments, campus] = await Promise.all([getApartments(), getCampus()]);
   const neighborhoods = describeNeighborhoods(apartments.map((apartment) => apartment.neighborhood));
   return (
     <>
@@ -23,7 +23,7 @@ export default async function HomePage() {
           in {neighborhoods} to match.
         </p>
       </section>
-      <ApartmentFinder apartments={apartments} />
+      <ApartmentFinder apartments={apartments} campus={campus.location} />
     </>
   );
 }

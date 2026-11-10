@@ -1,14 +1,23 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { googleDirectionsUrl } from "@/lib/directions";
 import { ROOM_TYPES } from "@/lib/options";
+import { decodePolyline } from "@/lib/polyline";
 import { priceParts, staleSince } from "@/lib/price-format";
 import { offeredPrice } from "@/lib/ranking";
+import { formatClock, miles, modeName, wholeMinutes } from "@/lib/route-format";
+import type { RoutesFile } from "@/lib/schemas";
 import type { Apartment, Place, RoomType } from "@/lib/types";
-import ApartmentMap, { type ApartmentMapHandle, type MapPoint } from "./ApartmentMap";
+import ApartmentMap, { type ApartmentMapHandle, type MapPoint, type RouteView } from "./ApartmentMap";
 import CommuteRoute from "./CommuteRoute";
+import CommuteSteps, { CommuteSummary } from "./CommuteSteps";
 import RentTable from "./RentTable";
 import { Close, ExternalLink, Frame, MapPin, Walk } from "./icons";
+
+type Trip = "commute" | "walk";
+
+const serviceDayFormat = new Intl.DateTimeFormat("en-US", { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
 
 type Sort = "commute" | "rent";
 
@@ -46,23 +55,45 @@ function setUrlParams(changes: Record<string, string | null>) {
   urlListeners.forEach((listener) => listener());
 }
 
-/** Google Maps transit directions to campus (a plain link: nothing is fetched from Google). */
-function directionsUrl(from: Apartment, to: Place): string {
-  const params = new URLSearchParams({
-    api: "1",
-    origin: `${from.location.lat},${from.location.lng}`,
-    destination: `${to.location.lat},${to.location.lng}`,
-    travelmode: "transit",
-  });
-  return `https://www.google.com/maps/dir/?${params}`;
+const lngLat = ({ lat, lng }: { lat: number; lng: number }): [number, number] => [lng, lat];
+
+/** The selected trip as paths for the map: walking legs dotted, rides solid and named. */
+function routeView(routes: RoutesFile["apartments"][string] | null, trip: Trip): RouteView | null {
+  if (trip === "walk") {
+    if (!routes?.walk) return null;
+    return {
+      segments: routes.walk.geometry.map((path) => ({ mode: "walk", coordinates: decodePolyline(path), label: null })),
+      stops: [],
+    };
+  }
+  if (!routes?.commute) return null;
+  const rides = routes.commute.legs.filter((leg) => leg.mode !== "WALK");
+  return {
+    segments: routes.commute.legs.map((leg) => ({
+      mode: leg.mode === "WALK" ? "walk" : "ride",
+      coordinates: decodePolyline(leg.geometry),
+      label: leg.mode === "WALK" ? null : (leg.route?.shortName ?? modeName(leg.mode)),
+    })),
+    stops: rides.flatMap((leg) => [lngLat(leg.from.location), lngLat(leg.to.location)]),
+  };
+}
+
+interface Props {
+  apartments: Apartment[];
+  campus: Place;
+  /** Commute trips and walking routes from the weekly transit refresh (data/routes.json). */
+  routes: RoutesFile["apartments"];
+  /** The weekday whose timetable the trips use (YYYY-MM-DD). */
+  serviceDate: string;
 }
 
 /**
  * The map page: a list of every apartment beside a map of where each sits from campus.
- * Selecting one in either place frames it with campus and opens its card. The room type
- * sets the rents shown, and `?apartment=…&room=…` links straight to an apartment.
+ * Selecting one in either place frames it with its route to campus and opens its card,
+ * with the commute step by step (or the walk). The room type sets the rents shown, and
+ * `?apartment=…&room=…&route=walk` links straight to a view.
  */
-export default function MapExplorer({ apartments, campus }: { apartments: Apartment[]; campus: Place }) {
+export default function MapExplorer({ apartments, campus, routes, serviceDate }: Props) {
   // The static page renders with no parameters; the real ones apply right after hydration.
   const search = useSyncExternalStore(subscribeToUrl, () => window.location.search, () => "");
   const params = new URLSearchParams(search);
@@ -71,6 +102,8 @@ export default function MapExplorer({ apartments, campus }: { apartments: Apartm
   const selectedId = apartments.find((apartment) => apartment.id === params.get("apartment"))?.id ?? null;
   const setRoomType = (room: RoomType) => setUrlParams({ room });
   const setSelectedId = (id: string | null) => setUrlParams({ apartment: id });
+  const trip: Trip = params.get("route") === "walk" ? "walk" : "commute";
+  const setTrip = (value: Trip) => setUrlParams({ route: value === "walk" ? "walk" : null });
 
   const [sort, setSort] = useState<Sort>("commute");
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -106,6 +139,8 @@ export default function MapExplorer({ apartments, campus }: { apartments: Apartm
 
   const selected = apartments.find((apartment) => apartment.id === selectedId) ?? null;
   const roomLabel = ROOM_TYPES.find((room) => room.value === roomType)!;
+  const selectedRoutes = selectedId ? (routes[selectedId] ?? null) : null;
+  const route = useMemo(() => routeView(selectedRoutes, trip), [selectedRoutes, trip]);
 
   // Frame the selection with campus, clear of the card that covers part of the map.
   useEffect(() => {
@@ -116,7 +151,7 @@ export default function MapExplorer({ apartments, campus }: { apartments: Apartm
     if (wide) {
       listRef.current?.querySelector(`[data-id="${selectedId}"]`)?.scrollIntoView({ block: "nearest", behavior: reducedMotion() ? "auto" : "smooth" });
     }
-  }, [selectedId]);
+  }, [selectedId, trip]);
 
   useEffect(() => {
     if (!selectedId) return;
@@ -136,6 +171,9 @@ export default function MapExplorer({ apartments, campus }: { apartments: Apartm
   };
 
   const commute = selected ? minutes(selected) : null;
+  const walkMiles = selected?.walkMiles ? `${selected.walkMiles.value.toFixed(1)} mi` : null;
+  const commuteTrip = selectedRoutes?.commute ?? null;
+  const walkTrip = selectedRoutes?.walk ?? null;
   const selectedParts = selected ? priceParts(selected, roomType) : null;
   const selectedStale = selected ? staleSince(selected) : null;
   const selectedStatus =
@@ -175,7 +213,8 @@ export default function MapExplorer({ apartments, campus }: { apartments: Apartm
           points={points}
           selectedId={selectedId}
           hoveredId={hoveredId}
-          connectorLabel={commute === null ? null : `${commute} min commute`}
+          route={route}
+          connectorLabel={trip === "walk" ? (walkMiles && `${walkMiles} walk`) : commute === null ? null : `${commute} min commute`}
           onSelect={setSelectedId}
           onHover={setHoveredId}
         />
@@ -197,6 +236,7 @@ export default function MapExplorer({ apartments, campus }: { apartments: Apartm
             </div>
             <p className="map-card-place">
               {selected.neighborhood} · {selected.address}
+              {selected.yearBuilt && <> · Built {selected.yearBuilt}</>}
             </p>
             {/* Phones get the chosen room's rent in one line; wider screens the full table. */}
             <p className="map-card-rent">
@@ -212,26 +252,69 @@ export default function MapExplorer({ apartments, campus }: { apartments: Apartm
             <div className="map-card-rents">
               <RentTable apartment={selected} roomType={roomType} />
             </div>
-            <p className="map-card-travel">
-              {commute !== null && <CommuteRoute minutes={commute} />}
-              {selected.walkMiles && (
-                <span>
-                  <Walk className="meta-icon" />
-                  {selected.walkMiles.value.toFixed(1)} mi walk
-                </span>
+            <div className="map-card-trip">
+              <fieldset className="segmented">
+                <legend className="visually-hidden">Route to campus</legend>
+                {(["commute", "walk"] as const).map((value) => (
+                  <label key={value} className="segmented-option">
+                    <input type="radio" name="trip" value={value} checked={trip === value} onChange={() => setTrip(value)} />
+                    {value === "commute" ? "Commute" : "Walk"}
+                  </label>
+                ))}
+              </fieldset>
+
+              {trip === "commute" ? (
+                <>
+                  <p className="trip-headline">
+                    {commute !== null ? <CommuteRoute minutes={commute} /> : <span>No commute time yet</span>}
+                    <a href={googleDirectionsUrl(selected.location, campus.location, "transit")} target="_blank" rel="noopener noreferrer">
+                      Google Maps
+                      <ExternalLink />
+                      <span className="visually-hidden"> transit directions (opens in a new tab)</span>
+                    </a>
+                  </p>
+                  {commuteTrip && (
+                    <>
+                      {/* Phones: one line, with the steps behind a disclosure so the map stays in view. */}
+                      <details className="trip-steps-compact">
+                        <summary>
+                          <CommuteSummary commute={commuteTrip} />
+                        </summary>
+                        <CommuteSteps commute={commuteTrip} from={selected.shortName} to="Carnegie Mellon" />
+                      </details>
+                      <div className="trip-steps">
+                        <CommuteSteps commute={commuteTrip} from={selected.shortName} to="Carnegie Mellon" />
+                      </div>
+                      <p className="trip-note">
+                        {serviceDayFormat.format(new Date(`${serviceDate}T00:00:00Z`))} timetable, arriving by{" "}
+                        {formatClock(commuteTrip.arriveBy)}
+                      </p>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <p className="trip-headline">
+                    <span>
+                      <Walk className="meta-icon" />
+                      {walkTrip ? miles(walkTrip.meters) : (walkMiles ?? "No walking route yet")}
+                      {walkTrip && <>, about {wholeMinutes(walkTrip.minutes)} min</>}
+                    </span>
+                    <a href={googleDirectionsUrl(selected.location, campus.location, "walking")} target="_blank" rel="noopener noreferrer">
+                      Google Maps
+                      <ExternalLink />
+                      <span className="visually-hidden"> walking directions (opens in a new tab)</span>
+                    </a>
+                  </p>
+                  <p className="trip-note">The shortest walk along streets and paths</p>
+                </>
               )}
-              {selected.yearBuilt && <span className="map-card-built">Built {selected.yearBuilt}</span>}
-            </p>
+            </div>
             <div className="card-actions">
               <a className="button button-primary" href={selected.website} target="_blank" rel="noopener noreferrer">
                 Website
                 <ExternalLink />
                 <span className="visually-hidden"> (opens in a new tab)</span>
-              </a>
-              <a className="button" href={directionsUrl(selected, campus)} target="_blank" rel="noopener noreferrer">
-                Transit directions
-                <ExternalLink />
-                <span className="visually-hidden"> (Google Maps, opens in a new tab)</span>
               </a>
             </div>
           </section>

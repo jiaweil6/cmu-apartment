@@ -2,16 +2,17 @@
 
 import { useState } from "react";
 import type { RankedApartment } from "@/lib/ranking";
-import type { RoomType } from "@/lib/types";
+import type { LatLng, RoomType } from "@/lib/types";
 import ApartmentCard from "./ApartmentCard";
 
 interface Props {
   ranked: RankedApartment[];
   roomType: RoomType;
+  campus: LatLng;
   hasPriorities: boolean;
 }
 
-export default function RankingList({ ranked, roomType, hasPriorities }: Props) {
+export default function RankingList({ ranked, roomType, campus, hasPriorities }: Props) {
   // One card open at a time.
   const [openId, setOpenId] = useState<string | null>(null);
 
@@ -38,6 +39,7 @@ export default function RankingList({ ranked, roomType, hasPriorities }: Props) 
         <li key={apartment.id}>
           <ApartmentCard
             apartment={apartment}
+            campus={campus}
             rank={index + 1}
             roomType={roomType}
             isOpen={openId === apartment.id}
