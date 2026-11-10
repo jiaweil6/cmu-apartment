@@ -3,12 +3,13 @@
  * to data/candidates.json for review.
  *
  *   npm run discover -- [--radius 3.5] [--max-new 15] [--no-osm]
- *                       [--otp-url http://localhost:8080 --gtfs-dir otp-run/gtfs]
+ *                       [--otp-url http://localhost:8080 --gtfs-dir otp-run/gtfs [--max-commute 45]]
  *                       [--summary discover-summary.md] [--dry-run]
  *
  * Sources: Allegheny County parcels with apartment land-use codes (WPRDC) and
  * OpenStreetMap buildings for names, websites and construction years. With an
- * OpenTripPlanner URL, candidates over a 35-minute commute are excluded. With
+ * OpenTripPlanner URL, each candidate gets its transit commute; --max-commute
+ * leaves out longer ones (no limit by default, since some students drive). With
  * BRAVE_API_KEY set, new finds without a website get one from Brave Search.
  */
 import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
@@ -29,9 +30,11 @@ import { findWebsite } from "./website";
 
 const { values: args } = parseArgs({
   options: {
-    // Far enough for downtown, the North Shore and Station Square; the commute limit drops what's too far by bus.
+    // Far enough for downtown, the North Shore and Station Square.
     radius: { type: "string", default: "3.5" },
     "max-new": { type: "string", default: "15" },
+    // Optional: leave out buildings whose transit commute is longer (minutes). No limit by default.
+    "max-commute": { type: "string" },
     "no-osm": { type: "boolean", default: false },
     "otp-url": { type: "string" },
     "gtfs-dir": { type: "string" },
@@ -78,6 +81,7 @@ async function main() {
     now: nowIso,
     maxNew: Number(args["max-new"]),
     commute,
+    maxCommuteMinutes: args["max-commute"] ? Number(args["max-commute"]) : undefined,
   });
 
   // New finds only: websites (Brave Search, when BRAVE_API_KEY is set) and leasing platforms.
