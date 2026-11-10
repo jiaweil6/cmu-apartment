@@ -46,7 +46,9 @@ No API keys are needed. The map's tiles and fonts are committed in `public/basem
    and approve pull requests.
 3. **Settings → Secrets and variables → Actions:** secret `BRAVE_API_KEY` (optional), which lets discovery look up
    websites for new buildings.
-4. Branch protection on `main`, if added later, must let `github-actions[bot]` push: data refreshes commit there.
+4. **Settings → General → Features → Issues:** on. Failing data jobs open a "Data job failing" issue and the monthly
+   reminder lists stale hand-entered prices in one; with Issues off, both go to the run's summary instead.
+5. Branch protection on `main`, if added later, must let `github-actions[bot]` push: data refreshes commit there.
 
 ## Project layout
 
