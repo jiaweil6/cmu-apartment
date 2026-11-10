@@ -1546,6 +1546,10 @@ a:hover {
   color: var(--text-muted);
 }
 
+.map-item-price.is-missing.tone-waitlist {
+  color: var(--waitlist-text);
+}
+
 .map-item-status {
   font-size: 0.75rem;
   font-weight: 500;
