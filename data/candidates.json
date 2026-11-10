@@ -3,7 +3,7 @@
   "candidates": [
     {
       "key": "0052J00018000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0052J00018000000",
@@ -45,11 +45,12 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "University housing: Fairfax Apartments is CMU upper-class student housing, not leased to the public. Parcel 0052J00018000000 is the University Square #1 co-op at 4625 5th Ave, also not rented."
     },
     {
       "key": "0052J00019000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0052J00019000000"
@@ -90,11 +91,12 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "Owner-occupied co-op (University Square #2); listings say no rentals are allowed."
     },
     {
       "key": "0052E00256000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0052E00256000000"
@@ -121,25 +123,42 @@
       "listing": {
         "name": "Cathedral Mansions",
         "shortName": null,
-        "phone": null,
+        "phone": "412-621-8100",
         "website": "https://cathedralmansions.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": false
         },
         "yearBuilt": null,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "unknown",
+            "minPrice": 1200
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": 1500
+          },
+          "twoBedroom": {
+            "status": "unknown",
+            "minPrice": 2150
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0027M00159000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0027M00159000000"
@@ -180,7 +199,8 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "Same building as webster-hall: the surface-rights parcel of Webster Hall, now added to that listing."
     },
     {
       "key": "0028H00058000000",
@@ -209,27 +229,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": "Bates Hill Apaertments",
-        "shortName": null,
-        "phone": null,
-        "website": null,
+        "name": "Bates Hill Apartments",
+        "shortName": "Bates Hill",
+        "phone": "412-387-7877",
+        "website": "https://www.rentcafe.com/apartments/pa/pittsburgh/bates-hill-apartments/default.aspx",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1987,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0027H00078000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0027H00078000000"
@@ -270,11 +307,12 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "Resident-owned housing co-op: residents buy shares after an admission interview; not rented to students."
     },
     {
       "key": "0027H00194000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0027H00194000000"
@@ -301,25 +339,42 @@
       "listing": {
         "name": "Schenley House",
         "shortName": null,
-        "phone": null,
-        "website": null,
+        "phone": "412-682-5886",
+        "website": "https://meyersmgmt.appfolio.com/listings",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1947,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1675
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1925
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0052E00070000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0052E00070000000"
@@ -344,27 +399,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": null,
-        "shortName": null,
-        "phone": null,
-        "website": null,
+        "name": "Aberdeen Apartments",
+        "shortName": "Aberdeen",
+        "phone": "724-286-7330",
+        "website": "https://www.unionrealestate.com/property/aberdeen-apartments",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1928,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": 1000
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1200
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0027D00273000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0027D00273000000"
@@ -389,27 +461,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": null,
-        "shortName": null,
-        "phone": null,
-        "website": null,
+        "name": "The Adrian",
+        "shortName": "Adrian",
+        "phone": "412-441-1400",
+        "website": "https://lobosmanagement.com/address/4629-bayard-street-pittsburgh-pa-15213-adrian-apartments-2/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": false
         },
-        "yearBuilt": null,
+        "yearBuilt": 1928,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1259
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0027D00265000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0027D00265000000"
@@ -434,27 +523,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": null,
-        "shortName": null,
-        "phone": null,
-        "website": null,
+        "name": "Royal Windsor Apartments",
+        "shortName": "Royal Windsor",
+        "phone": "412-441-1400",
+        "website": "https://lobosmanagement.com/address/222-melwood-avenue-pittsburgh-pa-15213-royal-windsor-apartments-2/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
         },
         "yearBuilt": null,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2199
+          },
+          "threeBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0027D00228000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0027D00228000000"
@@ -495,11 +601,12 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "Leased in full by the University of Pittsburgh from Aug 2026 (five-year block lease) as housing for Pitt upper-class students; not rented to the public."
     },
     {
       "key": "0027D00258000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0027D00258000000"
@@ -524,22 +631,39 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": null,
+        "name": "Webster Towers",
         "shortName": null,
-        "phone": null,
-        "website": null,
+        "phone": "412-682-5886",
+        "website": "https://www.meyersmanagement.com/city-properad91e635",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1940,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1080
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
@@ -569,27 +693,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": "The Colonnade",
+        "name": "Dakota",
         "shortName": null,
-        "phone": null,
-        "website": null,
+        "phone": "412-732-6471",
+        "website": "https://dakota.prospectportal.com/",
         "imageUrl": null,
         "openToUndergrad": null,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1927,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0052A00008000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0052A00008000000"
@@ -615,26 +756,43 @@
       "detectedPlatform": null,
       "listing": {
         "name": "The Chalfont",
-        "shortName": null,
-        "phone": null,
+        "shortName": "Chalfont",
+        "phone": "412-634-8264",
         "website": "https://www.chalfontapartments.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": false,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1968,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0052A00013000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T20:05:11Z",
       "parcelIds": [
         "0052A00013000000"
@@ -661,20 +819,37 @@
       "listing": {
         "name": "Hampshire Hall",
         "shortName": null,
-        "phone": null,
-        "website": "http://www.rentdelta.com/Hampshire_hall.asp",
+        "phone": "724-719-2163",
+        "website": "https://rentdelta.com/details/?propid=17",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
         },
         "yearBuilt": null,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 605
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 750
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     }
   ]
