@@ -26,6 +26,17 @@ export const placeSchema = z.strictObject({
   location: latLngSchema,
 });
 
+/**
+ * How a listing's prices are read: an adapter in scripts/refresh/pricing/
+ * ("manual" reads data/manual-prices.json). `url` and `options` are passed to
+ * the adapter, which validates them.
+ */
+export const pricingSchema = z.strictObject({
+  adapter: z.string().min(1),
+  url: z.url().optional(),
+  options: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).optional(),
+});
+
 export const apartmentInfoSchema = placeSchema.extend({
   /** Stable, URL-safe identifier. */
   id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
@@ -38,6 +49,7 @@ export const apartmentInfoSchema = placeSchema.extend({
   /** Allegheny County parcel IDs (see docs/data-sources.md). */
   parcelIds: z.array(z.string().regex(/^[0-9A-Z]{16}$/)),
   yearBuilt: z.int().min(1800).max(2100).nullable(),
+  pricing: pricingSchema.default({ adapter: "manual" }),
   /**
    * 0–1 rank scores from the original 2024 spreadsheet (1 = best). Used for a
    * criterion until live values exist; null for apartments added later.
@@ -62,16 +74,50 @@ export const listingsSchema = z
 
 const provenance = { observedAt: timestamp, source: z.string().min(1) };
 
+const unitFields = {
+  /**
+   * available: units open now (or soon, see availableFrom); waitlist: offered
+   * but none open; not-offered: the building has no such units; unknown: no data.
+   */
+  status: z.enum(["available", "waitlist", "not-offered", "unknown"]),
+  /** Lowest advertised monthly rent in USD. */
+  minPrice: z.number().min(100).max(20000).nullable(),
+  /** How many units are open, when the source says. */
+  available: z.int().min(0).nullable().optional(),
+  /** Earliest move-in date (YYYY-MM-DD), when it's in the future. */
+  availableFrom: z.iso.date().nullable().optional(),
+};
+
+const notOfferedHasNoPrice = {
+  check: (unit: { status: string; minPrice: number | null }) => unit.status !== "not-offered" || unit.minPrice === null,
+  message: "A room type that isn't offered can't have a price",
+};
+
 export const unitSchema = z
-  .strictObject({
-    status: z.enum(["available", "waitlist", "not-offered", "unknown"]),
-    /** Lowest advertised monthly rent in USD. */
-    minPrice: z.number().min(100).max(20000).nullable(),
-    ...provenance,
-  })
-  .refine((unit) => unit.status !== "not-offered" || unit.minPrice === null, {
-    message: "A room type that isn't offered can't have a price",
-  });
+  .strictObject({ ...unitFields, ...provenance })
+  .refine(notOfferedHasNoPrice.check, { message: notOfferedHasNoPrice.message });
+
+const manualUnitSchema = z
+  .strictObject(unitFields)
+  .refine(notOfferedHasNoPrice.check, { message: notOfferedHasNoPrice.message });
+
+/**
+ * Prices entered by hand for buildings that can't be scraped
+ * (data/manual-prices.json). `verifiedOn` is when someone last checked them.
+ */
+export const manualPricesSchema = z.record(
+  z.string(),
+  z.strictObject({
+    verifiedOn: z.iso.date(),
+    note: z.string().optional(),
+    units: z.strictObject({
+      studio: manualUnitSchema,
+      oneBedroom: manualUnitSchema,
+      twoBedroom: manualUnitSchema,
+      threeBedroom: manualUnitSchema,
+    }),
+  }),
+);
 
 const observation = <T extends z.ZodType>(value: T) => z.strictObject({ value, ...provenance });
 
@@ -152,3 +198,5 @@ export type ApartmentInfo = z.infer<typeof apartmentInfoSchema>;
 export type Snapshot = z.infer<typeof snapshotSchema>;
 export type ApartmentMetrics = z.infer<typeof metricsSchema>;
 export type UnitInfo = z.infer<typeof unitSchema>;
+export type Pricing = z.infer<typeof pricingSchema>;
+export type ManualPrices = z.infer<typeof manualPricesSchema>;

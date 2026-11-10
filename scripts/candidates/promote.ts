@@ -53,6 +53,7 @@ function toListing(candidate: Candidate, id: string): ApartmentInfo {
     },
     parcelIds: candidate.parcelIds,
     yearBuilt: listing.yearBuilt ?? candidate.osm?.yearBuilt ?? null,
+    pricing: { adapter: "manual" },
     legacyScores: null,
   };
 }

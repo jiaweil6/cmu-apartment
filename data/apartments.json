@@ -32,6 +32,9 @@
         "0028J00097000200"
       ],
       "yearBuilt": 2016,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.88,
         "distance": 0.53,
@@ -62,6 +65,9 @@
         "0027D00060000000"
       ],
       "yearBuilt": 2018,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.56,
         "distance": 0.76,
@@ -90,6 +96,9 @@
       },
       "parcelIds": [],
       "yearBuilt": 2019,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.88,
         "distance": 0.65,
@@ -120,6 +129,9 @@
         "0027D00190000000"
       ],
       "yearBuilt": 1970,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.56,
         "distance": 0.88,
@@ -150,6 +162,9 @@
         "0027M00161000A00"
       ],
       "yearBuilt": 1926,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 1,
         "distance": 1,
@@ -180,6 +195,9 @@
         "0051P00300000000"
       ],
       "yearBuilt": 1969,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.44,
         "distance": 0.88,
@@ -210,6 +228,9 @@
         "0051H00308000000"
       ],
       "yearBuilt": 1974,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.19,
         "distance": 0.47,
@@ -240,6 +261,9 @@
         "0051M00223000000"
       ],
       "yearBuilt": 1968,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.44,
         "distance": 0.53,
@@ -270,6 +294,9 @@
         "0084E00266000000"
       ],
       "yearBuilt": 2018,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.13,
         "distance": 0.35,
@@ -300,6 +327,9 @@
         "0084E00262000000"
       ],
       "yearBuilt": 2023,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.19,
         "distance": 0.35,
@@ -331,6 +361,9 @@
         "0084B00078000000"
       ],
       "yearBuilt": 2013,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.56,
         "distance": 0.12,
@@ -361,6 +394,9 @@
         "0084B00080000000"
       ],
       "yearBuilt": 2015,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.06,
         "distance": 0.12,
@@ -391,6 +427,9 @@
         "0084M00206000A00"
       ],
       "yearBuilt": 2014,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.31,
         "distance": 0.06,
@@ -421,6 +460,9 @@
         "0084L00192000000"
       ],
       "yearBuilt": 1956,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.38,
         "distance": 0.24,
@@ -453,6 +495,9 @@
         "0086H00074000000"
       ],
       "yearBuilt": 1966,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.81,
         "distance": 0.29,
@@ -481,6 +526,9 @@
       },
       "parcelIds": [],
       "yearBuilt": 1960,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 1,
         "distance": 0.65,
@@ -511,6 +559,9 @@
         "0027D00061000000"
       ],
       "yearBuilt": 1964,
+      "pricing": {
+        "adapter": "manual"
+      },
       "legacyScores": {
         "commute": 0.56,
         "distance": 0.76,
