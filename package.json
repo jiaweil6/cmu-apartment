@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "refresh": "tsx scripts/refresh/index.ts",
     "discover": "tsx scripts/discover/index.ts",
-    "candidates:promote": "tsx scripts/candidates/index.ts"
+    "candidates:promote": "tsx scripts/candidates/index.ts",
+    "manual-prices:check": "tsx scripts/refresh/manual-reminder.ts"
   },
   "dependencies": {
     "bootstrap": "4.6.2",

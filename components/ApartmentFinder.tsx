@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { NO_PRIORITIES, hasPriorities, rankApartments, type NeighborhoodFilter } from "@/lib/ranking";
 import type { Amenity, Apartment, Criterion, RoomType, StudentType } from "@/lib/types";
-import { AMENITY_OPTIONS, NEIGHBORHOOD_OPTIONS } from "@/lib/options";
+import { AMENITY_OPTIONS, NEIGHBORHOOD_OPTIONS, OPENINGS_OPTION } from "@/lib/options";
 import AboutYou from "./AboutYou";
 import FilterDropdown from "./FilterDropdown";
 import PrioritySliders from "./PrioritySliders";
@@ -20,10 +20,11 @@ export default function ApartmentFinder({ apartments }: { apartments: Apartment[
   const [studentType, setStudentType] = useState<StudentType>("undergraduate");
   const [neighborhoods, setNeighborhoods] = useState<NeighborhoodFilter[]>([]);
   const [amenities, setAmenities] = useState<Amenity[]>([]);
+  const [openingsOnly, setOpeningsOnly] = useState(false);
 
   const ranked = useMemo(
-    () => rankApartments(apartments, priorities, { roomType, studentType, neighborhoods, amenities }),
-    [apartments, priorities, roomType, studentType, neighborhoods, amenities],
+    () => rankApartments(apartments, priorities, { roomType, studentType, neighborhoods, amenities, openingsOnly }),
+    [apartments, priorities, roomType, studentType, neighborhoods, amenities, openingsOnly],
   );
 
   const setPriority = (criterion: Criterion, value: number) =>
@@ -63,9 +64,13 @@ export default function ApartmentFinder({ apartments }: { apartments: Apartment[
           />{" "}
           <FilterDropdown
             label="Amenities"
-            options={AMENITY_OPTIONS}
-            selected={amenities}
-            onToggle={(value) => setAmenities((current) => toggle(current, value))}
+            options={[...AMENITY_OPTIONS, OPENINGS_OPTION]}
+            selected={openingsOnly ? [...amenities, OPENINGS_OPTION.value] : amenities}
+            onToggle={(value) =>
+              value === OPENINGS_OPTION.value
+                ? setOpeningsOnly((current) => !current)
+                : setAmenities((current) => toggle(current, value))
+            }
           />
 
           <RankingList ranked={ranked} hasPriorities={hasPriorities(priorities)} />

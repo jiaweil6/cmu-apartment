@@ -15,6 +15,8 @@ export interface Filters {
   neighborhoods: NeighborhoodFilter[];
   /** Every listed amenity is required. */
   amenities: Amenity[];
+  /** Only apartments with open units of the chosen room type. */
+  openingsOnly?: boolean;
 }
 
 export interface RankedApartment {
@@ -131,7 +133,8 @@ export function matchesFilters(apartment: Apartment, filters: Filters): boolean 
   return (
     neighborhoodMatch &&
     amenities.every((amenity) => apartment.amenities[amenity]) &&
-    (studentType === "graduate" || apartment.openToUndergrad)
+    (studentType === "graduate" || apartment.openToUndergrad) &&
+    (!filters.openingsOnly || apartment.units[filters.roomType].status === "available")
   );
 }
 

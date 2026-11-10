@@ -64,3 +64,6 @@ export const AMENITY_OPTIONS: Option<Amenity>[] = [
   { value: "fitness", label: "Fitness room" },
   { value: "parking", label: "Parking" },
 ];
+
+/** Shown in the Amenities dropdown: only apartments with open units of the chosen room type. */
+export const OPENINGS_OPTION = { value: "openingsOnly", label: "Open units now" } as const;

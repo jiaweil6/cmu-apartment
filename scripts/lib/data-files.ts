@@ -3,10 +3,12 @@ import path from "node:path";
 import {
   candidatesFileSchema,
   listingsSchema,
+  manualPricesSchema,
   rejectedFileSchema,
   snapshotSchema,
   type CandidatesFile,
   type Listings,
+  type ManualPrices,
   type RejectedFile,
   type Snapshot,
 } from "@/lib/schemas";
@@ -16,6 +18,7 @@ export const LISTINGS_PATH = path.join(DATA_DIR, "apartments.json");
 export const SNAPSHOT_PATH = path.join(DATA_DIR, "snapshot.json");
 export const CANDIDATES_PATH = path.join(DATA_DIR, "candidates.json");
 export const REJECTED_PATH = path.join(DATA_DIR, "rejected.json");
+export const MANUAL_PRICES_PATH = path.join(DATA_DIR, "manual-prices.json");
 
 const writeJson = (file: string, value: unknown) => writeFileSync(file, JSON.stringify(value, null, 2) + "\n");
 
@@ -41,6 +44,14 @@ export function readRejected(): RejectedFile {
 
 export function writeRejected(file: RejectedFile): void {
   writeJson(REJECTED_PATH, rejectedFileSchema.parse(file));
+}
+
+export function readManualPrices(): ManualPrices {
+  return manualPricesSchema.parse(JSON.parse(readFileSync(MANUAL_PRICES_PATH, "utf8")));
+}
+
+export function writeManualPrices(prices: ManualPrices): void {
+  writeJson(MANUAL_PRICES_PATH, manualPricesSchema.parse(prices));
 }
 
 export function readSnapshot(): Snapshot {

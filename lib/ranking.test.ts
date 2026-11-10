@@ -266,3 +266,25 @@ describe("mergeListings", () => {
     expect(offeredPrice(apartment, "studio")).toBeNull();
   });
 });
+
+describe("openings filter and price freshness", () => {
+  const available = { status: "available" as const, minPrice: 1800, available: 2, observedAt: "2026-11-10T00:00:00Z", source: "test" };
+  const [first] = apartments;
+  const withStudio = (unit: Apartment["units"]["studio"]): Apartment => ({ ...first, units: { ...first.units, studio: unit } });
+
+  it("keeps only apartments with open units of the chosen room type", () => {
+    const filters = { ...anyFilters, openingsOnly: true };
+    expect(matchesFilters(withStudio(available), filters)).toBe(true);
+    expect(matchesFilters(withStudio({ ...available, status: "waitlist" }), filters)).toBe(false);
+    expect(matchesFilters(first, filters)).toBe(false); // 2024 data: availability unknown
+    expect(matchesFilters(first, anyFilters)).toBe(true);
+  });
+
+  it("flags prices much older than the latest refresh", () => {
+    const listings = listingsSchema.parse(listings2024);
+    const recent = mergeListings(listings, { ...snapshotSchema.parse(snapshot2024), generatedAt: "2024-02-10T00:00:00Z" });
+    const later = mergeListings(listings, { ...snapshotSchema.parse(snapshot2024), generatedAt: "2026-11-10T00:00:00Z" });
+    expect(recent[0]).toMatchObject({ pricesCheckedAt: "2024-02-03T00:00:00Z", pricesStale: false });
+    expect(later[0].pricesStale).toBe(true);
+  });
+});

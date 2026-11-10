@@ -13,24 +13,25 @@ interface Props {
 // Fixed locale and time zone so the server and browser render the same text.
 const dateFormat = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" });
 
-function formatPrice(apartment: Apartment, roomType: RoomType): string {
-  if (apartment.units[roomType].status === "not-offered") return "Not available";
-  const price = offeredPrice(apartment, roomType);
-  return price === null ? "Unknown" : `$${price}`;
-}
+const moveInFormat = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 
-/** The most recent date any price was checked, or null if none have been. */
-function pricesCheckedOn(apartment: Apartment): string | null {
-  const dates = Object.values(apartment.units)
-    .filter((unit) => unit.status !== "unknown" || unit.minPrice !== null)
-    .map((unit) => unit.observedAt)
-    .sort();
-  return dates.length ? dateFormat.format(new Date(dates[dates.length - 1])) : null;
+/** "$1849 · 6 open", "$3728 · Available Dec 24", "$5200 · Waitlist", "Not available" or "Unknown". */
+export function formatPrice(apartment: Apartment, roomType: RoomType): string {
+  const unit = apartment.units[roomType];
+  if (unit.status === "not-offered") return "Not available";
+  const price = offeredPrice(apartment, roomType);
+  if (price === null) return unit.status === "waitlist" ? "Waitlist" : "Unknown";
+  if (unit.status === "waitlist") return `$${price} · Waitlist`;
+  if (unit.status === "available" && unit.availableFrom) {
+    return `$${price} · Available ${moveInFormat.format(new Date(`${unit.availableFrom}T00:00:00Z`))}`;
+  }
+  if (unit.status === "available" && unit.available) return `$${price} · ${unit.available} open`;
+  return `$${price}`;
 }
 
 export default function ApartmentCard({ apartment, rank, isOpen, onToggle }: Props) {
   const detailsId = `apartment-details-${apartment.id}`;
-  const checkedOn = pricesCheckedOn(apartment);
+  const checkedOn = apartment.pricesCheckedAt ? dateFormat.format(new Date(apartment.pricesCheckedAt)) : null;
 
   return (
     <div className="card apartment-card mb-3">
@@ -56,7 +57,12 @@ export default function ApartmentCard({ apartment, rank, isOpen, onToggle }: Pro
                     {priceLabel}: {formatPrice(apartment, value)}
                   </p>
                 ))}
-                {checkedOn && <p className="data-note">Prices as of {checkedOn}</p>}
+                {checkedOn && (
+                  <p className={`data-note${apartment.pricesStale ? " is-stale" : ""}`}>
+                    Prices as of {checkedOn}
+                    {apartment.pricesStale && " (may be out of date)"}
+                  </p>
+                )}
                 {apartment.commuteMinutes && (
                   <p>Commute to Campus: {Math.round(apartment.commuteMinutes.value)} min</p>
                 )}
