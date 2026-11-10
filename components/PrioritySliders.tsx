@@ -1,45 +1,43 @@
+import type { CSSProperties } from "react";
 import { CRITERIA } from "@/lib/options";
 import type { Priorities } from "@/lib/ranking";
 import type { Criterion } from "@/lib/types";
 
 interface Props {
   priorities: Priorities;
+  /** Each slider as a share of the total, shown beside it on small screens (where the summary is hidden). */
+  shares: Priorities;
   onChange: (criterion: Criterion, value: number) => void;
 }
 
-/** Two sliders per row, in CRITERIA order. */
-const rows = CRITERIA.reduce<(typeof CRITERIA)[]>((acc, criterion, index) => {
-  if (index % 2 === 0) acc.push([]);
-  acc[acc.length - 1].push(criterion);
-  return acc;
-}, []);
-
-export default function PrioritySliders({ priorities, onChange }: Props) {
-  return rows.map((row) => (
-    <div className="row" key={row[0].key}>
-      {row.map(({ key, inputId, label, description }) => {
+export default function PrioritySliders({ priorities, shares, onChange }: Props) {
+  return (
+    <div className="slider-grid">
+      {CRITERIA.map(({ key, inputId, label, description }) => {
         const value = priorities[key];
         return (
-          <div className="col-6 col-md-6" key={key}>
-            <div className="priority-slider">
+          <div className="priority-slider" key={key}>
+            <div className="slider-head">
               <label htmlFor={inputId}>{label}</label>
-              <p className="sliderText">{description}</p>
-              <div className="range">
-                <input
-                  type="range"
-                  className="slider"
-                  id={inputId}
-                  min={0}
-                  max={100}
-                  value={value}
-                  onChange={(event) => onChange(key, Number(event.target.value))}
-                  style={{ background: `linear-gradient(to right, var(--accent) ${value}%, #ccc ${value}%)` }}
-                />
-              </div>
+              <span className={`slider-share${value > 0 ? " is-active" : ""}`}>{shares[key]}%</span>
             </div>
+            <p className="slider-hint" id={`${inputId}-hint`}>
+              {description}
+            </p>
+            <input
+              type="range"
+              className="slider"
+              id={inputId}
+              min={0}
+              max={100}
+              value={value}
+              aria-describedby={`${inputId}-hint`}
+              onChange={(event) => onChange(key, Number(event.target.value))}
+              style={{ "--value": value } as CSSProperties}
+            />
           </div>
         );
       })}
     </div>
-  ));
+  );
 }

@@ -9,7 +9,7 @@ Prices, availability, commute times and the list of buildings keep themselves up
 
 - [Next.js 16](https://nextjs.org) (App Router) with React 19 and TypeScript, exported as a static site
 - Hosted on GitHub Pages, deployed by GitHub Actions
-- Bootstrap 4 CSS for layout, plus the site's own styles in `app/globals.css`
+- Plain CSS in `app/globals.css`, with colour and spacing tokens at the top (text colours meet WCAG AA contrast)
 - [HERE Maps](https://www.here.com/developer) for the `/map` page
 - [Vitest](https://vitest.dev) for unit tests
 
@@ -54,12 +54,12 @@ site works and the map shows a notice instead.
 
 ```
 app/
-  layout.tsx                    Root layout: fonts, Bootstrap, global styles, data credits
+  layout.tsx                    Root layout: fonts, header and navigation, global styles, data credits
   page.tsx                      Ranking page (server component, loads data)
   map/page.tsx                  Map of every apartment
   api/apartments.json/route.ts  /api/apartments.json: every listing with its latest data
   globals.css                   Site styles
-components/                     UI; ApartmentFinder holds the ranking page's state
+components/                     UI; ApartmentFinder holds the ranking page's state, icons.tsx the inline icons
 lib/
   ranking.ts                    Scoring, filtering and ranking (pure functions, tested)
   apartments.ts                 Data access: merges listings with the latest snapshot

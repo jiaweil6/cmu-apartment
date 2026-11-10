@@ -4,7 +4,7 @@ import snapshot2024 from "@/lib/__fixtures__/snapshot-2024.json";
 import { mergeListings } from "@/lib/apartments";
 import { listingsSchema, snapshotSchema } from "@/lib/schemas";
 import type { Apartment } from "@/lib/types";
-import { formatPrice } from "./ApartmentCard";
+import { formatPrice, priceParts } from "./ApartmentCard";
 
 const [apartment] = mergeListings(listingsSchema.parse(listings2024), snapshotSchema.parse(snapshot2024));
 const at = { observedAt: "2026-11-10T00:00:00Z", source: "test" };
@@ -12,11 +12,24 @@ const withStudio = (studio: Apartment["units"]["studio"]): Apartment => ({ ...ap
 
 describe("formatPrice", () => {
   it("shows rent with availability", () => {
-    expect(formatPrice(withStudio({ status: "available", minPrice: 1849, available: 6, ...at }), "studio")).toBe("$1849 · 6 open");
-    expect(formatPrice(withStudio({ status: "available", minPrice: 3728, available: 1, availableFrom: "2026-12-24", ...at }), "studio")).toBe("$3728 · Available Dec 24");
-    expect(formatPrice(withStudio({ status: "waitlist", minPrice: 5200, ...at }), "studio")).toBe("$5200 · Waitlist");
+    expect(formatPrice(withStudio({ status: "available", minPrice: 1849, available: 6, ...at }), "studio")).toBe("$1,849 · 6 open");
+    expect(formatPrice(withStudio({ status: "available", minPrice: 3728, available: 1, availableFrom: "2026-12-24", ...at }), "studio")).toBe("$3,728 · Available Dec 24");
+    expect(formatPrice(withStudio({ status: "waitlist", minPrice: 5200, ...at }), "studio")).toBe("$5,200 · Waitlist");
     expect(formatPrice(withStudio({ status: "not-offered", minPrice: null, ...at }), "studio")).toBe("Not available");
     expect(formatPrice(withStudio({ status: "unknown", minPrice: null, ...at }), "studio")).toBe("Unknown");
-    expect(formatPrice(apartment, "studio")).toBe("$1880");
+    expect(formatPrice(apartment, "studio")).toBe("$1,880");
+  });
+
+  it("splits rent from availability for the card summary", () => {
+    expect(priceParts(withStudio({ status: "available", minPrice: 1849, available: 6, ...at }), "studio")).toEqual({
+      price: "$1,849",
+      status: "6 open",
+      tone: "open",
+    });
+    expect(priceParts(withStudio({ status: "waitlist", minPrice: null, ...at }), "studio")).toEqual({
+      price: null,
+      status: "Waitlist",
+      tone: "waitlist",
+    });
   });
 });

@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Zilla_Slab } from "next/font/google";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/link";
+import { BrandMark } from "@/components/icons";
+import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const zillaSlab = Zilla_Slab({
@@ -16,11 +18,29 @@ export const metadata: Metadata = {
   icons: { icon: "https://cdn-icons-png.flaticon.com/128/11304/11304956.png" },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#f7f3ee",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={zillaSlab.variable}>
       <body>
-        {children}
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <header className="site-header">
+          <div className="site-header-inner">
+            <Link href="/" className="brand">
+              <BrandMark className="brand-mark" />
+              Apartment Ranking
+            </Link>
+            <SiteNav />
+          </div>
+        </header>
+        <main id="main" className="site-main">
+          {children}
+        </main>
         <footer className="site-footer">
           Commute and walking times are calculated with{" "}
           <a href="https://www.rideprt.org/" target="_blank" rel="noopener noreferrer">

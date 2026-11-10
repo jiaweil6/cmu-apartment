@@ -11,14 +11,13 @@ export default async function MapPage() {
   const [campus, apartments] = await Promise.all([getCampus(), getApartments()]);
 
   return (
-    <div className="container">
+    <div className="page">
       <link rel="stylesheet" href={HERE_UI_STYLESHEET} precedence="default" />
-      <h1 className="map-title">Locations of Apartments Near CMU</h1>
-      <div className="row justify-content-center">
-        <div className="col-md-12">
-          <ApartmentMap apiKey={process.env.NEXT_PUBLIC_HERE_API_KEY} places={[campus, ...apartments]} />
-        </div>
+      <div className="page-head">
+        <h1 className="map-title">Locations of Apartments Near CMU</h1>
+        <p className="page-lede">Every apartment in the rankings, with campus for reference. Select a name to open its website.</p>
       </div>
+      <ApartmentMap apiKey={process.env.NEXT_PUBLIC_HERE_API_KEY} places={[campus, ...apartments]} />
     </div>
   );
 }

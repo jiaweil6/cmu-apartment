@@ -24,7 +24,7 @@ export const CRITERIA: { key: Criterion; inputId: string; label: string; descrip
     key: "price",
     inputId: "lowPrice",
     label: "Low Price",
-    description: "Average price for selected room type",
+    description: "Lowest listed rent for the selected room type",
   },
   {
     key: "rating",
@@ -40,11 +40,12 @@ export const CRITERIA: { key: Criterion; inputId: string; label: string; descrip
   },
 ];
 
-export const ROOM_TYPES: (Option<RoomType> & { priceLabel: string })[] = [
-  { value: "studio", label: "studio", priceLabel: "Studio Price" },
-  { value: "oneBedroom", label: "1 bedroom", priceLabel: "1 Bedroom Price" },
-  { value: "twoBedroom", label: "2 bedrooms", priceLabel: "2 Bedrooms Price" },
-  { value: "threeBedroom", label: "3 bedrooms", priceLabel: "3 Bedrooms Price" },
+/** `label` completes "You are looking for a … apartment"; `shortLabel` heads a card's rent table. */
+export const ROOM_TYPES: (Option<RoomType> & { shortLabel: string })[] = [
+  { value: "studio", label: "studio", shortLabel: "Studio" },
+  { value: "oneBedroom", label: "1 bedroom", shortLabel: "1 bed" },
+  { value: "twoBedroom", label: "2 bedrooms", shortLabel: "2 beds" },
+  { value: "threeBedroom", label: "3 bedrooms", shortLabel: "3 beds" },
 ];
 
 export const STUDENT_TYPES: Option<StudentType>[] = [
