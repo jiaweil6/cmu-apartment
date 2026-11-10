@@ -1,0 +1,51 @@
+name: Start OpenTripPlanner
+description: >
+  Builds a routing graph from PRT's GTFS feed and an OpenStreetMap extract of
+  Pittsburgh, then serves it on http://localhost:8080. The unzipped feed is left
+  in otp-run/gtfs for the refresh scripts.
+inputs:
+  otp-version:
+    description: OpenTripPlanner release (needs Java 25 from 2.10)
+    default: "2.10.0"
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-java@v5
+      with:
+        distribution: temurin
+        java-version: 25
+
+    - name: Download OpenTripPlanner, PRT GTFS and OpenStreetMap
+      shell: bash
+      env:
+        OTP_VERSION: ${{ inputs.otp-version }}
+      run: |
+        mkdir -p otp-run
+        cp otp/*.json otp-run/
+        curl -fsSL --retry 3 -o otp-run/otp.jar \
+          "https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/${OTP_VERSION}/otp-shaded-${OTP_VERSION}.jar"
+        curl -fsSL --retry 3 -o otp-run/prt-gtfs.zip https://www.rideprt.org/developerresources/GTFS.zip
+        unzip -q -o otp-run/prt-gtfs.zip -d otp-run/gtfs
+        curl -fsSL --retry 3 -o pennsylvania.osm.pbf \
+          https://download.geofabrik.de/north-america/us/pennsylvania-latest.osm.pbf
+        sudo apt-get update -qq && sudo apt-get install -y -qq osmium-tool
+        # Pittsburgh and the inner suburbs: far more than any commute we score.
+        osmium extract --bbox=-80.10,40.36,-79.80,40.54 --overwrite \
+          -o otp-run/pittsburgh.osm.pbf pennsylvania.osm.pbf
+
+    - name: Build routing graph
+      shell: bash
+      run: java -Xmx8G -jar otp-run/otp.jar --build --save otp-run
+
+    - name: Start OpenTripPlanner
+      shell: bash
+      run: |
+        nohup java -Xmx8G -jar otp-run/otp.jar --load otp-run > otp-run/server.log 2>&1 &
+        for i in $(seq 1 60); do
+          if curl -sf -X POST -H 'Content-Type: application/json' \
+               -d '{"query":"{ feeds { feedId } }"}' http://localhost:8080/otp/gtfs/v1 > /dev/null; then
+            echo "OpenTripPlanner is up"; exit 0
+          fi
+          sleep 5
+        done
+        echo "OpenTripPlanner didn't start"; tail -n 100 otp-run/server.log; exit 1

@@ -75,12 +75,30 @@ fail to refresh keep their previous value.
 | Workflow | Schedule | What it updates |
 | --- | --- | --- |
 | `refresh-transit.yml` | Mondays | Commute to campus (median door-to-door time arriving by 8:30, 9:00 and 9:30 AM on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap |
+| `discover.yml` | Wednesdays | New apartment buildings near campus, as a "Weekly apartment finds" PR (see below) |
+| `promote-candidates.yml` | After a finds PR merges | Lists approved buildings, remembers rejected ones |
 
-To run the transit refresh locally, start OpenTripPlanner as the workflow does, then:
+To run a refresh locally, start OpenTripPlanner the way `.github/actions/opentripplanner` does, then:
 
 ```bash
 npm run refresh -- --only transit --gtfs-dir otp-run/gtfs --dry-run
 ```
 
-To add an apartment, add it to `data/apartments.json` (the schema in `lib/schemas.ts` says what's needed)
-and run the refreshes. Ranks are recomputed automatically.
+### Finding new apartments
+
+`npm run discover` looks for apartment buildings within 2.5 miles of campus that aren't listed yet:
+
+1. Allegheny County parcels coded as large apartment buildings, from the WPRDC open-data API.
+2. Parcels at the same address are grouped into one building. Names, websites and construction years come
+   from OpenStreetMap.
+3. Listed, previously rejected and tax-exempt buildings (university, public or nonprofit housing) are
+   skipped, as are buildings over a 35-minute commute.
+4. Up to 15 new buildings a week, largest and closest first, are added to `data/candidates.json` and
+   proposed in a PR.
+
+To review, edit `data/candidates.json` in that PR. Set `decision` to `approve` and fill in `listing`, or to
+`reject` with a `rejectReason`, then merge. The PR description lists which fields are required. While a finds
+PR is open, the weekly job skips running so it can't overwrite your edits.
+
+To add an apartment by hand, add it to `data/apartments.json` (the schema in `lib/schemas.ts` says what's
+needed) and run the refreshes. Ranks are recomputed automatically.

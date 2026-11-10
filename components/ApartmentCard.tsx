@@ -19,10 +19,10 @@ function formatPrice(apartment: Apartment, roomType: RoomType): string {
   return price === null ? "Unknown" : `$${price}`;
 }
 
-/** The most recent date any price was checked, or null if none were. */
+/** The most recent date any price was checked, or null if none have been. */
 function pricesCheckedOn(apartment: Apartment): string | null {
   const dates = Object.values(apartment.units)
-    .filter((unit) => unit.source !== "none")
+    .filter((unit) => unit.status !== "unknown" || unit.minPrice !== null)
     .map((unit) => unit.observedAt)
     .sort();
   return dates.length ? dateFormat.format(new Date(dates[dates.length - 1])) : null;
@@ -67,14 +67,11 @@ export default function ApartmentCard({ apartment, rank, isOpen, onToggle }: Pro
                 </a>
                 <Link href="/map">View on Map</Link>
                 <br />
-                {/* Remote listing photos of unknown size, so next/image doesn't fit. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className="apartment-image"
-                  src={apartment.imageUrl}
-                  alt={apartment.name}
-                  loading="lazy"
-                />
+                {apartment.imageUrl && (
+                  // Remote listing photos of unknown size, so next/image doesn't fit.
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img className="apartment-image" src={apartment.imageUrl} alt={apartment.name} loading="lazy" />
+                )}
               </div>
             </div>
           </div>

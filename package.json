@@ -14,7 +14,9 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "refresh": "tsx scripts/refresh/index.ts"
+    "refresh": "tsx scripts/refresh/index.ts",
+    "discover": "tsx scripts/discover/index.ts",
+    "candidates:promote": "tsx scripts/candidates/index.ts"
   },
   "dependencies": {
     "bootstrap": "4.6.2",

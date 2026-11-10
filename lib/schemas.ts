@@ -32,7 +32,7 @@ export const apartmentInfoSchema = placeSchema.extend({
   neighborhood: z.string().min(1),
   address: z.string().min(1),
   phone: z.string(),
-  imageUrl: z.url(),
+  imageUrl: z.url().nullable(),
   openToUndergrad: z.boolean(),
   amenities: z.strictObject({ inUnitLaundry: z.boolean(), fitness: z.boolean(), parking: z.boolean() }),
   /** Allegheny County parcel IDs (see docs/data-sources.md). */
@@ -93,7 +93,61 @@ export const snapshotSchema = z.strictObject({
   apartments: z.record(z.string(), metricsSchema),
 });
 
+const parcelId = z.string().regex(/^[0-9A-Z]{16}$/);
+const nullableBool = z.boolean().nullable();
+
+/**
+ * A building found by discovery (scripts/discover), waiting for review in
+ * data/candidates.json. Reviewers fill `listing` and set `decision`.
+ */
+export const candidateSchema = z.strictObject({
+  /** Stable key: the first parcel ID. */
+  key: z.string().min(1),
+  decision: z.enum(["pending", "approve", "reject"]),
+  rejectReason: z.string().optional(),
+  foundAt: timestamp,
+  parcelIds: z.array(parcelId).min(1),
+  address: z.string().min(1),
+  /** City neighborhood from county data, e.g. "North Oakland". */
+  neighborhood: z.string().nullable(),
+  location: latLngSchema,
+  size: z.string().min(1),
+  marketValue: z.number(),
+  distanceMiles: z.number(),
+  commuteMinutes: z.number().nullable(),
+  osm: z
+    .strictObject({ id: z.string(), name: z.string().nullable(), website: z.url().nullable(), yearBuilt: z.int().nullable() })
+    .nullable(),
+  /** A listing within 200 m that has no parcel ID yet: possibly the same building. */
+  possibleDuplicateOf: z.string().nullable(),
+  /** Filled in by the reviewer before approving. */
+  listing: z.strictObject({
+    name: z.string().nullable(),
+    shortName: z.string().nullable(),
+    phone: z.string().nullable(),
+    website: z.url().nullable(),
+    imageUrl: z.url().nullable(),
+    openToUndergrad: nullableBool,
+    amenities: z.strictObject({ inUnitLaundry: nullableBool, fitness: nullableBool, parking: nullableBool }),
+    yearBuilt: z.int().min(1800).max(2100).nullable(),
+  }),
+});
+
+export const candidatesFileSchema = z.strictObject({
+  updatedAt: timestamp,
+  candidates: z.array(candidateSchema),
+});
+
+export const rejectedFileSchema = z.strictObject({
+  rejected: z.array(
+    z.strictObject({ key: z.string(), parcelIds: z.array(parcelId), address: z.string(), reason: z.string(), rejectedAt: timestamp }),
+  ),
+});
+
 export type Listings = z.infer<typeof listingsSchema>;
+export type Candidate = z.infer<typeof candidateSchema>;
+export type CandidatesFile = z.infer<typeof candidatesFileSchema>;
+export type RejectedFile = z.infer<typeof rejectedFileSchema>;
 export type ApartmentInfo = z.infer<typeof apartmentInfoSchema>;
 export type Snapshot = z.infer<typeof snapshotSchema>;
 export type ApartmentMetrics = z.infer<typeof metricsSchema>;

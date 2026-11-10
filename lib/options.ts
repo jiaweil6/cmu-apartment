@@ -12,13 +12,13 @@ export const CRITERIA: { key: Criterion; inputId: string; label: string; descrip
     key: "commute",
     inputId: "quickCommute",
     label: "Quick Commute",
-    description: "Public transportation duration on google maps",
+    description: "Door-to-door time by bus or on foot, weekday mornings",
   },
   {
     key: "distance",
     inputId: "closeToSchool",
     label: "Close to School",
-    description: "Distance to school (For those who want to walk or drive to school)",
+    description: "Walking distance to campus",
   },
   {
     key: "price",
