@@ -35,6 +35,15 @@ export function priceParts(apartment: Apartment, roomType: RoomType): PriceParts
   return { price, status: null, tone: null };
 }
 
+/**
+ * Why a room type shows no rent: the building has none ("not-offered"), has
+ * them but none open and no rent posted ("waitlist"), or there's no data ("unknown").
+ */
+export function missingRent(apartment: Apartment, roomType: RoomType): "not-offered" | "waitlist" | "unknown" {
+  const { status } = apartment.units[roomType];
+  return status === "not-offered" || status === "waitlist" ? status : "unknown";
+}
+
 /** "$1,849 · 6 open", "$3,728 · Available Dec 24", "$5,200 · Waitlist", "Not available" or "Unknown". */
 export function formatPrice(apartment: Apartment, roomType: RoomType): string {
   const { price, status } = priceParts(apartment, roomType);

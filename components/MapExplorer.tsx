@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "reac
 import { googleDirectionsUrl } from "@/lib/directions";
 import { ROOM_TYPES } from "@/lib/options";
 import { decodePolyline, removeSpurs } from "@/lib/polyline";
-import { priceParts, staleSince } from "@/lib/price-format";
+import { missingRent, priceParts, staleSince } from "@/lib/price-format";
 import { offeredPrice } from "@/lib/ranking";
 import { formatClock, miles, modeName, wholeMinutes } from "@/lib/route-format";
 import type { RoutesFile } from "@/lib/schemas";
@@ -244,8 +244,15 @@ export default function MapExplorer({ apartments, campus, routes, serviceDate }:
                 <>
                   <strong>{selectedParts.price}</strong>/mo for a {roomLabel.label}
                 </>
-              ) : (
+              ) : missingRent(selected, roomType) === "not-offered" ? (
                 <>No {roomLabel.label} here</>
+              ) : missingRent(selected, roomType) === "waitlist" ? (
+                <>
+                  No {roomLabel.label} open now
+                  <span className="tag tone-waitlist">Waitlist</span>
+                </>
+              ) : (
+                <>No rent listed for {roomLabel.label}</>
               )}
               {selectedStatus && <span className={`tag tone-${selectedStatus.tone}`}>{selectedStatus.text}</span>}
             </p>
@@ -365,8 +372,12 @@ export default function MapExplorer({ apartments, campus, routes, serviceDate }:
                   <span className="map-item-rent">
                     {parts.price ? (
                       <span className="map-item-price">{parts.price}</span>
-                    ) : (
+                    ) : missingRent(apartment, roomType) === "not-offered" ? (
                       <span className="map-item-price is-missing">No {roomLabel.shortLabel.toLowerCase()}</span>
+                    ) : missingRent(apartment, roomType) === "waitlist" ? (
+                      <span className="map-item-price is-missing tone-waitlist">Waitlist</span>
+                    ) : (
+                      <span className="map-item-price is-missing">Rent unknown</span>
                     )}
                     {status && <span className={`map-item-status tone-${tone}`}>{status}</span>}
                   </span>
