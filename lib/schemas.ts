@@ -166,6 +166,10 @@ export const candidateSchema = z.strictObject({
     .nullable(),
   /** A listing that may be the same building (same name in OpenStreetMap, or nearby without parcel IDs). */
   possibleDuplicateOf: z.string().nullable(),
+  /** Where `listing.website` came from; "search" results need checking. */
+  websiteSource: z.enum(["osm", "search"]).nullable().default(null),
+  /** Leasing platform recognized on the website, if any (a pricing adapter id). */
+  detectedPlatform: z.string().nullable().default(null),
   /** Filled in by the reviewer before approving. */
   listing: z.strictObject({
     name: z.string().nullable(),
@@ -176,6 +180,18 @@ export const candidateSchema = z.strictObject({
     openToUndergrad: nullableBool,
     amenities: z.strictObject({ inUnitLaundry: nullableBool, fitness: nullableBool, parking: nullableBool }),
     yearBuilt: z.int().min(1800).max(2100).nullable(),
+    /** How prices are read once listed. A scraped platform needs `url`; "manual" needs `manualPrices`. */
+    pricing: pricingSchema.default({ adapter: "manual" }),
+    /** Current rents, for buildings priced by hand. */
+    manualPrices: z
+      .strictObject({
+        studio: manualUnitSchema,
+        oneBedroom: manualUnitSchema,
+        twoBedroom: manualUnitSchema,
+        threeBedroom: manualUnitSchema,
+      })
+      .nullable()
+      .default(null),
   }),
 });
 

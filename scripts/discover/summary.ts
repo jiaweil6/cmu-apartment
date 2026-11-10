@@ -18,15 +18,16 @@ export function discoverySummary(report: DiscoveryReport, pending: number): stri
   if (report.added.length) {
     lines.push(
       "",
-      "| Building | Size | Distance | Commute | Name (OpenStreetMap) | Website | Note |",
-      "| --- | --- | --- | --- | --- | --- | --- |",
+      "| Building | Size | Distance | Commute | Name (OpenStreetMap) | Website | Pricing | Note |",
+      "| --- | --- | --- | --- | --- | --- | --- | --- |",
     );
     for (const c of report.added) {
       const note = c.possibleDuplicateOf ? `Possibly listed as \`${c.possibleDuplicateOf}\`` : "";
       lines.push(
         `| ${c.address} (${c.neighborhood ?? "?"}) ${mapLink(c)} | ${c.size} | ${c.distanceMiles} mi | ` +
           `${c.commuteMinutes === null ? "—" : `${c.commuteMinutes} min`} | ${c.osm?.name ?? "—"} | ` +
-          `${c.listing.website ? `[site](${c.listing.website})` : "—"} | ${note} |`,
+          `${c.listing.website ? `[site](${c.listing.website})${c.websiteSource === "search" ? " (from search: check it)" : ""}` : "—"} | ` +
+          `${c.detectedPlatform ?? "manual"} | ${note} |`,
       );
     }
   }
@@ -39,6 +40,8 @@ export function discoverySummary(report: DiscoveryReport, pending: number): stri
     "",
     "- **Approve:** set `\"decision\": \"approve\"` and fill in `listing`: `name`, `website`, `openToUndergrad` and the three",
     "  `amenities` are required; `phone`, `imageUrl`, `shortName` and `yearBuilt` are optional.",
+    "  It also needs a price source: either `pricing` with the detected platform's `url` (see the README),",
+    "  or `\"pricing\": { \"adapter\": \"manual\" }` with `manualPrices` for all four room types.",
     "- **Reject:** set `\"decision\": \"reject\"` and add a `rejectReason` (not student housing, condos, closed, ...). It won't be suggested again.",
     "- **Possible duplicate:** if it's an existing listing, add its parcel IDs to that listing in `data/apartments.json` and reject this one.",
     "- Leave a candidate `pending` to decide later.",

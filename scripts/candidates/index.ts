@@ -10,10 +10,12 @@ import { parseArgs } from "node:util";
 import {
   readCandidates,
   readListings,
+  readManualPrices,
   readRejected,
   readSnapshot,
   writeCandidates,
   writeListings,
+  writeManualPrices,
   writeRejected,
   writeSnapshot,
 } from "../lib/data-files";
@@ -27,6 +29,7 @@ const result = promote({
   candidates: readCandidates(),
   rejected: readRejected(),
   snapshot: readSnapshot(),
+  manualPrices: readManualPrices(),
   now,
 });
 
@@ -41,5 +44,6 @@ if (!args["dry-run"] && (result.promoted.length || result.rejectedKeys.length)) 
   writeSnapshot(result.snapshot, result.listings);
   writeCandidates(result.candidates);
   writeRejected(result.rejected);
+  writeManualPrices(result.manualPrices);
 }
 if (result.problems.length) process.exit(1);

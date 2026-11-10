@@ -71,7 +71,7 @@ describe("attachOsm", () => {
 
 describe("classify", () => {
   const [fifth, skyvue, , exempt] = groupParcels(parcels, campus);
-  const context = { listings, candidates: [], rejected: noRejections };
+  const context = { listings, candidates: [], rejected: noRejections, now: "2026-11-10T00:00:00Z" };
 
   it("recognizes listed, rejected and tax-exempt buildings", () => {
     expect(classify(skyvue, context)).toEqual({ kind: "listed", listingId: "skyvue" });
@@ -79,6 +79,11 @@ describe("classify", () => {
     expect(classify(fifth, context)).toEqual({ kind: "new" });
     const rejected = { rejected: [{ key: "x", parcelIds: ["0052J00138000A00"], address: "", reason: "condos", rejectedAt: "2026-11-01T00:00:00Z" }] };
     expect(classify(fifth, { ...context, rejected })).toEqual({ kind: "rejected" });
+  });
+
+  it("suggests a rejected building again after a year", () => {
+    const old = { rejected: [{ key: "x", parcelIds: ["0052J00138000A00"], address: "", reason: "closed", rejectedAt: "2025-10-01T00:00:00Z" }] };
+    expect(classify(fifth, { ...context, rejected: old })).toEqual({ kind: "new" });
   });
 
   it("matches a listing by address when parcel IDs differ", () => {

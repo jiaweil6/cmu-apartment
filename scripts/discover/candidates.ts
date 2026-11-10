@@ -76,15 +76,22 @@ export type Classification =
 
 const overlaps = (a: string[], b: string[]) => a.some((id) => b.includes(id));
 
+export const REJECTION_EXPIRY_DAYS = 365;
+
 export function classify(
   building: Building,
-  context: { listings: Listings; candidates: Candidate[]; rejected: RejectedFile },
+  context: { listings: Listings; candidates: Candidate[]; rejected: RejectedFile; now: string },
 ): Classification {
   const listing = context.listings.apartments.find(
     (apt) => overlaps(apt.parcelIds, building.parcelIds) || sameAddress(parseAddress(apt.address), building.parsed),
   );
   if (listing) return { kind: "listed", listingId: listing.id };
-  if (context.rejected.rejected.some((r) => overlaps(r.parcelIds, building.parcelIds))) return { kind: "rejected" };
+  // Rejections expire after a year: buildings change hands and get renovated.
+  const expiry = new Date(Date.parse(context.now) - REJECTION_EXPIRY_DAYS * 86_400_000).toISOString();
+  const rejectedRecently = context.rejected.rejected.some(
+    (r) => r.rejectedAt >= expiry && overlaps(r.parcelIds, building.parcelIds),
+  );
+  if (rejectedRecently) return { kind: "rejected" };
   const candidate = context.candidates.find((c) => overlaps(c.parcelIds, building.parcelIds));
   if (candidate) return { kind: "existing", candidate };
   if (building.taxExempt) return { kind: "excluded", reason: "Tax-exempt: likely university, public or nonprofit housing" };
@@ -131,6 +138,8 @@ function toCandidate(building: Building, listings: Listings, foundAt: string, co
     commuteMinutes,
     osm: osm && { id: osm.id, name: osm.name, website: osm.website, yearBuilt: osm.yearBuilt },
     possibleDuplicateOf: possibleDuplicate(building, listings),
+    websiteSource: osm?.website ? "osm" : null,
+    detectedPlatform: null,
     listing: {
       name: osm?.name ?? null,
       shortName: null,
@@ -140,6 +149,8 @@ function toCandidate(building: Building, listings: Listings, foundAt: string, co
       openToUndergrad: null,
       amenities: { inUnitLaundry: null, fitness: null, parking: null },
       yearBuilt: osm?.yearBuilt ?? null,
+      pricing: { adapter: "manual" },
+      manualPrices: null,
     },
   };
 }
@@ -176,7 +187,7 @@ export async function updateCandidates(options: {
   const fresh: Building[] = [];
 
   for (const building of buildings) {
-    const result = classify(building, { listings, candidates: previous.candidates, rejected });
+    const result = classify(building, { listings, candidates: previous.candidates, rejected, now });
     if (result.kind === "listed") report.listed++;
     else if (result.kind === "rejected") report.rejected++;
     else if (result.kind === "excluded") report.excluded.push({ address: building.address, reason: result.reason });
