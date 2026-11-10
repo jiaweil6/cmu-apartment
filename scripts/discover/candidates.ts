@@ -179,9 +179,13 @@ export async function updateCandidates(options: {
   maxNew: number;
   /** Commute minutes for a location, or null when routing isn't available. */
   commute?: (location: LatLng) => Promise<number | null>;
+  /**
+   * Leave out buildings with a longer transit commute. Unset by default: students who drive
+   * still want the far ones, and the commute shown on the site lets riders judge for themselves.
+   */
   maxCommuteMinutes?: number;
 }): Promise<{ file: CandidatesFile; report: DiscoveryReport }> {
-  const { buildings, listings, previous, rejected, now, maxNew, commute, maxCommuteMinutes = 35 } = options;
+  const { buildings, listings, previous, rejected, now, maxNew, commute, maxCommuteMinutes } = options;
   const report: DiscoveryReport = { buildings: buildings.length, listed: 0, rejected: 0, excluded: [], existing: 0, added: [], deferred: 0 };
   const candidates = [...previous.candidates];
   const fresh: Building[] = [];
@@ -221,7 +225,7 @@ export async function updateCandidates(options: {
       continue;
     }
     const minutes = commute ? await commute(building.location) : null;
-    if (minutes !== null && minutes > maxCommuteMinutes) {
+    if (minutes !== null && maxCommuteMinutes !== undefined && minutes > maxCommuteMinutes) {
       report.excluded.push({ address: building.address, reason: `Commute ${Math.round(minutes)} min (over ${maxCommuteMinutes})` });
       continue;
     }

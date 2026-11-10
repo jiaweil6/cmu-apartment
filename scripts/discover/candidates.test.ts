@@ -149,9 +149,25 @@ describe("updateCandidates", () => {
     expect(normalizeName("The Webster Hall Apartments")).toBe("webster hall");
   });
 
-  it("excludes buildings over the commute limit", async () => {
+  it("keeps far buildings by default, with their commute", async () => {
     const commute = vi.fn(async ({ lat }: { lat: number }) => (lat > 40.446 ? 50 : 12));
     const { file, report } = await run(empty, 10, commute);
+    expect(file.candidates.map((c) => c.commuteMinutes).sort()).toEqual([12, 50]);
+    expect(report.excluded.map((e) => e.reason)).not.toContain("Commute 50 min (over 35)");
+  });
+
+  it("excludes buildings over a commute limit when one is set", async () => {
+    const commute = vi.fn(async ({ lat }: { lat: number }) => (lat > 40.446 ? 50 : 12));
+    const { file, report } = await updateCandidates({
+      buildings,
+      listings,
+      previous: empty,
+      rejected: noRejections,
+      now: "2026-11-10T00:00:00Z",
+      maxNew: 10,
+      commute,
+      maxCommuteMinutes: 35,
+    });
     expect(file.candidates.map((c) => c.commuteMinutes)).toEqual([12]);
     expect(report.excluded.map((e) => e.reason)).toContain("Commute 50 min (over 35)");
   });
