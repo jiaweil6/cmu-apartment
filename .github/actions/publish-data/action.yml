@@ -1,0 +1,62 @@
+name: Publish data
+description: >
+  Validates changed data files (tests and a site build), then either commits
+  them to main and starts a deploy, or, when the run flagged something for a
+  human, opens a pull request instead.
+inputs:
+  paths:
+    description: Space-separated data files to publish, e.g. "data/snapshot.json"
+    required: true
+  commit-message:
+    required: true
+  needs-review:
+    description: '"true" to open a pull request instead of committing'
+    default: "false"
+  pr-branch:
+    description: Branch for the review pull request (needed when needs-review can be "true")
+    default: data/review
+  pr-title:
+    default: Review data changes
+  pr-body-path:
+    description: Markdown file used as the pull request description
+    default: ""
+runs:
+  using: composite
+  steps:
+    - name: Validate (tests and site build)
+      shell: bash
+      run: |
+        npm test
+        npm run build
+
+    - name: Commit to main and deploy
+      if: inputs.needs-review != 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        PATHS: ${{ inputs.paths }}
+        MESSAGE: ${{ inputs.commit-message }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+        git add $PATHS
+        if git diff --cached --quiet; then echo "No data changes."; exit 0; fi
+        git commit -m "$MESSAGE"
+        for attempt in 1 2 3; do
+          git pull --rebase origin main && git push origin HEAD:main && break
+          if [ "$attempt" = 3 ]; then echo "Couldn't push after 3 attempts"; exit 1; fi
+          sleep 10
+        done
+        # Pushes made with GITHUB_TOKEN don't trigger workflows, so start the deploy explicitly.
+        gh workflow run deploy.yml --ref main
+
+    - name: Open pull request for review
+      if: inputs.needs-review == 'true'
+      uses: peter-evans/create-pull-request@v7
+      with:
+        branch: ${{ inputs.pr-branch }}
+        add-paths: ${{ inputs.paths }}
+        commit-message: ${{ inputs.commit-message }}
+        title: ${{ inputs.pr-title }}
+        body-path: ${{ inputs.pr-body-path }}
+        delete-branch: true

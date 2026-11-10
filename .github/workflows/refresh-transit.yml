@@ -1,7 +1,8 @@
 name: Refresh transit data
 
 # Weekly: route from every apartment to campus with OpenTripPlanner, using PRT's
-# GTFS feed and an OpenStreetMap extract, and open a PR with the new snapshot.
+# GTFS feed and an OpenStreetMap extract. Clean results go live; big changes or
+# routing failures open a PR for review.
 on:
   schedule:
     - cron: "17 9 * * 1" # Mondays, 09:17 UTC
@@ -10,9 +11,11 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
+  actions: write
 
 concurrency:
-  group: refresh-transit
+  group: data-writes
 
 jobs:
   transit:
@@ -28,18 +31,26 @@ jobs:
       - uses: ./.github/actions/opentripplanner
 
       - name: Refresh commute and walking distance
+        id: refresh
         run: npm run refresh -- --only transit --gtfs-dir otp-run/gtfs --summary refresh-summary.md
+
+      - uses: ./.github/actions/publish-data
+        with:
+          paths: data/snapshot.json
+          commit-message: Refresh commute and walking distance
+          needs-review: ${{ steps.refresh.outputs.needs_review }}
+          pr-branch: data/refresh-transit
+          pr-title: Review commute and walking distance changes
+          pr-body-path: refresh-summary.md
 
       - name: Show OpenTripPlanner log
         if: failure()
         run: tail -n 100 otp-run/server.log || true
-
-      - name: Open pull request
-        uses: peter-evans/create-pull-request@v7
+      - if: failure()
+        uses: ./.github/actions/report-status
         with:
-          branch: data/refresh-transit
-          add-paths: data/snapshot.json
-          commit-message: Refresh commute and walking distance
-          title: Refresh commute and walking distance
-          body-path: refresh-summary.md
-          delete-branch: true
+          status: failure
+      - if: success()
+        uses: ./.github/actions/report-status
+        with:
+          status: success

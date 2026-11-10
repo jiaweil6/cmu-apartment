@@ -1,0 +1,31 @@
+name: Report job status
+description: >
+  On failure, opens (or comments on) an issue named "Data job failing: <workflow>"
+  with a link to the run. On success, closes that issue if it's open.
+inputs:
+  status:
+    description: '"failure" or "success"'
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        STATUS: ${{ inputs.status }}
+        TITLE: "Data job failing: ${{ github.workflow }}"
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        issue=$(gh issue list --state open --search "\"$TITLE\" in:title" --json number,title \
+          --jq "map(select(.title == env.TITLE)) | .[0].number // empty")
+        if [ "$STATUS" = "failure" ]; then
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body "Failed again: $RUN_URL"
+          else
+            gh issue create --title "$TITLE" --body "The scheduled job **${{ github.workflow }}** failed: $RUN_URL
+
+        Data on the site keeps its last good values until the job succeeds again. This issue closes automatically on the next successful run."
+          fi
+        elif [ -n "$issue" ]; then
+          gh issue close "$issue" --comment "Succeeded again: $RUN_URL"
+        fi
