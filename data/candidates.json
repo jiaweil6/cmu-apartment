@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T21:01:18Z",
+  "updatedAt": "2026-11-10T21:29:29Z",
   "candidates": [
     {
       "key": "0028H00058000000",
@@ -117,6 +117,901 @@
           "twoBedroom": {
             "status": "not-offered",
             "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0009D00264000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0009D00264000000"
+      ],
+      "address": "1909 Waterfront Pl, Pittsburgh, PA 15222",
+      "neighborhood": "Strip District",
+      "location": {
+        "lat": 40.45273,
+        "lng": -79.986155
+      },
+      "size": "40+ units",
+      "marketValue": 65821300,
+      "distanceMiles": 2.24,
+      "commuteMinutes": 41,
+      "osm": {
+        "id": "way/699030909",
+        "name": "Edge 1909",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Edge 1909",
+        "shortName": null,
+        "phone": "(412) 420-6950",
+        "website": "https://www.edge1909.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2018,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1660
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 2159
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2999
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0004D00064000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0004D00064000000"
+      ],
+      "address": "108-170 E Station Square Dr, Pittsburgh, PA 15219",
+      "neighborhood": "South Shore",
+      "location": {
+        "lat": 40.43266,
+        "lng": -80.002178
+      },
+      "size": "40+ units",
+      "marketValue": 49448700,
+      "distanceMiles": 3.07,
+      "commuteMinutes": 41,
+      "osm": {
+        "id": "way/769639837",
+        "name": "Smithfield Building",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Glasshouse Pittsburgh",
+        "shortName": "Glasshouse",
+        "phone": "(833) 641-4986",
+        "website": "https://www.bozzuto.com/apartments-for-rent/pa/pittsburgh/glasshouse-pittsburgh",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2019,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1561
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 3580
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0049E00132000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0049E00128000000",
+        "0049E00132000000"
+      ],
+      "address": "147 39th St, Pittsburgh, PA 15201",
+      "neighborhood": "Lower Lawrenceville",
+      "location": {
+        "lat": 40.469564,
+        "lng": -79.965329
+      },
+      "size": "40+ units",
+      "marketValue": 44876700,
+      "distanceMiles": 2.1,
+      "commuteMinutes": 36,
+      "osm": {
+        "id": "relation/21713700",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Arsenal 201",
+        "shortName": null,
+        "phone": "844-991-2219",
+        "website": "https://arsenal201.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2017,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1182
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1538
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2470
+          },
+          "threeBedroom": {
+            "status": "available",
+            "minPrice": 2761
+          }
+        }
+      }
+    },
+    {
+      "key": "0009C00008000000",
+      "decision": "reject",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0009C00008000000"
+      ],
+      "address": "1679 Waterfront Pl, Pittsburgh, PA 15222",
+      "neighborhood": "Strip District",
+      "location": {
+        "lat": 40.450941,
+        "lng": -79.988727
+      },
+      "size": "40+ units",
+      "marketValue": 39730500,
+      "distanceMiles": 2.34,
+      "commuteMinutes": 45,
+      "osm": {
+        "id": "way/1130740833",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": null,
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.enrichedrealestate.com/1679-WATERFRONT-PL-PITTSBURGH-PA-15222/VacantLand/CommercialVacantLand/Id=201675773",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      },
+      "rejectReason": "Same complex as The District (1759 Waterfront Pl): its second building; parcel added to that listing."
+    },
+    {
+      "key": "0009C00004000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0009C00004000000",
+        "0009C00008000000"
+      ],
+      "address": "1759 Waterfront Pl, Pittsburgh, PA 15222",
+      "neighborhood": "Strip District",
+      "location": {
+        "lat": 40.451763,
+        "lng": -79.987468
+      },
+      "size": "40+ units",
+      "marketValue": 33790000,
+      "distanceMiles": 2.29,
+      "commuteMinutes": 41,
+      "osm": {
+        "id": "way/1130740834",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The District",
+        "shortName": null,
+        "phone": "412-790-5296",
+        "website": "https://districtpgh.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2022,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1719
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1915
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2707
+          },
+          "threeBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0049E00128000000",
+      "decision": "reject",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0049E00128000000"
+      ],
+      "address": "3901-3935 Butler St, Pittsburgh, PA 15201",
+      "neighborhood": "Lower Lawrenceville",
+      "location": {
+        "lat": 40.468517,
+        "lng": -79.963984
+      },
+      "size": "40+ units",
+      "marketValue": 33477200,
+      "distanceMiles": 2,
+      "commuteMinutes": 36,
+      "osm": {
+        "id": "way/326481407",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": null,
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      },
+      "rejectReason": "Same complex as Arsenal 201 (147 39th St): its Phase I building; parcel added to that listing."
+    },
+    {
+      "key": "0024S00190000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0024S00190000000"
+      ],
+      "address": "2349-2359 Railroad St, Pittsburgh, PA 15222",
+      "neighborhood": "Strip District",
+      "location": {
+        "lat": 40.454852,
+        "lng": -79.983165
+      },
+      "size": "40+ units",
+      "marketValue": 25254700,
+      "distanceMiles": 2.14,
+      "commuteMinutes": 42,
+      "osm": {
+        "id": "way/642810122",
+        "name": "The Cork Factory",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The Cork Factory",
+        "shortName": "Cork Factory",
+        "phone": "(412) 281-5556",
+        "website": "https://www.thecorkfactory.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 1901,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 2195
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 3199
+          },
+          "threeBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0049A00322000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0049A00322000000"
+      ],
+      "address": "4107 Willow St, Pittsburgh, PA 15201",
+      "neighborhood": "Central Lawrenceville",
+      "location": {
+        "lat": 40.472283,
+        "lng": -79.96423
+      },
+      "size": "40+ units",
+      "marketValue": 23504500,
+      "distanceMiles": 2.24,
+      "commuteMinutes": 41,
+      "osm": {
+        "id": "way/559272391",
+        "name": "The Foundry at 41st",
+        "website": "https://www.thefoundryat41st.com/",
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "osm",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The Foundry at 41st",
+        "shortName": "Foundry at 41st",
+        "phone": "(412) 621-0263",
+        "website": "https://www.thefoundryat41st.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2017,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0025J00102000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0025J00102000000"
+      ],
+      "address": "2645 Railroad St, Pittsburgh, PA 15222",
+      "neighborhood": "Strip District",
+      "location": {
+        "lat": 40.457178,
+        "lng": -79.979837
+      },
+      "size": "40+ units",
+      "marketValue": 23495100,
+      "distanceMiles": 2.05,
+      "commuteMinutes": 40,
+      "osm": {
+        "id": "way/642801653",
+        "name": "The Yards at 3 Crossings",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The Yards at 3 Crossings",
+        "shortName": "The Yards",
+        "phone": "(412) 926-5757",
+        "website": "https://www.theyardsapts.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2016,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0008H00316000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0008H00316000000"
+      ],
+      "address": "100 Anderson St, Pittsburgh, PA 15212",
+      "neighborhood": "North Shore",
+      "location": {
+        "lat": 40.448589,
+        "lng": -79.99932
+      },
+      "size": "40+ units",
+      "marketValue": 22000000,
+      "distanceMiles": 2.86,
+      "commuteMinutes": 46,
+      "osm": {
+        "id": "way/517147404",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Bracken House",
+        "shortName": null,
+        "phone": "(412) 566-8298",
+        "website": "https://www.brackenhousenorthshore.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 1997,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1332
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1920
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0024R00025000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0024R00025000000"
+      ],
+      "address": "220-500 Heinz St, Pittsburgh, PA 15212",
+      "neighborhood": "Troy Hill",
+      "location": {
+        "lat": 40.45462,
+        "lng": -79.990984
+      },
+      "size": "40+ units",
+      "marketValue": 21798100,
+      "distanceMiles": 2.52,
+      "commuteMinutes": 42,
+      "osm": {
+        "id": "way/255589010",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Heinz Lofts",
+        "shortName": null,
+        "phone": "(866) 473-1716",
+        "website": "https://www.heinzlofts.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 1912,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1574
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1799
+          },
+          "threeBedroom": {
+            "status": "available",
+            "minPrice": 2787
+          }
+        }
+      }
+    },
+    {
+      "key": "0001G00043000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0001G00043000000"
+      ],
+      "address": "300 Liberty Ave, Pittsburgh, PA 15222",
+      "neighborhood": "Central Business District",
+      "location": {
+        "lat": 40.440539,
+        "lng": -80.006217
+      },
+      "size": "40+ units",
+      "marketValue": 19644600,
+      "distanceMiles": 3.2,
+      "commuteMinutes": 40,
+      "osm": {
+        "id": "way/202865183",
+        "name": "River Vue Apartments",
+        "website": "https://www.rivervuepgh.com/",
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "osm",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Apartments at River View",
+        "shortName": "River View",
+        "phone": "(412) 274-8515",
+        "website": "https://www.aptsatriverview.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 1957,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1547
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1295
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2561
+          },
+          "threeBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0024S00072000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0024S00072000000"
+      ],
+      "address": "2239 Railroad St, Pittsburgh, PA 15222",
+      "neighborhood": "Strip District",
+      "location": {
+        "lat": 40.454337,
+        "lng": -79.983741
+      },
+      "size": "40+ units",
+      "marketValue": 18152900,
+      "distanceMiles": 2.16,
+      "commuteMinutes": 42,
+      "osm": {
+        "id": "way/1015605106",
+        "name": "Helm on the Allegheny",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Helm on the Allegheny",
+        "shortName": "Helm",
+        "phone": "(412) 776-6251",
+        "website": "https://www.helmapartmentspgh.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2021,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1370
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1635
+          },
+          "twoBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0025H00062000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0025H00062000000"
+      ],
+      "address": "3234-3262 Sassafras Way, Pittsburgh, PA 15201",
+      "neighborhood": "Polish Hill",
+      "location": {
+        "lat": 40.460029,
+        "lng": -79.967783
+      },
+      "size": "40+ units",
+      "marketValue": 16955800,
+      "distanceMiles": 1.65,
+      "commuteMinutes": 34,
+      "osm": null,
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Brewers Block",
+        "shortName": null,
+        "phone": "412-796-2959",
+        "website": "https://www.brewersblockpgh.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 2023,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1577
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1593
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2549
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0008C00128000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T21:29:29Z",
+      "parcelIds": [
+        "0008C00128000000"
+      ],
+      "address": "10 Allegheny Center, Pittsburgh, PA 15212",
+      "neighborhood": "Allegheny Center",
+      "location": {
+        "lat": 40.451967,
+        "lng": -80.007014
+      },
+      "size": "40+ units",
+      "marketValue": 16100000,
+      "distanceMiles": 3.29,
+      "commuteMinutes": 44,
+      "osm": {
+        "id": "way/470097330",
+        "name": "Park View One",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Park View Apartments",
+        "shortName": "Park View",
+        "phone": "(412) 231-3400",
+        "website": "https://www.parkviewapts.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 1972,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1125
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1240
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1650
           },
           "threeBedroom": {
             "status": "not-offered",
