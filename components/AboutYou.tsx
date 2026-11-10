@@ -27,7 +27,7 @@ export default function AboutYou({ roomType, studentType, onRoomTypeChange, onSt
             </option>
           ))}
         </select>{" "}
-        apartment.
+        apartment
       </p>
       <p className="aboutYouText">
         You are a{" "}
@@ -44,11 +44,11 @@ export default function AboutYou({ roomType, studentType, onRoomTypeChange, onSt
             </option>
           ))}
         </select>{" "}
-        student.
+        student
       </p>
       <p className="info-message">
         <Info className="info-icon" />
-        Please note: Certain apartments are not available to undergraduate students.
+        Some apartments don&rsquo;t lease to undergraduates
       </p>
     </>
   );

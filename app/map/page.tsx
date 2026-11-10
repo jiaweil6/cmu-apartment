@@ -4,7 +4,7 @@ import { getApartments, getCampus } from "@/lib/apartments";
 import { HERE_UI_STYLESHEET } from "@/lib/here-maps";
 
 export const metadata: Metadata = {
-  title: "Locations of Apartments Near CMU",
+  title: "Apartments near CMU on a map",
 };
 
 export default async function MapPage() {
@@ -14,8 +14,8 @@ export default async function MapPage() {
     <div className="page">
       <link rel="stylesheet" href={HERE_UI_STYLESHEET} precedence="default" />
       <div className="page-head">
-        <h1 className="map-title">Locations of Apartments Near CMU</h1>
-        <p className="page-lede">Every apartment in the rankings, with campus for reference. Select a name to open its website.</p>
+        <h1 className="map-title">Apartments near CMU on a map</h1>
+        <p className="page-lede">Every apartment in the rankings, with campus for reference. Select a name to open the building&rsquo;s website.</p>
       </div>
       <ApartmentMap apiKey={process.env.NEXT_PUBLIC_HERE_API_KEY} places={[campus, ...apartments]} />
     </div>

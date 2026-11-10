@@ -6,7 +6,7 @@ import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const zillaSlab = Zilla_Slab({
-  weight: ["400", "600"],
+  weight: ["400", "500"],
   subsets: ["latin"],
   variable: "--font-zilla-slab",
 });

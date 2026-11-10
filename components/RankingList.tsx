@@ -4,7 +4,6 @@ import { useState } from "react";
 import type { RankedApartment } from "@/lib/ranking";
 import type { RoomType } from "@/lib/types";
 import ApartmentCard from "./ApartmentCard";
-import { Sliders } from "./icons";
 
 interface Props {
   ranked: RankedApartment[];
@@ -19,9 +18,8 @@ export default function RankingList({ ranked, roomType, hasPriorities }: Props) 
   if (!hasPriorities) {
     return (
       <div id="rankingsList" className="empty-state">
-        <Sliders className="empty-state-icon" />
-        <p className="warning">Select Your Priorities for Your Dream Off-Campus Residence!</p>
-        <p className="empty-state-hint">Move any priority slider and the apartments that fit you best will appear here.</p>
+        <p className="warning">Set a priority to see your rankings</p>
+        <p className="empty-state-hint">Move any slider and the apartments that fit you best appear here, best first</p>
       </div>
     );
   }
@@ -29,7 +27,7 @@ export default function RankingList({ ranked, roomType, hasPriorities }: Props) 
   if (ranked.length === 0) {
     return (
       <div id="rankingsList" className="empty-state">
-        <p className="empty-message">No apartments match your filters for this room type.</p>
+        <p className="empty-message">No apartments match these filters for this room type</p>
       </div>
     );
   }

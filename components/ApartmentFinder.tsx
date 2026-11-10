@@ -51,20 +51,20 @@ export default function ApartmentFinder({ apartments }: { apartments: Apartment[
     <div className="finder">
       <div className="finder-column finder-priorities">
         <section className="panel priority-summary-panel" aria-labelledby="summary-heading">
-          <h2 id="summary-heading">Your Priorities</h2>
+          <h2 id="summary-heading">Your priorities</h2>
           <PrioritySummary priorities={priorities} shares={shares} />
         </section>
 
         <section className="panel" aria-labelledby="sliders-heading">
           <h2 id="sliders-heading">What matters most to you when choosing off-campus housing?</h2>
-          <p className="sliderText">Drag slider right to reflect your priorities.</p>
+          <p className="sliderText">Drag a slider right to make it count more</p>
           <PrioritySliders priorities={priorities} shares={shares} onChange={setPriority} />
         </section>
       </div>
 
       <div className="finder-column finder-results">
         <section className="panel" aria-labelledby="about-heading">
-          <h2 id="about-heading">About You</h2>
+          <h2 id="about-heading">About you</h2>
           <AboutYou
             roomType={roomType}
             studentType={studentType}
@@ -75,7 +75,7 @@ export default function ApartmentFinder({ apartments }: { apartments: Apartment[
 
         <section ref={rankingsRef} className="rankings" aria-labelledby="rankings-heading">
           <div className="rankings-head">
-            <h2 id="rankings-heading">Your Rankings</h2>
+            <h2 id="rankings-heading">Your rankings</h2>
             <p className="result-count" aria-live="polite">
               {isRanking && countLabel}
             </p>

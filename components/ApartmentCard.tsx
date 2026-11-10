@@ -5,7 +5,8 @@ import { useState } from "react";
 import { ROOM_TYPES } from "@/lib/options";
 import { offeredPrice } from "@/lib/ranking";
 import type { Apartment, RoomType } from "@/lib/types";
-import { Bus, ChevronDown, ExternalLink, MapPin, Walk } from "./icons";
+import CommuteRoute from "./CommuteRoute";
+import { ChevronDown, ExternalLink, MapPin, Walk } from "./icons";
 
 interface Props {
   apartment: Apartment;
@@ -65,7 +66,8 @@ export default function ApartmentCard({ apartment, rank, roomType, isOpen, onTog
   const detailsId = `apartment-details-${apartment.id}`;
   const checkedAt = apartment.pricesCheckedAt ? new Date(apartment.pricesCheckedAt) : null;
   const selected = priceParts(apartment, roomType);
-  const commute = apartment.commuteMinutes ? `${Math.round(apartment.commuteMinutes.value)} min` : null;
+  const commuteMinutes = apartment.commuteMinutes ? Math.round(apartment.commuteMinutes.value) : null;
+  const commute = commuteMinutes === null ? null : `${commuteMinutes} min`;
   const walk = apartment.walkMiles ? `${apartment.walkMiles.value.toFixed(1)} mi` : null;
   const phoneHref = apartment.phone ? `tel:${apartment.phone.replace(/[^\d+]/g, "")}` : null;
 
@@ -79,7 +81,7 @@ export default function ApartmentCard({ apartment, rank, roomType, isOpen, onTog
           aria-controls={detailsId}
           onClick={onToggle}
         >
-          <span className={`rank-badge${rank === 1 ? " is-first" : ""}`}>
+          <span className={`rank${rank === 1 ? " is-first" : ""}`}>
             <span className="visually-hidden">Rank </span>
             {rank}
           </span>
@@ -95,19 +97,18 @@ export default function ApartmentCard({ apartment, rank, roomType, isOpen, onTog
                 <MapPin className="meta-icon" />
                 {apartment.neighborhood}
               </span>
-              {commute && (
-                <span>
-                  <Bus className="meta-icon" />
-                  {commute} commute
-                </span>
-              )}
-              {walk && (
-                <span>
-                  <Walk className="meta-icon" />
-                  {walk} walk
-                </span>
-              )}
             </span>
+            {(commuteMinutes !== null || walk) && (
+              <span className="apartment-meta">
+                {commuteMinutes !== null && <CommuteRoute minutes={commuteMinutes} />}
+                {walk && (
+                  <span>
+                    <Walk className="meta-icon" />
+                    {walk} walk
+                  </span>
+                )}
+              </span>
+            )}
             {(selected.status || apartment.pricesStale) && (
               <span className="apartment-tags">
                 {selected.status && <span className={`tag tone-${selected.tone}`}>{selected.status}</span>}

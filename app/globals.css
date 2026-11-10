@@ -1,43 +1,58 @@
 /*
- * Site styles. Headings, apartment names and prices use Zilla Slab
- * (--font-zilla-slab, set by next/font in app/layout.tsx); everything else
- * uses the system font stack.
+ * Site styles. Headings and apartment names use Zilla Slab (--font-zilla-slab,
+ * set by next/font in app/layout.tsx); everything else uses the system font stack.
  *
- * Colours are tokens below. Text colours meet WCAG AA (4.5:1) on both the
- * page background and white; --accent is for fills and decoration only.
+ * Direction: practical, neighbourly, exact. Warm paper surfaces, three text
+ * roles, and one orange accent kept for the selection (sliders, chosen rent,
+ * filters), the top-ranked apartment and the main action. Text colours meet
+ * WCAG AA (4.5:1) on the page and on white; --accent itself is for fills only.
+ * Signature: the commute route line (see CommuteRoute.tsx).
+ *
+ * Spacing is on a 4px grid. Type scale: 12, 14, 16, 18, 20, 24 and the page title.
+ * Weights 400 and 500, 600 for prices only.
  */
 
 :root {
+  /* Warm paper ramp */
   --bg: #f7f3ee;
   --surface: #fff;
   --surface-sunken: #fbf8f4;
-  --border: #e9e2d8;
-  --border-strong: #d6ccbf;
+  --surface-raised: #f3eee7;
+  --hairline: rgb(43 39 36 / 0.1);
+  --hairline-strong: rgb(43 39 36 / 0.18);
   --track: #e6dfd5;
 
+  /* Text roles */
   --text: #2b2724;
-  --text-muted: #6b6560;
+  --text-secondary: #5c554e;
+  --text-muted: #716a63;
 
+  /* Accent */
   --accent: #f50;
   --accent-strong: #c2410c;
   --accent-hover: #a8380a;
   --accent-soft: #fff1e8;
-  --accent-border: #f6c3a3;
+  --accent-border: #f2b48d;
 
+  /* Meaning only */
   --open-text: #1f6b42;
   --open-bg: #e6f4ea;
   --waitlist-text: #8a4400;
   --waitlist-bg: #fdf0dc;
-  --muted-text: #5f5953;
-  --muted-bg: #f1ede8;
   --stale-text: #a14e00;
 
-  --radius-sm: 8px;
-  --radius: 12px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 2px rgb(60 40 20 / 0.05), 0 2px 8px rgb(60 40 20 / 0.04);
-  --shadow-md: 0 2px 4px rgb(60 40 20 / 0.06), 0 8px 24px rgb(60 40 20 / 0.08);
-  --shadow-lg: 0 4px 8px rgb(60 40 20 / 0.08), 0 16px 40px rgb(60 40 20 / 0.14);
+  --radius-tag: 6px;
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-panel: 16px;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.05), 0 8px 24px rgb(0 0 0 / 0.08);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fast: 150ms;
+  --menu: 200ms;
+  --enter: 300ms;
 
   --serif: var(--font-zilla-slab), Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -80,9 +95,10 @@ h1,
 h2,
 h3 {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--text);
+  text-wrap: balance;
 }
 
 button,
@@ -93,14 +109,19 @@ select {
 }
 
 a {
-  color: var(--accent-strong);
+  color: var(--text);
   text-decoration: underline;
+  text-decoration-color: var(--hairline-strong);
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  transition:
+    color var(--fast) var(--ease),
+    text-decoration-color var(--fast) var(--ease);
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--accent-strong);
+  text-decoration-color: currentColor;
 }
 
 :focus-visible {
@@ -125,11 +146,11 @@ a:hover {
   top: -100px;
   left: 16px;
   z-index: 100;
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  border-radius: var(--radius-control);
   background: var(--text);
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -141,7 +162,7 @@ a:hover {
 /* ---------- Header, main, footer ---------- */
 
 .site-header {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .site-header-inner,
@@ -164,14 +185,14 @@ a:hover {
 .brand {
   display: inline-flex;
   flex: none;
-  white-space: nowrap;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--serif);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 500;
   color: var(--text);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .brand:hover {
@@ -179,8 +200,8 @@ a:hover {
 }
 
 .brand-mark {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   flex: none;
 }
 
@@ -190,74 +211,76 @@ a:hover {
 }
 
 .site-nav-link {
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  padding: 8px 12px;
+  border-radius: var(--radius-control);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: var(--text-secondary);
   text-decoration: none;
+  transition:
+    color var(--fast) var(--ease),
+    background-color var(--fast) var(--ease);
 }
 
 .site-nav-link:hover {
   color: var(--text);
-  background: rgb(43 39 36 / 0.05);
+  background: var(--surface-raised);
 }
 
 .site-nav-link[aria-current="page"] {
   color: var(--text);
   background: var(--surface);
-  box-shadow: inset 0 0 0 1px var(--border);
+  box-shadow: inset 0 0 0 1px var(--hairline);
 }
 
 .site-footer {
   max-width: var(--max-width);
-  margin: 56px auto 0;
+  margin: 64px auto 0;
   padding: 24px var(--gutter) 32px;
-  border-top: 1px solid var(--border);
-  font-size: 0.8125rem;
+  border-top: 1px solid var(--hairline);
+  font-size: 0.75rem;
+  line-height: 1.25rem;
   color: var(--text-muted);
   text-align: center;
+}
+
+.site-footer a {
+  color: var(--text-secondary);
 }
 
 /* ---------- Home: intro ---------- */
 
 .hero {
-  padding: 44px 0 32px;
+  padding: 48px 0 32px;
 }
 
-.eyebrow {
-  margin-bottom: 10px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-strong);
-}
-
-.hero h1 {
-  max-width: 22ch;
-  font-size: clamp(2rem, 1.35rem + 2.6vw, 3rem);
-  line-height: 1.1;
+.hero h1,
+.map-title {
+  max-width: 30ch;
+  font-size: clamp(2rem, 1.5rem + 2vw, 2.5rem);
+  line-height: 1.15;
 }
 
 .hero-lede {
   max-width: 60ch;
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 1.125rem;
-  color: var(--text-muted);
+  line-height: 1.75rem;
+  color: var(--text-secondary);
 }
 
 /* ---------- Home: layout ---------- */
 
 .finder {
   display: grid;
-  gap: 20px;
+  gap: 24px;
 }
 
 .finder-column {
   display: grid;
   align-content: start;
-  gap: 20px;
+  gap: 24px;
   min-width: 0;
 }
 
@@ -280,23 +303,27 @@ a:hover {
 .panel {
   container-type: inline-size;
   padding: 24px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-panel);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
 }
 
+.panel h2,
+.rankings-head h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .panel h2 {
   margin-bottom: 16px;
-  font-size: 1.5rem;
 }
 
 #sliders-heading {
-  margin-bottom: 6px;
-  font-size: 1.375rem;
+  margin-bottom: 8px;
 }
 
-/* ---------- Your Priorities ---------- */
+/* ---------- Your priorities ---------- */
 
 .priority-summary {
   padding: 0;
@@ -307,18 +334,18 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 9px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hairline);
   color: var(--text-muted);
-}
-
-.priority-item:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
 }
 
 .priority-item:first-child {
   padding-top: 0;
+}
+
+.priority-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .priority-item.is-active {
@@ -326,48 +353,46 @@ a:hover {
 }
 
 .priority-label {
-  min-width: 130px;
+  min-width: 128px;
 }
 
 .percentage-bar-container {
   position: relative;
   flex-grow: 1;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--track);
+  height: 4px;
   overflow: hidden;
+  border-radius: 2px;
+  background: var(--track);
 }
 
 .percentage-bar {
   position: absolute;
   inset: 0 auto 0 0;
-  border-radius: 999px;
   background: var(--accent);
-  transition: width 0.25s ease;
 }
 
 .percentage {
-  min-width: 44px;
+  min-width: 48px;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
 .priority-item.is-active .percentage {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* ---------- Priority sliders ---------- */
 
 .sliderText {
-  margin-bottom: 22px;
-  font-size: 0.9375rem;
-  font-style: italic;
-  color: var(--text-muted);
+  margin-bottom: 24px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--text-secondary);
 }
 
 .slider-grid {
   display: grid;
-  gap: 22px 28px;
+  gap: 24px 32px;
 }
 
 @container (min-width: 440px) {
@@ -389,8 +414,7 @@ a:hover {
 }
 
 .slider-head label {
-  font-size: 1.0625rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Shares are shown in the summary on wider screens. */
@@ -401,7 +425,7 @@ a:hover {
 }
 
 .slider-share.is-active {
-  font-weight: 700;
+  font-weight: 500;
   color: var(--accent-strong);
 }
 
@@ -412,10 +436,10 @@ a:hover {
 }
 
 .slider-hint {
-  margin: 2px 0 8px;
+  margin: 4px 0 8px;
   font-size: 0.875rem;
-  font-style: italic;
-  color: var(--text-muted);
+  line-height: 1.25rem;
+  color: var(--text-secondary);
 }
 
 /* The fill runs to the thumb's centre: --value is 0–100, set inline. */
@@ -427,27 +451,27 @@ a:hover {
   appearance: none;
   display: block;
   width: 100%;
-  height: 28px;
+  height: 32px;
   margin: auto 0 0;
   background: transparent;
   cursor: pointer;
 }
 
 .slider::-webkit-slider-runnable-track {
-  height: 6px;
-  border-radius: 999px;
+  height: 4px;
+  border-radius: 2px;
   background: linear-gradient(to right, var(--accent) var(--fill), var(--track) var(--fill));
 }
 
 .slider::-moz-range-track {
-  height: 6px;
-  border-radius: 999px;
+  height: 4px;
+  border-radius: 2px;
   background: var(--track);
 }
 
 .slider::-moz-range-progress {
-  height: 6px;
-  border-radius: 999px;
+  height: 4px;
+  border-radius: 2px;
   background: var(--accent);
 }
 
@@ -456,12 +480,12 @@ a:hover {
   appearance: none;
   width: var(--thumb);
   height: var(--thumb);
-  margin-top: calc((6px - var(--thumb)) / 2);
+  margin-top: calc((4px - var(--thumb)) / 2);
   border: 3px solid #fff;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 1px 3px rgb(60 30 10 / 0.35);
-  transition: box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+  transition: background-color var(--fast) var(--ease);
 }
 
 .slider::-moz-range-thumb {
@@ -470,24 +494,16 @@ a:hover {
   border: 3px solid #fff;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 1px 3px rgb(60 30 10 / 0.35);
-  transition: box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+  transition: background-color var(--fast) var(--ease);
 }
 
 .slider:hover::-webkit-slider-thumb {
-  box-shadow: 0 1px 3px rgb(60 30 10 / 0.35), 0 0 0 8px rgb(255 85 0 / 0.12);
-}
-
-.slider:active::-webkit-slider-thumb {
-  box-shadow: 0 1px 3px rgb(60 30 10 / 0.35), 0 0 0 10px rgb(255 85 0 / 0.2);
+  background: var(--accent-strong);
 }
 
 .slider:hover::-moz-range-thumb {
-  box-shadow: 0 1px 3px rgb(60 30 10 / 0.35), 0 0 0 8px rgb(255 85 0 / 0.12);
-}
-
-.slider:active::-moz-range-thumb {
-  box-shadow: 0 1px 3px rgb(60 30 10 / 0.35), 0 0 0 10px rgb(255 85 0 / 0.2);
+  background: var(--accent-strong);
 }
 
 /* Keyboard focus rings the thumb rather than the whole track. */
@@ -505,37 +521,37 @@ a:hover {
 
 @media (pointer: coarse) {
   .slider {
-    --thumb: 26px;
-    height: 36px;
+    --thumb: 24px;
+    height: 40px;
   }
 }
 
-/* ---------- About You ---------- */
+/* ---------- About you ---------- */
 
 .aboutYouText {
-  margin-bottom: 10px;
-  font-size: 1.0625rem;
-  line-height: 2.25;
+  margin-bottom: 8px;
+  line-height: 2.5rem;
 }
 
 .inline-select {
   -webkit-appearance: none;
   appearance: none;
   min-height: 36px;
-  padding: 2px 32px 2px 12px;
-  border: 1px solid var(--accent-border);
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c2410c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
-    no-repeat right 10px center / 14px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--accent-strong);
+  padding: 0 32px 0 12px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-control);
+  background: var(--surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235c554e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 12px center / 16px;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: var(--text);
   cursor: pointer;
+  transition: border-color var(--fast) var(--ease);
 }
 
 .inline-select:hover {
-  border-color: var(--accent-strong);
+  border-color: var(--text-muted);
 }
 
 @media (pointer: coarse) {
@@ -549,18 +565,17 @@ a:hover {
   align-items: flex-start;
   gap: 8px;
   margin-top: 8px;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  border-radius: var(--radius-control);
   background: var(--surface-sunken);
   font-size: 0.875rem;
-  color: var(--text-muted);
+  line-height: 1.25rem;
+  color: var(--text-secondary);
 }
 
 .info-icon {
   flex: none;
-  width: 18px;
-  height: 18px;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 /* ---------- Rankings ---------- */
@@ -570,23 +585,19 @@ a:hover {
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 8px;
-}
-
-.rankings-head h2 {
-  font-size: 1.75rem;
 }
 
 .result-count {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
   color: var(--text-muted);
 }
 
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 14px 0 16px;
+  gap: 8px;
+  margin: 16px 0;
 }
 
 /* ---------- Filter dropdowns ---------- */
@@ -599,14 +610,15 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 40px;
-  padding: 0 14px 0 18px;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
+  min-height: 36px;
+  padding: 0 12px 0 16px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-control);
   background: var(--surface);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: border-color var(--fast) var(--ease);
 }
 
 @media (hover: hover) {
@@ -617,51 +629,38 @@ a:hover {
 
 .has-selection .dropbtn {
   border-color: var(--accent-border);
-  background: var(--accent-soft);
-  color: var(--accent-strong);
 }
 
+/* The number of options selected, as quiet text. */
 .filter-count {
-  display: inline-grid;
-  place-items: center;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
-  border-radius: 999px;
-  background: var(--accent-strong);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #fff;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-strong);
 }
 
 .dropbtn-chevron {
   color: var(--text-muted);
-  transition: transform 0.2s ease;
-}
-
-.has-selection .dropbtn-chevron {
-  color: inherit;
+  transition: transform var(--menu) var(--ease);
 }
 
 /* Hidden with opacity rather than display so the checkboxes stay reachable by Tab. */
 .dropdown-content {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 4px);
   left: 0;
   z-index: 20;
-  min-width: max(100%, 230px);
+  min-width: max(100%, 224px);
   max-width: calc(100vw - 2 * var(--gutter));
-  padding: 6px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  padding: 4px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
   background: var(--surface);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-float);
   opacity: 0;
   pointer-events: none;
   transform: translateY(-4px);
   transition:
-    opacity 0.15s ease,
-    transform 0.15s ease;
+    opacity var(--menu) var(--ease),
+    transform var(--menu) var(--ease);
 }
 
 /* Bridges the gap under the button so the menu stays open on the way down. */
@@ -706,22 +705,24 @@ a:hover {
 .dropdown-option {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 40px;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  font-size: 0.9375rem;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: var(--radius-control);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   cursor: pointer;
+  transition: background-color var(--fast) var(--ease);
 }
 
 .dropdown-option:hover {
-  background: var(--accent-soft);
+  background: var(--surface-raised);
 }
 
 .dropdown-option input {
   flex: none;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   margin: 0;
   accent-color: var(--accent-strong);
   cursor: pointer;
@@ -745,24 +746,20 @@ a:hover {
 
 .apartment-card {
   container-type: inline-size;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
-  transition:
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+  transition: border-color var(--fast) var(--ease);
 }
 
 .apartment-card.is-open {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
+  border-color: var(--hairline-strong);
 }
 
 @media (hover: hover) {
   .apartment-card:hover {
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-md);
+    border-color: var(--hairline-strong);
   }
 
   .apartment-toggle:hover .apartment-name {
@@ -779,34 +776,29 @@ a:hover {
 
 .apartment-toggle {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: 24px minmax(0, 1fr) 16px;
   align-items: start;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
-  padding: 16px 18px;
+  padding: 16px 20px;
   border: 0;
-  border-radius: 14px;
+  border-radius: var(--radius-card);
   background: none;
   text-align: left;
   cursor: pointer;
 }
 
-.rank-badge {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--muted-bg);
+/* The rank as a figure; the top apartment carries the accent. */
+.rank {
   font-family: var(--serif);
-  font-size: 1.0625rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
 }
 
-.rank-badge.is-first {
-  background: var(--accent-strong);
-  color: #fff;
+.rank.is-first {
+  color: var(--accent-strong);
 }
 
 .apartment-summary {
@@ -818,24 +810,33 @@ a:hover {
   display: block;
   font-family: var(--serif);
   font-size: 1.25rem;
-  line-height: 1.3;
+  line-height: 1.75rem;
   color: var(--text);
-  transition: color 0.15s ease;
+  transition: color var(--fast) var(--ease);
 }
 
 .apartment-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 2px 14px;
+  gap: 4px 16px;
   margin-top: 4px;
+}
+
+.apartment-meta + .apartment-meta {
+  margin-top: 2px;
+}
+
+.apartment-meta {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  line-height: 1.25rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
 }
 
 .apartment-meta > span {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   white-space: nowrap;
 }
 
@@ -843,33 +844,77 @@ a:hover {
   gap: 0;
 }
 
-.meta-icon {
-  flex: none;
-  width: 15px;
-  height: 15px;
-  opacity: 0.8;
+.apartment-meta strong {
+  font-weight: 600;
+  color: var(--text);
 }
 
-.apartment-meta strong {
-  font-weight: 700;
-  color: var(--text);
+.meta-icon {
+  flex: none;
+  color: var(--text-muted);
+}
+
+/* Signature: the commute as a route from the apartment (open dot) to campus (filled dot), 2px a minute. */
+.route-line {
+  position: relative;
+  flex: none;
+  width: clamp(16px, calc(var(--minutes) * 2px), 64px);
+  height: 8px;
+  color: var(--text-muted);
+  background: linear-gradient(currentColor, currentColor) center / calc(100% - 8px) 1.5px no-repeat;
+}
+
+.route-line::before,
+.route-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.route-line::before {
+  left: 0;
+  border: 1.5px solid currentColor;
+  background: var(--surface);
+}
+
+.route-line::after {
+  right: 0;
+  background: currentColor;
+}
+
+/* Narrow cards (phones): tighter columns, and the route at 1.25px a minute so a row still fits. */
+@container (max-width: 400px) {
+  .apartment-toggle {
+    gap: 8px;
+  }
+
+  .apartment-meta {
+    column-gap: 12px;
+  }
+
+  .route-line {
+    width: clamp(12px, calc(var(--minutes) * 1.25px), 40px);
+  }
 }
 
 .apartment-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin-top: 8px;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: 1px 9px;
-  border-radius: 999px;
+  padding: 2px 8px;
+  border-radius: var(--radius-tag);
   font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.6;
+  font-weight: 500;
+  line-height: 1rem;
 }
 
 .tone-open {
@@ -882,43 +927,36 @@ a:hover {
 }
 
 .tone-muted {
-  color: var(--muted-text);
+  color: var(--text-secondary);
 }
 
 .tag.tone-open {
   background: var(--open-bg);
 }
 
-.tag.tone-waitlist {
-  background: var(--waitlist-bg);
-}
-
+.tag.tone-waitlist,
 .tag.tone-stale {
   background: var(--waitlist-bg);
-  box-shadow: inset 0 0 0 1px #f0d3a8;
 }
 
 .tag.tone-muted {
-  background: var(--muted-bg);
+  background: var(--surface-raised);
 }
 
 .chevron {
-  width: 20px;
-  height: 20px;
-  margin-top: 7px;
+  margin-top: 6px;
   color: var(--text-muted);
-  transition: transform 0.3s ease;
+  transition: transform var(--menu) var(--ease);
 }
 
 .apartment-toggle[aria-expanded="true"] .chevron {
   transform: rotate(180deg);
 }
 
-/* Collapsible details: animates between 0 and the content's height. */
+/* Details open in place; their content fades and settles in. */
 .apartment-details {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
 }
 
 .apartment-details.is-open {
@@ -930,10 +968,21 @@ a:hover {
   overflow: hidden;
 }
 
+.apartment-details.is-open .apartment-details-content {
+  animation: details-in var(--enter) var(--ease);
+}
+
+@keyframes details-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
 .apartment-details-content {
-  margin: 0 18px;
-  padding: 16px 0 18px;
-  border-top: 1px solid var(--border);
+  margin: 0 20px;
+  padding: 16px 0 20px;
+  border-top: 1px solid var(--hairline);
 }
 
 .apartment-image {
@@ -941,8 +990,8 @@ a:hover {
   width: 100%;
   aspect-ratio: 2 / 1;
   margin-bottom: 16px;
-  border-radius: 10px;
-  background: var(--muted-bg);
+  border-radius: var(--radius-control);
+  background: var(--surface-raised);
   object-fit: cover;
 }
 
@@ -959,48 +1008,50 @@ a:hover {
 }
 
 .rent-tile {
-  padding: 8px 10px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-control);
   background: var(--surface-sunken);
 }
 
 .rent-tile.is-selected {
   border-color: var(--accent-border);
-  background: var(--accent-soft);
+  background: var(--surface);
 }
 
 .rent-tile dt {
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1rem;
+  color: var(--text-secondary);
+}
+
+.rent-tile.is-selected dt {
+  color: var(--accent-strong);
 }
 
 .rent-price {
-  font-family: var(--serif);
-  font-size: 1.125rem;
+  margin-top: 4px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
 .rent-price.is-missing {
-  font-family: var(--sans);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-muted);
 }
 
 .rent-status {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1rem;
 }
 
 .data-note {
   margin-top: 8px;
-  font-size: 0.8125rem;
-  font-style: italic;
+  font-size: 0.75rem;
+  line-height: 1rem;
   color: var(--text-muted);
 }
 
@@ -1009,15 +1060,17 @@ a:hover {
 }
 
 .fact-list {
-  margin-top: 14px;
+  margin-top: 16px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .fact-list > div {
   display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 152px minmax(0, 1fr);
+  gap: 16px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .fact-list > div:last-child {
@@ -1026,39 +1079,45 @@ a:hover {
 
 @container (max-width: 420px) {
   .fact-list > div {
-    grid-template-columns: 7.5rem minmax(0, 1fr);
+    grid-template-columns: 120px minmax(0, 1fr);
   }
 }
 
 .fact-list dt {
-  font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
+}
+
+.fact-list dd {
+  font-variant-numeric: tabular-nums;
 }
 
 .card-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  min-height: 40px;
+  gap: 8px;
+  min-height: 36px;
   padding: 0 16px;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-control);
   background: var(--surface);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--text);
   text-decoration: none;
+  transition:
+    background-color var(--fast) var(--ease),
+    border-color var(--fast) var(--ease);
 }
 
 .button:hover {
-  border-color: var(--text-muted);
+  background: var(--surface-raised);
   color: var(--text);
 }
 
@@ -1091,11 +1150,11 @@ a:hover {
   gap: 8px;
   min-height: 44px;
   padding: 0 20px;
-  border-radius: 999px;
+  border-radius: var(--radius-card);
   background: var(--text);
-  box-shadow: var(--shadow-lg);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  box-shadow: var(--shadow-float);
+  font-size: 0.875rem;
+  font-weight: 500;
   color: #fff;
   text-decoration: none;
   white-space: nowrap;
@@ -1104,11 +1163,6 @@ a:hover {
 
 .jump-to-rankings:hover {
   color: #fff;
-}
-
-.jump-to-rankings svg {
-  width: 18px;
-  height: 18px;
 }
 
 @media (min-width: 768px) {
@@ -1121,67 +1175,53 @@ a:hover {
 
 .empty-state {
   padding: 40px 24px;
-  border: 1.5px dashed var(--border-strong);
-  border-radius: var(--radius-lg);
+  border: 1px dashed var(--hairline-strong);
+  border-radius: var(--radius-panel);
   background: rgb(255 255 255 / 0.5);
   text-align: center;
 }
 
-.empty-state-icon {
-  width: 56px;
-  height: 56px;
-  margin-bottom: 14px;
-  padding: 14px;
-  border-radius: 50%;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-}
-
 .warning {
-  max-width: 20ch;
+  max-width: 24ch;
+  text-wrap: balance;
   margin: 0 auto;
   font-family: var(--serif);
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--accent-strong);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--text);
 }
 
 .empty-state-hint {
-  max-width: 36ch;
-  margin: 10px auto 0;
-  font-size: 0.9375rem;
-  color: var(--text-muted);
+  max-width: 40ch;
+  margin: 8px auto 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--text-secondary);
 }
 
 .empty-message {
-  font-style: italic;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 /* ---------- Map page ---------- */
 
 .page-head {
-  padding: 40px 0 24px;
-}
-
-.map-title {
-  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  padding: 48px 0 24px;
 }
 
 .page-lede {
   max-width: 60ch;
-  margin-top: 10px;
-  color: var(--text-muted);
+  margin-top: 8px;
+  color: var(--text-secondary);
 }
 
 .map-container {
   width: 100%;
   height: clamp(420px, 70vh, 760px);
   overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: #ece6dd;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1189,20 +1229,31 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px;
   border-style: dashed;
-  border-color: var(--border-strong);
+  border-color: var(--hairline-strong);
   background: rgb(255 255 255 / 0.5);
   box-shadow: none;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-align: center;
 }
 
+/* Place labels in the page's ink, with a paper halo so they read over streets. */
 .map-label,
 .map-label:hover {
-  font-size: 10px;
-  color: #c81238;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
   text-decoration: none;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 4px #fff;
+}
+
+.map-label:hover {
+  color: var(--accent-strong);
 }
 
 /* ---------- Small screens ---------- */
@@ -1219,50 +1270,38 @@ a:hover {
   }
 
   .hero {
-    padding: 28px 0 24px;
+    padding: 32px 0 24px;
   }
 
   .hero-lede {
     font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .panel {
-    padding: 20px 18px;
+    padding: 20px 16px;
   }
 
   .apartment-toggle {
-    gap: 12px;
-    padding: 14px;
+    padding: 16px;
   }
 
   .apartment-details-content {
-    margin: 0 14px;
-  }
-
-  .site-nav-link {
-    padding: 8px 12px;
+    margin: 0 16px;
   }
 
   .brand {
-    gap: 8px;
-    font-size: 1.0625rem;
-  }
-
-  .brand-mark {
-    width: 28px;
-    height: 28px;
-  }
-
-  .hero h1 {
-    font-size: 1.875rem;
+    font-size: 1rem;
   }
 
   .slider-grid {
     gap: 16px;
   }
 
-  .aboutYouText {
-    line-height: 2;
+  .panel h2,
+  .rankings-head h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 

@@ -11,32 +11,32 @@ export const CRITERIA: { key: Criterion; inputId: string; label: string; descrip
   {
     key: "commute",
     inputId: "quickCommute",
-    label: "Quick Commute",
+    label: "Quick commute",
     description: "Door-to-door time by bus or on foot, weekday mornings",
   },
   {
     key: "distance",
     inputId: "closeToSchool",
-    label: "Close to School",
+    label: "Close to school",
     description: "Walking distance to campus",
   },
   {
     key: "price",
     inputId: "lowPrice",
-    label: "Low Price",
+    label: "Low price",
     description: "Lowest listed rent for the selected room type",
   },
   {
     key: "rating",
     inputId: "goodRating",
-    label: "Good Rating",
+    label: "Good rating",
     description: "Rating from Google Maps",
   },
   {
     key: "newness",
     inputId: "newBuilding",
-    label: "New Building",
-    description: "Construction year of the building",
+    label: "New building",
+    description: "Year the building was built",
   },
 ];
 

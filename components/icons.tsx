@@ -1,16 +1,17 @@
-// Small inline icons. Decorative: hidden from screen readers, sized by the surrounding text.
+// Small inline line icons: one size (16px) and one stroke (1.5), coloured by their text role.
+// Decorative, so hidden from screen readers.
 
 interface IconProps {
   className?: string;
 }
 
 const base = {
-  width: "1em",
-  height: "1em",
+  width: 16,
+  height: 16,
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: 2,
+  strokeWidth: 1.5,
   strokeLinecap: "round",
   strokeLinejoin: "round",
   "aria-hidden": true,
@@ -19,7 +20,7 @@ const base = {
 
 export function ChevronDown({ className }: IconProps) {
   return (
-    <svg {...base} className={className} strokeWidth={2.5}>
+    <svg {...base} className={className}>
       <path d="m6 9 6 6 6-6" />
     </svg>
   );
@@ -51,16 +52,6 @@ export function Info({ className }: IconProps) {
   );
 }
 
-export function Sliders({ className }: IconProps) {
-  return (
-    <svg {...base} className={className}>
-      <path d="M4 7h10M18 7h2M4 17h4M12 17h8" />
-      <circle cx="16" cy="7" r="2" />
-      <circle cx="10" cy="17" r="2" />
-    </svg>
-  );
-}
-
 /** The site's mark: a house on an orange tile. */
 export function BrandMark({ className }: IconProps) {
   return (
@@ -73,17 +64,6 @@ export function BrandMark({ className }: IconProps) {
         strokeWidth="2"
         strokeLinejoin="round"
       />
-    </svg>
-  );
-}
-
-export function Bus({ className }: IconProps) {
-  return (
-    <svg {...base} className={className}>
-      <rect x="5" y="3" width="14" height="15" rx="2" />
-      <path d="M5 11h14M8 21v-3M16 21v-3" />
-      <circle cx="8.5" cy="14.5" r=".5" fill="currentColor" />
-      <circle cx="15.5" cy="14.5" r=".5" fill="currentColor" />
     </svg>
   );
 }
