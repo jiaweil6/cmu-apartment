@@ -1444,6 +1444,370 @@
         "observedAt": "2026-11-10T21:29:51Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
+    },
+    "edge-1909": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1660,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 2159,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2999,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "glasshouse-pittsburgh": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1561,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 3580,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "arsenal-201": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1182,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1538,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2470,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "available",
+          "minPrice": 2761,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-district": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1719,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1915,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2707,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-cork-factory": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 2195,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 3199,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-foundry-at-41st": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-yards-at-3-crossings": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "bracken-house": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1332,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 1920,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "heinz-lofts": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1574,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 1799,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "available",
+          "minPrice": 2787,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "apartments-at-river-view": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1547,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1295,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2561,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "helm-on-the-allegheny": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1370,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1635,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "brewers-block": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1577,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1593,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2549,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
+    },
+    "park-view": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1125,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1240,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 1650,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:49:56Z",
+          "source": "manual"
+        }
+      }
     }
   }
 }

@@ -1139,6 +1139,372 @@
         "adapter": "manual"
       },
       "legacyScores": null
+    },
+    {
+      "name": "Edge 1909",
+      "shortName": "Edge 1909",
+      "website": "https://www.edge1909.com/",
+      "location": {
+        "lat": 40.45273,
+        "lng": -79.986155
+      },
+      "id": "edge-1909",
+      "neighborhood": "Strip District",
+      "address": "1909 Waterfront Pl, Pittsburgh, PA 15222",
+      "phone": "(412) 420-6950",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0009D00264000000"
+      ],
+      "yearBuilt": 2018,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Glasshouse Pittsburgh",
+      "shortName": "Glasshouse",
+      "website": "https://www.bozzuto.com/apartments-for-rent/pa/pittsburgh/glasshouse-pittsburgh",
+      "location": {
+        "lat": 40.43266,
+        "lng": -80.002178
+      },
+      "id": "glasshouse-pittsburgh",
+      "neighborhood": "South Shore",
+      "address": "108-170 E Station Square Dr, Pittsburgh, PA 15219",
+      "phone": "(833) 641-4986",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0004D00064000000"
+      ],
+      "yearBuilt": 2019,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Arsenal 201",
+      "shortName": "Arsenal 201",
+      "website": "https://arsenal201.com/",
+      "location": {
+        "lat": 40.469564,
+        "lng": -79.965329
+      },
+      "id": "arsenal-201",
+      "neighborhood": "Lower Lawrenceville",
+      "address": "147 39th St, Pittsburgh, PA 15201",
+      "phone": "844-991-2219",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0049E00128000000",
+        "0049E00132000000"
+      ],
+      "yearBuilt": 2017,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The District",
+      "shortName": "The District",
+      "website": "https://districtpgh.com/",
+      "location": {
+        "lat": 40.451763,
+        "lng": -79.987468
+      },
+      "id": "the-district",
+      "neighborhood": "Strip District",
+      "address": "1759 Waterfront Pl, Pittsburgh, PA 15222",
+      "phone": "412-790-5296",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0009C00004000000",
+        "0009C00008000000"
+      ],
+      "yearBuilt": 2022,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Cork Factory",
+      "shortName": "Cork Factory",
+      "website": "https://www.thecorkfactory.com/",
+      "location": {
+        "lat": 40.454852,
+        "lng": -79.983165
+      },
+      "id": "the-cork-factory",
+      "neighborhood": "Strip District",
+      "address": "2349-2359 Railroad St, Pittsburgh, PA 15222",
+      "phone": "(412) 281-5556",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0024S00190000000"
+      ],
+      "yearBuilt": 1901,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Foundry at 41st",
+      "shortName": "Foundry at 41st",
+      "website": "https://www.thefoundryat41st.com/",
+      "location": {
+        "lat": 40.472283,
+        "lng": -79.96423
+      },
+      "id": "the-foundry-at-41st",
+      "neighborhood": "Central Lawrenceville",
+      "address": "4107 Willow St, Pittsburgh, PA 15201",
+      "phone": "(412) 621-0263",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0049A00322000000"
+      ],
+      "yearBuilt": 2017,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Yards at 3 Crossings",
+      "shortName": "The Yards",
+      "website": "https://www.theyardsapts.com/",
+      "location": {
+        "lat": 40.457178,
+        "lng": -79.979837
+      },
+      "id": "the-yards-at-3-crossings",
+      "neighborhood": "Strip District",
+      "address": "2645 Railroad St, Pittsburgh, PA 15222",
+      "phone": "(412) 926-5757",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0025J00102000000"
+      ],
+      "yearBuilt": 2016,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Bracken House",
+      "shortName": "Bracken House",
+      "website": "https://www.brackenhousenorthshore.com/",
+      "location": {
+        "lat": 40.448589,
+        "lng": -79.99932
+      },
+      "id": "bracken-house",
+      "neighborhood": "North Shore",
+      "address": "100 Anderson St, Pittsburgh, PA 15212",
+      "phone": "(412) 566-8298",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0008H00316000000"
+      ],
+      "yearBuilt": 1997,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Heinz Lofts",
+      "shortName": "Heinz Lofts",
+      "website": "https://www.heinzlofts.com/",
+      "location": {
+        "lat": 40.45462,
+        "lng": -79.990984
+      },
+      "id": "heinz-lofts",
+      "neighborhood": "Troy Hill",
+      "address": "220-500 Heinz St, Pittsburgh, PA 15212",
+      "phone": "(866) 473-1716",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0024R00025000000"
+      ],
+      "yearBuilt": 1912,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Apartments at River View",
+      "shortName": "River View",
+      "website": "https://www.aptsatriverview.com/",
+      "location": {
+        "lat": 40.440539,
+        "lng": -80.006217
+      },
+      "id": "apartments-at-river-view",
+      "neighborhood": "Central Business District",
+      "address": "300 Liberty Ave, Pittsburgh, PA 15222",
+      "phone": "(412) 274-8515",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0001G00043000000"
+      ],
+      "yearBuilt": 1957,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Helm on the Allegheny",
+      "shortName": "Helm",
+      "website": "https://www.helmapartmentspgh.com/",
+      "location": {
+        "lat": 40.454337,
+        "lng": -79.983741
+      },
+      "id": "helm-on-the-allegheny",
+      "neighborhood": "Strip District",
+      "address": "2239 Railroad St, Pittsburgh, PA 15222",
+      "phone": "(412) 776-6251",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0024S00072000000"
+      ],
+      "yearBuilt": 2021,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Brewers Block",
+      "shortName": "Brewers Block",
+      "website": "https://www.brewersblockpgh.com/",
+      "location": {
+        "lat": 40.460029,
+        "lng": -79.967783
+      },
+      "id": "brewers-block",
+      "neighborhood": "Polish Hill",
+      "address": "3234-3262 Sassafras Way, Pittsburgh, PA 15201",
+      "phone": "412-796-2959",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0025H00062000000"
+      ],
+      "yearBuilt": 2023,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Park View Apartments",
+      "shortName": "Park View",
+      "website": "https://www.parkviewapts.com/",
+      "location": {
+        "lat": 40.451967,
+        "lng": -80.007014
+      },
+      "id": "park-view",
+      "neighborhood": "Allegheny Center",
+      "address": "10 Allegheny Center, Pittsburgh, PA 15212",
+      "phone": "(412) 231-3400",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0008C00128000000"
+      ],
+      "yearBuilt": 1972,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
     }
   ]
 }

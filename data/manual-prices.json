@@ -680,5 +680,291 @@
         "minPrice": 4000
       }
     }
+  },
+  "edge-1909": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1660
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 2159
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2999
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "glasshouse-pittsburgh": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1561
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 3580
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "arsenal-201": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1182
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1538
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2470
+      },
+      "threeBedroom": {
+        "status": "available",
+        "minPrice": 2761
+      }
+    }
+  },
+  "the-district": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1719
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1915
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2707
+      },
+      "threeBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      }
+    }
+  },
+  "the-cork-factory": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 2195
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 3199
+      },
+      "threeBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      }
+    }
+  },
+  "the-foundry-at-41st": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": null
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "the-yards-at-3-crossings": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": null
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "bracken-house": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1332
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 1920
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "heinz-lofts": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1574
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 1799
+      },
+      "threeBedroom": {
+        "status": "available",
+        "minPrice": 2787
+      }
+    }
+  },
+  "apartments-at-river-view": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1547
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1295
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2561
+      },
+      "threeBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      }
+    }
+  },
+  "helm-on-the-allegheny": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1370
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1635
+      },
+      "twoBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "brewers-block": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1577
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1593
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2549
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "park-view": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1125
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1240
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 1650
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
   }
 }

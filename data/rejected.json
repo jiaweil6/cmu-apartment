@@ -73,6 +73,24 @@
       "address": "6454 Living Pl, Pittsburgh, PA 15206",
       "reason": "Same building as bakery-living: 6454 Living Pl is leased through bakeryliving.com; its parcels are added to that listing.",
       "rejectedAt": "2026-11-10T21:23:41Z"
+    },
+    {
+      "key": "0009C00008000000",
+      "parcelIds": [
+        "0009C00008000000"
+      ],
+      "address": "1679 Waterfront Pl, Pittsburgh, PA 15222",
+      "reason": "Same complex as The District (1759 Waterfront Pl): its second building; parcel added to that listing.",
+      "rejectedAt": "2026-11-10T21:49:56Z"
+    },
+    {
+      "key": "0049E00128000000",
+      "parcelIds": [
+        "0049E00128000000"
+      ],
+      "address": "3901-3935 Butler St, Pittsburgh, PA 15201",
+      "reason": "Same complex as Arsenal 201 (147 39th St): its Phase I building; parcel added to that listing.",
+      "rejectedAt": "2026-11-10T21:49:56Z"
     }
   ]
 }
