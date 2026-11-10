@@ -1,4 +1,856 @@
 {
-  "updatedAt": "2026-11-10T00:00:00Z",
-  "candidates": []
+  "updatedAt": "2026-11-10T20:05:11Z",
+  "candidates": [
+    {
+      "key": "0052J00018000000",
+      "decision": "reject",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0052J00018000000",
+        "0052J00138000000"
+      ],
+      "address": "4614-4630 5th Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.446692,
+        "lng": -79.948044
+      },
+      "size": "40+ units",
+      "marketValue": 27236500,
+      "distanceMiles": 0.28,
+      "commuteMinutes": 8,
+      "osm": {
+        "id": "way/152567349",
+        "name": "Fairfax Apartments",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Fairfax Apartments",
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      },
+      "rejectReason": "University housing: Fairfax Apartments is CMU upper-class student housing, not leased to the public. Parcel 0052J00018000000 is the University Square #1 co-op at 4625 5th Ave, also not rented."
+    },
+    {
+      "key": "0052J00019000000",
+      "decision": "reject",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0052J00019000000"
+      ],
+      "address": "4601 5th Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.447303,
+        "lng": -79.948699
+      },
+      "size": "40+ units",
+      "marketValue": 6667800,
+      "distanceMiles": 0.33,
+      "commuteMinutes": 10,
+      "osm": {
+        "id": "way/167499007",
+        "name": "University Square",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "University Square",
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.expcommercial.com/pittsburgh-pa-real-estate/university-square-2/apt-322-4601-5th-ave",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      },
+      "rejectReason": "Owner-occupied co-op (University Square #2); listings say no rentals are allowed."
+    },
+    {
+      "key": "0052E00256000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0052E00256000000"
+      ],
+      "address": "4716 Ellsworth Ave, Pittsburgh, PA 15213",
+      "neighborhood": "Shadyside",
+      "location": {
+        "lat": 40.448414,
+        "lng": -79.946719
+      },
+      "size": "40+ units",
+      "marketValue": 7500000,
+      "distanceMiles": 0.37,
+      "commuteMinutes": 12,
+      "osm": {
+        "id": "way/545283414",
+        "name": "Cathedral Mansions",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Cathedral Mansions",
+        "shortName": null,
+        "phone": "412-621-8100",
+        "website": "https://cathedralmansions.com/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": false
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "unknown",
+            "minPrice": 1200
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": 1500
+          },
+          "twoBedroom": {
+            "status": "unknown",
+            "minPrice": 2150
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0027M00159000000",
+      "decision": "reject",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027M00159000000"
+      ],
+      "address": "125 N Dithridge St, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.447146,
+        "lng": -79.95121
+      },
+      "size": "40+ units",
+      "marketValue": 1107500,
+      "distanceMiles": 0.41,
+      "commuteMinutes": 13,
+      "osm": {
+        "id": "way/44157445",
+        "name": "Webster Hall",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": "webster-hall",
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Webster Hall",
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      },
+      "rejectReason": "Same building as webster-hall: the surface-rights parcel of Webster Hall, now added to that listing."
+    },
+    {
+      "key": "0028H00058000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0028H00058000000"
+      ],
+      "address": "3812 Bates St, Pittsburgh, PA 15213",
+      "neighborhood": "Central Oakland",
+      "location": {
+        "lat": 40.439035,
+        "lng": -79.952573
+      },
+      "size": "40+ units",
+      "marketValue": 2318400,
+      "distanceMiles": 0.47,
+      "commuteMinutes": 18,
+      "osm": {
+        "id": "way/533711431",
+        "name": "Bates Hill Apaertments",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Bates Hill Apartments",
+        "shortName": "Bates Hill",
+        "phone": "412-387-7877",
+        "website": "https://www.rentcafe.com/apartments/pa/pittsburgh/bates-hill-apartments/default.aspx",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
+        },
+        "yearBuilt": 1987,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0027H00078000000",
+      "decision": "reject",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027H00078000000"
+      ],
+      "address": "154 N Bellefield Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.448315,
+        "lng": -79.951913
+      },
+      "size": "40+ units",
+      "marketValue": 4000000,
+      "distanceMiles": 0.49,
+      "commuteMinutes": 15,
+      "osm": {
+        "id": "way/104205391",
+        "name": "The Bristol",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The Bristol",
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.bristolcoop.com/",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      },
+      "rejectReason": "Resident-owned housing co-op: residents buy shares after an admission interview; not rented to students."
+    },
+    {
+      "key": "0027H00194000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027H00194000000"
+      ],
+      "address": "151-155 N Craig St, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.449075,
+        "lng": -79.950734
+      },
+      "size": "40+ units",
+      "marketValue": 6600000,
+      "distanceMiles": 0.49,
+      "commuteMinutes": 14,
+      "osm": {
+        "id": "way/104431160",
+        "name": "Schenley House",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Schenley House",
+        "shortName": null,
+        "phone": "412-682-5886",
+        "website": "https://meyersmgmt.appfolio.com/listings",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
+        },
+        "yearBuilt": 1947,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1675
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1925
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0052E00070000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0052E00070000000"
+      ],
+      "address": "4628 Bayard St, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.449823,
+        "lng": -79.949379
+      },
+      "size": "40+ units",
+      "marketValue": 2035000,
+      "distanceMiles": 0.5,
+      "commuteMinutes": 14,
+      "osm": {
+        "id": "way/174854989",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Aberdeen Apartments",
+        "shortName": "Aberdeen",
+        "phone": "724-286-7330",
+        "website": "https://www.unionrealestate.com/property/aberdeen-apartments",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
+        },
+        "yearBuilt": 1928,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": 1000
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1200
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0027D00273000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027D00273000000"
+      ],
+      "address": "4629 Bayard St, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.450399,
+        "lng": -79.949595
+      },
+      "size": "40+ units",
+      "marketValue": 1535800,
+      "distanceMiles": 0.54,
+      "commuteMinutes": 14,
+      "osm": {
+        "id": "way/539611090",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The Adrian",
+        "shortName": "Adrian",
+        "phone": "412-441-1400",
+        "website": "https://lobosmanagement.com/address/4629-bayard-street-pittsburgh-pa-15213-adrian-apartments-2/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": false
+        },
+        "yearBuilt": 1928,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1259
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0027D00265000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027D00265000000"
+      ],
+      "address": "222 Melwood Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.450901,
+        "lng": -79.949766
+      },
+      "size": "40+ units",
+      "marketValue": 2723800,
+      "distanceMiles": 0.58,
+      "commuteMinutes": 16,
+      "osm": {
+        "id": "way/543158116",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Royal Windsor Apartments",
+        "shortName": "Royal Windsor",
+        "phone": "412-441-1400",
+        "website": "https://lobosmanagement.com/address/222-melwood-avenue-pittsburgh-pa-15213-royal-windsor-apartments-2/",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2199
+          },
+          "threeBedroom": {
+            "status": "unknown",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0027D00228000000",
+      "decision": "reject",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027D00228000000"
+      ],
+      "address": "245 Melwood Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.451135,
+        "lng": -79.950625
+      },
+      "size": "40+ units",
+      "marketValue": 3016800,
+      "distanceMiles": 0.61,
+      "commuteMinutes": 16,
+      "osm": {
+        "id": "way/539608722",
+        "name": "Wellington",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Wellington",
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      },
+      "rejectReason": "Leased in full by the University of Pittsburgh from Aug 2026 (five-year block lease) as housing for Pitt upper-class students; not rented to the public."
+    },
+    {
+      "key": "0027D00258000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027D00258000000"
+      ],
+      "address": "240 Melwood Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.45134,
+        "lng": -79.950002
+      },
+      "size": "40+ units",
+      "marketValue": 1990300,
+      "distanceMiles": 0.61,
+      "commuteMinutes": 16,
+      "osm": {
+        "id": "way/543158105",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Webster Towers",
+        "shortName": null,
+        "phone": "412-682-5886",
+        "website": "https://www.meyersmanagement.com/city-properad91e635",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
+        },
+        "yearBuilt": 1940,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1080
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0027D00234000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0027D00234000000"
+      ],
+      "address": "259 Melwood Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.451728,
+        "lng": -79.950873
+      },
+      "size": "40+ units",
+      "marketValue": 951400,
+      "distanceMiles": 0.65,
+      "commuteMinutes": 17,
+      "osm": {
+        "id": "way/172678805",
+        "name": "The Colonnade",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Dakota",
+        "shortName": null,
+        "phone": "412-732-6471",
+        "website": "https://dakota.prospectportal.com/",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
+        },
+        "yearBuilt": 1927,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0052A00008000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0052A00008000000"
+      ],
+      "address": "4742 Centre Ave, Pittsburgh, PA 15213",
+      "neighborhood": "Shadyside",
+      "location": {
+        "lat": 40.452591,
+        "lng": -79.948016
+      },
+      "size": "40+ units",
+      "marketValue": 3625200,
+      "distanceMiles": 0.66,
+      "commuteMinutes": 18,
+      "osm": {
+        "id": "way/170397251",
+        "name": "The Chalfont",
+        "website": "https://www.chalfontapartments.com/",
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "osm",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The Chalfont",
+        "shortName": "Chalfont",
+        "phone": "412-634-8264",
+        "website": "https://www.chalfontapartments.com/",
+        "imageUrl": null,
+        "openToUndergrad": false,
+        "amenities": {
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
+        },
+        "yearBuilt": 1968,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "twoBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    },
+    {
+      "key": "0052A00013000000",
+      "decision": "approve",
+      "foundAt": "2026-11-10T20:05:11Z",
+      "parcelIds": [
+        "0052A00013000000"
+      ],
+      "address": "4730 Centre Ave, Pittsburgh, PA 15213",
+      "neighborhood": "Shadyside",
+      "location": {
+        "lat": 40.452581,
+        "lng": -79.94834
+      },
+      "size": "40+ units",
+      "marketValue": 750000,
+      "distanceMiles": 0.67,
+      "commuteMinutes": 18,
+      "osm": {
+        "id": "way/170398242",
+        "name": "Hampshire Hall",
+        "website": "http://www.rentdelta.com/Hampshire_hall.asp",
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "osm",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Hampshire Hall",
+        "shortName": null,
+        "phone": "724-719-2163",
+        "website": "https://rentdelta.com/details/?propid=17",
+        "imageUrl": null,
+        "openToUndergrad": true,
+        "amenities": {
+          "inUnitLaundry": false,
+          "fitness": false,
+          "parking": true
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 605
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 750
+          },
+          "twoBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
+      }
+    }
+  ]
 }
