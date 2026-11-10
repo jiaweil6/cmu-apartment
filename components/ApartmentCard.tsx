@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ROOM_TYPES } from "@/lib/options";
-import type { Apartment } from "@/lib/types";
+import { offeredPrice } from "@/lib/ranking";
+import type { Apartment, RoomType } from "@/lib/types";
 
 interface Props {
   apartment: Apartment;
@@ -9,12 +10,27 @@ interface Props {
   onToggle: () => void;
 }
 
-function formatPrice(price: number | null): string {
-  return price === null ? "Not available" : `$${price}`;
+// Fixed locale and time zone so the server and browser render the same text.
+const dateFormat = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" });
+
+function formatPrice(apartment: Apartment, roomType: RoomType): string {
+  if (apartment.units[roomType].status === "not-offered") return "Not available";
+  const price = offeredPrice(apartment, roomType);
+  return price === null ? "Unknown" : `$${price}`;
+}
+
+/** The most recent date any price was checked, or null if none were. */
+function pricesCheckedOn(apartment: Apartment): string | null {
+  const dates = Object.values(apartment.units)
+    .filter((unit) => unit.source !== "none")
+    .map((unit) => unit.observedAt)
+    .sort();
+  return dates.length ? dateFormat.format(new Date(dates[dates.length - 1])) : null;
 }
 
 export default function ApartmentCard({ apartment, rank, isOpen, onToggle }: Props) {
   const detailsId = `apartment-details-${apartment.id}`;
+  const checkedOn = pricesCheckedOn(apartment);
 
   return (
     <div className="card apartment-card mb-3">
@@ -37,9 +53,15 @@ export default function ApartmentCard({ apartment, rank, isOpen, onToggle }: Pro
                 <p>Phone Number: {apartment.phone}</p>
                 {ROOM_TYPES.map(({ value, priceLabel }) => (
                   <p key={value}>
-                    {priceLabel}: {formatPrice(apartment.prices[value])}
+                    {priceLabel}: {formatPrice(apartment, value)}
                   </p>
                 ))}
+                {checkedOn && <p className="data-note">Prices as of {checkedOn}</p>}
+                {apartment.commuteMinutes && (
+                  <p>Commute to Campus: {Math.round(apartment.commuteMinutes.value)} min</p>
+                )}
+                {apartment.walkMiles && <p>Walk to Campus: {apartment.walkMiles.value.toFixed(1)} mi</p>}
+                {apartment.yearBuilt && <p>Year Built: {apartment.yearBuilt}</p>}
                 <a href={apartment.website} target="_blank" rel="noopener noreferrer">
                   Website
                 </a>

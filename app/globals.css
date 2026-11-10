@@ -331,6 +331,11 @@ input[type="range"]:focus::-moz-range-thumb {
   border-top: 1px solid #ccc;
 }
 
+.data-note {
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
 .apartment-image {
   max-width: 100%;
   height: auto;

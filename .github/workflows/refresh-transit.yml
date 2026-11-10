@@ -1,0 +1,95 @@
+name: Refresh transit data
+
+# Weekly: route from every apartment to campus with OpenTripPlanner, using PRT's
+# GTFS feed and an OpenStreetMap extract, and open a PR with the new snapshot.
+on:
+  schedule:
+    - cron: "17 9 * * 1" # Mondays, 09:17 UTC
+  workflow_dispatch:
+  # Temporary: verify the pipeline on the feature branch. Remove before merging.
+  push:
+    branches: [claude/eloquent-clarke-du30hy]
+    paths: [".github/workflows/refresh-transit.yml", "scripts/**", "otp/**"]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-transit
+
+env:
+  OTP_VERSION: 2.10.0
+
+jobs:
+  transit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Download OpenTripPlanner, PRT GTFS and OpenStreetMap
+        run: |
+          mkdir -p otp-run
+          cp otp/*.json otp-run/
+          curl -fsSL --retry 3 -o otp-run/otp.jar \
+            "https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/${OTP_VERSION}/otp-shaded-${OTP_VERSION}.jar"
+          curl -fsSL --retry 3 -o otp-run/prt-gtfs.zip https://www.rideprt.org/developerresources/GTFS.zip
+          unzip -q -o otp-run/prt-gtfs.zip -d otp-run/gtfs
+          curl -fsSL --retry 3 -o pennsylvania.osm.pbf \
+            https://download.geofabrik.de/north-america/us/pennsylvania-latest.osm.pbf
+          sudo apt-get update -qq && sudo apt-get install -y -qq osmium-tool
+          # Pittsburgh and the inner suburbs: far more than any commute we score.
+          osmium extract --bbox=-80.10,40.36,-79.80,40.54 --overwrite \
+            -o otp-run/pittsburgh.osm.pbf pennsylvania.osm.pbf
+
+      - name: Build routing graph
+        run: java -Xmx8G -jar otp-run/otp.jar --build --save otp-run
+
+      - name: Start OpenTripPlanner
+        run: |
+          nohup java -Xmx8G -jar otp-run/otp.jar --load otp-run > otp-run/server.log 2>&1 &
+          for i in $(seq 1 60); do
+            if curl -sf -X POST -H 'Content-Type: application/json' \
+                 -d '{"query":"{ feeds { feedId } }"}' http://localhost:8080/otp/gtfs/v1 > /dev/null; then
+              echo "OpenTripPlanner is up"; exit 0
+            fi
+            sleep 5
+          done
+          echo "OpenTripPlanner didn't start"; exit 1
+
+      - name: Refresh commute and walking distance
+        run: npm run refresh -- --only transit --gtfs-dir otp-run/gtfs --summary refresh-summary.md
+
+      - name: Show OpenTripPlanner log
+        if: failure()
+        run: tail -n 100 otp-run/server.log || true
+
+      - name: Open pull request
+        if: github.event_name != 'push'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/refresh-transit
+          add-paths: data/snapshot.json
+          commit-message: Refresh commute and walking distance
+          title: Refresh commute and walking distance
+          body-path: refresh-summary.md
+          delete-branch: true
+
+      # Temporary, with the push trigger above: commit the result to the feature branch.
+      - name: Commit to feature branch
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshot.json
+          git diff --cached --quiet || { git commit -m "Refresh commute and walking distance" && git push; }

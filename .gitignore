@@ -42,3 +42,7 @@ next-env.d.ts
 
 # local env files (only the example is committed)
 !.env.example
+
+# OpenTripPlanner working files (refresh-transit workflow)
+/otp-run/
+*.osm.pbf

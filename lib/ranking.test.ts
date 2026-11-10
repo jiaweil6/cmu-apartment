@@ -1,15 +1,24 @@
 import { describe, expect, it } from "vitest";
-import { apartments } from "@/data/apartments";
+import listings2024 from "./__fixtures__/listings-2024.json";
+import snapshot2024 from "./__fixtures__/snapshot-2024.json";
+import { mergeListings } from "./apartments";
 import {
   NO_PRIORITIES,
+  criterionScores,
   matchesFilters,
+  offeredPrice,
   priceScores,
   priorityShares,
   rankApartments,
+  rankScores,
   type Filters,
   type Priorities,
 } from "./ranking";
+import { listingsSchema, snapshotSchema } from "./schemas";
 import type { Apartment } from "./types";
+
+// The data as of the original site, frozen so ranking behavior stays pinned while live data changes.
+const apartments = mergeListings(listingsSchema.parse(listings2024), snapshotSchema.parse(snapshot2024));
 
 const anyFilters: Filters = { roomType: "studio", studentType: "graduate", neighborhoods: [], amenities: [] };
 
@@ -119,7 +128,7 @@ describe("rankApartments", () => {
   it("leaves out apartments without the chosen room type", () => {
     const ranked = names({ price: 50 }, { roomType: "studio" });
     expect(ranked).not.toContain("Essex House");
-    expect(ranked).toHaveLength(apartments.filter((a) => a.prices.studio !== null).length);
+    expect(ranked).toHaveLength(apartments.filter((a) => offeredPrice(a, "studio") !== null).length);
   });
 });
 
@@ -179,15 +188,71 @@ describe("priorityShares", () => {
   });
 });
 
-describe("data", () => {
-  it("has unique ids", () => {
-    expect(new Set(apartments.map((a) => a.id)).size).toBe(apartments.length);
+describe("rankScores", () => {
+  const values = new Map([
+    ["a", 10],
+    ["b", 20],
+    ["c", 20],
+    ["d", 40],
+  ]);
+
+  it("gives the best value 1 and the worst 1/n when lower is better", () => {
+    expect(rankScores(values, "lower")).toEqual(
+      new Map([
+        ["a", 1],
+        ["b", 0.5],
+        ["c", 0.5],
+        ["d", 0.25],
+      ]),
+    );
   });
 
-  it("keeps stored scores within 0–1", () => {
-    for (const value of apartments.flatMap(({ scores }) => Object.values(scores))) {
-      expect(value).toBeGreaterThan(0);
-      expect(value).toBeLessThanOrEqual(1);
-    }
+  it("reverses when higher is better", () => {
+    expect(rankScores(values, "higher")).toEqual(
+      new Map([
+        ["a", 0.25],
+        ["b", 0.5],
+        ["c", 0.5],
+        ["d", 1],
+      ]),
+    );
+  });
+});
+
+describe("criterionScores", () => {
+  const withCommute = (apartment: Apartment, minutes: number | null): Apartment => ({
+    ...apartment,
+    commuteMinutes: minutes === null ? null : { value: minutes, observedAt: "2026-11-10T00:00:00Z", source: "test" },
+  });
+  const [first, second, third] = apartments;
+
+  it("uses the 2024 scores while no live values exist", () => {
+    const scores = criterionScores([first, second], "commute");
+    expect(scores.get(first.id)).toBe(first.legacyScores!.commute);
+    expect(scores.get(second.id)).toBe(second.legacyScores!.commute);
+  });
+
+  it("ranks live values once any exist, giving the rest the median", () => {
+    const scores = criterionScores([withCommute(first, 30), withCommute(second, 10), withCommute(third, null)], "commute");
+    expect(scores.get(second.id)).toBe(1);
+    expect(scores.get(first.id)).toBe(0.5);
+    expect(scores.get(third.id)).toBe(0.75);
+  });
+
+  it("gives apartments without any score the median", () => {
+    const added = { ...first, id: "new-building", legacyScores: null };
+    const scores = criterionScores([first, second, third, added], "rating");
+    const legacy = [first, second, third].map((a) => a.legacyScores!.rating).sort((a, b) => a - b);
+    expect(scores.get("new-building")).toBe(legacy[1]);
+  });
+});
+
+describe("mergeListings", () => {
+  it("gives apartments missing from the snapshot unknown prices", () => {
+    const listings = listingsSchema.parse(listings2024);
+    const [apartment] = mergeListings(listings, { generatedAt: "2026-11-10T00:00:00Z", apartments: {} });
+    expect(apartment.units.studio).toMatchObject({ status: "unknown", minPrice: null });
+    expect(apartment.commuteMinutes).toBeNull();
+    expect(offeredPrice(apartment, "studio")).toBeNull();
   });
 });

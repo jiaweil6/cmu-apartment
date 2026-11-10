@@ -1,3 +1,7 @@
+import type { ApartmentInfo, UnitInfo } from "./schemas";
+
+export type { UnitInfo } from "./schemas";
+
 export interface LatLng {
   lat: number;
   lng: number;
@@ -18,22 +22,21 @@ export type Amenity = "inUnitLaundry" | "fitness" | "parking";
 
 export type StudentType = "undergraduate" | "graduate";
 
-/** The criteria a student can weight. Price is scored from `prices`, the rest from `scores`. */
+/** The criteria a student can weight. */
 export type Criterion = "commute" | "distance" | "price" | "rating" | "newness";
 
 export type StoredCriterion = Exclude<Criterion, "price">;
 
-export interface Apartment extends Place {
-  /** Stable, URL-safe identifier. */
-  id: string;
-  neighborhood: string;
-  address: string;
-  phone: string;
-  imageUrl: string;
-  openToUndergrad: boolean;
-  amenities: Record<Amenity, boolean>;
-  /** Monthly rent in USD; `null` when that room type isn't offered. */
-  prices: Record<RoomType, number | null>;
-  /** 0–1 rank scores where 1 is best. See data/apartments.ts. */
-  scores: Record<StoredCriterion, number>;
+/** A fetched value and where it came from. */
+export interface Observation<T> {
+  value: T;
+  observedAt: string;
+  source: string;
+}
+
+/** Listing details merged with the latest fetched values. */
+export interface Apartment extends ApartmentInfo {
+  units: Record<RoomType, UnitInfo>;
+  commuteMinutes: Observation<number> | null;
+  walkMiles: Observation<number> | null;
 }
