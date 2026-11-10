@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T20:05:11Z",
+  "updatedAt": "2026-11-10T21:01:18Z",
   "candidates": [
     {
       "key": "0028H00058000000",
@@ -123,6 +123,663 @@
             "minPrice": null
           }
         }
+      }
+    },
+    {
+      "key": "0084C00055000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0084C00055000000"
+      ],
+      "address": "6102-6168 Centre Ave, Pittsburgh, PA 15206",
+      "neighborhood": "Shadyside",
+      "location": {
+        "lat": 40.45982,
+        "lng": -79.923047
+      },
+      "size": "40+ units",
+      "marketValue": 52544300,
+      "distanceMiles": 1.64,
+      "commuteMinutes": 20,
+      "osm": {
+        "id": "relation/15510901",
+        "name": "Eastside Bond Building B",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Eastside Bond Building B",
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0028F00322000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0028F00322000000"
+      ],
+      "address": "3506-3510 Forbes Ave, Pittsburgh, PA 15213",
+      "neighborhood": "Central Oakland",
+      "location": {
+        "lat": 40.43967,
+        "lng": -79.958717
+      },
+      "size": "40+ units",
+      "marketValue": 48454200,
+      "distanceMiles": 0.74,
+      "commuteMinutes": 14,
+      "osm": {
+        "id": "way/1195034199",
+        "name": "HERE Pittsburgh",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "HERE Pittsburgh",
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.universityliving.com/united-states/pittsburgh/property/here-pittsburgh",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0002L00037000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0002L00037000000"
+      ],
+      "address": "1045 Forbes Ave, Pittsburgh, PA 15219",
+      "neighborhood": "Bluff",
+      "location": {
+        "lat": 40.438088,
+        "lng": -79.989294
+      },
+      "size": "40+ units",
+      "marketValue": 41540400,
+      "distanceMiles": 2.33,
+      "commuteMinutes": 27,
+      "osm": null,
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": null,
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.whitepages.com/address/1045-Forbes-Ave/Pittsburgh-PA/AEol3yQ05BK",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0029N00316000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0029N00316000000"
+      ],
+      "address": "2984 Sidney St, Pittsburgh, PA 15203",
+      "neighborhood": "South Side Flats",
+      "location": {
+        "lat": 40.425134,
+        "lng": -79.962374
+      },
+      "size": "40+ units",
+      "marketValue": 41000000,
+      "distanceMiles": 1.53,
+      "commuteMinutes": 30,
+      "osm": null,
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": null,
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.rentseeker.com/rent/apartment/pennsylvania/pittsburgh/69949/2984-sidney-st",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0051L00270000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0051L00270000000"
+      ],
+      "address": "5250 Liberty Ave, Pittsburgh, PA 15224",
+      "neighborhood": "Bloomfield",
+      "location": {
+        "lat": 40.456744,
+        "lng": -79.940633
+      },
+      "size": "40+ units",
+      "marketValue": 38928000,
+      "distanceMiles": 0.97,
+      "commuteMinutes": 23,
+      "osm": {
+        "id": "way/547318049",
+        "name": "Albion at Morrow Park",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Albion at Morrow Park",
+        "shortName": null,
+        "phone": null,
+        "website": "https://albionatmorrowpark.com/",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0002H00200000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0002H00200000000"
+      ],
+      "address": "1420 Centre Ave, Pittsburgh, PA 15219",
+      "neighborhood": "Crawford-Roberts",
+      "location": {
+        "lat": 40.440188,
+        "lng": -79.986418
+      },
+      "size": "40+ units",
+      "marketValue": 33538000,
+      "distanceMiles": 2.17,
+      "commuteMinutes": 30,
+      "osm": {
+        "id": "way/276176767",
+        "name": "City View Apartments",
+        "website": "https://www.cityviewapts.com/",
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "osm",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "City View Apartments",
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.cityviewapts.com/",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0026E00009000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0026E00009000000"
+      ],
+      "address": "2695 South Water St, Pittsburgh, PA 15203",
+      "neighborhood": "South Side Flats",
+      "location": {
+        "lat": 40.429437,
+        "lng": -79.965661
+      },
+      "size": "40+ units",
+      "marketValue": 32584600,
+      "distanceMiles": 1.43,
+      "commuteMinutes": 32,
+      "osm": null,
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": null,
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.pittsburghpa.gov/files/assets/city/v/1/dcp/documents/zoning-board-of-adjustment/23655_2695_south_water_st_-_183_of_2023.pdf",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0012M00304000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0012M00304000000"
+      ],
+      "address": "2501-2557 E Carson St, Pittsburgh, PA 15203",
+      "neighborhood": "South Side Flats",
+      "location": {
+        "lat": 40.428923,
+        "lng": -79.968481
+      },
+      "size": "40+ units",
+      "marketValue": 31000000,
+      "distanceMiles": 1.56,
+      "commuteMinutes": 30,
+      "osm": {
+        "id": "way/204110965",
+        "name": null,
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": null,
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0012H00250000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0012H00250000000"
+      ],
+      "address": "2626 Tunnel Blvd, Pittsburgh, PA 15203",
+      "neighborhood": "South Side Flats",
+      "location": {
+        "lat": 40.428902,
+        "lng": -79.967028
+      },
+      "size": "40+ units",
+      "marketValue": 26856500,
+      "distanceMiles": 1.51,
+      "commuteMinutes": 30,
+      "osm": {
+        "id": "way/399354806",
+        "name": "Southside Works City Apartments",
+        "website": "http://www.sswapts.com/",
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "osm",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Southside Works City Apartments",
+        "shortName": null,
+        "phone": null,
+        "website": "http://www.sswapts.com/",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0084M00130000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0084M00130000000",
+        "0084M00130000B00"
+      ],
+      "address": "6454 Living Pl, Pittsburgh, PA 15206",
+      "neighborhood": "Shadyside",
+      "location": {
+        "lat": 40.456365,
+        "lng": -79.917792
+      },
+      "size": "40+ units",
+      "marketValue": 25667800,
+      "distanceMiles": 1.71,
+      "commuteMinutes": 28,
+      "osm": {
+        "id": "way/374901123",
+        "name": "Bakery Living - Blue",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Bakery Living - Blue",
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.bakeryliving.com/",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0051H00046000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0051H00046000000",
+        "0051M00015000000"
+      ],
+      "address": "5502-5522 Baum Blvd, Pittsburgh, PA 15232",
+      "neighborhood": "Friendship",
+      "location": {
+        "lat": 40.457316,
+        "lng": -79.936341
+      },
+      "size": "40+ units",
+      "marketValue": 21343700,
+      "distanceMiles": 1.09,
+      "commuteMinutes": 22,
+      "osm": {
+        "id": "way/614508944",
+        "name": "Ollie at Baumhaus",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Ollie at Baumhaus",
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0027G00320000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0027G00320000000"
+      ],
+      "address": "4101 Bigelow Blvd, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.450457,
+        "lng": -79.954368
+      },
+      "size": "40+ units",
+      "marketValue": 20113000,
+      "distanceMiles": 0.69,
+      "commuteMinutes": 21,
+      "osm": {
+        "id": "way/25795426",
+        "name": "Schenley Apartments",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Schenley Apartments",
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.sunny.com/pa/pittsburgh/schenley-apartments",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0001D00066000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0001D00066000000"
+      ],
+      "address": "703-717 Liberty Ave, Pittsburgh, PA 15222",
+      "neighborhood": "Central Business District",
+      "location": {
+        "lat": 40.44275,
+        "lng": -79.999564
+      },
+      "size": "40+ units",
+      "marketValue": 19000000,
+      "distanceMiles": 2.85,
+      "commuteMinutes": 33,
+      "osm": {
+        "id": "way/759338369",
+        "name": "Clark Building",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": "Clark Building",
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0009P00165000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0009P00165000000"
+      ],
+      "address": "1100 Liberty Ave, Pittsburgh, PA 15222",
+      "neighborhood": "Central Business District",
+      "location": {
+        "lat": 40.444268,
+        "lng": -79.992385
+      },
+      "size": "40+ units",
+      "marketValue": 17391000,
+      "distanceMiles": 2.47,
+      "commuteMinutes": 33,
+      "osm": {
+        "id": "relation/10505870",
+        "name": "The Pennsylvanian Apartments",
+        "website": null,
+        "yearBuilt": null
+      },
+      "possibleDuplicateOf": null,
+      "websiteSource": "search",
+      "detectedPlatform": null,
+      "listing": {
+        "name": "The Pennsylvanian Apartments",
+        "shortName": null,
+        "phone": null,
+        "website": "https://www.thepennsylvanian.com/",
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
+      }
+    },
+    {
+      "key": "0026S00135000000",
+      "decision": "pending",
+      "foundAt": "2026-11-10T21:01:18Z",
+      "parcelIds": [
+        "0026S00135000000"
+      ],
+      "address": "419 Melwood Ave, Pittsburgh, PA 15213",
+      "neighborhood": "North Oakland",
+      "location": {
+        "lat": 40.454625,
+        "lng": -79.952741
+      },
+      "size": "40+ units",
+      "marketValue": 17041100,
+      "distanceMiles": 0.88,
+      "commuteMinutes": 17,
+      "osm": null,
+      "possibleDuplicateOf": null,
+      "websiteSource": null,
+      "detectedPlatform": null,
+      "listing": {
+        "name": null,
+        "shortName": null,
+        "phone": null,
+        "website": null,
+        "imageUrl": null,
+        "openToUndergrad": null,
+        "amenities": {
+          "inUnitLaundry": null,
+          "fitness": null,
+          "parking": null
+        },
+        "yearBuilt": null,
+        "pricing": {
+          "adapter": "manual"
+        },
+        "manualPrices": null
       }
     }
   ]
