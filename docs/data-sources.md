@@ -53,6 +53,32 @@ Several buildings span more than one parcel; only the residential ones are liste
 | Negley Court | (none yet) | Address not found; nearby parcels are other buildings. Needs a manual lookup. |
 | Camelot | 0027D00061000000 | Address (402) |
 
+## Year built for current listings
+
+The county doesn't publish year built for large apartment buildings, so these come from public listings
+and histories (researched November 2026). Their order matches the 2024 spreadsheet's newness ranks except
+Bakery Living (see note). New buildings get theirs from OpenStreetMap `start_date` or the reviewer.
+
+| Apartment | Year | Source | Note |
+| --- | --- | --- | --- |
+| SkyVue | 2016 | [LoopNet](https://www.loopnet.ca/Listing/3333-Forbes-Ave-Pittsburgh-PA/30026401/) | |
+| One on Centre | 2018 | [Rentable](https://www.rentable.co/pittsburgh-pa/one-on-centre) | |
+| The Bridge on Forbes | 2019 | [Yardi Matrix](https://www.yardimatrix.com/property-types/multifamily/pittsburgh/the-bridge-on-forbes-3423-forbes-avenue-pa-15213--171963), [Multi-Housing News](https://www.multihousingnews.com/post/jv-to-open-473-bed-pa-student-housing-community/) | Opened fall 2019 |
+| Sherwood Towers | 1970 | [Apartments.com](https://apartments.com/sherwood-towers-apartments-pittsburgh-pa/97vth06) | Single source |
+| Webster Hall | 1926 | [Father Pitt](https://fatherpitt.com/2014/01/16/webster-hall-2/) | Henry Hornbostel |
+| Amberson Gardens | 1969 | [Apartments.com](https://www.apartments.com/profile/w2vgfbj/) | Single source |
+| Essex House | 1974 | [Yardi Matrix](https://yardimatrix.com/property-types/multifamily/pittsburgh/essex-house-5701-centre-avenue-pa-15206--138286) | |
+| Claybourne | 1968 | [PadMapper](https://www.padmapper.com/buildings/1434842/claybourne-apartments-at-5435-claybourne-st-pittsburgh-pa-15232) | Yardi Matrix says 1974 |
+| Coda on Centre | 2018 | [McCaffery / Pittsburgh Business Times](https://www.mccafferyinc.com/news/oxford-sets-opening-date-east-liberty-residences) | |
+| Industry Pittsburgh | 2023 | [Point2](https://www.point2homes.com/US/Apartment-Buildings/PA/Pittsburgh/Industry-Pittsburgh.html) | Single source |
+| Walnut on Highland | 2013 | [RentCafe](https://www.rentcafe.com/apartments/pa/pittsburgh/walnut-on-highland/default.aspx) | Apartment conversion of the 1909 Highland Building |
+| Eastside Bond | 2015 | [LoopNet](https://loopnet.com/Listing/6105-Spirit-St-Pittsburgh-PA/22507740) | |
+| Bakery Living | 2014 | [Yardi Matrix](https://www.yardimatrix.com/property-types/multifamily/pittsburgh/bakery-living-orange-6480-living-place-pa-15206--137663) | 6480 Living Pl is the Orange building; Blue (6454) opened 2016 |
+| Kenmawr | 1956 | [Apartments.com](https://apartments.com/kenmawr-apartments-pittsburgh-pa/n9b9zrp) | |
+| Maxon Towers | 1966 | [CityFeet](https://www.cityfeet.com/cont/listing/6315-forbes-ave-squirrel-hill-pa-15217/cs36504434) | |
+| Negley Court | 1960 | [Yardi Matrix](https://www.yardimatrix.com/property-types/multifamily/pittsburgh/negley-court-5620-5th-avenue-pa-15232--137955) | Single source |
+| Camelot | 1964 | [Apartments.com](https://apartments.com/camelot-apartments-pittsburgh-pa/eks9d4q) | |
+
 ## Definitions
 
 - **Commute:** door-to-door time from the apartment to the campus point in `data/apartments.json`. For each arrival deadline (8:30, 9:00 and 9:30 AM on the next regular Tuesday, i.e. one with no service exceptions in the GTFS feed), we take the trip you'd actually catch: the latest-departing itinerary OpenTripPlanner finds, by transit or on foot. The commute is the median of the three.

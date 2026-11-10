@@ -232,11 +232,21 @@ describe("criterionScores", () => {
     expect(scores.get(second.id)).toBe(second.legacyScores!.commute);
   });
 
-  it("ranks live values once any exist, giving the rest the median", () => {
-    const scores = criterionScores([withCommute(first, 30), withCommute(second, 10), withCommute(third, null)], "commute");
+  it("ranks live values once every 2024-scored apartment has one; newcomers without one get the median", () => {
+    const added = withCommute({ ...third, id: "new-building", legacyScores: null }, null);
+    const scores = criterionScores([withCommute(first, 30), withCommute(second, 10), added], "commute");
     expect(scores.get(second.id)).toBe(1);
     expect(scores.get(first.id)).toBe(0.5);
-    expect(scores.get(third.id)).toBe(0.75);
+    expect(scores.get("new-building")).toBe(0.75);
+  });
+
+  it("keeps the 2024 scores while some 2024-scored apartments lack live values", () => {
+    const added = withCommute({ ...third, id: "new-building", legacyScores: null }, 5);
+    const scores = criterionScores([withCommute(first, 30), withCommute(second, null), added], "commute");
+    expect(scores.get(first.id)).toBe(first.legacyScores!.commute);
+    expect(scores.get(second.id)).toBe(second.legacyScores!.commute);
+    const median = [first, second].map((a) => a.legacyScores!.commute).sort((a, b) => a - b);
+    expect(scores.get("new-building")).toBe(Math.round(((median[0] + median[1]) / 2) * 100) / 100);
   });
 
   it("gives apartments without any score the median", () => {
