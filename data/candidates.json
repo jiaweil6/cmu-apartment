@@ -127,7 +127,7 @@
     },
     {
       "key": "0084C00055000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0084C00055000000"
@@ -168,11 +168,12 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "Same building as eastside-bond: the Eastside LP III lot at 6105 Spirit St, now added to that listing."
     },
     {
       "key": "0028F00322000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0028F00322000000"
@@ -198,26 +199,43 @@
       "detectedPlatform": null,
       "listing": {
         "name": "HERE Pittsburgh",
-        "shortName": null,
-        "phone": null,
-        "website": "https://www.universityliving.com/united-states/pittsburgh/property/here-pittsburgh",
+        "shortName": "HERE",
+        "phone": "(412) 206-1806",
+        "website": "https://www.herepittsburgh.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2023,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "unknown",
+            "minPrice": 2254
+          },
+          "oneBedroom": {
+            "status": "unknown",
+            "minPrice": 2559
+          },
+          "twoBedroom": {
+            "status": "unknown",
+            "minPrice": 3528
+          },
+          "threeBedroom": {
+            "status": "unknown",
+            "minPrice": 4527
+          }
+        }
       }
     },
     {
       "key": "0002L00037000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0002L00037000000"
@@ -253,11 +271,12 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "McGinley Hall: Duquesne University-affiliated housing, open only to enrolled Duquesne juniors, seniors and graduate students."
     },
     {
       "key": "0029N00316000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0029N00316000000"
@@ -277,27 +296,44 @@
       "websiteSource": "search",
       "detectedPlatform": null,
       "listing": {
-        "name": null,
+        "name": "Connection at Southside",
         "shortName": null,
-        "phone": null,
-        "website": "https://www.rentseeker.com/rent/apartment/pennsylvania/pittsburgh/69949/2984-sidney-st",
+        "phone": "(412) 838-4574",
+        "website": "https://connectionatsouthside.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2022,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1535
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1753
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2103
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0051L00270000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0051L00270000000"
@@ -323,26 +359,43 @@
       "detectedPlatform": null,
       "listing": {
         "name": "Albion at Morrow Park",
-        "shortName": null,
-        "phone": null,
+        "shortName": "Albion",
+        "phone": "(412) 753-7922",
         "website": "https://albionatmorrowpark.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2016,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1870
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 2080
+          },
+          "twoBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          },
+          "threeBedroom": {
+            "status": "available",
+            "minPrice": 3810
+          }
+        }
       }
     },
     {
       "key": "0002H00200000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0002H00200000000"
@@ -368,26 +421,43 @@
       "detectedPlatform": null,
       "listing": {
         "name": "City View Apartments",
-        "shortName": null,
-        "phone": null,
+        "shortName": "City View",
+        "phone": "(412) 391-9833",
         "website": "https://www.cityviewapts.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": false,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1964,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1170
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1214
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1643
+          },
+          "threeBedroom": {
+            "status": "waitlist",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0026E00009000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0026E00009000000"
@@ -407,27 +477,44 @@
       "websiteSource": "search",
       "detectedPlatform": null,
       "listing": {
-        "name": null,
-        "shortName": null,
-        "phone": null,
-        "website": "https://www.pittsburghpa.gov/files/assets/city/v/1/dcp/documents/zoning-board-of-adjustment/23655_2695_south_water_st_-_183_of_2023.pdf",
+        "name": "The Park at SouthSide Works",
+        "shortName": "The Park",
+        "phone": "(412) 801-7218",
+        "website": "https://theparkpgh.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2024,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1832
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 2197
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 3565
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0012M00304000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0012M00304000000"
@@ -452,27 +539,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": null,
+        "name": "Carson Street Commons",
         "shortName": null,
-        "phone": null,
-        "website": null,
+        "phone": "(412) 431-1183",
+        "website": "https://www.carsonstreetcommons.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2004,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1645
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1905
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0012H00250000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0012H00250000000"
@@ -497,27 +601,44 @@
       "websiteSource": "osm",
       "detectedPlatform": null,
       "listing": {
-        "name": "Southside Works City Apartments",
+        "name": "2626 South Side Flats",
         "shortName": null,
-        "phone": null,
-        "website": "http://www.sswapts.com/",
+        "phone": "(412) 314-2084",
+        "website": "https://lyvwellapartments.com/our-communities/2626-south-side-flats/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2016,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1355
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1725
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2715
+          },
+          "threeBedroom": {
+            "status": "available",
+            "minPrice": 3200
+          }
+        }
       }
     },
     {
       "key": "0084M00130000000",
-      "decision": "pending",
+      "decision": "reject",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0084M00130000000",
@@ -559,11 +680,12 @@
           "adapter": "manual"
         },
         "manualPrices": null
-      }
+      },
+      "rejectReason": "Same building as bakery-living: 6454 Living Pl is leased through bakeryliving.com; its parcels are added to that listing."
     },
     {
       "key": "0051H00046000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0051H00046000000",
@@ -589,27 +711,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": "Ollie at Baumhaus",
-        "shortName": null,
-        "phone": null,
-        "website": null,
+        "name": "Baumhaus Apartments",
+        "shortName": "Baumhaus",
+        "phone": "412-683-2286",
+        "website": "https://www.baumhausapts.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2017,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1882
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 2030
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 3075
+          },
+          "threeBedroom": {
+            "status": "available",
+            "minPrice": 4235
+          }
+        }
       }
     },
     {
       "key": "0027G00320000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0027G00320000000"
@@ -636,25 +775,42 @@
       "listing": {
         "name": "Schenley Apartments",
         "shortName": null,
-        "phone": null,
-        "website": "https://www.sunny.com/pa/pittsburgh/schenley-apartments",
+        "phone": "(412) 535-0670",
+        "website": "https://www.pmcpropertygroup.com/properties/schenley-apartments",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1916,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1825
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2465
+          },
+          "threeBedroom": {
+            "status": "available",
+            "minPrice": 3655
+          }
+        }
       }
     },
     {
       "key": "0001D00066000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0001D00066000000"
@@ -679,27 +835,44 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": "Clark Building",
-        "shortName": null,
-        "phone": null,
-        "website": null,
+        "name": "The Clark Building",
+        "shortName": "Clark Building",
+        "phone": "(412) 227-0959",
+        "website": "https://www.pmcpropertygroup.com/properties/clark-building",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1928,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "not-offered",
+            "minPrice": null
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1295
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 1750
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0009P00165000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0009P00165000000"
@@ -724,27 +897,44 @@
       "websiteSource": "search",
       "detectedPlatform": null,
       "listing": {
-        "name": "The Pennsylvanian Apartments",
-        "shortName": null,
-        "phone": null,
+        "name": "The Pennsylvanian",
+        "shortName": "Pennsylvanian",
+        "phone": "(412) 391-6730",
         "website": "https://www.thepennsylvanian.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 1900,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1392
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 1444
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 3034
+          },
+          "threeBedroom": {
+            "status": "not-offered",
+            "minPrice": null
+          }
+        }
       }
     },
     {
       "key": "0026S00135000000",
-      "decision": "pending",
+      "decision": "approve",
       "foundAt": "2026-11-10T21:01:18Z",
       "parcelIds": [
         "0026S00135000000"
@@ -764,22 +954,39 @@
       "websiteSource": null,
       "detectedPlatform": null,
       "listing": {
-        "name": null,
-        "shortName": null,
-        "phone": null,
-        "website": null,
+        "name": "The Julian",
+        "shortName": "Julian",
+        "phone": "412-730-4491",
+        "website": "https://www.livejulian.com/",
         "imageUrl": null,
-        "openToUndergrad": null,
+        "openToUndergrad": true,
         "amenities": {
-          "inUnitLaundry": null,
-          "fitness": null,
-          "parking": null
+          "inUnitLaundry": true,
+          "fitness": true,
+          "parking": true
         },
-        "yearBuilt": null,
+        "yearBuilt": 2025,
         "pricing": {
           "adapter": "manual"
         },
-        "manualPrices": null
+        "manualPrices": {
+          "studio": {
+            "status": "available",
+            "minPrice": 1650
+          },
+          "oneBedroom": {
+            "status": "available",
+            "minPrice": 2150
+          },
+          "twoBedroom": {
+            "status": "available",
+            "minPrice": 2900
+          },
+          "threeBedroom": {
+            "status": "waitlist",
+            "minPrice": 4000
+          }
+        }
       }
     }
   ]
