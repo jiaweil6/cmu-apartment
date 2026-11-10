@@ -139,6 +139,68 @@ export const snapshotSchema = z.strictObject({
   apartments: z.record(z.string(), metricsSchema),
 });
 
+/** Local time of day, 24-hour "08:41". */
+const clockTime = z.string().regex(/^\d{2}:\d{2}$/);
+/** A path as a Google encoded polyline (precision 5). */
+const encodedPath = z.string();
+
+const routePlaceSchema = z.strictObject({
+  name: z.string().min(1),
+  /** The transit stop's code, when the place is a stop. */
+  stopCode: z.string().nullable(),
+  location: latLngSchema,
+});
+
+/** One leg of a commute: a walk or a ride. */
+export const routeLegSchema = z.strictObject({
+  /** OpenTripPlanner mode: WALK, BUS, TRAM (the T light rail), and so on. */
+  mode: z.string().min(1),
+  from: routePlaceSchema,
+  to: routePlaceSchema,
+  departAt: clockTime,
+  arriveAt: clockTime,
+  minutes: z.number().min(0),
+  meters: z.number().min(0),
+  /** Rides only: the line ("71B" and its long name), where it's headed, and how many stops you ride. */
+  route: z.strictObject({ shortName: z.string().nullable(), longName: z.string().nullable() }).nullable(),
+  headsign: z.string().nullable(),
+  stops: z.int().min(1).nullable(),
+  geometry: encodedPath,
+});
+
+/**
+ * The trip behind an apartment's commute time (the median of the three arrival
+ * deadlines), and its shortest walking route, from the weekly transit refresh
+ * (data/routes.json). Kept apart from the snapshot so only the map page loads paths.
+ */
+export const apartmentRoutesSchema = z.strictObject({
+  commute: z
+    .strictObject({
+      arriveBy: clockTime,
+      departAt: clockTime,
+      arriveAt: clockTime,
+      minutes: z.number().min(0),
+      legs: z.array(routeLegSchema).min(1),
+    })
+    .nullable(),
+  walk: z
+    .strictObject({
+      meters: z.number().min(0),
+      minutes: z.number().min(0),
+      /** One path per leg (a walk is usually a single leg). */
+      geometry: z.array(encodedPath).min(1),
+    })
+    .nullable(),
+});
+
+export const routesFileSchema = z.strictObject({
+  generatedAt: timestamp,
+  /** The weekday whose timetable the trips use. */
+  serviceDate: z.iso.date(),
+  source: z.string(),
+  apartments: z.record(z.string(), apartmentRoutesSchema),
+});
+
 const parcelId = z.string().regex(/^[0-9A-Z]{16}$/);
 const nullableBool = z.boolean().nullable();
 
@@ -216,3 +278,6 @@ export type ApartmentMetrics = z.infer<typeof metricsSchema>;
 export type UnitInfo = z.infer<typeof unitSchema>;
 export type Pricing = z.infer<typeof pricingSchema>;
 export type ManualPrices = z.infer<typeof manualPricesSchema>;
+export type RoutesFile = z.infer<typeof routesFileSchema>;
+export type ApartmentRoutes = z.infer<typeof apartmentRoutesSchema>;
+export type RouteLeg = z.infer<typeof routeLegSchema>;

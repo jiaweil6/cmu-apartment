@@ -5,11 +5,13 @@ import {
   listingsSchema,
   manualPricesSchema,
   rejectedFileSchema,
+  routesFileSchema,
   snapshotSchema,
   type CandidatesFile,
   type Listings,
   type ManualPrices,
   type RejectedFile,
+  type RoutesFile,
   type Snapshot,
 } from "@/lib/schemas";
 
@@ -19,6 +21,7 @@ export const SNAPSHOT_PATH = path.join(DATA_DIR, "snapshot.json");
 export const CANDIDATES_PATH = path.join(DATA_DIR, "candidates.json");
 export const REJECTED_PATH = path.join(DATA_DIR, "rejected.json");
 export const MANUAL_PRICES_PATH = path.join(DATA_DIR, "manual-prices.json");
+export const ROUTES_PATH = path.join(DATA_DIR, "routes.json");
 
 const writeJson = (file: string, value: unknown) => writeFileSync(file, JSON.stringify(value, null, 2) + "\n");
 
@@ -68,3 +71,19 @@ export function writeSnapshot(snapshot: Snapshot, listings: Listings): void {
   };
   writeJson(SNAPSHOT_PATH, snapshotSchema.parse(ordered));
 }
+
+export function readRoutes(): RoutesFile {
+  return routesFileSchema.parse(JSON.parse(readFileSync(ROUTES_PATH, "utf8")));
+}
+
+/** Validates, orders apartments like the listings file, and writes with stable formatting. */
+export function writeRoutes(routes: RoutesFile, listings: Listings): void {
+  const ordered: RoutesFile = {
+    ...routes,
+    apartments: Object.fromEntries(
+      listings.apartments.filter(({ id }) => routes.apartments[id]).map(({ id }) => [id, routes.apartments[id]]),
+    ),
+  };
+  writeJson(ROUTES_PATH, routesFileSchema.parse(ordered));
+}
+

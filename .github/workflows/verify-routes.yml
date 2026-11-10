@@ -1,0 +1,36 @@
+name: Verify commute routes
+
+# Temporary: run the transit refresh (with routes) on the feature branch and
+# commit the result there. Delete before merging.
+on:
+  push:
+    branches: [claude/eloquent-clarke-du30hy]
+    paths: [".github/workflows/verify-routes.yml", "scripts/lib/otp.ts", "scripts/refresh/transit.ts", "scripts/refresh/routes.ts"]
+
+permissions:
+  contents: write
+
+jobs:
+  routes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: ./.github/actions/opentripplanner
+      - run: npm run refresh -- --only transit --gtfs-dir otp-run/gtfs --summary refresh-summary.md
+      - name: Show a route
+        run: node -e 'const r=require("./data/routes.json"); const [id,v]=Object.entries(r.apartments)[0]; console.log(id, JSON.stringify(v.commute, null, 1).slice(0, 3000))'
+      - name: Commit to the feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshot.json data/routes.json
+          git diff --cached --quiet || { git commit -m "Refresh commute and walking routes (route verification)" && git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; }
+      - name: Show OpenTripPlanner log
+        if: failure()
+        run: tail -n 100 otp-run/server.log || true

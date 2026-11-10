@@ -1,5 +1,5 @@
 /**
- * Refreshes fetched values in data/snapshot.json.
+ * Refreshes fetched values in data/snapshot.json (and, for transit, the trips in data/routes.json).
  *
  *   npm run refresh -- --only prices [--summary refresh-summary.md] [--dry-run]
  *   npm run refresh -- --only transit --gtfs-dir otp-run/gtfs [--otp-url http://localhost:8080]
@@ -14,13 +14,14 @@
 import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
-import { readListings, readManualPrices, readSnapshot, writeSnapshot } from "../lib/data-files";
+import { readListings, readManualPrices, readRoutes, readSnapshot, writeRoutes, writeSnapshot } from "../lib/data-files";
 import { createHttp } from "../lib/http";
 import { nextRegularTuesday, readCsv } from "../lib/service-date";
 import { ADAPTERS } from "./pricing";
 import { priceSummary, refreshPrices } from "./prices";
 import { transitSummary } from "./summary";
 import { refreshTransit } from "./transit";
+import type { Listings, RoutesFile, Snapshot } from "@/lib/schemas";
 
 const { values: args } = parseArgs({
   options: {
@@ -49,16 +50,22 @@ async function transit(observedAt: string, now: Date) {
   const feed = readFeed(args["gtfs-dir"]);
   const serviceDate = nextRegularTuesday(now, feed);
   const source = `OpenTripPlanner with PRT GTFS ${feed.version} and OpenStreetMap`;
-  const { apartments, results } = await refreshTransit({
+  const { apartments, routes, results } = await refreshTransit({
     otpUrl: args["otp-url"],
     listings,
     snapshot: readSnapshot(),
+    previousRoutes: readRoutes().apartments,
     serviceDate,
     observedAt,
     source,
   });
   if (results.every((r) => r.error)) throw new Error("Every apartment failed to route; leaving the snapshot unchanged");
-  return { listings, apartments, ...transitSummary(results, { serviceDate, source }) };
+  return {
+    listings,
+    apartments,
+    routes: { generatedAt: observedAt, serviceDate, source, apartments: routes },
+    ...transitSummary(results, { serviceDate, source }),
+  };
 }
 
 async function prices(observedAt: string) {
@@ -80,7 +87,7 @@ async function prices(observedAt: string) {
 async function main() {
   const now = new Date();
   const observedAt = now.toISOString().replace(/\.\d{3}Z$/, "Z");
-  let run;
+  let run: { listings: Listings; apartments: Snapshot["apartments"]; routes?: RoutesFile; markdown: string; needsReview: boolean };
   if (args.only === "transit") run = await transit(observedAt, now);
   else if (args.only === "prices") run = await prices(observedAt);
   else throw new Error(`--only must be "prices" or "transit"`);
@@ -89,7 +96,10 @@ async function main() {
   if (args.summary) writeFileSync(args.summary, run.markdown);
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, run.markdown);
   if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `needs_review=${run.needsReview}\n`);
-  if (!args["dry-run"]) writeSnapshot({ generatedAt: observedAt, apartments: run.apartments }, run.listings);
+  if (!args["dry-run"]) {
+    writeSnapshot({ generatedAt: observedAt, apartments: run.apartments }, run.listings);
+    if (run.routes) writeRoutes(run.routes, run.listings);
+  }
 }
 
 main().catch((error) => {

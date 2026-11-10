@@ -1,8 +1,10 @@
 name: Refresh transit data
 
 # Weekly: route from every apartment to campus with OpenTripPlanner, using PRT's
-# GTFS feed and an OpenStreetMap extract. Clean results go live; big changes or
-# routing failures open a PR for review.
+# GTFS feed and an OpenStreetMap extract. Writes commute minutes and walking miles
+# to data/snapshot.json and the trips themselves (legs, buses, paths) to
+# data/routes.json. Clean results go live; big changes or routing failures open
+# a PR for review.
 on:
   schedule:
     - cron: "17 9 * * 1" # Mondays, 09:17 UTC
@@ -36,8 +38,8 @@ jobs:
 
       - uses: ./.github/actions/publish-data
         with:
-          paths: data/snapshot.json
-          commit-message: Refresh commute and walking distance
+          paths: data/snapshot.json data/routes.json
+          commit-message: Refresh commute and walking routes
           needs-review: ${{ steps.refresh.outputs.needs_review }}
           pr-branch: data/refresh-transit
           pr-title: Review commute and walking distance changes
