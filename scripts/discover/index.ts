@@ -2,7 +2,7 @@
  * Finds apartment buildings near campus that we don't list yet and adds them
  * to data/candidates.json for review.
  *
- *   npm run discover -- [--radius 2.5] [--max-new 15] [--no-osm]
+ *   npm run discover -- [--radius 3.5] [--max-new 15] [--no-osm]
  *                       [--otp-url http://localhost:8080 --gtfs-dir otp-run/gtfs]
  *                       [--summary discover-summary.md] [--dry-run]
  *
@@ -29,7 +29,8 @@ import { findWebsite } from "./website";
 
 const { values: args } = parseArgs({
   options: {
-    radius: { type: "string", default: "2.5" },
+    // Far enough for downtown, the North Shore and Station Square; the commute limit drops what's too far by bus.
+    radius: { type: "string", default: "3.5" },
     "max-new": { type: "string", default: "15" },
     "no-osm": { type: "boolean", default: false },
     "otp-url": { type: "string" },

@@ -121,7 +121,8 @@ and why, is in [docs/data-sources.md](docs/data-sources.md#building-websites).
 
 ### Finding new apartments
 
-`npm run discover` looks for apartment buildings within 2.5 miles of campus that aren't listed yet:
+`npm run discover` looks for apartment buildings within 3.5 miles of campus (Oakland through downtown, the South
+Side and Lawrenceville) that aren't listed yet:
 
 1. Allegheny County parcels coded as large apartment buildings, from the WPRDC open-data API.
 2. Parcels at the same address are grouped into one building. Names, websites and construction years come
@@ -129,8 +130,9 @@ and why, is in [docs/data-sources.md](docs/data-sources.md#building-websites).
 3. Listed, recently rejected and tax-exempt buildings (university, public or nonprofit housing) are skipped,
    as are buildings over a 35-minute commute. Rejections are reconsidered after a year.
 4. Each new building's website is checked for a leasing platform we can read prices from.
-5. Up to 15 new buildings a week, largest and closest first, are added to `data/candidates.json` and
-   proposed in a PR.
+5. Up to 15 new buildings a week are added to `data/candidates.json` and proposed in a PR: 40+ unit buildings
+   first, and within each size the highest county market value first, which puts big modern buildings ahead of
+   small old ones.
 
 To review, edit `data/candidates.json` in that PR. Set `decision` to `approve` and fill in `listing`, or to
 `reject` with a `rejectReason`, then merge. An approved building needs a price source: the detected platform's

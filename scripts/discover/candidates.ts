@@ -168,7 +168,7 @@ export interface DiscoveryReport {
 /**
  * Merges this run's buildings into the candidates file. Existing candidates
  * keep the reviewer's decision and edits; at most `maxNew` new ones are added,
- * largest and closest first, and the rest wait for a later run.
+ * largest size class first and the most valuable within it, and the rest wait for a later run.
  */
 export async function updateCandidates(options: {
   buildings: Building[];
@@ -207,7 +207,14 @@ export async function updateCandidates(options: {
     }
   }
 
-  fresh.sort((a, b) => SIZE_ORDER.indexOf(a.useCode) - SIZE_ORDER.indexOf(b.useCode) || a.distanceMiles - b.distanceMiles);
+  // Within each size class, the most valuable buildings first: county market value tracks size and
+  // newness, so big modern buildings come before small old ones that happen to be a little closer.
+  fresh.sort(
+    (a, b) =>
+      SIZE_ORDER.indexOf(a.useCode) - SIZE_ORDER.indexOf(b.useCode) ||
+      b.marketValue - a.marketValue ||
+      a.distanceMiles - b.distanceMiles,
+  );
   for (const building of fresh) {
     if (report.added.length >= maxNew) {
       report.deferred++;

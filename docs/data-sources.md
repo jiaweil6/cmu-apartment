@@ -22,10 +22,15 @@ before adding or changing a source. A scraper may only be enabled once its row i
   - 403 "APART:40+ UNITS"
   - 404 "RETL/APT'S OVER" (mixed-use with apartments over retail, e.g. Eastside Bond, Walnut on Highland)
   - 431 "OFFICE/APARTMENTS OVER"
-- **Candidates within 2.5 miles of campus:**
+- **Candidates within 2.5 miles of campus** (the search radius until November 2026):
   - 155 parcels coded 403 and 134 coded 402
   - 11 coded 404 and 3 coded 431 with a fair market value of at least $3M
   - Owner type: 258 corporate taxable, 26 corporate tax-exempt (likely university, public or nonprofit housing), 19 individuals.
+- **Candidates within 3.5 miles** (the current radius, which adds downtown, the North Shore, Station Square and more of
+  the South Side and Lawrenceville), counted November 2026:
+  - 195 parcels coded 403 and 168 coded 402
+  - 19 coded 404 and 4 coded 431 with a fair market value of at least $3M
+  - 30 tax-exempt; 339 taxable buildings once parcels at the same address are grouped.
 - **Year built is not available for these buildings.** `YEARBLT` is filled for 0 of 594 parcels coded 403 countywide, and for under 2% of the other apartment codes. The county only publishes building characteristics for residential dwellings. Year built is therefore entered once per building, with OSM `start_date` or city permits as hints. It never needs refreshing.
 - **No owner names** are published, only `OWNERDESC` (corporation, regular, and so on) and `TAXDESC` (taxable or exempt).
 

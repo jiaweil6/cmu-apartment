@@ -105,6 +105,31 @@ describe("updateCandidates", () => {
     expect(file.candidates[0]).toMatchObject({ decision: "pending", size: "40+ units", commuteMinutes: null });
   });
 
+  it("puts big buildings ahead of closer small ones, then the closest", async () => {
+    const queue = groupParcels(
+      [
+        // Close but small, far but large (HERE-like and SouthSide-Works-like), and two equal ones.
+        parcel({ parcelId: "0052E00070000000", houseNumber: "4628", street: "BAYARD ST", marketValue: 2_000_000 }),
+        parcel({ parcelId: "0012K00001000000", houseNumber: "2695", street: "S WATER ST", marketValue: 32_000_000, location: { lat: 40.4275, lng: -79.968 } }),
+        parcel({ parcelId: "0028F00322000000", houseNumber: "3506", street: "FORBES AVE", marketValue: 48_000_000, location: { lat: 40.4395, lng: -79.9575 } }),
+        parcel({ parcelId: "0027D00265000000", houseNumber: "222", street: "MELWOOD AVE", marketValue: 3_000_000, location: { lat: 40.4509, lng: -79.9498 } }),
+        parcel({ parcelId: "0027D00228000000", houseNumber: "245", street: "MELWOOD AVE", marketValue: 3_000_000, location: { lat: 40.4511, lng: -79.9506 } }),
+        // A 20-39 unit building still waits for every 40+ one, however valuable.
+        parcel({ parcelId: "0053C00170000000", houseNumber: "5023", street: "FREW ST", useCode: "402", marketValue: 90_000_000 }),
+      ],
+      campus,
+    );
+    const { file } = await updateCandidates({ buildings: queue, listings, previous: empty, rejected: noRejections, now: "2026-11-10T00:00:00Z", maxNew: 10 });
+    expect(file.candidates.map((c) => c.address.split(",")[0])).toEqual([
+      "3506 Forbes Ave",
+      "2695 S Water St",
+      "222 Melwood Ave",
+      "245 Melwood Ave",
+      "4628 Bayard St",
+      "5023 Frew St",
+    ]);
+  });
+
   it("keeps the reviewer's edits on later runs", async () => {
     const first = (await run()).file;
     first.candidates[0].listing.name = "Reviewed Name";
