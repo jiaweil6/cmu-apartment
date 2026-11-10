@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import listingsFile from "@/data/apartments.json";
+import candidatesFile from "@/data/candidates.json";
+import rejectedFile from "@/data/rejected.json";
 import snapshotFile from "@/data/snapshot.json";
-import { listingsSchema, snapshotSchema } from "./schemas";
+import { candidatesFileSchema, listingsSchema, rejectedFileSchema, snapshotSchema } from "./schemas";
 
 // Guards the committed data files, which scripts and reviewers edit.
 describe("data files", () => {
@@ -11,6 +13,11 @@ describe("data files", () => {
   it("has a snapshot entry for every listed apartment", () => {
     const listed = listings.apartments.map((a) => a.id);
     expect(Object.keys(snapshot.apartments).sort()).toEqual([...listed].sort());
+  });
+
+  it("has valid review files", () => {
+    expect(candidatesFileSchema.safeParse(candidatesFile).success).toBe(true);
+    expect(rejectedFileSchema.safeParse(rejectedFile).success).toBe(true);
   });
 
   it("rejects a duplicate id", () => {

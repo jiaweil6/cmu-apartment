@@ -118,7 +118,7 @@ export const candidateSchema = z.strictObject({
   osm: z
     .strictObject({ id: z.string(), name: z.string().nullable(), website: z.url().nullable(), yearBuilt: z.int().nullable() })
     .nullable(),
-  /** A listing within 200 m that has no parcel ID yet: possibly the same building. */
+  /** A listing that may be the same building (same name in OpenStreetMap, or nearby without parcel IDs). */
   possibleDuplicateOf: z.string().nullable(),
   /** Filled in by the reviewer before approving. */
   listing: z.strictObject({

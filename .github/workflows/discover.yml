@@ -7,10 +7,6 @@ on:
   schedule:
     - cron: "41 10 * * 3" # Wednesdays, 10:41 UTC
   workflow_dispatch:
-  # Temporary: verify the pipeline on the feature branch (dry run). Remove before merging.
-  push:
-    branches: [claude/eloquent-clarke-du30hy]
-    paths: [".github/workflows/discover.yml", ".github/actions/**", "scripts/discover/**"]
 
 permissions:
   contents: write
@@ -50,10 +46,10 @@ jobs:
         if: steps.review.outputs.open == '0'
         run: >
           npm run discover -- --otp-url http://localhost:8080 --gtfs-dir otp-run/gtfs
-          --summary discover-summary.md ${{ github.event_name == 'push' && '--dry-run' || '' }}
+          --summary discover-summary.md
 
       - name: Open pull request
-        if: steps.review.outputs.open == '0' && github.event_name != 'push'
+        if: steps.review.outputs.open == '0'
         uses: peter-evans/create-pull-request@v7
         with:
           branch: data/discover

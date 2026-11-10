@@ -91,12 +91,28 @@ export function classify(
   return { kind: "new" };
 }
 
-/** A listing without parcel IDs close enough that it may be this building. */
+/** "The Webster Hall Apartments" → "webster hall", for comparing building names. */
+export function normalizeName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]+/g, " ")
+    .replace(/\b(the|apartments?|apts?)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * A listing that may be this building: one with the same name in OpenStreetMap
+ * (big buildings span several parcels), or one without parcel IDs nearby.
+ */
 function possibleDuplicate(building: Building, listings: Listings): string | null {
-  const near = listings.apartments.find(
-    (apt) => apt.parcelIds.length === 0 && distanceMeters(apt.location, building.location) <= POSSIBLE_DUPLICATE_METERS,
+  const osmName = building.osm?.name ? normalizeName(building.osm.name) : null;
+  const match = listings.apartments.find(
+    (apt) =>
+      (osmName && normalizeName(apt.name) === osmName) ||
+      (apt.parcelIds.length === 0 && distanceMeters(apt.location, building.location) <= POSSIBLE_DUPLICATE_METERS),
   );
-  return near?.id ?? null;
+  return match?.id ?? null;
 }
 
 function toCandidate(building: Building, listings: Listings, foundAt: string, commuteMinutes: number | null): Candidate {

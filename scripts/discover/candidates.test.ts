@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import listings2024 from "@/lib/__fixtures__/listings-2024.json";
 import { listingsSchema, type CandidatesFile, type RejectedFile } from "@/lib/schemas";
 import type { Parcel } from "../lib/wprdc";
-import { attachOsm, classify, groupParcels, updateCandidates } from "./candidates";
+import { attachOsm, classify, groupParcels, normalizeName, updateCandidates } from "./candidates";
 import { parseOverpass } from "./osm";
 
 const campus = { lat: 40.4432068, lng: -79.9454248 };
@@ -108,6 +108,15 @@ describe("updateCandidates", () => {
     expect(report.added).toHaveLength(0);
     expect(report.existing).toBe(2);
     expect(file.candidates[0]).toMatchObject({ decision: "approve", listing: { name: "Reviewed Name" } });
+  });
+
+  it("flags a building OpenStreetMap names like an existing listing", async () => {
+    const named = attachOsm(buildings, [
+      { id: "way/9", name: "Webster Hall", website: null, yearBuilt: null, address: "4620 Fifth Avenue", location: campus },
+    ]);
+    const { file } = await updateCandidates({ buildings: named, listings, previous: empty, rejected: noRejections, now: "2026-11-10T00:00:00Z", maxNew: 10 });
+    expect(file.candidates.find((c) => c.key === "0052J00138000000")?.possibleDuplicateOf).toBe("webster-hall");
+    expect(normalizeName("The Webster Hall Apartments")).toBe("webster hall");
   });
 
   it("excludes buildings over the commute limit", async () => {

@@ -55,7 +55,7 @@ Several buildings span more than one parcel; only the residential ones are liste
 
 ## Definitions
 
-- **Commute:** fastest door-to-door trip (transit or walking) from the apartment to the campus point in `data/apartments.json`. It is the median of trips arriving by 8:30, 9:00 and 9:30 AM on the next regular Tuesday (one with no service exceptions in the GTFS feed).
+- **Commute:** door-to-door time from the apartment to the campus point in `data/apartments.json`. For each arrival deadline (8:30, 9:00 and 9:30 AM on the next regular Tuesday, i.e. one with no service exceptions in the GTFS feed), we take the trip you'd actually catch: the latest-departing itinerary OpenTripPlanner finds, by transit or on foot. The commute is the median of the three.
 - **Walking distance:** length of the shortest walking route to the same campus point.
 
 ## Building websites
