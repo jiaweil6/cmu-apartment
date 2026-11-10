@@ -988,6 +988,342 @@
         "observedAt": "2026-11-10T20:56:54Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
+    },
+    "here-pittsburgh": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 2254,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 2559,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 3528,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": 4527,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "connection-at-southside": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1535,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1753,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2103,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "albion-at-morrow-park": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1870,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 2080,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "available",
+          "minPrice": 3810,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "city-view": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1170,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1214,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 1643,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-park-at-southside-works": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1832,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 2197,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 3565,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "carson-street-commons": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1645,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 1905,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "2626-south-side-flats": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1355,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1725,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2715,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "available",
+          "minPrice": 3200,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "baumhaus": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1882,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 2030,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 3075,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "available",
+          "minPrice": 4235,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "schenley": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1825,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2465,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "available",
+          "minPrice": 3655,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-clark-building": {
+      "units": {
+        "studio": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1295,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 1750,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-pennsylvanian": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1392,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1444,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 3034,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-julian": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1650,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 2150,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2900,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "waitlist",
+          "minPrice": 4000,
+          "observedAt": "2026-11-10T21:23:41Z",
+          "source": "manual"
+        }
+      }
     }
   }
 }

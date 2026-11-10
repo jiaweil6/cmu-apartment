@@ -802,6 +802,343 @@
         "adapter": "manual"
       },
       "legacyScores": null
+    },
+    {
+      "name": "HERE Pittsburgh",
+      "shortName": "HERE",
+      "website": "https://www.herepittsburgh.com/",
+      "location": {
+        "lat": 40.43967,
+        "lng": -79.958717
+      },
+      "id": "here-pittsburgh",
+      "neighborhood": "Oakland",
+      "address": "3506-3510 Forbes Ave, Pittsburgh, PA 15213",
+      "phone": "(412) 206-1806",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0028F00322000000"
+      ],
+      "yearBuilt": 2023,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Connection at Southside",
+      "shortName": "Connection at Southside",
+      "website": "https://connectionatsouthside.com/",
+      "location": {
+        "lat": 40.425134,
+        "lng": -79.962374
+      },
+      "id": "connection-at-southside",
+      "neighborhood": "South Side Flats",
+      "address": "2984 Sidney St, Pittsburgh, PA 15203",
+      "phone": "(412) 838-4574",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0029N00316000000"
+      ],
+      "yearBuilt": 2022,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Albion at Morrow Park",
+      "shortName": "Albion",
+      "website": "https://albionatmorrowpark.com/",
+      "location": {
+        "lat": 40.456744,
+        "lng": -79.940633
+      },
+      "id": "albion-at-morrow-park",
+      "neighborhood": "Bloomfield",
+      "address": "5250 Liberty Ave, Pittsburgh, PA 15224",
+      "phone": "(412) 753-7922",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0051L00270000000"
+      ],
+      "yearBuilt": 2016,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "City View Apartments",
+      "shortName": "City View",
+      "website": "https://www.cityviewapts.com/",
+      "location": {
+        "lat": 40.440188,
+        "lng": -79.986418
+      },
+      "id": "city-view",
+      "neighborhood": "Crawford-Roberts",
+      "address": "1420 Centre Ave, Pittsburgh, PA 15219",
+      "phone": "(412) 391-9833",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0002H00200000000"
+      ],
+      "yearBuilt": 1964,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Park at SouthSide Works",
+      "shortName": "The Park",
+      "website": "https://theparkpgh.com/",
+      "location": {
+        "lat": 40.429437,
+        "lng": -79.965661
+      },
+      "id": "the-park-at-southside-works",
+      "neighborhood": "South Side Flats",
+      "address": "2695 South Water St, Pittsburgh, PA 15203",
+      "phone": "(412) 801-7218",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0026E00009000000"
+      ],
+      "yearBuilt": 2024,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Carson Street Commons",
+      "shortName": "Carson Street Commons",
+      "website": "https://www.carsonstreetcommons.com/",
+      "location": {
+        "lat": 40.428923,
+        "lng": -79.968481
+      },
+      "id": "carson-street-commons",
+      "neighborhood": "South Side Flats",
+      "address": "2501-2557 E Carson St, Pittsburgh, PA 15203",
+      "phone": "(412) 431-1183",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0012M00304000000"
+      ],
+      "yearBuilt": 2004,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "2626 South Side Flats",
+      "shortName": "2626 South Side Flats",
+      "website": "https://lyvwellapartments.com/our-communities/2626-south-side-flats/",
+      "location": {
+        "lat": 40.428902,
+        "lng": -79.967028
+      },
+      "id": "2626-south-side-flats",
+      "neighborhood": "South Side Flats",
+      "address": "2626 Tunnel Blvd, Pittsburgh, PA 15203",
+      "phone": "(412) 314-2084",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0012H00250000000"
+      ],
+      "yearBuilt": 2016,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Baumhaus Apartments",
+      "shortName": "Baumhaus",
+      "website": "https://www.baumhausapts.com/",
+      "location": {
+        "lat": 40.457316,
+        "lng": -79.936341
+      },
+      "id": "baumhaus",
+      "neighborhood": "Friendship",
+      "address": "5502-5522 Baum Blvd, Pittsburgh, PA 15232",
+      "phone": "412-683-2286",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0051H00046000000",
+        "0051M00015000000"
+      ],
+      "yearBuilt": 2017,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Schenley Apartments",
+      "shortName": "Schenley Apartments",
+      "website": "https://www.pmcpropertygroup.com/properties/schenley-apartments",
+      "location": {
+        "lat": 40.450457,
+        "lng": -79.954368
+      },
+      "id": "schenley",
+      "neighborhood": "Oakland",
+      "address": "4101 Bigelow Blvd, Pittsburgh, PA 15213",
+      "phone": "(412) 535-0670",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0027G00320000000"
+      ],
+      "yearBuilt": 1916,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Clark Building",
+      "shortName": "Clark Building",
+      "website": "https://www.pmcpropertygroup.com/properties/clark-building",
+      "location": {
+        "lat": 40.44275,
+        "lng": -79.999564
+      },
+      "id": "the-clark-building",
+      "neighborhood": "Central Business District",
+      "address": "703-717 Liberty Ave, Pittsburgh, PA 15222",
+      "phone": "(412) 227-0959",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0001D00066000000"
+      ],
+      "yearBuilt": 1928,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Pennsylvanian",
+      "shortName": "Pennsylvanian",
+      "website": "https://www.thepennsylvanian.com/",
+      "location": {
+        "lat": 40.444268,
+        "lng": -79.992385
+      },
+      "id": "the-pennsylvanian",
+      "neighborhood": "Central Business District",
+      "address": "1100 Liberty Ave, Pittsburgh, PA 15222",
+      "phone": "(412) 391-6730",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0009P00165000000"
+      ],
+      "yearBuilt": 1900,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Julian",
+      "shortName": "Julian",
+      "website": "https://www.livejulian.com/",
+      "location": {
+        "lat": 40.454625,
+        "lng": -79.952741
+      },
+      "id": "the-julian",
+      "neighborhood": "Oakland",
+      "address": "419 Melwood Ave, Pittsburgh, PA 15213",
+      "phone": "412-730-4491",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0026S00135000000"
+      ],
+      "yearBuilt": 2025,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
     }
   ]
 }

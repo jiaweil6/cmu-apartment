@@ -416,5 +416,269 @@
         "minPrice": null
       }
     }
+  },
+  "here-pittsburgh": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 2254
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 2559
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 3528
+      },
+      "threeBedroom": {
+        "status": "unknown",
+        "minPrice": 4527
+      }
+    }
+  },
+  "connection-at-southside": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1535
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1753
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2103
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "albion-at-morrow-park": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1870
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 2080
+      },
+      "twoBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "available",
+        "minPrice": 3810
+      }
+    }
+  },
+  "city-view": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1170
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1214
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 1643
+      },
+      "threeBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      }
+    }
+  },
+  "the-park-at-southside-works": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1832
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 2197
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 3565
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "carson-street-commons": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1645
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 1905
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "2626-south-side-flats": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1355
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1725
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2715
+      },
+      "threeBedroom": {
+        "status": "available",
+        "minPrice": 3200
+      }
+    }
+  },
+  "baumhaus": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1882
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 2030
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 3075
+      },
+      "threeBedroom": {
+        "status": "available",
+        "minPrice": 4235
+      }
+    }
+  },
+  "schenley": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1825
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2465
+      },
+      "threeBedroom": {
+        "status": "available",
+        "minPrice": 3655
+      }
+    }
+  },
+  "the-clark-building": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1295
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 1750
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "the-pennsylvanian": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1392
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1444
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 3034
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "the-julian": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1650
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 2150
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2900
+      },
+      "threeBedroom": {
+        "status": "waitlist",
+        "minPrice": 4000
+      }
+    }
   }
 }

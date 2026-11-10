@@ -45,6 +45,34 @@
       "address": "245 Melwood Ave, Pittsburgh, PA 15213",
       "reason": "Leased in full by the University of Pittsburgh from Aug 2026 (five-year block lease) as housing for Pitt upper-class students; not rented to the public.",
       "rejectedAt": "2026-11-10T20:53:00Z"
+    },
+    {
+      "key": "0084C00055000000",
+      "parcelIds": [
+        "0084C00055000000"
+      ],
+      "address": "6102-6168 Centre Ave, Pittsburgh, PA 15206",
+      "reason": "Same building as eastside-bond: the Eastside LP III lot at 6105 Spirit St, now added to that listing.",
+      "rejectedAt": "2026-11-10T21:23:41Z"
+    },
+    {
+      "key": "0002L00037000000",
+      "parcelIds": [
+        "0002L00037000000"
+      ],
+      "address": "1045 Forbes Ave, Pittsburgh, PA 15219",
+      "reason": "McGinley Hall: Duquesne University-affiliated housing, open only to enrolled Duquesne juniors, seniors and graduate students.",
+      "rejectedAt": "2026-11-10T21:23:41Z"
+    },
+    {
+      "key": "0084M00130000000",
+      "parcelIds": [
+        "0084M00130000000",
+        "0084M00130000B00"
+      ],
+      "address": "6454 Living Pl, Pittsburgh, PA 15206",
+      "reason": "Same building as bakery-living: 6454 Living Pl is leased through bakeryliving.com; its parcels are added to that listing.",
+      "rejectedAt": "2026-11-10T21:23:41Z"
     }
   ]
 }
