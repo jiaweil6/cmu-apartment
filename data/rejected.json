@@ -1,3 +1,50 @@
 {
-  "rejected": []
+  "rejected": [
+    {
+      "key": "0052J00018000000",
+      "parcelIds": [
+        "0052J00018000000",
+        "0052J00138000000"
+      ],
+      "address": "4614-4630 5th Ave, Pittsburgh, PA 15213",
+      "reason": "University housing: Fairfax Apartments is CMU upper-class student housing, not leased to the public. Parcel 0052J00018000000 is the University Square #1 co-op at 4625 5th Ave, also not rented.",
+      "rejectedAt": "2026-11-10T20:53:00Z"
+    },
+    {
+      "key": "0052J00019000000",
+      "parcelIds": [
+        "0052J00019000000"
+      ],
+      "address": "4601 5th Ave, Pittsburgh, PA 15213",
+      "reason": "Owner-occupied co-op (University Square #2); listings say no rentals are allowed.",
+      "rejectedAt": "2026-11-10T20:53:00Z"
+    },
+    {
+      "key": "0027M00159000000",
+      "parcelIds": [
+        "0027M00159000000"
+      ],
+      "address": "125 N Dithridge St, Pittsburgh, PA 15213",
+      "reason": "Same building as webster-hall: the surface-rights parcel of Webster Hall, now added to that listing.",
+      "rejectedAt": "2026-11-10T20:53:00Z"
+    },
+    {
+      "key": "0027H00078000000",
+      "parcelIds": [
+        "0027H00078000000"
+      ],
+      "address": "154 N Bellefield Ave, Pittsburgh, PA 15213",
+      "reason": "Resident-owned housing co-op: residents buy shares after an admission interview; not rented to students.",
+      "rejectedAt": "2026-11-10T20:53:00Z"
+    },
+    {
+      "key": "0027D00228000000",
+      "parcelIds": [
+        "0027D00228000000"
+      ],
+      "address": "245 Melwood Ave, Pittsburgh, PA 15213",
+      "reason": "Leased in full by the University of Pittsburgh from Aug 2026 (five-year block lease) as housing for Pitt upper-class students; not rented to the public.",
+      "rejectedAt": "2026-11-10T20:53:00Z"
+    }
+  ]
 }

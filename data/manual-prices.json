@@ -240,5 +240,181 @@
         "minPrice": 2800
       }
     }
+  },
+  "cathedral-mansions": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "unknown",
+        "minPrice": 1200
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": 1500
+      },
+      "twoBedroom": {
+        "status": "unknown",
+        "minPrice": 2150
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "schenley-house": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1675
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 1925
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "aberdeen": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "waitlist",
+        "minPrice": 1000
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1200
+      },
+      "twoBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "the-adrian": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 1259
+      },
+      "oneBedroom": {
+        "status": "unknown",
+        "minPrice": null
+      },
+      "twoBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "royal-windsor": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "twoBedroom": {
+        "status": "available",
+        "minPrice": 2199
+      },
+      "threeBedroom": {
+        "status": "unknown",
+        "minPrice": null
+      }
+    }
+  },
+  "webster-towers": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 1080
+      },
+      "twoBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "the-chalfont": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "oneBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "twoBedroom": {
+        "status": "waitlist",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
+  },
+  "hampshire-hall": {
+    "verifiedOn": "2026-11-10",
+    "note": "Entered when the building was approved",
+    "units": {
+      "studio": {
+        "status": "available",
+        "minPrice": 605
+      },
+      "oneBedroom": {
+        "status": "available",
+        "minPrice": 750
+      },
+      "twoBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      },
+      "threeBedroom": {
+        "status": "not-offered",
+        "minPrice": null
+      }
+    }
   }
 }

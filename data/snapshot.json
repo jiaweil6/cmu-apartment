@@ -684,6 +684,230 @@
         "observedAt": "2026-11-10T16:20:15Z",
         "source": "OpenTripPlanner with PRT GTFS S1000171 and OpenStreetMap"
       }
+    },
+    "cathedral-mansions": {
+      "units": {
+        "studio": {
+          "status": "unknown",
+          "minPrice": 1200,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": 1500,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "unknown",
+          "minPrice": 2150,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
+    },
+    "schenley-house": {
+      "units": {
+        "studio": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1675,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 1925,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
+    },
+    "aberdeen": {
+      "units": {
+        "studio": {
+          "status": "waitlist",
+          "minPrice": 1000,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1200,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-adrian": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 1259,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
+    },
+    "royal-windsor": {
+      "units": {
+        "studio": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "available",
+          "minPrice": 2199,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "unknown",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
+    },
+    "webster-towers": {
+      "units": {
+        "studio": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 1080,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
+    },
+    "the-chalfont": {
+      "units": {
+        "studio": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "waitlist",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
+    },
+    "hampshire-hall": {
+      "units": {
+        "studio": {
+          "status": "available",
+          "minPrice": 605,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "oneBedroom": {
+          "status": "available",
+          "minPrice": 750,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "twoBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        },
+        "threeBedroom": {
+          "status": "not-offered",
+          "minPrice": null,
+          "observedAt": "2026-11-10T20:53:00Z",
+          "source": "manual"
+        }
+      }
     }
   }
 }

@@ -10,18 +10,18 @@
   },
   "apartments": [
     {
-      "id": "skyvue",
       "name": "SkyVue",
       "shortName": "SkyVue",
-      "neighborhood": "Oakland",
-      "address": "3333 Forbes Ave, Pittsburgh, PA 15213",
-      "phone": "412-281-4445",
       "website": "https://www.skyvueapts.com/",
-      "imageUrl": "https://www.mapletree.com.sg/~/media/Our%20Portfolio/USA/SkyVue/Skyvue%20website.jpg?h=403",
       "location": {
         "lat": 40.4391042,
         "lng": -79.9643248
       },
+      "id": "skyvue",
+      "neighborhood": "Oakland",
+      "address": "3333 Forbes Ave, Pittsburgh, PA 15213",
+      "phone": "412-281-4445",
+      "imageUrl": "https://www.mapletree.com.sg/~/media/Our%20Portfolio/USA/SkyVue/Skyvue%20website.jpg?h=403",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": true,
@@ -43,18 +43,18 @@
       }
     },
     {
-      "id": "one-on-centre",
       "name": "One on Centre",
       "shortName": "One on Centre",
-      "neighborhood": "Oakland",
-      "address": "4500 Centre Ave, Pittsburgh, PA 15213",
-      "phone": "412-906-9552",
       "website": "https://www.oneoncentre.com/",
-      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMId7VafOAff6QhE6qJ4owtlEL3JAxILPNw6usi=s1360-w1360-h1020",
       "location": {
         "lat": 40.451418,
         "lng": -79.9557349
       },
+      "id": "one-on-centre",
+      "neighborhood": "Oakland",
+      "address": "4500 Centre Ave, Pittsburgh, PA 15213",
+      "phone": "412-906-9552",
+      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMId7VafOAff6QhE6qJ4owtlEL3JAxILPNw6usi=s1360-w1360-h1020",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": true,
@@ -76,18 +76,18 @@
       }
     },
     {
-      "id": "the-bridge-on-forbes",
       "name": "The Bridge on Forbes Apartments",
       "shortName": "Bridge on Forbes",
-      "neighborhood": "Oakland",
-      "address": "3423 Forbes Ave, Pittsburgh, PA 15213",
-      "phone": "412-688-6279",
       "website": "https://thebridgeonforbes.com/",
-      "imageUrl": "https://www.pc.pitt.edu/sites/default/files/bridge-header.jpg",
       "location": {
         "lat": 40.4388382,
         "lng": -79.9635423
       },
+      "id": "the-bridge-on-forbes",
+      "neighborhood": "Oakland",
+      "address": "3423 Forbes Ave, Pittsburgh, PA 15213",
+      "phone": "412-688-6279",
+      "imageUrl": "https://www.pc.pitt.edu/sites/default/files/bridge-header.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": true,
@@ -111,18 +111,18 @@
       }
     },
     {
-      "id": "sherwood-towers",
       "name": "Sherwood Towers Apartments",
       "shortName": "Sherwood Towers",
-      "neighborhood": "Oakland",
-      "address": "230 N Craig St, Pittsburgh, PA 15213",
-      "phone": "412-688-6232",
       "website": "https://www.sherwoodtowers.com/",
-      "imageUrl": "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_xl/t_unpaid/b2fbab3b7a944e1db2a570fc308da386",
       "location": {
         "lat": 40.4510414,
         "lng": -79.9536384
       },
+      "id": "sherwood-towers",
+      "neighborhood": "Oakland",
+      "address": "230 N Craig St, Pittsburgh, PA 15213",
+      "phone": "412-688-6232",
+      "imageUrl": "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_xl/t_unpaid/b2fbab3b7a944e1db2a570fc308da386",
       "openToUndergrad": false,
       "amenities": {
         "inUnitLaundry": false,
@@ -144,18 +144,18 @@
       }
     },
     {
-      "id": "webster-hall",
       "name": "Webster Hall Apartments",
       "shortName": "Webster Hall",
-      "neighborhood": "Oakland",
-      "address": "101 N Dithridge St Suite 130, Pittsburgh, PA 15213",
-      "phone": "412-621-4132",
       "website": "https://www.websterhallapartments.com/",
-      "imageUrl": "https://images1.apartments.com/i2/eHLZy3ScYlyy7tayVs4eRESD4kQmJRVoU3oJCilmLwg/111/webster-hall-pittsburgh-pa-primary-photo.jpg",
       "location": {
         "lat": 40.4470621,
         "lng": -79.9534939
       },
+      "id": "webster-hall",
+      "neighborhood": "Oakland",
+      "address": "101 N Dithridge St Suite 130, Pittsburgh, PA 15213",
+      "phone": "412-621-4132",
+      "imageUrl": "https://images1.apartments.com/i2/eHLZy3ScYlyy7tayVs4eRESD4kQmJRVoU3oJCilmLwg/111/webster-hall-pittsburgh-pa-primary-photo.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -178,18 +178,18 @@
       }
     },
     {
-      "id": "amberson-gardens",
       "name": "Amberson Gardens Apartments",
       "shortName": "Amberson Gardens",
-      "neighborhood": "Shadyside",
-      "address": "1 Bayard Rd, Pittsburgh, PA 15213",
-      "phone": "412-681-9870",
       "website": "https://www.apartments.com/amberson-gardens-pittsburgh-pa/w2vgfbj/",
-      "imageUrl": "https://lh5.googleusercontent.com/p/AF1QipPTUaWb0SW_qiRkrp8AUjZ5BchEyIAZzydFgkin=w408-h306-k-no",
       "location": {
         "lat": 40.4532841,
         "lng": -79.9454667
       },
+      "id": "amberson-gardens",
+      "neighborhood": "Shadyside",
+      "address": "1 Bayard Rd, Pittsburgh, PA 15213",
+      "phone": "412-681-9870",
+      "imageUrl": "https://lh5.googleusercontent.com/p/AF1QipPTUaWb0SW_qiRkrp8AUjZ5BchEyIAZzydFgkin=w408-h306-k-no",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -211,18 +211,18 @@
       }
     },
     {
-      "id": "essex-house",
       "name": "Essex House",
       "shortName": "Essex House",
-      "neighborhood": "Shadyside",
-      "address": "5701 Centre Ave, Pittsburgh, PA 15206",
-      "phone": "412-441-0820",
       "website": "https://mcquartersrealty.com/apartments/essex-house/",
-      "imageUrl": "https://mcquartersrealty.com/wp-content/uploads/2019/09/esx_exterior-1371x1026.jpg",
       "location": {
         "lat": 40.457671,
         "lng": -79.9360425
       },
+      "id": "essex-house",
+      "neighborhood": "Shadyside",
+      "address": "5701 Centre Ave, Pittsburgh, PA 15206",
+      "phone": "412-441-0820",
+      "imageUrl": "https://mcquartersrealty.com/wp-content/uploads/2019/09/esx_exterior-1371x1026.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -244,18 +244,18 @@
       }
     },
     {
-      "id": "claybourne",
       "name": "Claybourne Apartments",
       "shortName": "Claybourne",
-      "neighborhood": "Shadyside",
-      "address": "5435 Claybourne St, Pittsburgh, PA 15232",
-      "phone": "412-441-0820",
       "website": "https://mcquartersrealty.com/apartments/claybourne-apartments/",
-      "imageUrl": "https://mcquartersrealty.com/wp-content/uploads/2019/09/clay_IMG_4605copy2-1371x1026.jpg",
       "location": {
         "lat": 40.455539,
         "lng": -79.93912
       },
+      "id": "claybourne",
+      "neighborhood": "Shadyside",
+      "address": "5435 Claybourne St, Pittsburgh, PA 15232",
+      "phone": "412-441-0820",
+      "imageUrl": "https://mcquartersrealty.com/wp-content/uploads/2019/09/clay_IMG_4605copy2-1371x1026.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -277,18 +277,18 @@
       }
     },
     {
-      "id": "coda-on-centre",
       "name": "Coda on Centre",
       "shortName": "Coda on Centre",
-      "neighborhood": "Shadyside",
-      "address": "5765 Centre Ave, Pittsburgh, PA 15206",
-      "phone": "412-404-8653",
       "website": "https://codaoncentre.com",
-      "imageUrl": "https://images1.apartments.com/i2/es0pjNkBfvaiFrS_mv9Yp0tUayvX6VGAoRuUEGnGvDU/111/coda-on-centre-pittsburgh-pa-building-photo.jpg",
       "location": {
         "lat": 40.4579353,
         "lng": -79.9323272
       },
+      "id": "coda-on-centre",
+      "neighborhood": "Shadyside",
+      "address": "5765 Centre Ave, Pittsburgh, PA 15206",
+      "phone": "412-404-8653",
+      "imageUrl": "https://images1.apartments.com/i2/es0pjNkBfvaiFrS_mv9Yp0tUayvX6VGAoRuUEGnGvDU/111/coda-on-centre-pittsburgh-pa-building-photo.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": true,
@@ -311,18 +311,18 @@
       }
     },
     {
-      "id": "industry-pittsburgh",
       "name": "Industry Pittsburgh",
       "shortName": "Industry Pittsburgh",
-      "neighborhood": "Shadyside",
-      "address": "5819 Centre Ave, Pittsburgh, PA 15206",
-      "phone": "412-851-6321",
       "website": "https://industry-pittsburgh.com",
-      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMNToqzPewv6nqtHSHwutqi2udPZgN9robBPqe9=s1360-w1360-h1020",
       "location": {
         "lat": 40.4583596,
         "lng": -79.9312796
       },
+      "id": "industry-pittsburgh",
+      "neighborhood": "Shadyside",
+      "address": "5819 Centre Ave, Pittsburgh, PA 15206",
+      "phone": "412-851-6321",
+      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMNToqzPewv6nqtHSHwutqi2udPZgN9robBPqe9=s1360-w1360-h1020",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": true,
@@ -345,18 +345,18 @@
       }
     },
     {
-      "id": "walnut-on-highland",
       "name": "Walnut on Highland",
       "shortName": "Walnut on Highland",
-      "neighborhood": "Shadyside",
-      "address": "121 S Highland Ave, Pittsburgh, PA 15206",
-      "phone": "844-995-1004",
       "website": "https://www.walnutonhighland.com/",
-      "imageUrl": "https://www.walnutcapital.com/files/albums/45/images/exterior.jpg",
       "location": {
         "lat": 40.4602129,
         "lng": -79.924797
       },
+      "id": "walnut-on-highland",
+      "neighborhood": "Shadyside",
+      "address": "121 S Highland Ave, Pittsburgh, PA 15206",
+      "phone": "844-995-1004",
+      "imageUrl": "https://www.walnutcapital.com/files/albums/45/images/exterior.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -379,18 +379,18 @@
       }
     },
     {
-      "id": "eastside-bond",
       "name": "Eastside Bond Apartments",
       "shortName": "Eastside Bond",
-      "neighborhood": "Shadyside",
-      "address": "6105 Spirit St, Pittsburgh, PA 15206",
-      "phone": "412-253-2775",
       "website": "https://www.eastsidebond.com/",
-      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNJ0dfMJNY_Sv3fnC6e2M7WRH0wdRbuwOCg-0rL=s1360-w1360-h1020",
       "location": {
         "lat": 40.4599747,
         "lng": -79.9257807
       },
+      "id": "eastside-bond",
+      "neighborhood": "Shadyside",
+      "address": "6105 Spirit St, Pittsburgh, PA 15206",
+      "phone": "412-253-2775",
+      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNJ0dfMJNY_Sv3fnC6e2M7WRH0wdRbuwOCg-0rL=s1360-w1360-h1020",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": true,
@@ -412,18 +412,18 @@
       }
     },
     {
-      "id": "bakery-living",
       "name": "Bakery Living",
       "shortName": "Bakery Living",
-      "neighborhood": "Shadyside",
-      "address": "6480 Living Pl, Pittsburgh, PA 15206",
-      "phone": "833-334-8042",
       "website": "https://www.bakeryliving.com/",
-      "imageUrl": "https://resource.rentcafe.com/image/upload/q_auto,f_auto/s3/2/6837/album_bakeryliving-2.jpg",
       "location": {
         "lat": 40.4555746,
         "lng": -79.9194839
       },
+      "id": "bakery-living",
+      "neighborhood": "Shadyside",
+      "address": "6480 Living Pl, Pittsburgh, PA 15206",
+      "phone": "833-334-8042",
+      "imageUrl": "https://resource.rentcafe.com/image/upload/q_auto,f_auto/s3/2/6837/album_bakeryliving-2.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": true,
@@ -445,18 +445,18 @@
       }
     },
     {
-      "id": "kenmawr",
       "name": "Kenmawr Apartments",
       "shortName": "Kenmawr",
-      "neighborhood": "Shadyside",
-      "address": "401 Shady Ave, Pittsburgh, PA 15206",
-      "phone": "412-361-2774",
       "website": "https://www.pmcpropertygroup.com/properties/kenmawr-apartments",
-      "imageUrl": "https://images1.apartments.com/i2/udSAQT2dm_J3J5xa2V9R6l4-7IqC2_92Cf4xer2DMd0/111/kenmawr-apartments-pittsburgh-pa-building-photo.jpg",
       "location": {
         "lat": 40.4552298,
         "lng": -79.9237069
       },
+      "id": "kenmawr",
+      "neighborhood": "Shadyside",
+      "address": "401 Shady Ave, Pittsburgh, PA 15206",
+      "phone": "412-361-2774",
+      "imageUrl": "https://images1.apartments.com/i2/udSAQT2dm_J3J5xa2V9R6l4-7IqC2_92Cf4xer2DMd0/111/kenmawr-apartments-pittsburgh-pa-building-photo.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -478,18 +478,18 @@
       }
     },
     {
-      "id": "maxon-towers",
       "name": "Maxon Towers Apartments",
       "shortName": "Maxon Towers",
-      "neighborhood": "Squirrel Hill",
-      "address": "6315 Forbes Ave l100, Pittsburgh, PA 15217",
-      "phone": "412-521-7900",
       "website": "https://www.maxontowers.com/",
-      "imageUrl": "https://media.veryapt.com/ApartmentImage/pennsylvania/pittsburgh-15217/maxon-towers/gallery/2.jpg",
       "location": {
         "lat": 40.4381887,
         "lng": -79.9210128
       },
+      "id": "maxon-towers",
+      "neighborhood": "Squirrel Hill",
+      "address": "6315 Forbes Ave l100, Pittsburgh, PA 15217",
+      "phone": "412-521-7900",
+      "imageUrl": "https://media.veryapt.com/ApartmentImage/pennsylvania/pittsburgh-15217/maxon-towers/gallery/2.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -513,18 +513,18 @@
       }
     },
     {
-      "id": "negley-court",
       "name": "Negley Court Apartments",
       "shortName": "Negley Court",
-      "neighborhood": "Squirrel Hill",
-      "address": "5620 Fifth Ave, Pittsburgh, PA 15232",
-      "phone": "412-288-7800",
       "website": "https://www.apartments.com/negley-court-pittsburgh-pa/k28meyb/",
-      "imageUrl": "https://images.squarespace-cdn.com/content/v1/535eb679e4b0daaf97db3363/1441310101485-J0OSJLTT1U04WVWANARY/130430_Union_NegleyCourt_6.jpg",
       "location": {
         "lat": 40.4494115,
         "lng": -79.9323159
       },
+      "id": "negley-court",
+      "neighborhood": "Squirrel Hill",
+      "address": "5620 Fifth Ave, Pittsburgh, PA 15232",
+      "phone": "412-288-7800",
+      "imageUrl": "https://images.squarespace-cdn.com/content/v1/535eb679e4b0daaf97db3363/1441310101485-J0OSJLTT1U04WVWANARY/130430_Union_NegleyCourt_6.jpg",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -544,18 +544,18 @@
       }
     },
     {
-      "id": "camelot",
       "name": "Camelot Apartments",
       "shortName": "Camelot",
-      "neighborhood": "Oakland",
-      "address": "262 N Dithridge St, Pittsburgh, PA 15213",
-      "phone": "412-688-6309",
       "website": "https://www.camelot-apartments.com/",
-      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipN8TvwYo45vAb-epmI1W6tEmRIHqPxd13lWsypc=s1360-w1360-h1020",
       "location": {
         "lat": 40.4509291,
         "lng": -79.9550979
       },
+      "id": "camelot",
+      "neighborhood": "Oakland",
+      "address": "262 N Dithridge St, Pittsburgh, PA 15213",
+      "phone": "412-688-6309",
+      "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipN8TvwYo45vAb-epmI1W6tEmRIHqPxd13lWsypc=s1360-w1360-h1020",
       "openToUndergrad": true,
       "amenities": {
         "inUnitLaundry": false,
@@ -575,6 +575,230 @@
         "rating": 1,
         "newness": 0.24
       }
+    },
+    {
+      "name": "Cathedral Mansions",
+      "shortName": "Cathedral Mansions",
+      "website": "https://cathedralmansions.com/",
+      "location": {
+        "lat": 40.448414,
+        "lng": -79.946719
+      },
+      "id": "cathedral-mansions",
+      "neighborhood": "Shadyside",
+      "address": "4716 Ellsworth Ave, Pittsburgh, PA 15213",
+      "phone": "412-621-8100",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": false,
+        "parking": false
+      },
+      "parcelIds": [
+        "0052E00256000000"
+      ],
+      "yearBuilt": null,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Schenley House",
+      "shortName": "Schenley House",
+      "website": "https://meyersmgmt.appfolio.com/listings",
+      "location": {
+        "lat": 40.449075,
+        "lng": -79.950734
+      },
+      "id": "schenley-house",
+      "neighborhood": "Oakland",
+      "address": "151-155 N Craig St, Pittsburgh, PA 15213",
+      "phone": "412-682-5886",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": false,
+        "parking": true
+      },
+      "parcelIds": [
+        "0027H00194000000"
+      ],
+      "yearBuilt": 1947,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Aberdeen Apartments",
+      "shortName": "Aberdeen",
+      "website": "https://www.unionrealestate.com/property/aberdeen-apartments",
+      "location": {
+        "lat": 40.449823,
+        "lng": -79.949379
+      },
+      "id": "aberdeen",
+      "neighborhood": "Oakland",
+      "address": "4628 Bayard St, Pittsburgh, PA 15213",
+      "phone": "724-286-7330",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": false,
+        "parking": true
+      },
+      "parcelIds": [
+        "0052E00070000000"
+      ],
+      "yearBuilt": 1928,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Adrian",
+      "shortName": "Adrian",
+      "website": "https://lobosmanagement.com/address/4629-bayard-street-pittsburgh-pa-15213-adrian-apartments-2/",
+      "location": {
+        "lat": 40.450399,
+        "lng": -79.949595
+      },
+      "id": "the-adrian",
+      "neighborhood": "Oakland",
+      "address": "4629 Bayard St, Pittsburgh, PA 15213",
+      "phone": "412-441-1400",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": false,
+        "parking": false
+      },
+      "parcelIds": [
+        "0027D00273000000"
+      ],
+      "yearBuilt": 1928,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Royal Windsor Apartments",
+      "shortName": "Royal Windsor",
+      "website": "https://lobosmanagement.com/address/222-melwood-avenue-pittsburgh-pa-15213-royal-windsor-apartments-2/",
+      "location": {
+        "lat": 40.450901,
+        "lng": -79.949766
+      },
+      "id": "royal-windsor",
+      "neighborhood": "Oakland",
+      "address": "222 Melwood Ave, Pittsburgh, PA 15213",
+      "phone": "412-441-1400",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": false,
+        "parking": true
+      },
+      "parcelIds": [
+        "0027D00265000000"
+      ],
+      "yearBuilt": null,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Webster Towers",
+      "shortName": "Webster Towers",
+      "website": "https://www.meyersmanagement.com/city-properad91e635",
+      "location": {
+        "lat": 40.45134,
+        "lng": -79.950002
+      },
+      "id": "webster-towers",
+      "neighborhood": "Oakland",
+      "address": "240 Melwood Ave, Pittsburgh, PA 15213",
+      "phone": "412-682-5886",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": false,
+        "parking": true
+      },
+      "parcelIds": [
+        "0027D00258000000"
+      ],
+      "yearBuilt": 1940,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "The Chalfont",
+      "shortName": "Chalfont",
+      "website": "https://www.chalfontapartments.com/",
+      "location": {
+        "lat": 40.452591,
+        "lng": -79.948016
+      },
+      "id": "the-chalfont",
+      "neighborhood": "Shadyside",
+      "address": "4742 Centre Ave, Pittsburgh, PA 15213",
+      "phone": "412-634-8264",
+      "imageUrl": null,
+      "openToUndergrad": false,
+      "amenities": {
+        "inUnitLaundry": true,
+        "fitness": true,
+        "parking": true
+      },
+      "parcelIds": [
+        "0052A00008000000"
+      ],
+      "yearBuilt": 1968,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
+    },
+    {
+      "name": "Hampshire Hall",
+      "shortName": "Hampshire Hall",
+      "website": "https://rentdelta.com/details/?propid=17",
+      "location": {
+        "lat": 40.452581,
+        "lng": -79.94834
+      },
+      "id": "hampshire-hall",
+      "neighborhood": "Shadyside",
+      "address": "4730 Centre Ave, Pittsburgh, PA 15213",
+      "phone": "724-719-2163",
+      "imageUrl": null,
+      "openToUndergrad": true,
+      "amenities": {
+        "inUnitLaundry": false,
+        "fitness": false,
+        "parking": true
+      },
+      "parcelIds": [
+        "0052A00013000000"
+      ],
+      "yearBuilt": null,
+      "pricing": {
+        "adapter": "manual"
+      },
+      "legacyScores": null
     }
   ]
 }
