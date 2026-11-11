@@ -102,15 +102,45 @@ export function pickWebsite(body: BraveResponse, building: Building): string | n
 
 class RateLimited extends Error {}
 
-/** The building's own website from a web search, or null. */
-export async function findWebsite(apiKey: string, name: string | null, address: string): Promise<string | null> {
-  const query = `${name ? `"${name}" ` : ""}"${address.split(",")[0]}" apartments Pittsburgh`;
+/** The hosts of a search's first results, for the log: "hotmetalflats.com, apartments.com". */
+function resultHosts(body: BraveResponse, count = 5): string {
+  const hosts = new Set<string>();
+  for (const result of body.web?.results ?? []) {
+    try {
+      hosts.add(new URL(result.url).hostname.replace(/^www\./, ""));
+    } catch {
+      // Not a URL.
+    }
+  }
+  return [...hosts].slice(0, count).join(", ");
+}
+
+/**
+ * The building's own website from a web search, or null. A named building is
+ * searched by name alone: pages giving both its name and street address are
+ * nearly all directories. One without a name, or with only common words in it
+ * ("University Square"), is searched by street address, as pickWebsite matches it by that.
+ */
+export async function findWebsite(
+  apiKey: string,
+  name: string | null,
+  address: string,
+  log: (message: string) => void = console.warn,
+): Promise<string | null> {
+  const term = name && nameWords(name).length ? name : address.split(",")[0];
+  const query = `"${term}" apartments Pittsburgh`;
   const response = await fetch(`${SEARCH_API}?${new URLSearchParams({ q: query, count: "10" })}`, {
     headers: { Accept: "application/json", "X-Subscription-Token": apiKey },
   });
   if (response.status === 429) throw new RateLimited("Brave Search responded 429 (rate limited)");
   if (!response.ok) throw new Error(`Brave Search responded ${response.status}`);
-  return pickWebsite((await response.json()) as BraveResponse, { name, address });
+  const body = (await response.json()) as BraveResponse;
+  const website = pickWebsite(body, { name, address });
+  if (!website) {
+    const hosts = resultHosts(body);
+    log(`No website picked for ${address}: ${hosts ? `results from ${hosts}` : "no results"}`);
+  }
+  return website;
 }
 
 /**
@@ -123,14 +153,15 @@ export function websiteFinder(
     gapMs = 1100,
     sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms)),
     now = Date.now,
-  }: { gapMs?: number; sleep?: (ms: number) => Promise<void>; now?: () => number } = {},
+    log,
+  }: { gapMs?: number; sleep?: (ms: number) => Promise<void>; now?: () => number; log?: (message: string) => void } = {},
 ): (name: string | null, address: string) => Promise<string | null> {
   let last = -Infinity;
   const search = async (name: string | null, address: string) => {
     const wait = last + gapMs - now();
     if (wait > 0) await sleep(wait);
     last = now();
-    return findWebsite(apiKey, name, address);
+    return findWebsite(apiKey, name, address, log);
   };
   return async (name, address) => {
     try {
