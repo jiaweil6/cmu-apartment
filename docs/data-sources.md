@@ -128,10 +128,12 @@ Manual prices live in `data/manual-prices.json`; a monthly issue lists those not
 
 When a newly discovered building has no website in OpenStreetMap, discovery asks the
 [Brave Search API](https://brave.com/search/api/) (secret `BRAVE_API_KEY`; about 15 searches a week, inside
-the free monthly credit). Searches are spaced about a second apart, the free plan's rate limit, and a
+the free monthly credit). A named building is searched by its name, one without a distinctive name by its
+street address; searching for both at once mostly finds directory pages. Searches are spaced about a second apart, the free plan's rate limit, and a
 rate-limited search is retried once. Listing aggregators and social sites are skipped, and so is any other
 page whose path names the city or state or carries a record number ("/pa/pittsburgh/69913/…"), since
-that is a directory's page rather than the operator's. The PR marks these websites "from search: check it".
+that is a directory's page rather than the operator's. When no result is taken, the run's log lists the
+sites the search returned. The PR marks these websites "from search: check it".
 
 ## Not used
 
