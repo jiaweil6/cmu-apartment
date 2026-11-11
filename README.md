@@ -46,7 +46,9 @@ No API keys are needed. The map's tiles and fonts are committed in `public/basem
    and approve pull requests.
 3. **Settings → Secrets and variables → Actions:** secret `BRAVE_API_KEY` (optional), which lets discovery look up
    websites for new buildings.
-4. Branch protection on `main`, if added later, must let `github-actions[bot]` push: data refreshes commit there.
+4. **Settings → General → Features → Issues:** on. Failing data jobs open a "Data job failing" issue and the monthly
+   reminder lists stale hand-entered prices in one; with Issues off, both go to the run's summary instead.
+5. Branch protection on `main`, if added later, must let `github-actions[bot]` push: data refreshes commit there.
 
 ## Project layout
 
@@ -100,7 +102,7 @@ fails opens a "Data job failing" issue that closes itself on the next success.
 | --- | --- | --- |
 | `deploy.yml` | Push to `main`, or started by a data job | Builds the static site and publishes it to GitHub Pages |
 | `refresh-prices.yml` | Daily | Rents and availability, through each building's pricing adapter |
-| `refresh-transit.yml` | Mondays | Commute to campus (median door-to-door time arriving by 8:30, 9:00 and 9:30 AM on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap. The trips themselves (each walk and ride, with stops and paths) go to `data/routes.json` for the map |
+| `refresh-transit.yml` | Mondays | Commute to campus (door-to-door time of the trip that gets you there by 10 AM, for a 10 AM class, on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap. The trips themselves (each walk and ride, with stops and paths) go to `data/routes.json` for the map |
 | `discover.yml` | Wednesdays | New apartment buildings near campus, as a "Weekly apartment finds" PR |
 | `promote-candidates.yml` | After a finds PR merges | Lists approved buildings, remembers rejected ones |
 | `manual-prices-reminder.yml` | Monthly | Keeps an issue listing hand-entered prices over 60 days old |

@@ -128,7 +128,7 @@ export const metricsSchema = z.strictObject({
     twoBedroom: unitSchema,
     threeBedroom: unitSchema,
   }),
-  /** Door-to-door transit (or walking) minutes to campus on a weekday morning. */
+  /** Door-to-door transit (or walking) minutes of the weekday trip that reaches campus by 10 AM (lib/commute.ts). */
   commuteMinutes: observation(z.number().min(1).max(180)).optional(),
   /** Walking-route distance to campus in miles. */
   walkMiles: observation(z.number().min(0).max(20)).optional(),
@@ -169,8 +169,8 @@ export const routeLegSchema = z.strictObject({
 });
 
 /**
- * The trip behind an apartment's commute time (the median of the three arrival
- * deadlines), and its shortest walking route, from the weekly transit refresh
+ * The trip behind an apartment's commute time (the one that reaches campus by
+ * ARRIVE_BY in lib/commute.ts), and its shortest walking route, from the weekly transit refresh
  * (data/routes.json). Kept apart from the snapshot so only the map page loads paths.
  */
 export const apartmentRoutesSchema = z.strictObject({

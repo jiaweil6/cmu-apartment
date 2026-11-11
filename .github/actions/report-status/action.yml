@@ -1,7 +1,9 @@
 name: Report job status
 description: >
   On failure, opens (or comments on) an issue named "Data job failing: <workflow>"
-  with a link to the run. On success, closes that issue if it's open.
+  with a link to the run. On success, closes that issue if it's open. When the
+  repository has Issues turned off, it notes the status in the run summary instead,
+  so a job that did its work isn't marked failed by this step.
 inputs:
   status:
     description: '"failure" or "success"'
@@ -16,6 +18,13 @@ runs:
         TITLE: "Data job failing: ${{ github.workflow }}"
         RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       run: |
+        if [ "$(gh api "repos/$GITHUB_REPOSITORY" --jq .has_issues)" != "true" ]; then
+          if [ "$STATUS" = "failure" ]; then
+            echo "::warning::Issues are turned off for this repository, so no \"$TITLE\" issue was opened."
+            echo "**${{ github.workflow }} failed.** Issues are turned off for this repository, so no alert issue was opened. Turn them on in Settings → General → Features to get one." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit 0
+        fi
         issue=$(gh issue list --state open --search "\"$TITLE\" in:title" --json number,title \
           --jq "map(select(.title == env.TITLE)) | .[0].number // empty")
         if [ "$STATUS" = "failure" ]; then

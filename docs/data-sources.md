@@ -87,11 +87,11 @@ Bakery Living (see note). New buildings get theirs from OpenStreetMap `start_dat
 
 ## Definitions
 
-- **Commute:** door-to-door time from the apartment to the campus point in `data/apartments.json`. For each arrival deadline (8:30, 9:00 and 9:30 AM on the next regular Tuesday, i.e. one with no service exceptions in the GTFS feed), we take the trip you'd actually catch: the latest-departing itinerary OpenTripPlanner finds, by transit or on foot. The commute is the median of the three.
+- **Commute:** door-to-door time from the apartment to the campus point in `data/apartments.json`, for getting to a 10 AM class: we ask OpenTripPlanner for trips arriving by 10:00 AM on the next regular Tuesday (one with no service exceptions in the GTFS feed) and take the one you'd actually catch, the latest-departing itinerary, by transit or on foot. The deadline is `ARRIVE_BY` in `lib/commute.ts`; discovery uses the same one.
 - **Walking distance:** length of the shortest walking route to the same campus point, along streets and paths
   (OpenStreetMap), not a straight line.
-- **Routes on the map** (`data/routes.json`): for the commute, the trip behind the commute time, i.e. the median of
-  the three deadline trips, with each leg's stops, line, headsign, scheduled times and path; for walking, the route
+- **Routes on the map** (`data/routes.json`): for the commute, the trip behind the commute time, with each leg's
+  stops, line, headsign, scheduled times and path; for walking, the route
   the walking distance is measured on. Times are the timetable's, not live arrivals.
 
 ## Building websites

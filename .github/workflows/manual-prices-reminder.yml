@@ -1,7 +1,8 @@
 name: Manual prices reminder
 
 # Monthly: open (or update) an issue listing hand-entered prices older than
-# 60 days; close it once they're all current.
+# 60 days; close it once they're all current. With Issues turned off for the
+# repository, the list goes in the run's summary instead.
 on:
   schedule:
     - cron: "37 14 1 * *" # 1st of each month, 14:37 UTC
@@ -29,6 +30,13 @@ jobs:
           TITLE: Manual prices to check
           STALE: ${{ steps.check.outputs.stale }}
         run: |
+          if [ "$(gh api "repos/$GITHUB_REPOSITORY" --jq .has_issues)" != "true" ]; then
+            cat reminder.md >> "$GITHUB_STEP_SUMMARY"
+            if [ "$STALE" != "0" ]; then
+              echo "::warning::$STALE hand-entered prices are over 60 days old (see the run summary). Turn on Issues to get a reminder issue."
+            fi
+            exit 0
+          fi
           issue=$(gh issue list --state open --search "\"$TITLE\" in:title" --json number,title \
             --jq "map(select(.title == env.TITLE)) | .[0].number // empty")
           if [ "$STALE" != "0" ]; then
