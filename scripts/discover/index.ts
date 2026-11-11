@@ -27,7 +27,7 @@ import { attachOsm, groupParcels, updateCandidates } from "./candidates";
 import { enrichCandidates } from "./enrich";
 import { osmApartmentBuildings } from "./osm";
 import { discoverySummary } from "./summary";
-import { findWebsite } from "./website";
+import { websiteFinder } from "./website";
 
 const { values: args } = parseArgs({
   options: {
@@ -89,7 +89,7 @@ async function main() {
   const apiKey = process.env.BRAVE_API_KEY;
   const http = createHttp();
   await enrichCandidates(report.added, {
-    findWebsite: apiKey ? (name, address) => findWebsite(apiKey, name, address) : undefined,
+    findWebsite: apiKey ? websiteFinder(apiKey) : undefined,
     fetchHomepage: (url) => http.text(url),
     adapters: [...ADAPTERS.values()],
   });
