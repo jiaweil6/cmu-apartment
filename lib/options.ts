@@ -1,3 +1,4 @@
+import { arriveByLabel } from "./commute";
 import type { NeighborhoodFilter } from "./ranking";
 import type { Amenity, Criterion, RoomType, StudentType } from "./types";
 
@@ -12,7 +13,7 @@ export const CRITERIA: { key: Criterion; inputId: string; label: string; descrip
     key: "commute",
     inputId: "quickCommute",
     label: "Quick commute",
-    description: "Door-to-door time by bus or on foot, weekday mornings",
+    description: `Door-to-door time by bus or on foot, to be on campus by ${arriveByLabel()} on a weekday`,
   },
   {
     key: "distance",

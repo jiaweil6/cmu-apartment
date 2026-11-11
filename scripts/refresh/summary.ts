@@ -1,3 +1,4 @@
+import { arriveByLabel } from "@/lib/commute";
 import type { TransitResult } from "./transit";
 
 /** Relative change worth a human look before merging. */
@@ -33,7 +34,7 @@ export function transitSummary(results: TransitResult[], context: { serviceDate:
   const lines = [
     "## Transit refresh",
     "",
-    `Commute: median door-to-door time arriving by 8:30, 9:00 and 9:30 AM on ${context.serviceDate}. Source: ${context.source}.`,
+    `Commute: door-to-door time of the trip that gets to campus by ${arriveByLabel()} on ${context.serviceDate}. Source: ${context.source}.`,
     "",
     `${results.length - failed.length} of ${results.length} apartments routed, ${rows.length - failed.length} changed, ${failed.length} failed.`,
   ];

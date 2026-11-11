@@ -12,6 +12,7 @@
  * leaves out longer ones (no limit by default, since some students drive). With
  * BRAVE_API_KEY set, new finds without a website get one from Brave Search.
  */
+import { ARRIVE_BY } from "@/lib/commute";
 import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
@@ -53,7 +54,7 @@ function commuteFn(otpUrl: string, gtfsDir: string, campus: LatLng, now: Date) {
   });
   return async (location: LatLng) => {
     try {
-      return tripMinutes(await plan(otpUrl, location, campus, { dateTime: { latestArrival: zonedTime(date, "09:00") } }));
+      return tripMinutes(await plan(otpUrl, location, campus, { dateTime: { latestArrival: zonedTime(date, ARRIVE_BY) } }));
     } catch {
       return null; // Unroutable: let the reviewer judge from the distance.
     }

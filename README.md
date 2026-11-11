@@ -102,7 +102,7 @@ fails opens a "Data job failing" issue that closes itself on the next success.
 | --- | --- | --- |
 | `deploy.yml` | Push to `main`, or started by a data job | Builds the static site and publishes it to GitHub Pages |
 | `refresh-prices.yml` | Daily | Rents and availability, through each building's pricing adapter |
-| `refresh-transit.yml` | Mondays | Commute to campus (median door-to-door time arriving by 8:30, 9:00 and 9:30 AM on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap. The trips themselves (each walk and ride, with stops and paths) go to `data/routes.json` for the map |
+| `refresh-transit.yml` | Mondays | Commute to campus (door-to-door time of the trip that gets you there by 10 AM, for a 10 AM class, on the next regular Tuesday) and walking distance, routed with [OpenTripPlanner](https://www.opentripplanner.org/) on PRT's GTFS feed and OpenStreetMap. The trips themselves (each walk and ride, with stops and paths) go to `data/routes.json` for the map |
 | `discover.yml` | Wednesdays | New apartment buildings near campus, as a "Weekly apartment finds" PR |
 | `promote-candidates.yml` | After a finds PR merges | Lists approved buildings, remembers rejected ones |
 | `manual-prices-reminder.yml` | Monthly | Keeps an issue listing hand-entered prices over 60 days old |

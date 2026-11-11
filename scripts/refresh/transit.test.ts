@@ -74,9 +74,9 @@ const itinerary = (start: string, minutes: number, legs: Leg[] = busLegs(start))
   legs,
 });
 
-/** Fakes OTP: transit trips take 20/24/22 min by arrival deadline; walks are 2 km. Fails for one origin. */
+/** Fakes OTP: the latest transit trip arriving by 10 AM takes 22 min; walks are 2 km. Fails for one origin. */
 function fakeOtp(failLatitude?: number) {
-  const transit: Record<string, number> = { "08:30": 20, "09:00": 24, "09:30": 22 };
+  const transit: Record<string, number> = { "10:00": 22 };
   return vi.fn(async (_url: string, init: RequestInit) => {
     const { variables } = JSON.parse(init.body as string);
     if (variables.origin.location.coordinate.latitude === failLatitude) {
@@ -108,7 +108,7 @@ const run = () =>
   });
 
 describe("refreshTransit", () => {
-  it("records the median trip and the walking distance", async () => {
+  it("records the trip that reaches campus by 10 AM and the walking distance", async () => {
     vi.stubGlobal("fetch", fakeOtp());
     const { apartments, results } = await run();
     const [first] = listings.apartments;
@@ -118,11 +118,11 @@ describe("refreshTransit", () => {
     expect(results.every((r) => !r.error)).toBe(true);
   });
 
-  it("keeps the median trip and the walk as routes", async () => {
+  it("keeps that trip and the walk as routes", async () => {
     vi.stubGlobal("fetch", fakeOtp());
     const { routes } = await run();
     const route = routes[listings.apartments[0].id];
-    expect(route.commute).toMatchObject({ arriveBy: "09:30", minutes: 22 });
+    expect(route.commute).toMatchObject({ arriveBy: "10:00", minutes: 22 });
     expect(route.commute?.legs.map((leg) => leg.mode)).toEqual(["WALK", "BUS", "WALK"]);
     expect(route.walk).toMatchObject({ meters: 2000, minutes: 40 });
   });

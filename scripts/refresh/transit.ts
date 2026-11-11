@@ -1,10 +1,8 @@
+import { ARRIVE_BY } from "@/lib/commute";
+import type { ApartmentMetrics, Listings, RoutesFile, Snapshot } from "@/lib/schemas";
 import { latestTrip, METERS_PER_MILE, plan, shortestWalk, totalMeters, WALK_ONLY } from "../lib/otp";
 import { zonedTime } from "../lib/service-date";
-import type { ApartmentMetrics, Listings, RoutesFile, Snapshot } from "@/lib/schemas";
 import { toCommuteRoute, toWalkRoute } from "./routes";
-
-/** Arrival deadlines on the service date; the commute is the median of the three trips. */
-const ARRIVE_BY = ["08:30", "09:00", "09:30"];
 
 export interface TransitResult {
   id: string;
@@ -18,9 +16,9 @@ const round = (value: number, digits: number) => Math.round(value * 10 ** digits
 
 /**
  * Computes commute minutes and walking miles to campus for every apartment, and
- * keeps the trips behind them (data/routes.json): the median of the three
- * deadline trips, and the shortest walk. An apartment whose routing fails keeps
- * its previous values and routes.
+ * keeps the trips behind them (data/routes.json): the trip you'd take to be on
+ * campus by ARRIVE_BY (lib/commute.ts), and the shortest walk. An apartment whose
+ * routing fails keeps its previous values and routes.
  */
 export async function refreshTransit(options: {
   otpUrl: string;
@@ -53,19 +51,13 @@ export async function refreshTransit(options: {
 
     try {
       const labels = { from: apartment.shortName, to: listings.campus.shortName };
-      const trips = await Promise.all(
-        ARRIVE_BY.map(async (arriveBy) => ({
-          arriveBy,
-          itinerary: latestTrip(
-            await plan(otpUrl, apartment.location, campus, {
-              dateTime: { latestArrival: zonedTime(serviceDate, arriveBy) },
-              labels,
-            }),
-          ),
-        })),
+      // The trip you'd take to make a class at ARRIVE_BY: the latest one that still arrives in time.
+      const trip = latestTrip(
+        await plan(otpUrl, apartment.location, campus, {
+          dateTime: { latestArrival: zonedTime(serviceDate, ARRIVE_BY) },
+          labels,
+        }),
       );
-      // The commute is the median trip; the route shown is that same trip.
-      const median = [...trips].sort((a, b) => a.itinerary.duration - b.itinerary.duration)[Math.floor(trips.length / 2)];
       const walk = shortestWalk(
         await plan(otpUrl, apartment.location, campus, {
           dateTime: { earliestDeparture: zonedTime(serviceDate, "08:00") },
@@ -73,8 +65,8 @@ export async function refreshTransit(options: {
           labels,
         }),
       );
-      const route = { commute: toCommuteRoute(median.itinerary, median.arriveBy), walk: toWalkRoute(walk) };
-      const commuteMinutes = round(median.itinerary.duration / 60, 1);
+      const route = { commute: toCommuteRoute(trip, ARRIVE_BY), walk: toWalkRoute(walk) };
+      const commuteMinutes = round(trip.duration / 60, 1);
       const walkMiles = round(totalMeters(walk) / METERS_PER_MILE, 2);
       apartments[apartment.id] = {
         ...previous,
