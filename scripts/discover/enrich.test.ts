@@ -34,9 +34,10 @@ const base = (overrides: Partial<Candidate["listing"]> = {}): Candidate =>
 describe("enrichCandidates", () => {
   it("finds a website by search and suggests the detected pricing platform", async () => {
     const candidate = base();
-    const findWebsite = vi.fn(async () => "https://fairfaxpgh.com/");
+    const findWebsite = vi.fn(async () => ({ website: "https://fairfaxpgh.com/", results: 3, others: [] }));
     const fetchHomepage = vi.fn(async () => '<iframe src="https://sightmap.com/embed/abc123"></iframe>');
-    await enrichCandidates([candidate], { findWebsite, fetchHomepage, adapters: [sightmap] });
+    const misses = await enrichCandidates([candidate], { findWebsite, fetchHomepage, adapters: [sightmap] });
+    expect(misses.size).toBe(0);
     expect(findWebsite).toHaveBeenCalledWith("Fairfax Apartments", candidate.address);
     expect(candidate).toMatchObject({
       websiteSource: "search",
@@ -67,5 +68,21 @@ describe("enrichCandidates", () => {
     });
     expect(log).toHaveBeenCalledWith(expect.stringMatching(/rate limited/));
     expect(candidate.listing.website).toBeNull();
+  });
+
+  it("returns and logs the searches that found no website", async () => {
+    const log = vi.fn();
+    const candidate = base();
+    const fetchHomepage = vi.fn();
+    const misses = await enrichCandidates([candidate], {
+      findWebsite: async () => ({ website: null, results: 5, others: ["https://liveatluminaduq.com/"] }),
+      fetchHomepage,
+      adapters: [sightmap],
+      log,
+    });
+    expect(misses.get(candidate.key)).toEqual({ results: 5, others: ["https://liveatluminaduq.com/"] });
+    expect(log).toHaveBeenCalledWith(`No website picked for ${candidate.address}: 5 results, others: https://liveatluminaduq.com/`);
+    expect(candidate.listing.website).toBeNull();
+    expect(fetchHomepage).not.toHaveBeenCalled();
   });
 });

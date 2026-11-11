@@ -1,11 +1,24 @@
 import type { Candidate } from "@/lib/schemas";
 import type { DiscoveryReport } from "./candidates";
+import type { SearchMiss } from "./enrich";
 
 const mapLink = ({ location }: Candidate) =>
   `[map](https://www.openstreetmap.org/?mlat=${location.lat}&mlon=${location.lng}#map=18/${location.lat}/${location.lng})`;
 
-/** Pull request body for a discovery run. */
-export function discoverySummary(report: DiscoveryReport, pending: number): string {
+/** "[liveatluminaduq.com](https://…)"; a "|" would end the table cell. */
+const resultLink = (url: string) => `[${new URL(url).hostname.replace(/^www\./, "")}](${url.replaceAll("|", "%7C")})`;
+
+/** What the website search returned when it found no site to take. */
+function searchNote({ results, others }: SearchMiss): string {
+  if (others.length) return `Search found no own site; other results: ${others.map(resultLink).join(", ")}`;
+  return results ? "Search found only listing sites" : "Search found nothing";
+}
+
+/**
+ * Pull request body for a discovery run. `searchMisses` holds, by candidate key,
+ * the website searches that found nothing to take.
+ */
+export function discoverySummary(report: DiscoveryReport, pending: number, searchMisses = new Map<string, SearchMiss>()): string {
   const lines = [
     "## Weekly apartment finds",
     "",
@@ -22,7 +35,10 @@ export function discoverySummary(report: DiscoveryReport, pending: number): stri
       "| --- | --- | --- | --- | --- | --- | --- | --- |",
     );
     for (const c of report.added) {
-      const note = c.possibleDuplicateOf ? `Possibly listed as \`${c.possibleDuplicateOf}\`` : "";
+      const miss = searchMisses.get(c.key);
+      const note = [c.possibleDuplicateOf && `Possibly listed as \`${c.possibleDuplicateOf}\``, miss && searchNote(miss)]
+        .filter(Boolean)
+        .join("; ");
       lines.push(
         `| ${c.address} (${c.neighborhood ?? "?"}) ${mapLink(c)} | ${c.size} | ${c.distanceMiles} mi | ` +
           `${c.commuteMinutes === null ? "—" : `${c.commuteMinutes} min`} | ${c.osm?.name ?? "—"} | ` +

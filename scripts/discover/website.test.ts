@@ -53,6 +53,15 @@ describe("pickWebsite", () => {
     expect(pickWebsite(results(elsewhere), { name, address })).toBeNull();
   });
 
+  // The third run's picks: a blog post, and a blog post about a different building.
+  it.each([
+    ["The Parklane", "5700 Bunkerhill St, Pittsburgh, PA 15206", "https://fatherpitt.com/2015/01/29/the-parklane/"],
+    ["Park View Two", "3 Allegheny Center, Pittsburgh, PA 15212", "https://www.prohousingpgh.org/blog/you-cant-build-that-here-park-view-three"],
+    ["Hot Metal Flats", "2915 Sidney St, Pittsburgh, PA 15203", "https://www.example-news.com/news/hot-metal-flats-opens"],
+  ])("skips a blog or news post about %s", (name, address, url) => {
+    expect(pickWebsite(results(url), { name, address })).toBeNull();
+  });
+
   it("still takes a site named after the building, whatever its path", () => {
     expect(
       pickWebsite(results("https://www.theparklane.com/pittsburgh-pa/floor-plans/"), {
@@ -119,20 +128,20 @@ describe("findWebsite", () => {
   it("searches a named building by its name alone and sends the key", async () => {
     const fetchMock = vi.fn(async () => Response.json(results("https://fairfaxpgh.com/")));
     vi.stubGlobal("fetch", fetchMock);
-    const log = vi.fn();
-    expect(await findWebsite("key-123", "Fairfax Apartments", "4614-4630 5th Ave, Pittsburgh, PA 15213", log)).toBe(
-      "https://fairfaxpgh.com/",
-    );
+    expect(await findWebsite("key-123", "Fairfax Apartments", "4614-4630 5th Ave, Pittsburgh, PA 15213")).toEqual({
+      website: "https://fairfaxpgh.com/",
+      results: 1,
+      others: [],
+    });
     expect(query(fetchMock)).toBe('"Fairfax Apartments" apartments Pittsburgh');
     const [, init] = fetchMock.mock.calls[0] as unknown as [string, RequestInit];
     expect((init.headers as Record<string, string>)["X-Subscription-Token"]).toBe("key-123");
-    expect(log).not.toHaveBeenCalled();
   });
 
   it("searches a building without a name by its street address", async () => {
     const fetchMock = vi.fn(async () => Response.json(results("https://www.mozartrents.com/properties/950-progress-st/")));
     vi.stubGlobal("fetch", fetchMock);
-    expect(await findWebsite("key", null, "950 Progress St, Pittsburgh, PA 15212", vi.fn())).toBe(
+    expect((await findWebsite("key", null, "950 Progress St, Pittsburgh, PA 15212")).website).toBe(
       "https://www.mozartrents.com/properties/950-progress-st/",
     );
     expect(query(fetchMock)).toBe('"950 Progress St" apartments Pittsburgh');
@@ -141,38 +150,46 @@ describe("findWebsite", () => {
   it("searches a name made only of common words by street address", async () => {
     const fetchMock = vi.fn(async () => Response.json(results("https://www.mozartrents.com/properties/4601-5th-ave/")));
     vi.stubGlobal("fetch", fetchMock);
-    expect(await findWebsite("key", "University Square", "4601 5th Ave, Pittsburgh, PA 15213", vi.fn())).toBe(
+    expect((await findWebsite("key", "University Square", "4601 5th Ave, Pittsburgh, PA 15213")).website).toBe(
       "https://www.mozartrents.com/properties/4601-5th-ave/",
     );
     expect(query(fetchMock)).toBe('"4601 5th Ave" apartments Pittsburgh');
   });
 
-  it("logs which sites came back when none of them is the building's", async () => {
+  // The third run's search for 1315 Bluff St: the building's own site came back, but
+  // nothing ties it to the address, so it's offered to the reviewer instead.
+  it("returns the results that aren't listing sites when none is taken", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async () =>
         Response.json(
           results(
-            "https://www.apartments.com/hot-metal-flats-pittsburgh-pa/abc/",
-            "https://www.apartments.com/other/",
-            "https://www.pghcitypaper.com/news/south-side/",
+            "https://liveatluminaduq.com/",
+            "https://www.xome.com/realestate/1315-bluff-st",
+            "https://rehold.com/Pittsburgh+PA/BLUFF+ST/1315",
+            "https://www.mapquest.com/us/pennsylvania/x",
+            "https://liveatluminaduq.com/floor-plans/",
+            "https://example.org/a",
+            "https://example.net/b",
             "not a url",
           ),
         ),
       ),
     );
-    const log = vi.fn();
-    expect(await findWebsite("key", "Hot Metal Flats", "2915 Sidney St, Pittsburgh, PA 15203", log)).toBeNull();
-    expect(log).toHaveBeenCalledWith(
-      "No website picked for 2915 Sidney St, Pittsburgh, PA 15203: results from apartments.com, pghcitypaper.com",
-    );
+    expect(await findWebsite("key", null, "1315 Bluff St, Pittsburgh, PA 15282")).toEqual({
+      website: null,
+      results: 8,
+      others: ["https://liveatluminaduq.com/", "https://example.org/a", "https://example.net/b"],
+    });
   });
 
-  it("logs a search with no results", async () => {
+  it("reports a search with no results", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => Response.json({})));
-    const log = vi.fn();
-    expect(await findWebsite("key", "Lot 24", "2404 Railroad St, Pittsburgh, PA 15222", log)).toBeNull();
-    expect(log).toHaveBeenCalledWith("No website picked for 2404 Railroad St, Pittsburgh, PA 15222: no results");
+    expect(await findWebsite("key", "Penn Garrison Lofts", "911-921 Penn Ave, Pittsburgh, PA 15222")).toEqual({
+      website: null,
+      results: 0,
+      others: [],
+    });
   });
 });
 
@@ -196,7 +213,7 @@ describe("websiteFinder", () => {
   it("spaces searches out to stay under the rate limit", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => Response.json(results("https://fairfaxpgh.com/"))));
     const clock = fakeClock();
-    const find = websiteFinder("key", { gapMs: 1100, ...clock, log: vi.fn() });
+    const find = websiteFinder("key", { gapMs: 1100, ...clock });
     await find("Fairfax Apartments", "4614 5th Ave, Pittsburgh, PA 15213");
     await find("Fairfax Apartments", "4614 5th Ave, Pittsburgh, PA 15213");
     expect(clock.waits).toEqual([1100]);
@@ -209,8 +226,8 @@ describe("websiteFinder", () => {
       .mockResolvedValueOnce(Response.json(results("https://fairfaxpgh.com/")))
       .mockResolvedValue(new Response("", { status: 429 }));
     vi.stubGlobal("fetch", fetchMock);
-    const find = websiteFinder("key", { ...fakeClock(), log: vi.fn() });
-    expect(await find("Fairfax Apartments", "4614 5th Ave, Pittsburgh, PA 15213")).toBe("https://fairfaxpgh.com/");
+    const find = websiteFinder("key", fakeClock());
+    expect((await find("Fairfax Apartments", "4614 5th Ave, Pittsburgh, PA 15213")).website).toBe("https://fairfaxpgh.com/");
     await expect(find("Fairfax Apartments", "4614 5th Ave, Pittsburgh, PA 15213")).rejects.toThrow("429");
     expect(fetchMock).toHaveBeenCalledTimes(4);
   });

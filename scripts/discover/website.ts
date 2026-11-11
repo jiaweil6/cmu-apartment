@@ -3,7 +3,8 @@
  * listing aggregators, directories and social sites are skipped: we want the
  * operator's site, which is where prices can be read from. A result must also
  * name the building (or, without a name, its street address) in its address,
- * so unrelated pages that merely mention it are skipped. Reviewers confirm the result.
+ * so unrelated pages that merely mention it are skipped. Reviewers confirm the result,
+ * and when nothing is taken they get the other results to look through.
  *
  * Brave's free plan allows one search a second, so searches go through
  * websiteFinder, which spaces them out and retries once when rate limited.
@@ -13,7 +14,7 @@ const SEARCH_API = "https://api.search.brave.com/res/v1/web/search";
 
 /** Sites that list many buildings, or that we can't use as a source. */
 const AGGREGATORS =
-  /(^|\.)(apartments\.com|zillow\.com|trulia\.com|hotpads\.com|realtor\.com|redfin\.com|rent\.com|rentcafe\.com|apartmentlist\.com|apartmentfinder\.com|apartmentguide\.com|forrent\.com|forrentuniversity\.com|padmapper\.com|zumper\.com|rentable\.co|veryapt\.com|uhomes\.com|craigslist\.org|yelp\.com|facebook\.com|instagram\.com|linkedin\.com|google\.com|mapquest\.com|loopnet\.com|yardimatrix\.com|wikipedia\.org|pitt\.edu|cmu\.edu|point2homes\.com|apartmentiq\.io|corporatehousing\.com|nationalcorporatehousing\.com|homes\.com|yellowpages\.com|apartmentratings\.com|apartmenthomeliving\.com|rentler\.com|waze\.com|rentals\.com|showmetherent\.com|rentberry\.com|bbb\.org|manta\.com|mapcarta\.com|nextdoor\.com|reddit\.com|skydb\.net|rentseeker\.com|propertyshark\.com|highrises\.com|rehold\.com|blockshopper\.com|emporis\.com|city-data\.com|movoto\.com|rentometer\.com)$/i;
+  /(^|\.)(apartments\.com|zillow\.com|trulia\.com|hotpads\.com|realtor\.com|redfin\.com|rent\.com|rentcafe\.com|apartmentlist\.com|apartmentfinder\.com|apartmentguide\.com|forrent\.com|forrentuniversity\.com|padmapper\.com|zumper\.com|rentable\.co|veryapt\.com|uhomes\.com|craigslist\.org|yelp\.com|facebook\.com|instagram\.com|linkedin\.com|google\.com|mapquest\.com|loopnet\.com|yardimatrix\.com|wikipedia\.org|pitt\.edu|cmu\.edu|point2homes\.com|apartmentiq\.io|corporatehousing\.com|nationalcorporatehousing\.com|homes\.com|yellowpages\.com|apartmentratings\.com|apartmenthomeliving\.com|rentler\.com|waze\.com|rentals\.com|showmetherent\.com|rentberry\.com|bbb\.org|manta\.com|mapcarta\.com|nextdoor\.com|reddit\.com|skydb\.net|rentseeker\.com|propertyshark\.com|highrises\.com|rehold\.com|blockshopper\.com|emporis\.com|city-data\.com|movoto\.com|rentometer\.com|xome\.com|walkscore\.com|citysquares\.com)$/i;
 
 /** Words in building names that don't identify a building on their own. */
 const GENERIC_WORDS = new Set([
@@ -38,16 +39,23 @@ function nameWords(name: string): string[] {
     .filter((word) => word.length >= 4 && !GENERIC_WORDS.has(word));
 }
 
+const BLOG_WORDS = new Set(["blog", "blogs", "news", "story", "stories", "article", "articles"]);
+
 /**
- * A path that names the city or state, or carries a long record number, is a
- * directory's page about the building ("/pa/pittsburgh/69913/950-progress-st"),
- * not its operator's ("/properties/4601-5th-ave/", "/Hampshire_hall.asp").
+ * A page about the building that isn't its operator's ("/properties/4601-5th-ave/",
+ * "/Hampshire_hall.asp"): a directory's, whose path names the city or state or
+ * carries a long record number ("/pa/pittsburgh/69913/950-progress-st"), or a
+ * blog or news post ("/blog/…", "/2015/01/29/the-parklane/").
  */
-function looksLikeDirectory(pathname: string): boolean {
+function isThirdPartyPage(pathname: string): boolean {
+  if (/\/(19|20)\d\d\/\d{1,2}\//.test(pathname)) return true;
   return pathname
     .toLowerCase()
     .split(/[^a-z0-9]+/)
-    .some((part) => part === "pittsburgh" || part === "pa" || part === "pennsylvania" || /^\d{5,}$/.test(part));
+    .some(
+      (part) =>
+        part === "pittsburgh" || part === "pa" || part === "pennsylvania" || BLOG_WORDS.has(part) || /^\d{5,}$/.test(part),
+    );
 }
 
 /** "4628 Bayard St, Pittsburgh…" → { number: "4628", street: "bayard" }. */
@@ -90,7 +98,7 @@ export function pickWebsite(body: BraveResponse, building: Building): string | n
     const path = squash(pathname);
     if (words.length && words.some((word) => host.includes(word))) return `${url.origin}/`;
     // A page about the building, rather than a site named after it, must be on its operator's site.
-    if (looksLikeDirectory(pathname)) continue;
+    if (isThirdPartyPage(pathname)) continue;
     if (words.length) {
       if (words.some((word) => path.includes(word))) return url.toString();
     } else if (street && (host + path).includes(street.number) && (host + path).includes(street.street)) {
@@ -102,31 +110,39 @@ export function pickWebsite(body: BraveResponse, building: Building): string | n
 
 class RateLimited extends Error {}
 
-/** The hosts of a search's first results, for the log: "hotmetalflats.com, apartments.com". */
-function resultHosts(body: BraveResponse, count = 5): string {
-  const hosts = new Set<string>();
+export interface WebsiteSearch {
+  /** The building's own site, or null. */
+  website: string | null;
+  /** How many results the search returned. */
+  results: number;
+  /** When no site was taken: up to three results that aren't listing sites, for a reviewer to look through. */
+  others: string[];
+}
+
+/** Results that aren't listing sites, one per host. */
+function otherResults(body: BraveResponse, count = 3): string[] {
+  const byHost = new Map<string, string>();
   for (const result of body.web?.results ?? []) {
+    let url: URL;
     try {
-      hosts.add(new URL(result.url).hostname.replace(/^www\./, ""));
+      url = new URL(result.url);
     } catch {
-      // Not a URL.
+      continue; // Not a URL.
+    }
+    if ((url.protocol === "https:" || url.protocol === "http:") && !AGGREGATORS.test(url.hostname) && !byHost.has(url.hostname)) {
+      byHost.set(url.hostname, url.toString());
     }
   }
-  return [...hosts].slice(0, count).join(", ");
+  return [...byHost.values()].slice(0, count);
 }
 
 /**
- * The building's own website from a web search, or null. A named building is
- * searched by name alone: pages giving both its name and street address are
- * nearly all directories. One without a name, or with only common words in it
+ * Searches for the building's own website. A named building is searched by
+ * name alone: pages giving both its name and street address are nearly all
+ * directories. One without a name, or with only common words in it
  * ("University Square"), is searched by street address, as pickWebsite matches it by that.
  */
-export async function findWebsite(
-  apiKey: string,
-  name: string | null,
-  address: string,
-  log: (message: string) => void = console.warn,
-): Promise<string | null> {
+export async function findWebsite(apiKey: string, name: string | null, address: string): Promise<WebsiteSearch> {
   const term = name && nameWords(name).length ? name : address.split(",")[0];
   const query = `"${term}" apartments Pittsburgh`;
   const response = await fetch(`${SEARCH_API}?${new URLSearchParams({ q: query, count: "10" })}`, {
@@ -136,11 +152,7 @@ export async function findWebsite(
   if (!response.ok) throw new Error(`Brave Search responded ${response.status}`);
   const body = (await response.json()) as BraveResponse;
   const website = pickWebsite(body, { name, address });
-  if (!website) {
-    const hosts = resultHosts(body);
-    log(`No website picked for ${address}: ${hosts ? `results from ${hosts}` : "no results"}`);
-  }
-  return website;
+  return { website, results: body.web?.results?.length ?? 0, others: website ? [] : otherResults(body) };
 }
 
 /**
@@ -153,15 +165,14 @@ export function websiteFinder(
     gapMs = 1100,
     sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms)),
     now = Date.now,
-    log,
-  }: { gapMs?: number; sleep?: (ms: number) => Promise<void>; now?: () => number; log?: (message: string) => void } = {},
-): (name: string | null, address: string) => Promise<string | null> {
+  }: { gapMs?: number; sleep?: (ms: number) => Promise<void>; now?: () => number } = {},
+): (name: string | null, address: string) => Promise<WebsiteSearch> {
   let last = -Infinity;
   const search = async (name: string | null, address: string) => {
     const wait = last + gapMs - now();
     if (wait > 0) await sleep(wait);
     last = now();
-    return findWebsite(apiKey, name, address, log);
+    return findWebsite(apiKey, name, address);
   };
   return async (name, address) => {
     try {

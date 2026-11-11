@@ -88,13 +88,13 @@ async function main() {
   // New finds only: websites (Brave Search, when BRAVE_API_KEY is set) and leasing platforms.
   const apiKey = process.env.BRAVE_API_KEY;
   const http = createHttp();
-  await enrichCandidates(report.added, {
+  const searchMisses = await enrichCandidates(report.added, {
     findWebsite: apiKey ? websiteFinder(apiKey) : undefined,
     fetchHomepage: (url) => http.text(url),
     adapters: [...ADAPTERS.values()],
   });
 
-  const markdown = discoverySummary(report, file.candidates.filter((c) => c.decision === "pending").length);
+  const markdown = discoverySummary(report, file.candidates.filter((c) => c.decision === "pending").length, searchMisses);
   process.stdout.write(markdown);
   if (args.summary) writeFileSync(args.summary, markdown);
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, markdown);
