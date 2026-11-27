@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T21:29:42Z",
+  "generatedAt": "2026-11-27T19:32:48Z",
   "apartments": {
     "skyvue": {
       "units": {
@@ -250,7 +250,7 @@
           "minPrice": 1595,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "page-text"
         },
         "twoBedroom": {
@@ -258,7 +258,7 @@
           "minPrice": 2050,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "page-text"
         },
         "threeBedroom": {
@@ -292,7 +292,7 @@
           "minPrice": 1475,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "page-text"
         },
         "twoBedroom": {
@@ -300,7 +300,7 @@
           "minPrice": 1675,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "page-text"
         },
         "threeBedroom": {
@@ -326,25 +326,25 @@
         "studio": {
           "status": "available",
           "minPrice": 1939,
-          "available": 5,
+          "available": 6,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         },
         "oneBedroom": {
           "status": "available",
-          "minPrice": 2329,
-          "available": 3,
+          "minPrice": 2119,
+          "available": 4,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         },
         "twoBedroom": {
           "status": "available",
           "minPrice": 3728,
-          "available": 1,
+          "available": 2,
           "availableFrom": "2026-12-24",
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         },
         "threeBedroom": {
@@ -352,7 +352,7 @@
           "minPrice": null,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         }
       },
@@ -372,25 +372,25 @@
         "studio": {
           "status": "available",
           "minPrice": 1784,
-          "available": 3,
-          "availableFrom": "2026-11-30",
-          "observedAt": "2026-11-12T18:26:38Z",
+          "available": 2,
+          "availableFrom": "2027-01-11",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         },
         "oneBedroom": {
           "status": "available",
           "minPrice": 2384,
-          "available": 5,
+          "available": 4,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         },
         "twoBedroom": {
           "status": "available",
-          "minPrice": 2158,
+          "minPrice": 3113,
           "available": 3,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         },
         "threeBedroom": {
@@ -398,7 +398,7 @@
           "minPrice": null,
           "available": 0,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "sightmap"
         }
       },
@@ -537,10 +537,10 @@
         },
         "oneBedroom": {
           "status": "available",
-          "minPrice": 1630,
+          "minPrice": 1545,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "page-text"
         },
         "twoBedroom": {
@@ -548,15 +548,15 @@
           "minPrice": 1940,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "page-text"
         },
         "threeBedroom": {
           "status": "available",
-          "minPrice": 2645,
+          "minPrice": 2545,
           "available": null,
           "availableFrom": null,
-          "observedAt": "2026-11-12T18:26:38Z",
+          "observedAt": "2026-11-27T19:32:48Z",
           "source": "page-text"
         }
       },
